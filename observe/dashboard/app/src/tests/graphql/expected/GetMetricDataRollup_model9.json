@@ -1,0 +1,32 @@
+{
+  "data": {
+    "dataQueries": {
+      "getMetricData": [
+        {
+          "datasetId": "model-9",
+          "metric": "CLASSIFICATION_ACCURACY",
+          "feature": "__internal__.datasetMetrics",
+          "segment": [],
+          "points": [
+            {
+              "timestamp": 1728950400000,
+              "value": 0.8048753462603878
+            }
+          ]
+        },
+        {
+          "datasetId": "model-9",
+          "metric": "PREDICTION_COUNT",
+          "feature": "__internal__.datasetMetrics",
+          "segment": [],
+          "points": [
+            {
+              "timestamp": 1728950400000,
+              "value": 18050
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

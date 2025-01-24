@@ -1,0 +1,449 @@
+### Get paginated users
+# Expect 200, startIndex of 2, no more than 3 users
+
+GET {{basePath}}/Users?startIndex=2&count=3
+Content-Type: application/json
+Authorization: {{authz}}
+
+### Get all users
+# Expect 200 and number of users equal to total from previous
+
+GET {{basePath}}/Users
+Content-Type: application/json
+Authorization: {{authz}}
+
+### Create existing account user
+# Expect 201 or 409
+# TODO error return if already exists should be 409
+
+POST {{basePath}}/Users
+Accept: application/json
+Content-Type: application/json
+Authorization: {{authz}}
+
+{
+  "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+  "userName":"christine@whylabs.ai"
+}
+
+
+### Delete christine+3@whylabs.ai
+DELETE {{basePath}}/Users/user-8d927ebf8616f2450a5570afa0fb824e6a02d7b65bc6ebed823292fdac1245ba
+Accept: application/json
+Content-Type: application/json
+Authorization: {{authz}}
+
+### Create christine+3@whylabs.ai account user
+# expect password not to be stored, id to be returned, other details to be preserved
+POST {{basePath}}/Users
+Accept: application/json
+Content-Type: application/json
+Authorization: {{authz}}
+
+{
+  "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+  "userName":"christine+3@whylabs.ai",
+  "name": {
+    "firstName": "Christine",
+    "givenName": "Draper"
+  },
+  "emails": [{
+    "primary": true,
+    "value": "christine@whylabs.ai",
+    "type": "work"
+  }],
+  "password": "foo3"
+}
+
+
+### Get specific user christine+3@whylabs.ai by user id
+# expect same details as on create
+GET {{basePath}}/Users/user-8d927ebf8616f2450a5570afa0fb824e6a02d7b65bc6ebed823292fdac1245ba
+Content-Type: application/json
+Authorization: {{authz}}
+
+
+### Get nonexistent user by user id
+# expect 404
+GET {{basePath}}/Users/user-c9292ec40407f7b580f0a2c90745ebfba2b9e6ea81c848ef944d31e11111111
+Content-Type: application/json
+Authorization: {{authz}}
+
+
+### Get existing whylabs user by user id who's not in account
+# returns 404 like above
+GET {{basePath}}/Users/user-83796a7b-1bd7-4e3e-85dd-54bedea8c230
+Content-Type: application/json
+Authorization: {{authz}}
+
+### Delete christine+4@whylabs.ai
+DELETE {{basePath}}/Users/user-172d1a14e42efcf3a3e945f48ba9a1a2c4cb08d7d1d439090eb505fb69d250a2
+Accept: application/json
+Content-Type: application/json
+Authorization: {{authz}}
+
+### Create christine+4@whylabs.ai
+POST {{basePath}}/Users
+Accept: application/json
+Content-Type: application/json
+Authorization: {{authz}}
+
+{
+  "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+  "userName":"christine+4@whylabs.ai"
+}
+
+### Get specific user by userName
+GET {{basePath}}/Users?filter=userName eq christine%2B3@whylabs.ai
+Content-Type: application/json
+Authorization: {{authz}}
+
+### Get bob who's a legacy user not a full account user
+GET {{basePath}}/Users?filter=userName eq bob@whylabs.ai
+Content-Type: application/json
+Authorization: {{authz}}
+
+
+### Put with invalid email change christine+3@whylabs.ai
+# Just ignores the name change
+PUT {{basePath}}/Users/user-8d927ebf8616f2450a5570afa0fb824e6a02d7b65bc6ebed823292fdac1245ba
+Accept: application/json
+Content-Type: application/json
+Authorization: {{authz}}
+
+{
+  "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+  "userName": "christine+invalid@whylabs.ai",
+  "password": "foo4"
+}
+
+### Valid put christine+3@whylabs.ai
+PUT {{basePath}}/Users/user-8d927ebf8616f2450a5570afa0fb824e6a02d7b65bc6ebed823292fdac1245ba
+Accept: application/json
+Content-Type: application/json
+Authorization: {{authz}}
+
+{
+  "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+  "userName": "christine+3@whylabs.ai",
+  "name": {
+    "firstName": "Christine",
+    "givenName": "Draper"
+  },
+  "emails": [{
+    "value": "me@gmail.com",
+    "type": "home"
+  }],
+  "active": true
+}
+
+
+### Valid patch christine+3@whylabs.ai
+# Sets active
+# Isnt returning the list of groups
+PATCH {{basePath}}/Users/user-8d927ebf8616f2450a5570afa0fb824e6a02d7b65bc6ebed823292fdac1245ba
+Accept: application/json
+Content-Type: application/json
+Authorization: {{authz}}
+
+{
+  "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+  "Operations": [{
+    "op": "replace",
+    "path": "active",
+    "value": false
+  }]
+}
+
+
+### Valid patch bob@whylabs.ai
+# Sets active
+# Isnt returning the list of groups
+PATCH {{basePath}}/Users/user-1759fb08-1a01-4852-9ed4-91c6fceede45
+Accept: application/json
+Content-Type: application/json
+Authorization: {{authz}}
+
+{
+  "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+  "Operations": [{
+    "op": "replace",
+    "path": "active",
+    "value": false
+  }]
+}
+
+###
+DELETE {{basePath}}/Users/user-1759fb08-1a01-4852-9ed4-91c6fceede45
+Accept: application/json
+Content-Type: application/json
+Authorization: {{authz}}
+
+
+
+###
+
+PATCH {{basePath}}/Users/user-8d927ebf8616f2450a5570afa0fb824e6a02d7b65bc6ebed823292fdac1245ba
+Accept: application/json
+Content-Type: application/json
+Authorization: {{authz}}
+
+{
+  "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+  "Operations": [{
+    "op": "remove",
+    "path": "emails",
+    "value": [{ "value": "me@gmail.com", "type": "home" }]
+  }]
+}
+
+### Valid put christine+3@whylabs.ai
+# Sets inactive and removes user schema attributes
+# Note: gateway deliberately blanks out fields in current object that arent in new object. Let's hope this is ok.
+PUT {{basePath}}/Users/user-8d927ebf8616f2450a5570afa0fb824e6a02d7b65bc6ebed823292fdac1245ba
+Accept: application/json
+Content-Type: application/json
+Authorization: {{authz}}
+
+{
+  "userName": "christine+3@whylabs.ai",
+  "active": false,
+  "name": {
+    "firstName": "Test",
+    "givenName": "Draper"
+  }
+}
+
+### Get deleted user
+
+GET {{basePath}}/Users?filter=userName eq christine%2B4@whylabs.ai
+Content-Type: application/json
+Authorization: {{authz}}
+
+### Get groups
+
+GET {{basePath}}/Groups
+Accept: application/json
+Content-Type: application/json
+Authorization: {{authz}}
+
+
+### Get user to delete
+
+GET {{basePath}}/Users/user-172d1a14e42efcf3a3e945f48ba9a1a2c4cb08d7d1d439090eb505fb69d250a2
+Content-Type: application/json
+Authorization: {{authz}}
+
+### Get a specific group
+
+GET {{basePath}}/Groups/org-7ABhwE:admin
+Accept: application/json
+Content-Type: application/json
+Authorization: {{authz}}
+
+### Create a group
+
+POST {{basePath}}/Groups
+Accept: application/json
+Content-Type: application/json
+Authorization: {{authz}}
+# Not supported
+
+{
+  "schemas":[
+    "urn:ietf:params:scim:schemas:core:2.0:Group"
+  ],
+  "name":"Org 2 Member",
+  "displayName":"org2-member"
+}
+
+### Delete a group
+# Not supported
+
+DELETE {{basePath}}/Groups/org-7ABhwE:member
+Accept: application/json
+Content-Type: application/json
+Authorization: {{authz}}
+
+### Get the group we're going to do membership changes to (should also try for a managed org not the account oth)
+
+GET {{basePath}}/Groups/org-eXpTQM:admin
+Accept: application/json
+Content-Type: application/json
+Authorization: {{authz}}
+
+### Get the user we're going to do membership changes to
+
+GET {{basePath}}/Users/user-8d927ebf8616f2450a5570afa0fb824e6a02d7b65bc6ebed823292fdac1245ba
+Accept: application/json
+Content-Type: application/json
+/v0/accounts/org/{org_id}/users: {{authz}}
+
+### Add member to a group
+# Try variants with non-existing users etc - what is required behavior?
+# Try adding member to another group in  org - we should replace membership
+# What should patch return? Currently 204 no content
+PATCH {{basePath}}/Groups/org-7ABhwE:member
+Content-Type: application/json
+Authorization: {{authz}}
+
+{ "Operations" : [
+  {
+    "op": "add",
+    "path": "members",
+    "value": [
+      {
+        "value": "user-8d927ebf8616f2450a5570afa0fb824e6a02d7b65bc6ebed823292fdac1245ba"
+      },
+      {
+      "value": "user-c9292ec40407f7b580f0a2c90745ebfba2b9e6ea81c848ef944d31e48a45f98"
+      }
+    ]
+  }
+]}
+
+
+### Remove member in group using pattern
+PATCH {{basePath}}/Groups//org-7ABhwE:member
+Content-Type: application/json
+Authorization: {{authz}}
+
+{ "Operations" : [
+  {
+    "op": "remove",
+    "path": "members[value eq \"user-8d927ebf8616f2450a5570afa0fb824e6a02d7b65bc6ebed823292fdac1245ba\"]"
+  }
+]
+}
+
+### Remove member in group using value
+PATCH {{basePath}}/Groups//org-7ABhwE:member
+Content-Type: application/json
+Authorization: {{authz}}
+
+{ "Operations" : [
+  {
+    "op": "remove",
+    "path": "members",
+    "value": [{"value": "user-8d927ebf8616f2450a5570afa0fb824e6a02d7b65bc6ebed823292fdac1245ba"}, {"value": "user-foo"}]
+  }
+]}
+
+### Mixed add and remove
+PATCH {{basePath}}/Groups//org-7ABhwE:admin
+Content-Type: application/json
+Authorization: {{authz}}
+
+{ "Operations" : [
+  {
+    "op": "add",
+    "path": "members",
+    "value": [{
+      "value": "user-c9292ec40407f7b580f0a2c90745ebfba2b9e6ea81c848ef944d31e48a45f98"
+    }]
+  },
+  {
+    "op": "remove",
+    "path": "members[value eq \"user-8d927ebf8616f2450a5570afa0fb824e6a02d7b65bc6ebed823292fdac1245ba\"]"
+  }
+]
+}
+
+### Okta patch
+# no members at all
+
+PATCH {{basePath}}/Groups/org-cd1:viewer
+Content-Type: application/json
+Authorization: {{authz}}
+
+{
+    "Operations":[{"op":"replace","value":{"id":"org-cd1:admin","displayName":"org-cd1:admin"}}]
+}
+
+### Patch replace with members
+
+PATCH {{basePath}}/Groups/org-cd1:viewer
+Content-Type: application/json
+Authorization: {{authz}}
+
+{
+  "Operations": [
+    {
+      "op": "replace",
+      "value": {
+        "members": [
+          {
+            "value": "user-8d927ebf8616f2450a5570afa0fb824e6a02d7b65bc6ebed823292fdac1245ba"
+          }
+        ],
+        "id": "org-cd1:viewer",
+        "displayName": "org-cd1:viewer"
+      }
+    }
+  ]
+}
+
+### Int test
+
+PATCH {{basePath}}/Groups/org-JR37ks:viewer
+Content-Type: application/json
+Authorization: {{authz}}
+
+{
+"Operations": [{
+  "op": "replace",
+  "value": {
+    "members": [],
+    "id": "org-JR37ks:viewer",
+    "displayName": "org-JR37ks:viewer"
+  }
+}]
+}
+
+
+### Okta patch
+# to set empty members
+PATCH {{basePath}}/Groups/org-JR37ks:viewer
+Content-Type: application/json
+Authorization: {{authz}}
+
+{
+  "Operations":[{"op":"replace","value":{ "members":  [], "id":"org-cd1:viewer","displayName":"org-cd1:viewer"}}]
+}
+
+###
+GET {{basePath}}/Groups/org-cd1:viewer
+Content-Type: application/json
+Authorization: {{authz}}
+
+
+
+###
+PUT {{basePath}}/Groups//org-7ABhwE:member
+Content-Type: application/json
+Authorization: {{authz}}
+
+{
+  "members": []
+}
+
+### Put memberships
+PUT {{basePath}}/Groups//org-JR37ks:member
+Content-Type: application/json
+Authorization: {{authz}}
+
+{
+  "members": [{
+    "value": "user-8d927ebf8616f2450a5570afa0fb824e6a02d7b65bc6ebed823292fdac1245ba"
+  }]
+}
+
+###
+
+GET {{basePath}}/ServiceProviderConfig
+Content-Type: application/json
+Authorization: {{authz}}
+
+###
+
+GET {{basePath}}/ping

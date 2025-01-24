@@ -1,0 +1,54 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "songbird.fullname" . }}
+  labels:
+    {{- include "songbird.labels" . | nindent 4 }}
+  {{- with .Values.service.annotations }}
+  annotations:
+    {{- range $key, $value := . }}
+    {{ $key }}: {{ tpl $value $ }}
+    {{- end }}
+  {{- end }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: {{ .Values.service.targetPort }}
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: {{ .Values.service.targetPort }}
+  selector:
+    {{- include "songbird.selectorLabels" . | nindent 4 }}
+{{- if .Values.servicePrivate.enabled }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "songbird.fullname" . }}-private
+  labels:
+    {{- include "songbird.labels" . | nindent 4 }}
+  {{- with .Values.servicePrivate.annotations }}
+  annotations:
+    {{- range $key, $value := . }}
+    {{ $key }}: {{ tpl $value $ }}
+    {{- end }}
+  {{- end }}
+spec:
+  type: {{ .Values.servicePrivate.type }}
+  ports:
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: {{ .Values.servicePrivate.targetPort }}
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: {{ .Values.servicePrivate.targetPort }}
+  selector:
+    {{- include "songbird.selectorLabels" . | nindent 4 }}
+{{- end}}

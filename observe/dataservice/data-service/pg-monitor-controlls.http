@@ -1,0 +1,103 @@
+########################
+# 1-time initial rollout, scan monitor configs and generate schedules in the pg_monitor_schedule table
+########################
+
+POST  http://localhost:8090/monitorScheduler/init
+Content-Type: application/json
+
+{
+  "backdate": "2025-01-03T00:00:00.000Z"
+}
+
+########################
+# Enable scheduler. This will poll pg_monitor_schedule automatically to tee runs in the adhoc_async_requests table
+########################
+
+POST  http://localhost:8090/analysisAsync/enable/scheduler/true
+Content-Type: application/json
+
+{
+}
+
+
+########################
+# Run scheduler manually once. Generate runs in adhoc_async_requests for anything eligible in pg_monitor_schedule. Same as ^, just ran manually
+########################
+
+POST  http://localhost:8090/monitorScheduler/forceRun
+Content-Type: application/json
+
+{
+}
+
+########################
+# Trigger query planner. Generally work in adhoc_async_requests is polled automatically, but unit tests/local work
+# have the option to force a query planning run. The query planner  takes eligible work in the adhoc_async_requests and
+# puts a lot of small chunks of work into the queue tables to be processed in parallel.  
+########################
+
+GET  http://localhost:8090/analysisAsync/triggerQueryPlanner
+Content-Type: application/json
+
+{
+}
+
+########################
+# Adjust Worker Dequeue Parallelism. Adjusts how concurrently a worker will try to pluck work off of adhoc_async_analysis_queue_scheduled, adhoc_async_analysis_queue, adhoc_async_analysis_queue_backfill. This can be used to dial up/down how hard we hit postgres.
+########################
+
+POST  http://localhost:8090/analysisAsync/workers/concurrency/32
+Content-Type: application/json
+
+{
+}
+
+########################
+# For each analyzer what's the cutoff period to which the scheduled flow has moved past and will never pick up the
+# data to be analyzed (thus justifying a backfill)
+########################
+
+GET  http://localhost:8090/monitorScheduler/scheduledWorkCutoffs/org-0/model-2144
+Content-Type: application/json
+
+{
+}
+
+#######################################
+# Execute Adhoc Aysnc Backfill Inline (great for debugging) #
+#######################################
+
+POST  http://localhost:8090/analysisAsync/runAnalysisNow/8dff4344-15aa-4376-b0a4-9daab0b9221d
+Content-Type: application/json
+
+{}
+
+#######################################
+# Reap stuck requests
+#######################################
+
+POST  http://localhost:8090/analysisAsync/reapStuckRequests
+Content-Type: application/json
+
+{}
+
+#######################################
+# Cancel                              #
+#######################################
+
+DELETE  http://localhost:8090/analysisAsync/triggerAnalysis/cancel/8dff4344-15aa-4376-b0a4-9daab0b9221d
+Content-Type: application/json
+
+{}
+
+#######################################
+# Retry                              #
+#######################################
+
+POST  http://localhost:8090/analysisAsync/retry/8dff4344-15aa-4376-b0a4-9daab0b9221d
+Content-Type: application/json
+
+{}
+
+
+

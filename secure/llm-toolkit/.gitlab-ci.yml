@@ -1,0 +1,184 @@
+default:
+  image: python:3.10-bookworm
+
+stages:
+  - build
+  - deploy
+
+variables:
+  POETRY_VIRTUALENVS_IN_PROJECT: true
+  POETRY_CACHE_DIR: ${{ github.workspace }}/poetry-cache
+  VERSION: 0.1.36
+  GIT_DEPTH: 1 # We use lfs and check data into the repo, avoiding downloading any of that.
+
+.poetry_before_script: &poetry_before_script
+  - python3 -m pip install poetry==1.7.1
+  - poetry config http-basic.songbird_client_gitlab gitlab-ci-token $CI_JOB_TOKEN
+
+.assume_identity_script: &assume_identity_script
+  - >
+    STS=($($CI_PROJECT_DIR/.aws-cli/bin/aws sts assume-role-with-web-identity
+    --role-arn ${AWS_ROLE_ARN}
+    --role-session-name "GitLabRunner-${CI_PROJECT_ID}-${CI_PIPELINE_ID}"
+    --web-identity-token $GITLAB_OIDC_TOKEN
+    --duration-seconds 3600
+    --region us-west-2
+    --query 'Credentials.[AccessKeyId,SecretAccessKey,SessionToken]'
+    --output text))
+  - export AWS_ACCESS_KEY_ID="${STS[0]}"
+  - export AWS_SECRET_ACCESS_KEY="${STS[1]}"
+  - export AWS_SESSION_TOKEN="${STS[2]}"
+
+before_script:
+  - *poetry_before_script
+
+install_aws_cli:
+  stage: build
+  cache:
+    key: $CI_COMMIT_REF_SLUG-aws-cli
+    paths:
+      - .aws-cli
+    policy: push
+  script:
+    - mkdir -p $CI_PROJECT_DIR/.aws-cli
+    - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    - unzip awscliv2.zip
+    - ./aws/install -i $CI_PROJECT_DIR/.aws-cli -b $CI_PROJECT_DIR/.aws-cli/bin --install-dir $CI_PROJECT_DIR/.aws-cli/v2/current
+    - chmod -R 755 $CI_PROJECT_DIR/.aws-cli
+    - export PATH="$CI_PROJECT_DIR/.aws-cli/bin:$PATH"
+    - .aws-cli/bin/aws --version
+
+.train:
+  image: registry.gitlab.com/whylabs/datascience/whylabs-llm-toolkit/ci-training:latest
+  environment:
+    name: production
+  id_tokens:
+    GITLAB_OIDC_TOKEN:
+      aud: https://gitlab.com
+  tags:
+    - gpu
+  cache:
+    key: $CI_COMMIT_REF_SLUG-aws-cli
+    paths:
+      - .aws-cli
+    policy: pull
+  before_script:
+    - *poetry_before_script
+    - export PATH="$PWD/.aws-cli/bin:$PATH"
+    - aws --version
+  timeout: 5 hours
+  when: manual
+  parallel:
+    matrix:
+      - ENCODERS:
+          - "AllMiniLML6V2"
+          - "BGESmallEn_V1_5"
+          - "ParaphraseMultilingualMiniLML12V2"
+          - "ParaphraseMultilingualMpnetBaseV2"
+  variables:
+    NAME: ci
+    SHA: $CI_COMMIT_SHORT_SHA
+    ENCODERS: ${ENCODERS}
+  script:
+    - nvidia-smi # Ensure gpus are available
+    - make install
+    - make data-process
+    - make train-classifiers-only
+    - make train-chroma-twoclass
+    - make eval
+    - VERBOSE_METRIC_NAMES=true make benchmark
+    - VERBOSE_METRIC_NAMES=true make competition-compare
+    - VERBOSE_METRIC_NAMES=true make benchmark-report
+    - *assume_identity_script
+    - make upload
+    - du -h ./results | sort -h
+  artifacts:
+    when: always
+    expire_in: 24 hour
+    paths:
+      - ./results/
+      - ./upload_manifest.json
+    exclude:
+      - ./results/**/model/**
+      - ./results/**/data/**
+      - ./results/*.zip
+
+build:
+  stage: build
+  image: "python:${PYTHON_VERSION}-bookworm"
+  parallel:
+    matrix:
+      - PYTHON_VERSION: ["3.9", "3.10", "3.11"]
+
+  variables:
+    OPERATING_SYSTEM: "linux"
+  artifacts:
+    expire_in: 1 hour
+    paths:
+      - ./dist
+  script:
+    - poetry lock --no-update && git diff --exit-code poetry.lock # See if the lock file needs to be updated and comitted
+    - make install
+    - make format lint
+    - make test
+    - make integ
+    - make dist
+
+# Fail the build if running the data-load script results in any changes to the data dir. Those
+# should all be checked into version control.
+check-data:
+  stage: build
+  dependencies: []
+  script:
+    - make install
+    - make data && git diff --exit-code
+
+check-exclude-list:
+  stage: build
+  dependencies: []
+  script:
+    - make install
+    - make generate-exclusion-list && git diff --exit-code
+
+train-dev:
+  extends: .train
+  stage: build
+  needs:
+    - install_aws_cli
+  variables:
+    STAGE: dev
+
+train-prod:
+  extends: .train
+  stage: deploy
+  needs:
+    - train-dev
+    - install_aws_cli
+  variables:
+    STAGE: prod
+
+hf_upload:
+  stage: build
+  needs:
+    - "build: [3.10]"
+    - "train-dev: [AllMiniLML6V2]"
+  when: manual
+  script:
+    - echo "Starting hf upload with ENCODERS=${ENCODERS}"
+    - make install
+    - poetry run pip install ./dist/*.whl
+    - make hf-push
+  variables:
+    NAME: ci
+    ENCODERS: AllMiniLML6V2
+    STAGE: dev
+    HF_PUSH: true
+
+cache_test:
+  stage: build
+  needs:
+    - "build: [3.10]"
+  script:
+    - make install
+    - poetry run pip install ./dist/*.whl
+    - make run-cache

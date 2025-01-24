@@ -1,0 +1,47 @@
+### Pre-render segmented maxio recent (single dataset)
+POST http://localhost:8090/render/maxio/recent/org-0/model-0
+Content-Type: application/json
+
+{
+
+
+}
+
+### Pre-render segmented maxio all (single dataset)
+POST http://localhost:8090/render/maxio/all/org-0/model-0
+Content-Type: application/json
+
+{
+
+
+}
+
+### Script to pre-render all large datasets as detected from monitor config
+POST http://localhost:8090/render/maxio/auto
+Content-Type: application/json
+
+{
+
+
+}
+
+
+### test maxio segmented
+POST http://localhost:8090/profiles/maxioSegmented
+Content-Type: application/json
+
+{"orgId":"org-0","granularity":"daily","datasetId":"model-0","interval":"2022-12-13T00:00:00.000Z/P365D","segments":[[{"key":"purpose","value":"car"}], [{"key":"purpose","value":"major_purchase"}, {"key":"verification_status","value":"Verified"}]],"outputColumns":["output_prediction","output_target"]}
+
+### test maxio segmented skip cache
+POST http://localhost:8090/profiles/maxioSegmented
+Content-Type: application/json
+
+{"disableCache": "true", "orgId":"org-0","granularity":"daily","datasetId":"model-0","interval":"2022-12-13T00:00:00.000Z/P365D","segments":[[{"key":"purpose","value":"car"}], [{"key":"purpose","value":"major_purchase"}, {"key":"verification_status","value":"Verified"}]],"outputColumns":["output_prediction","output_target"]}
+
+### test empty data
+POST http://localhost:8090/profiles/maxioSegmented
+Content-Type: application/json
+
+{"orgId":"org-0","granularity":"daily","datasetId":"model-12","interval":"2022-12-13T00:00:00.000Z/P365D","segments":[[{"key":"purpose","value":"car"}], [{"key":"purpose","value":"major_purchase"}, {"key":"verification_status","value":"Verified"}]],"outputColumns":["output_prediction","output_target"]}
+
+

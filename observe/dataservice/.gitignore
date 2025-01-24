@@ -1,0 +1,17 @@
+build
+build/*
+.gradle
+**/out
+.idea/
+
+# Lombok places its generated files in bin folders in each project
+**/bin
+
+spark-warehouse/*
+
+**/.DS_store
+.vscode/*
+.run
+.DS_Store
+
+murmuration/output.csv

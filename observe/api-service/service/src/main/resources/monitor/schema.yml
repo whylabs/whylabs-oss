@@ -1,0 +1,2144 @@
+$id: https://gitlab.com/whylabs/core/montor-schema/-/blob/main/schema/schema.json
+$version: '1.0'
+additionalProperties: false
+definitions:
+  AlgorithmType:
+    description: Specify the algorithm type.
+    enum:
+    - expected
+    - column_list
+    - comparison
+    - conjunction
+    - disjunction
+    - list_comparison
+    - frequent_string_comparison
+    - diff
+    - drift
+    - stddev
+    - seasonal
+    - fixed
+    - monotonic
+    - experimental
+    title: AlgorithmType
+    type: string
+  Analyzer:
+    additionalProperties: false
+    description: 'Configuration for running an analysis.
+
+
+      An analysis targets a metric (note that a metric could be a complex object)
+      for one or multiple fields in
+
+      one or multiple segments. The output is a list of ''anomalies'' that might show
+      issues with data.'
+    properties:
+      backfillGracePeriodDuration:
+        description: ISO 8610 duration format. How far back an analyzer will attempt
+          to backfill late data. Note that we will only backfill batches not previously
+          analyzed. If the batch was already analyzed, even with partial data, the
+          backfill will ignore the new data unless you trigger an explicit backfill
+          request. We support 48 hours for hourly data, 30 days for daily data, and
+          6 months for monthly data.
+        example: PT1H, P1D
+        pattern: ^P(?!$)(\d+M)?(\d+W)?(\d+D)?(T(?=\d+[HM])(\d+H)?(\d+M)?)?$
+        title: BackfillGracePeriodDuration
+        type: string
+      batchCoolDownPeriod:
+        description: ISO 8610 duration format. Specifies the duration that the monitor
+          will wait from the last timea profile arrives Any batch involved in the
+          calculation must have received the last profile by the duration.
+        example: PT1H, P1D
+        pattern: ^P(?!$)(\d+M)?(\d+W)?(\d+D)?(T(?=\d+[HM])(\d+H)?(\d+M)?)?$
+        title: BatchCoolDownPeriod
+        type: string
+      config:
+        description: The configuration map of the analyzer
+        discriminator:
+          mapping:
+            column_list: '#/definitions/ColumnListChangeConfig'
+            comparison: '#/definitions/ComparisonConfig'
+            conjunction: '#/definitions/ConjunctionConfig'
+            diff: '#/definitions/DiffConfig'
+            disjunction: '#/definitions/DisjunctionConfig'
+            drift: '#/definitions/DriftConfig'
+            experimental: '#/definitions/ExperimentalConfig'
+            fixed: '#/definitions/FixedThresholdsConfig'
+            frequent_string_comparison: '#/definitions/FrequentStringComparisonConfig'
+            list_comparison: '#/definitions/ListComparisonConfig'
+            monotonic: '#/definitions/MonotonicConfig'
+            seasonal: '#/definitions/SeasonalConfig'
+            stddev: '#/definitions/StddevConfig'
+          propertyName: type
+        oneOf:
+        - $ref: '#/definitions/ConjunctionConfig'
+        - $ref: '#/definitions/DisjunctionConfig'
+        - $ref: '#/definitions/DiffConfig'
+        - $ref: '#/definitions/ComparisonConfig'
+        - $ref: '#/definitions/ListComparisonConfig'
+        - $ref: '#/definitions/FrequentStringComparisonConfig'
+        - $ref: '#/definitions/ColumnListChangeConfig'
+        - $ref: '#/definitions/FixedThresholdsConfig'
+        - $ref: '#/definitions/StddevConfig'
+        - $ref: '#/definitions/DriftConfig'
+        - $ref: '#/definitions/ExperimentalConfig'
+        - $ref: '#/definitions/SeasonalConfig'
+        - $ref: '#/definitions/MonotonicConfig'
+        title: Config
+      dataReadinessDuration:
+        description: ISO 8610 duration format. The duration determines how fast data
+          is ready for the monitor. For example, if your pipeline takes 2 days to
+          deliver profiles to WhyLabs, the value should beP2D. Note that this value
+          will be used to evaluate missing data as well
+        example: PT1H, P1D
+        pattern: ^P(?!$)(\d+M)?(\d+W)?(\d+D)?(T(?=\d+[HM])(\d+H)?(\d+M)?)?$
+        title: DataReadinessDuration
+        type: string
+      disableTargetRollup:
+        description: 'For customers with individual profile storage enabled on their
+          account (contact us), this allows a user to monitor individual profiles
+          without rolling them up. When enabled, analysis will be timestamped 1:1
+          with the profile''s dataset timestamp rather than being truncated to the
+          dataset granularity. '
+        title: Disabletargetrollup
+        type: boolean
+      disabled:
+        description: Whether the analyzer is disabled. This allows user to keep the
+          configurationaround without having to delete the analyzer config
+        title: Disabled
+        type: boolean
+      displayName:
+        description: A display name for the analyzer if view through WhyLabs UI. Can
+          only contain dashes, underscores,spaces, and alphanumeric characters
+        id: DisplayName
+        maxLength: 256
+        minLength: 10
+        pattern: '[0-9a-zA-Z \-_]+'
+        title: Displayname
+        type: string
+      id:
+        description: A unique, human readable ID for an analyzer. Can only contain
+          alpha numeric characters, underscores and dashes
+        maxLength: 128
+        minLength: 10
+        pattern: '[0-9a-zA-Z\-_]+'
+        title: Id
+        type: string
+      metadata:
+        allOf:
+        - $ref: '#/definitions/Metadata'
+        description: WhyLabs-managed metadata. This is to track various metadata for
+          auditing.
+        title: Metadata
+      schedule:
+        description: A schedule for running the analyzer. If not set, the analyzer's
+          considered disabled
+        discriminator:
+          mapping:
+            cron: '#/definitions/CronSchedule'
+            fixed: '#/definitions/FixedCadenceSchedule'
+          propertyName: type
+        oneOf:
+        - $ref: '#/definitions/CronSchedule'
+        - $ref: '#/definitions/FixedCadenceSchedule'
+        title: Schedule
+      tags:
+        description: A list of tags that are associated with the analyzer.
+        items:
+          maxLength: 256
+          minLength: 3
+          pattern: '[0-9a-zA-Z\-_]'
+          type: string
+        title: Tags
+        type: array
+      targetMatrix:
+        description: A matrix for possible locations of the target
+        discriminator:
+          mapping:
+            column: '#/definitions/ColumnMatrix'
+            dataset: '#/definitions/DatasetMatrix'
+          propertyName: type
+        oneOf:
+        - $ref: '#/definitions/ColumnMatrix'
+        - $ref: '#/definitions/DatasetMatrix'
+        title: Targetmatrix
+      targetSize:
+        description: By default analyzers compare a baseline to a single target bucket
+          who's size aligns with the dataset granularity. For example a daily dataset
+          will use targets with a size of one day. Some datasets with a lot of fluctuation
+          can lead to noisy monitors. One approach to making analyzers less noisy
+          in such a scenario is to increase the targetSize to average across more
+          than a single bucket.
+        id: DisplayName
+        title: Targetsize
+        type: integer
+    required:
+    - id
+    - config
+    title: Analyzer
+    type: object
+  AnomalyFilter:
+    additionalProperties: false
+    description: Filter the anomalies based on certain criteria. If the alerts are
+      filtered down to 0, the monitor won't fire.
+    properties:
+      excludeColumns:
+        description: If set, we will exclude anomalies from these columns. This is
+          applied AFTER the includeColumns
+        items:
+          maxLength: 1000
+          type: string
+        maxItems: 1000
+        title: ExcludeColumns
+        type: array
+      includeColumns:
+        description: If set, we only include anomalies from these columns
+        items:
+          maxLength: 1000
+          type: string
+        maxItems: 1000
+        title: IncludeColumns
+        type: array
+      includeMetrics:
+        description: Metrics to filter by. NOT SUPPORTED YET
+        items:
+          maxLength: 50
+          type: string
+        maxItems: 100
+        title: IncludeMetrics
+        type: array
+      maxAlertCount:
+        description: If the total alert count is greater than this value, the monitor
+          won't fire.
+        title: MaxAlertCount
+        type: integer
+      maxRankByWeight:
+        description: Include only features ranked less than or equal tothis value
+          by weight. If features have the same weight, we order them alphabetically.
+          NOT SUPPORTED YET
+        title: MaxRankByWeight
+        type: integer
+      maxTotalWeight:
+        description: Only fire the monitor if the total weights of the alerts (based
+          on feature weights) is less than or equal to this value. NOT SUPPORTED YET
+        title: MaxTotalWeight
+        type: number
+      maxWeight:
+        description: We will include only features with weights less thanor equal
+          to this value. NOT SUPPORTED YET
+        title: MaxWeight
+        type: number
+      minAlertCount:
+        description: If the total alert count is less than this value, the monitor
+          won't fire.
+        title: MinAlertCount
+        type: integer
+      minRankByWeight:
+        description: Include only features ranked greater than or equal tothis value
+          by weight. If features have the same weight, we order them alphabetically.
+          NOT SUPPORTED YET
+        title: MinRankByWeight
+        type: integer
+      minTotalWeight:
+        description: Only fire the monitor if the total weights of the alerts (based
+          on feature weights) is greater than or equal to this value. NOT SUPPORTED
+          YET
+        title: MinTotalWeight
+        type: number
+      minWeight:
+        description: We will include only features with weights greater than or equal
+          to this value. NOT SUPPORTED YET
+        title: MinWeight
+        type: number
+    title: AnomalyFilter
+    type: object
+  ColumnDataType:
+    description: Options for configuring data type for a column.
+    enum:
+    - integral
+    - fractional
+    - bool
+    - string
+    - unknown
+    - 'null'
+    title: ColumnDataType
+    type: string
+  ColumnDiscreteness:
+    description: Classifying the type.
+    enum:
+    - discrete
+    - continuous
+    title: ColumnDiscreteness
+    type: string
+  ColumnGroups:
+    description: Standard column groupings.
+    enum:
+    - group:continuous
+    - group:discrete
+    - group:input
+    - group:output
+    title: ColumnGroups
+    type: string
+  ColumnListChangeConfig:
+    additionalProperties: false
+    description: 'Compare whether the target is equal to a value or not.
+
+
+      This is useful to detect data type change, for instance.'
+    properties:
+      baseline:
+        description: A baseline for running the analyzer.
+        discriminator:
+          mapping:
+            CurrentBatch: '#/definitions/SingleBatchBaseline'
+            Reference: '#/definitions/ReferenceProfileId'
+            TimeRange: '#/definitions/TimeRangeBaseline'
+            TrailingWindow: '#/definitions/TrailingWindowBaseline'
+          propertyName: type
+        oneOf:
+        - $ref: '#/definitions/TrailingWindowBaseline'
+        - $ref: '#/definitions/ReferenceProfileId'
+        - $ref: '#/definitions/TimeRangeBaseline'
+        - $ref: '#/definitions/SingleBatchBaseline'
+        title: Baseline
+      exclude:
+        description: Ignore these column names. User can specify a list of regex
+        items:
+          maxLength: 1000
+          type: string
+        maxItems: 1000
+        title: Exclude
+        type: array
+      metric:
+        enum:
+        - column_list
+        title: Metric
+        type: string
+      mode:
+        default: ON_ADD_AND_REMOVE
+        enum:
+        - ON_ADD_AND_REMOVE
+        - ON_ADD
+        - ON_REMOVE
+        title: Mode
+        type: string
+      params:
+        additionalProperties:
+          maxLength: 1000
+          type: string
+        description: Extra parameters for the algorithm
+        title: Params
+        type: object
+      schemaVersion:
+        description: The schema version of an algorithm. Typically this value is not
+          required.
+        title: SchemaVersion
+        type: integer
+      type:
+        enum:
+        - column_list
+        title: Type
+        type: string
+    required:
+    - metric
+    - type
+    - baseline
+    title: ColumnListChangeConfig
+    type: object
+  ColumnMatrix:
+    additionalProperties: false
+    description: Define the matrix of columns and segments to fan out for monitoring.
+    properties:
+      exclude:
+        description: List of blocked fields/features/columns. Could be a grouping
+          as well. This setting is evaluated AFTER the 'include' field and thus should
+          be used with caution.
+        items:
+          anyOf:
+          - $ref: '#/definitions/ColumnGroups'
+          - maxLength: 1000
+            type: string
+        maxItems: 1000
+        title: Exclude
+        type: array
+      excludeSegments:
+        description: List of segments to be excluded
+        items:
+          $ref: '#/definitions/Segment'
+        maxItems: 1000
+        title: Excludesegments
+        type: array
+      include:
+        description: List of allowed fields/features/columns. Could be a grouping
+          as well.
+        items:
+          anyOf:
+          - $ref: '#/definitions/ColumnGroups'
+          - maxLength: 1000
+            type: string
+        maxItems: 1000
+        title: Include
+        type: array
+      profileId:
+        description: The unique profile ID for the reference profile
+        maxLength: 100
+        title: ProfileId
+        type: string
+      segments:
+        description: List of targeted segments. If not set, default to the overall
+          segment
+        items:
+          $ref: '#/definitions/Segment'
+        maxItems: 1000
+        title: Segments
+        type: array
+      type:
+        enum:
+        - column
+        title: Type
+        type: string
+    required:
+    - type
+    title: ColumnMatrix
+    type: object
+  ColumnSchema:
+    additionalProperties: false
+    description: 'Schema configuration for a column.
+
+
+      Should be generated by WhyLabs originally but can be overridden by users.'
+    properties:
+      classifier:
+        default: input
+        description: We can classify these columns into various grouping. Currently
+          we only support 'input' and 'output'
+        maxLength: 20
+        title: Classifier
+        type: string
+      dataType:
+        allOf:
+        - $ref: '#/definitions/ColumnDataType'
+        description: The data type of the columns. Setting this field affects the
+          default grouping (i.e integral columns) and the frontend behavior (what
+          default metrics to offer. It does NOT affect what is collected in whylogs
+          (an integral field can still have a frequentItems sketch if it opts in)
+      discreteness:
+        allOf:
+        - $ref: '#/definitions/ColumnDiscreteness'
+        description: Whether a column should be discrete or continuous. WhyLabs will
+          detect this by default butusers can override this value. Changing this columns
+          will change the default grouping (discrete columns vs. continuous columns.
+    required:
+    - discreteness
+    - dataType
+    title: ColumnSchema
+    type: object
+  ComparisonConfig:
+    additionalProperties: false
+    description: 'Compare whether the target against either an expect value or against
+      the  baseline.
+
+
+      This is useful to detect data type change, for instance.'
+    properties:
+      baseline:
+        description: A baseline for running the analyzer.
+        discriminator:
+          mapping:
+            CurrentBatch: '#/definitions/SingleBatchBaseline'
+            Reference: '#/definitions/ReferenceProfileId'
+            TimeRange: '#/definitions/TimeRangeBaseline'
+            TrailingWindow: '#/definitions/TrailingWindowBaseline'
+          propertyName: type
+        oneOf:
+        - $ref: '#/definitions/TrailingWindowBaseline'
+        - $ref: '#/definitions/ReferenceProfileId'
+        - $ref: '#/definitions/TimeRangeBaseline'
+        - $ref: '#/definitions/SingleBatchBaseline'
+        title: Baseline
+      expected:
+        allOf:
+        - $ref: '#/definitions/ExpectedValue'
+        description: The expected value of the equality. If the value is not set we
+          will extract the corresponding metric from the baseline and perform the
+          comparison
+        title: Expected
+      metric:
+        anyOf:
+        - $ref: '#/definitions/DatasetMetric'
+        - $ref: '#/definitions/SimpleColumnMetric'
+        - maxLength: 100
+          type: string
+        description: The target metric. This field cannot be change once the analyzer
+          is created.
+        title: Metric
+      operator:
+        allOf:
+        - $ref: '#/definitions/ComparisonOperator'
+        description: The operator for the comparison. The right hand side is the target
+          batch's metric. The left handside is the expected value or a baseline's
+          metric.
+      params:
+        additionalProperties:
+          maxLength: 1000
+          type: string
+        description: Extra parameters for the algorithm
+        title: Params
+        type: object
+      schemaVersion:
+        description: The schema version of an algorithm. Typically this value is not
+          required.
+        title: SchemaVersion
+        type: integer
+      type:
+        enum:
+        - comparison
+        title: Type
+        type: string
+    required:
+    - metric
+    - type
+    - operator
+    title: ComparisonConfig
+    type: object
+  ComparisonOperator:
+    description: Operators for performing a comparison.
+    enum:
+    - eq
+    - gt
+    - lt
+    - ge
+    - le
+    title: ComparisonOperator
+    type: string
+  ConjunctionConfig:
+    additionalProperties: false
+    description: Conjunction (ANDs) composite analyzer joining multiple analyzers.
+    properties:
+      analyzerIds:
+        description: The corresponding analyzer IDs for the conjunction.
+        items:
+          type: string
+        pattern: ^[A-Za-z0-9_\-]+$
+        title: AnalyzerIds
+        type: array
+      type:
+        enum:
+        - conjunction
+        title: Type
+        type: string
+    required:
+    - type
+    - analyzerIds
+    title: ConjunctionConfig
+    type: object
+  CronSchedule:
+    additionalProperties: false
+    description: Support for scheduling.
+    properties:
+      cron:
+        description: Cron expression
+        pattern: (@(annually|yearly|monthly|weekly|daily|hourly))|((((\d+,)+\d+|(\d+(\/|-)\d+)|\d+|\*)
+          ?){5,7})
+        title: Cron
+        type: string
+      exclusionRanges:
+        description: The ranges of dates during which this Analyzer is NOT run.
+        items:
+          $ref: '#/definitions/TimeRange'
+        title: ExclusionRanges
+        type: array
+      type:
+        enum:
+        - cron
+        title: Type
+        type: string
+    required:
+    - type
+    - cron
+    title: CronSchedule
+    type: object
+  DatasetMatrix:
+    additionalProperties: false
+    description: 'Define the matrix of fields and segments to fan out for monitoring.
+
+
+      .'
+    properties:
+      excludeSegments:
+        description: List of segments to be excluded
+        items:
+          $ref: '#/definitions/Segment'
+        maxItems: 1000
+        title: Excludesegments
+        type: array
+      segments:
+        description: List of targeted segments. If not set, default to the overall
+          segment
+        items:
+          $ref: '#/definitions/Segment'
+        maxItems: 1000
+        title: Segments
+        type: array
+      type:
+        default: dataset
+        description: Must be 'dataset' level
+        enum:
+        - dataset
+        title: Type
+        type: string
+    title: DatasetMatrix
+    type: object
+  DatasetMetric:
+    description: Metrics that are applicable at the dataset level.
+    enum:
+    - column_row_count_sum
+    - shape_column_count
+    - shape_row_count
+    - input.count
+    - output.count
+    - classification.f1
+    - classification.precision
+    - classification.recall
+    - classification.accuracy
+    - classification.fpr
+    - classification.auroc
+    - regression.mse
+    - regression.mae
+    - regression.rmse
+    - missingDatapoint
+    - secondsSinceLastUpload
+    title: DatasetMetric
+    type: string
+  DiffConfig:
+    additionalProperties: false
+    description: Detecting the differences between two numerical metrics.
+    properties:
+      baseline:
+        description: A baseline for running the analyzer.
+        discriminator:
+          mapping:
+            CurrentBatch: '#/definitions/SingleBatchBaseline'
+            Reference: '#/definitions/ReferenceProfileId'
+            TimeRange: '#/definitions/TimeRangeBaseline'
+            TrailingWindow: '#/definitions/TrailingWindowBaseline'
+          propertyName: type
+        oneOf:
+        - $ref: '#/definitions/TrailingWindowBaseline'
+        - $ref: '#/definitions/ReferenceProfileId'
+        - $ref: '#/definitions/TimeRangeBaseline'
+        - $ref: '#/definitions/SingleBatchBaseline'
+        title: Baseline
+      metric:
+        anyOf:
+        - $ref: '#/definitions/DatasetMetric'
+        - $ref: '#/definitions/SimpleColumnMetric'
+        - maxLength: 100
+          type: string
+        description: The target metric. This field cannot be change once the analyzer
+          is created.
+        title: Metric
+      mode:
+        $ref: '#/definitions/DiffMode'
+      params:
+        additionalProperties:
+          maxLength: 1000
+          type: string
+        description: Extra parameters for the algorithm
+        title: Params
+        type: object
+      schemaVersion:
+        description: The schema version of an algorithm. Typically this value is not
+          required.
+        title: SchemaVersion
+        type: integer
+      threshold:
+        description: The minimum threshold that will trigger an anomaly. The monitor
+          detect the difference betweenthe target's metric and the baseline metric.
+          Both of these metrics MUST be in rolled up form
+        title: Threshold
+        type: number
+      thresholdType:
+        $ref: '#/definitions/ThresholdType'
+      type:
+        enum:
+        - diff
+        title: Type
+        type: string
+    required:
+    - metric
+    - type
+    - mode
+    - threshold
+    - baseline
+    title: DiffConfig
+    type: object
+  DiffMode:
+    description: Whether to use the absolute difference or the percentage to calculate
+      the difference.
+    enum:
+    - abs
+    - pct
+    title: DiffMode
+    type: string
+  DigestMode:
+    additionalProperties: false
+    description: Config mode that indicates the monitor will send out a digest message.
+    properties:
+      creationTimeOffset:
+        description: Optional for Immediate digest, required for Scheduled digest.
+          The earliest creation timestamp that we will filter by to build the digest.
+          ISO 8601 format for timedelta.
+        maxLength: 20
+        title: CreationTimeOffset
+        type: string
+      datasetTimestampOffset:
+        description: Optional for Immediate digest, required for Scheduled digest.
+          The earliest dataset timestamp that we will filter by in the digest
+        maxLength: 20
+        title: DatasetTimestampOffset
+        type: string
+      filter:
+        allOf:
+        - $ref: '#/definitions/AnomalyFilter'
+        description: Filter for anomalies
+        title: Filter
+      groupBy:
+        description: Default is None.If this is set, we will group alerts by these
+          groupings and emit multiple messages per group.
+        items:
+          $ref: '#/definitions/DigestModeGrouping'
+        maxItems: 10
+        type: array
+      type:
+        enum:
+        - DIGEST
+        title: Type
+        type: string
+    required:
+    - type
+    title: DigestMode
+    type: object
+  DigestModeGrouping:
+    description: Enable the ability to group digest by various fields.
+    enum:
+    - byColumn
+    - byDataset
+    - byAnalyzer
+    - byDay
+    - byHour
+    title: DigestModeGrouping
+    type: string
+  DisjunctionConfig:
+    additionalProperties: false
+    description: Disjunction (ORs) composite analyzer joining multiple analyzers.
+    properties:
+      analyzerIds:
+        description: The corresponding analyzer IDs for the conjunction.
+        items:
+          type: string
+        pattern: ^[A-Za-z0-9_\-]+$
+        title: AnalyzerIds
+        type: array
+      type:
+        enum:
+        - disjunction
+        title: Type
+        type: string
+    required:
+    - type
+    - analyzerIds
+    title: DisjunctionConfig
+    type: object
+  DriftConfig:
+    additionalProperties: false
+    description: 'An analyzer using stddev for a window of time range.
+
+
+      This analysis will detect whether the data drifts or not. By default, we use
+      hellinger distance with a threshold
+
+      of 0.7.'
+    properties:
+      algorithm:
+        default: hellinger
+        description: The algorithm to use when calculating drift.
+        enum:
+        - hellinger
+        - jensenshannon
+        - kl_divergence
+        - psi
+        title: Algorithm
+        type: string
+      baseline:
+        description: A baseline for running the analyzer.
+        discriminator:
+          mapping:
+            CurrentBatch: '#/definitions/SingleBatchBaseline'
+            Reference: '#/definitions/ReferenceProfileId'
+            TimeRange: '#/definitions/TimeRangeBaseline'
+            TrailingWindow: '#/definitions/TrailingWindowBaseline'
+          propertyName: type
+        oneOf:
+        - $ref: '#/definitions/TrailingWindowBaseline'
+        - $ref: '#/definitions/ReferenceProfileId'
+        - $ref: '#/definitions/TimeRangeBaseline'
+        - $ref: '#/definitions/SingleBatchBaseline'
+        title: Baseline
+      metric:
+        enum:
+        - histogram
+        - frequent_items
+        title: Metric
+        type: string
+      minBatchSize:
+        default: 1
+        description: Minimum number of batches that is required
+        minimum: 1
+        title: MinBatchSize
+        type: integer
+      params:
+        additionalProperties:
+          maxLength: 1000
+          type: string
+        description: Extra parameters for the algorithm
+        title: Params
+        type: object
+      schemaVersion:
+        description: The schema version of an algorithm. Typically this value is not
+          required.
+        title: SchemaVersion
+        type: integer
+      threshold:
+        default: 0.7
+        description: The threshold for the distance algorithm. Depending on the algorithm,
+          this thresholdis used for greater than or less than comparison.
+        title: Threshold
+        type: number
+      type:
+        enum:
+        - drift
+        title: Type
+        type: string
+    required:
+    - metric
+    - type
+    - baseline
+    title: DriftConfig
+    type: object
+  EntitySchema:
+    additionalProperties: false
+    description: Schema definition of an entity.
+    properties:
+      columns:
+        additionalProperties:
+          $ref: '#/definitions/ColumnSchema'
+        description: Schema configuration for the entity
+        title: Columns
+        type: object
+      metadata:
+        allOf:
+        - $ref: '#/definitions/Metadata'
+        description: WhyLabs-managed metadata. This is to track various metadata for
+          auditing.
+        title: Metadata
+    required:
+    - columns
+    title: EntitySchema
+    type: object
+  EntityWeights:
+    additionalProperties: false
+    description: Entity weight configurations.
+    properties:
+      defaultWeights:
+        allOf:
+        - $ref: '#/definitions/WeightConfig'
+        description: Optional. Default weights for ALL the segments that don't have
+          an explicit weight specification.Note that if you specify the segment in
+          this WeightConfig object, it is ignored.
+        title: DefaultWeights
+      metadata:
+        allOf:
+        - $ref: '#/definitions/Metadata'
+        description: WhyLabs-managed metadata. This is to track various metadata for
+          auditing.
+        title: Metadata
+      segmentWeights:
+        description: Optional. Segment-specific weights. Use this if you want to override
+          the defaultWeights. Note thatthere might be a case where a segment fields
+          are weighted without specifying the default weights
+        items:
+          $ref: '#/definitions/SegmentWeightConfig'
+        maxItems: 1000
+        title: SegmentWeights
+        type: array
+    title: EntityWeights
+    type: object
+  EveryAnomalyMode:
+    additionalProperties: false
+    description: Config mode that indicates the monitor will send out individual messages
+      per anomaly.
+    properties:
+      filter:
+        allOf:
+        - $ref: '#/definitions/AnomalyFilter'
+        description: Filter for anomalies
+        title: Filter
+      type:
+        enum:
+        - EVERY_ANOMALY
+        title: Type
+        type: string
+    required:
+    - type
+    title: EveryAnomalyMode
+    type: object
+  ExpectedValue:
+    additionalProperties: false
+    description: 'Expected value: one of these fields must be set.'
+    properties:
+      float:
+        title: Float
+        type: number
+      int:
+        title: Int
+        type: integer
+      str:
+        maxLength: 100
+        title: Str
+        type: string
+    title: ExpectedValue
+    type: object
+  ExperimentalConfig:
+    additionalProperties: false
+    description: Experimental algorithm that is not standardized by the above ones
+      yet.
+    properties:
+      baseline:
+        description: A baseline for running the analyzer.
+        discriminator:
+          mapping:
+            CurrentBatch: '#/definitions/SingleBatchBaseline'
+            Reference: '#/definitions/ReferenceProfileId'
+            TimeRange: '#/definitions/TimeRangeBaseline'
+            TrailingWindow: '#/definitions/TrailingWindowBaseline'
+          propertyName: type
+        oneOf:
+        - $ref: '#/definitions/TrailingWindowBaseline'
+        - $ref: '#/definitions/ReferenceProfileId'
+        - $ref: '#/definitions/TimeRangeBaseline'
+        - $ref: '#/definitions/SingleBatchBaseline'
+        title: Baseline
+      implementation:
+        description: The implementation of an experimental config
+        maxLength: 100
+        title: Implementation
+        type: string
+      metric:
+        anyOf:
+        - $ref: '#/definitions/DatasetMetric'
+        - $ref: '#/definitions/SimpleColumnMetric'
+        - maxLength: 100
+          type: string
+        description: The target metric. This field cannot be change once the analyzer
+          is created.
+        title: Metric
+      params:
+        additionalProperties:
+          maxLength: 1000
+          type: string
+        description: Extra parameters for the algorithm
+        title: Params
+        type: object
+      schemaVersion:
+        description: The schema version of an algorithm. Typically this value is not
+          required.
+        title: SchemaVersion
+        type: integer
+      stub:
+        allOf:
+        - $ref: '#/definitions/AlgorithmType'
+        description: Stub field to flow algoirthm type into the schema. Do not use.
+      type:
+        enum:
+        - experimental
+        title: Type
+        type: string
+    required:
+    - metric
+    - type
+    - implementation
+    - baseline
+    title: ExperimentalConfig
+    type: object
+  FixedCadenceSchedule:
+    additionalProperties: false
+    description: Support for scheduling based on a predefined cadence.
+    properties:
+      cadence:
+        description: Frequency to run the analyzer or monitor, based on UTC time.
+          The monitor will run at the start of the cadence with some SLA depending
+          on the customer tiers.
+        enum:
+        - hourly
+        - daily
+        - weekly
+        - monthly
+        title: Cadence
+        type: string
+      exclusionRanges:
+        description: Ranges of dates during which this Analyzer is NOT run.
+        items:
+          $ref: '#/definitions/TimeRange'
+        title: ExclusionRanges
+        type: array
+      type:
+        enum:
+        - fixed
+        title: Type
+        type: string
+    required:
+    - type
+    - cadence
+    title: FixedCadenceSchedule
+    type: object
+  FixedThresholdsConfig:
+    additionalProperties: false
+    description: 'Fixed threshold analysis.
+
+
+      If user fails to set both upper bound and lower bound, this algorithm becomes
+      a no-op.
+
+      WhyLabs might enforce the present of either fields in the future.'
+    properties:
+      lower:
+        description: Lower bound of the static threshold
+        title: Lower
+        type: number
+      metric:
+        anyOf:
+        - $ref: '#/definitions/DatasetMetric'
+        - $ref: '#/definitions/SimpleColumnMetric'
+        - maxLength: 100
+          type: string
+        description: The target metric. This field cannot be change once the analyzer
+          is created.
+        title: Metric
+      nConsecutive:
+        description: Alert if n consecutive datapoints exceed the thresholds
+        title: Nconsecutive
+        type: integer
+      params:
+        additionalProperties:
+          maxLength: 1000
+          type: string
+        description: Extra parameters for the algorithm
+        title: Params
+        type: object
+      schemaVersion:
+        description: The schema version of an algorithm. Typically this value is not
+          required.
+        title: SchemaVersion
+        type: integer
+      type:
+        enum:
+        - fixed
+        title: Type
+        type: string
+      upper:
+        description: Upper bound of the static threshold
+        title: Upper
+        type: number
+    required:
+    - metric
+    - type
+    title: FixedThresholdsConfig
+    type: object
+  FrequentStringComparisonConfig:
+    additionalProperties: false
+    description: Compare whether target against a list of values.
+    properties:
+      baseline:
+        description: A baseline for running the analyzer.
+        discriminator:
+          mapping:
+            CurrentBatch: '#/definitions/SingleBatchBaseline'
+            Reference: '#/definitions/ReferenceProfileId'
+            TimeRange: '#/definitions/TimeRangeBaseline'
+            TrailingWindow: '#/definitions/TrailingWindowBaseline'
+          propertyName: type
+        oneOf:
+        - $ref: '#/definitions/TrailingWindowBaseline'
+        - $ref: '#/definitions/ReferenceProfileId'
+        - $ref: '#/definitions/TimeRangeBaseline'
+        - $ref: '#/definitions/SingleBatchBaseline'
+        title: Baseline
+      metric:
+        enum:
+        - frequent_items
+        title: Metric
+        type: string
+      operator:
+        allOf:
+        - $ref: '#/definitions/FrequentStringComparisonOperator'
+        description: The operator for the comparison.
+      params:
+        additionalProperties:
+          maxLength: 1000
+          type: string
+        description: Extra parameters for the algorithm
+        title: Params
+        type: object
+      schemaVersion:
+        description: The schema version of an algorithm. Typically this value is not
+          required.
+        title: SchemaVersion
+        type: integer
+      type:
+        enum:
+        - frequent_string_comparison
+        title: Type
+        type: string
+    required:
+    - metric
+    - type
+    - operator
+    - baseline
+    title: FrequentStringComparisonConfig
+    type: object
+  FrequentStringComparisonOperator:
+    description: Operators for performing a comparison.
+    enum:
+    - eq
+    - target_includes_all_baseline
+    - baseline_includes_all_target
+    title: FrequentStringComparisonOperator
+    type: string
+  GlobalAction:
+    additionalProperties: false
+    description: Actions that are configured at the team/organization level.
+    properties:
+      target:
+        description: The unique action ID in the platform
+        maxLength: 100
+        pattern: '[a-zA-Z0-9\-_]+'
+        title: Target
+        type: string
+      type:
+        enum:
+        - global
+        title: Type
+        type: string
+    required:
+    - type
+    - target
+    title: GlobalAction
+    type: object
+  Granularity:
+    description: Supported granularity.
+    enum:
+    - hourly
+    - daily
+    - weekly
+    - monthly
+    title: Granularity
+    type: string
+  ImmediateSchedule:
+    additionalProperties: false
+    description: Schedule the monitor to run immediately.
+    properties:
+      type:
+        enum:
+        - immediate
+        title: Type
+        type: string
+    required:
+    - type
+    title: ImmediateSchedule
+    type: object
+  LimitType:
+    description: 'Declaring how fixed upper and lower bounds should be interpreted
+      in an analyzer.
+
+
+      Some analyzers (like Stddev) allow configuration of optional static bounds,
+
+      in addition to the  calculated bounds over a baseline. By default
+
+      `"LimitType"="or"` applies static bounds in disjunction with the the
+
+      calculated bounds. In other words, the analyzer will generate an alert if
+
+      the target value exceeds the calculated bounds, OR if the target value
+
+      exceeds the static bounds.
+
+
+      The static bounds may also be applied in conjunction with the calculated
+
+      bounds by setting `"LimitType"="and"`.  In that case, the analyzer will
+
+      generated an alert if the target values exceeds the calculated bounds AND
+
+      exceeds the static bounds.
+
+
+      `"LimitType"="and"` is useful when the magnitude of a metric is very small,
+
+      like `unique-ratio` or `null-ratio` when the denominator is large. For those
+
+      metrics, small changes in the underlying values can result is wide swings of
+
+      the calculated bound. Constraining alerts to a static threshold in addition
+
+      to the calculated threshold can avoid spurious alerts.'
+    enum:
+    - or
+    - and
+    title: LimitType
+  ListComparisonConfig:
+    additionalProperties: false
+    description: Compare a target list of values against a baseline list of values.
+    properties:
+      baseline:
+        description: A baseline for running the analyzer.
+        discriminator:
+          mapping:
+            CurrentBatch: '#/definitions/SingleBatchBaseline'
+            Reference: '#/definitions/ReferenceProfileId'
+            TimeRange: '#/definitions/TimeRangeBaseline'
+            TrailingWindow: '#/definitions/TrailingWindowBaseline'
+          propertyName: type
+        oneOf:
+        - $ref: '#/definitions/TrailingWindowBaseline'
+        - $ref: '#/definitions/ReferenceProfileId'
+        - $ref: '#/definitions/TimeRangeBaseline'
+        - $ref: '#/definitions/SingleBatchBaseline'
+        title: Baseline
+      expected:
+        description: The expected values of the equality. If the value is not set
+          we will extract the corresponding metric from the baseline and perform the
+          comparison
+        items:
+          $ref: '#/definitions/ExpectedValue'
+        title: Expected
+        type: array
+      metric:
+        anyOf:
+        - $ref: '#/definitions/DatasetMetric'
+        - $ref: '#/definitions/SimpleColumnMetric'
+        - maxLength: 100
+          type: string
+        description: The target metric. This field cannot be change once the analyzer
+          is created.
+        title: Metric
+      operator:
+        allOf:
+        - $ref: '#/definitions/ListComparisonOperator'
+        description: The operator for the comparison. The right hand side is the target
+          batch's metric. The left handside is the expected value or a baseline's
+          metric.
+      params:
+        additionalProperties:
+          maxLength: 1000
+          type: string
+        description: Extra parameters for the algorithm
+        title: Params
+        type: object
+      schemaVersion:
+        description: The schema version of an algorithm. Typically this value is not
+          required.
+        title: SchemaVersion
+        type: integer
+      type:
+        enum:
+        - list_comparison
+        title: Type
+        type: string
+    required:
+    - metric
+    - type
+    - operator
+    title: ListComparisonConfig
+    type: object
+  ListComparisonOperator:
+    description: Operators for performing a comparison.
+    enum:
+    - in
+    - not_in
+    title: ListComparisonOperator
+    type: string
+  Metadata:
+    additionalProperties: false
+    description: 'Metadata for a top-level objects such as monitors, analyzers, and
+      schema.
+
+
+      This object is managed by WhyLabs. Any user-provided values will be ignored
+      on WhyLabs side.'
+    properties:
+      author:
+        description: The author of the change. It can be an API Key ID, a user ID,
+          or a WhyLabs system ID.
+        maxLength: 100
+        pattern: '[0-9a-zA-Z-_.+]+'
+        title: Author
+        type: string
+      description:
+        description: A description of the object
+        maxLength: 1000
+        title: Description
+        type: string
+      schemaVersion:
+        description: The version of the schema. Currently the accepted value is 1.
+        maximum: 1
+        minimum: 1
+        title: Schemaversion
+        type: integer
+      updatedTimestamp:
+        description: Last updated timestamp
+        exclusiveMinimum: 0
+        title: Updatedtimestamp
+        type: integer
+      version:
+        description: A monotonically increasing numer that indicates the version of
+          the object.
+        title: Version
+        type: integer
+    required:
+    - version
+    - updatedTimestamp
+    - author
+    title: Metadata
+    type: object
+  Monitor:
+    additionalProperties: false
+    description: Customer specified monitor configs.
+    properties:
+      actions:
+        description: List of destination for the outgoing messages
+        items:
+          anyOf:
+          - $ref: '#/definitions/GlobalAction'
+          - $ref: '#/definitions/SendEmail'
+          - $ref: '#/definitions/SlackWebhook'
+          - $ref: '#/definitions/RawWebhook'
+        maxItems: 100
+        title: Actions
+        type: array
+      analyzerIds:
+        description: The corresponding analyzer ID. Even though it's plural, we only
+          support one analyzer at the moment
+        items:
+          pattern: ^[A-Za-z0-9_\-]+$
+          type: string
+        maxItems: 100
+        title: AnalyzerIds
+        type: array
+      disabled:
+        description: Whether the monitor is enabled or not
+        title: Disabled
+        type: boolean
+      displayName:
+        description: A display name for the monitor if view through WhyLabs UI. Can
+          only contain dashes, underscores,spaces, and alphanumeric characters
+        id: DisplayName
+        maxLength: 256
+        minLength: 10
+        pattern: '[0-9a-zA-Z \-_]+'
+        title: Displayname
+        type: string
+      id:
+        description: A human-readable alias for a monitor. Must be readable
+        maxLength: 128
+        minLength: 10
+        pattern: '[0-9a-zA-Z\-_]+'
+        title: Id
+        type: string
+      metadata:
+        allOf:
+        - $ref: '#/definitions/Metadata'
+        description: Meta. This is to track various metadata for auditing.
+        title: Metadata
+      mode:
+        description: Notification mode and how we might handle different analysis
+        discriminator:
+          mapping:
+            DIGEST: '#/definitions/DigestMode'
+            EVERY_ANOMALY: '#/definitions/EveryAnomalyMode'
+          propertyName: type
+        oneOf:
+        - $ref: '#/definitions/EveryAnomalyMode'
+        - $ref: '#/definitions/DigestMode'
+        title: Mode
+      schedule:
+        description: Schedule of the monitor. We only support hourly monitor at the
+          finest granularity
+        discriminator:
+          mapping:
+            cron: '#/definitions/CronSchedule'
+            fixed: '#/definitions/FixedCadenceSchedule'
+            immediate: '#/definitions/ImmediateSchedule'
+          propertyName: type
+        oneOf:
+        - $ref: '#/definitions/FixedCadenceSchedule'
+        - $ref: '#/definitions/CronSchedule'
+        - $ref: '#/definitions/ImmediateSchedule'
+        title: Schedule
+      severity:
+        default: 3
+        description: The severity of the monitor messages
+        title: Severity
+        type: integer
+      tags:
+        description: A list of tags that are associated with the monitor.
+        items:
+          maxLength: 256
+          minLength: 3
+          pattern: '[0-9a-zA-Z\-_]'
+          type: string
+        title: Tags
+        type: array
+    required:
+    - id
+    - analyzerIds
+    - schedule
+    - mode
+    - actions
+    title: Monitor
+    type: object
+  MonotonicConfig:
+    additionalProperties: false
+    description: 'Monotonic analysis.
+
+
+      Calculate how many monotonically increasing or decreasing datapoints exist across
+      time buckets.
+
+      Monotonic analysis is performed without a baseline using targetSize to specify
+      the size of the
+
+      window for consideration. A minimum targetSize of 2 is required.'
+    properties:
+      direction:
+        default: INCREASING
+        enum:
+        - INCREASING
+        - DECREASING
+        title: Direction
+        type: string
+      metric:
+        anyOf:
+        - $ref: '#/definitions/DatasetMetric'
+        - $ref: '#/definitions/SimpleColumnMetric'
+        - maxLength: 100
+          type: string
+        description: The target metric. This field cannot be change once the analyzer
+          is created.
+        title: Metric
+      numBuckets:
+        default: 1
+        description: Threshold for how many buckets following the specified direction
+          for an anomaly to be generated.
+        title: NumBuckets
+        type: integer
+      params:
+        additionalProperties:
+          maxLength: 1000
+          type: string
+        description: Extra parameters for the algorithm
+        title: Params
+        type: object
+      schemaVersion:
+        description: The schema version of an algorithm. Typically this value is not
+          required.
+        title: SchemaVersion
+        type: integer
+      type:
+        enum:
+        - monotonic
+        title: Type
+        type: string
+    required:
+    - metric
+    - type
+    title: MonotonicConfig
+    type: object
+  RawWebhook:
+    additionalProperties: false
+    description: Action to send a Slack webhook.
+    properties:
+      target:
+        description: Sending raw unformatted message in JSON format to a webhook
+        format: uri
+        maxLength: 2083
+        minLength: 1
+        title: Target
+        type: string
+      type:
+        enum:
+        - raw
+        title: Type
+        type: string
+    required:
+    - type
+    - target
+    title: RawWebhook
+    type: object
+  ReferenceProfileId:
+    additionalProperties: false
+    description: 'A baseline based on a static reference profile.
+
+
+      A typical use case is to use a "gold" dataset and upload its profile to WhyLabs.
+      This can be a training dataset
+
+      as well for an ML model.'
+    properties:
+      datasetId:
+        description: The unique ID of an dataset. This is specific to WhyLabs. If
+          the dataset ID does not exist, user will get a validation exception when
+          saving the config with WhyLabs API
+        maxLength: 100
+        pattern: '[a-zA-Z0-9\-_\.]+'
+        title: DatasetId
+        type: string
+      profileId:
+        description: The unique profile ID for the reference profile
+        maxLength: 100
+        title: ProfileId
+        type: string
+      type:
+        enum:
+        - Reference
+        title: Type
+        type: string
+    required:
+    - type
+    - profileId
+    title: ReferenceProfileId
+    type: object
+  SeasonalConfig:
+    additionalProperties: false
+    description: 'An analyzer using stddev for a window of time range.
+
+
+      This will fall back to Poisson distribution if there is only 1 value in the
+      baseline.
+
+
+      This only works with TrailingWindow baseline (TODO: add backend validation)'
+    properties:
+      algorithm:
+        default: arima
+        description: The algorithm implementation for seasonal analysis
+        enum:
+        - arima
+        title: Algorithm
+        type: string
+      alpha:
+        default: 0.05
+        description: significance level for the confidence interval produced around
+          predictions. If 0.05 then the algorithm will calculate a 95% confidence
+          interval around predictions
+        title: Alpha
+        type: number
+      baseline:
+        $ref: '#/definitions/TrailingWindowBaseline'
+      maxUpperThreshold:
+        description: Capping the threshold by this value. This value only becomes
+          effective if the calculated upper threshold from the calculation is greater
+          than this value.
+        title: Maxupperthreshold
+        type: number
+      metric:
+        anyOf:
+        - $ref: '#/definitions/DatasetMetric'
+        - $ref: '#/definitions/SimpleColumnMetric'
+        - maxLength: 100
+          type: string
+        description: The target metric. This field cannot be change once the analyzer
+          is created.
+        title: Metric
+      minBatchSize:
+        default: 30
+        description: Minimum number of batches that is required
+        title: MinBatchSize
+        type: integer
+      minLowerThreshold:
+        description: Capping the minimum threshold by this value. This value only
+          becomes effective if the calculated lower threshold from the calculation
+          is lesser than this value
+        title: Minlowerthreshold
+        type: number
+      params:
+        additionalProperties:
+          maxLength: 1000
+          type: string
+        description: Extra parameters for the algorithm
+        title: Params
+        type: object
+      schemaVersion:
+        description: The schema version of an algorithm. Typically this value is not
+          required.
+        title: SchemaVersion
+        type: integer
+      stddevFactor:
+        default: 1.0
+        description: The multiplier factor for calculating upper bounds and lower
+          bounds from the prediction.
+        title: Stddevfactor
+        type: number
+      stddevMaxBatchSize:
+        description: Maxinum number of data points to consider for calculating stddev.
+          These are the data pointspreceeding the target batch.
+        title: Stddevmaxbatchsize
+        type: integer
+      stddevTimeRanges:
+        description: Ranges of time where we will apply standard deviation for confidence
+          intervals rather than the confidence interval from the algorithm. This is
+          to prevent data from specialevents from making the bands very wide for timeseries-based
+          predictions.
+        items:
+          $ref: '#/definitions/TimeRange'
+        title: StddevTimeRanges
+        type: array
+      thresholdType:
+        allOf:
+        - $ref: '#/definitions/ThresholdType'
+        description: indicates use of single-direction threshold. A value of 'upper'
+          will alert only when target value exceeds upper threshold.A value of 'lower'
+          will alert only when target value is less than `minLowerThreshold`.The default
+          value is unset, which will trigger an alert for both upper and lower thresholds
+      type:
+        enum:
+        - seasonal
+        title: Type
+        type: string
+    required:
+    - metric
+    - type
+    - baseline
+    title: SeasonalConfig
+    type: object
+  Segment:
+    additionalProperties: false
+    description: 'A segment is a list of tags.
+
+
+      We normalize these in the backend.'
+    properties:
+      tags:
+        description: List of tags that define the specific segment
+        items:
+          $ref: '#/definitions/SegmentTag'
+        maxItems: 10
+        title: Tags
+        type: array
+    required:
+    - tags
+    title: Segment
+    type: object
+  SegmentTag:
+    additionalProperties: false
+    description: A single tag key value pair for a segment.
+    properties:
+      key:
+        maxLength: 1000
+        title: Key
+        type: string
+      value:
+        maxLength: 1000
+        title: Value
+        type: string
+    required:
+    - key
+    - value
+    title: SegmentTag
+    type: object
+  SegmentWeightConfig:
+    additionalProperties: false
+    description: Object that specifies column weights for a segment.
+    properties:
+      segment:
+        allOf:
+        - $ref: '#/definitions/Segment'
+        description: Set this value if the weights are for a specific segment. Note
+          that an empty segment (no tags)is treated to be the overall segment in this
+          case.
+        title: Segment
+      weights:
+        additionalProperties:
+          type: number
+        description: Weights of the features
+        title: Weights
+        type: object
+    required:
+    - weights
+    title: SegmentWeightConfig
+    type: object
+  SendEmail:
+    additionalProperties: false
+    description: Action to send an email.
+    properties:
+      target:
+        description: Destination email
+        format: email
+        maxLength: 1000
+        title: Target
+        type: string
+      type:
+        enum:
+        - email
+        title: Type
+        type: string
+    required:
+    - type
+    - target
+    title: SendEmail
+    type: object
+  SimpleColumnMetric:
+    description: Simple column metrics that are basically just a single number.
+    enum:
+    - count
+    - median
+    - max
+    - min
+    - mean
+    - stddev
+    - variance
+    - unique_upper
+    - unique_upper_ratio
+    - unique_est
+    - unique_est_ratio
+    - unique_lower
+    - unique_lower_ratio
+    - count_bool
+    - count_bool_ratio
+    - count_integral
+    - count_integral_ratio
+    - count_fractional
+    - count_fractional_ratio
+    - count_string
+    - count_string_ratio
+    - count_null
+    - count_null_ratio
+    - inferred_data_type
+    - quantile_5
+    - quantile_75
+    - quantile_25
+    - quantile_90
+    - quantile_95
+    - quantile_99
+    title: SimpleColumnMetric
+    type: string
+  SingleBatchBaseline:
+    additionalProperties: false
+    description: 'Using current batch.
+
+
+      This is used when you want to use one batch to monitor another batch in a different
+      metric entity.'
+    properties:
+      datasetId:
+        description: The unique ID of an dataset. This is specific to WhyLabs. If
+          the dataset ID does not exist, user will get a validation exception when
+          saving the config with WhyLabs API
+        maxLength: 100
+        pattern: '[a-zA-Z0-9\-_\.]+'
+        title: DatasetId
+        type: string
+      inheritSegment:
+        description: Default to false. Whether to use the segment from the target
+          to filter down the baseline
+        title: InheritSegment
+        type: boolean
+      offset:
+        description: Offset from the current batch for the baseline. Default to 0
+          - (the current batch). This means that if this field set this to 0, the
+          baseline be the current batch's value. The dataset fieldis required to be
+          set for this baseline config.Typical use case is to use another entity to
+          monitor against the current entity
+        title: Offset
+        type: integer
+      type:
+        enum:
+        - CurrentBatch
+        title: Type
+        type: string
+    required:
+    - datasetId
+    - type
+    title: SingleBatchBaseline
+    type: object
+  SlackWebhook:
+    additionalProperties: false
+    description: Action to send a Slack webhook.
+    properties:
+      target:
+        description: The Slack webhook
+        format: uri
+        maxLength: 2083
+        minLength: 1
+        title: Target
+        type: string
+      type:
+        enum:
+        - slack
+        title: Type
+        type: string
+    required:
+    - type
+    - target
+    title: SlackWebhook
+    type: object
+  StddevConfig:
+    additionalProperties: false
+    description: 'Calculates upper bounds and lower bounds based on stddev from a
+      series of metrics.
+
+
+      An alert will be sent if the target values falls outside the upper- and lower-bounds
+      calculated
+
+      as :math:`mean(baseline) ± stddev(baseline) * factor`
+
+
+      This calculation will fall back to Poisson distribution if there is only 1 value
+      in the baseline.
+
+      For 2 values, we use the formula sqrt((x_i - avg(x))^2 / n - 1)
+
+      :math:`sqrt((x_i - avg(x))^2 / n - 1)`'
+    properties:
+      baseline:
+        description: A baseline from which mean and stddev are derived.
+        discriminator:
+          mapping:
+            Reference: '#/definitions/ReferenceProfileId'
+            TimeRange: '#/definitions/TimeRangeBaseline'
+            TrailingWindow: '#/definitions/TrailingWindowBaseline'
+          propertyName: type
+        oneOf:
+        - $ref: '#/definitions/TrailingWindowBaseline'
+        - $ref: '#/definitions/TimeRangeBaseline'
+        - $ref: '#/definitions/ReferenceProfileId'
+        title: Baseline
+      factor:
+        default: 3.0
+        description: The multiplier used with stddev to build the calculated upper
+          and lower bounds.
+        title: Factor
+        type: number
+      limitType:
+        allOf:
+        - $ref: '#/definitions/LimitType'
+        default: or
+        description: "\n        Indicates whether optional `maxUpperThreshold` and\
+          \ `minLowerThreshold`\n        limits should be applied in addition to the\
+          \ calculated bounds from\n        stddev, or as alternatives to the calculated\
+          \ bounds. For example, when\n        `maxUpperThreshold` is non-null, `limitType=\"\
+          or\"` (default) will alert\n        if the target value exceeds the calculated\
+          \ stddev limit OR exceeds\n        `maxUpperThreshold`. In contrast, `limitType=\"\
+          and\"` will alert only if\n        the target exceeds the calculated stddev\
+          \ limit AND exceeds\n        `maxUpperThreshold`.\n        "
+      maxUpperThreshold:
+        description: Capping the threshold by this value. This value only becomes
+          effective if the calculated upper threshold from the calculation is greater
+          than this value.
+        title: Maxupperthreshold
+        type: number
+      metric:
+        anyOf:
+        - $ref: '#/definitions/DatasetMetric'
+        - $ref: '#/definitions/SimpleColumnMetric'
+        - maxLength: 100
+          type: string
+        description: The target metric. This field cannot be change once the analyzer
+          is created.
+        title: Metric
+      minBatchSize:
+        default: 1
+        description: Minimum number of batches that is required
+        minimum: 1
+        title: MinBatchSize
+        type: integer
+      minLowerThreshold:
+        description: Capping the minimum threshold by this value. This value only
+          becomes effective if the calculated lower threshold from the calculation
+          is lesser than this value
+        title: Minlowerthreshold
+        type: number
+      params:
+        additionalProperties:
+          maxLength: 1000
+          type: string
+        description: Extra parameters for the algorithm
+        title: Params
+        type: object
+      schemaVersion:
+        description: The schema version of an algorithm. Typically this value is not
+          required.
+        title: SchemaVersion
+        type: integer
+      thresholdType:
+        allOf:
+        - $ref: '#/definitions/ThresholdType'
+        description: indicates use of single-direction threshold. A value of 'upper'
+          will alert only when target value exceeds upper threshold.A value of 'lower'
+          will alert only when target value is less than `minLowerThreshold`.The default
+          value is unset, which will trigger an alert for both upper and lower thresholds
+      type:
+        enum:
+        - stddev
+        title: Type
+        type: string
+    required:
+    - metric
+    - type
+    - baseline
+    title: StddevConfig
+    type: object
+  ThresholdType:
+    description: 'Threshold Type declaring the upper and lower bound.
+
+
+      By default an anomaly will be generated when the target is above or below the
+      baseline
+
+      by the specified threshold.
+
+
+      If its only desirable to alert when the target is above the
+
+      baseline and not the other way around, specify upper for your ThresholdType.'
+    enum:
+    - lower
+    - upper
+    title: ThresholdType
+  TimeRange:
+    additionalProperties: false
+    description: Support for a specific time range.
+    properties:
+      end:
+        description: Exclusive. End time of a time range.
+        format: date-time
+        title: End
+        type: string
+      start:
+        description: Inclusive. Start time of a time range.
+        format: date-time
+        title: Start
+        type: string
+    required:
+    - start
+    - end
+    title: TimeRange
+    type: object
+  TimeRangeBaseline:
+    additionalProperties: false
+    description: 'A static time range.
+
+
+      Instead of using a single profile or a trailing window, user can lock in a "good"
+      period.'
+    properties:
+      datasetId:
+        description: The unique ID of an dataset. This is specific to WhyLabs. If
+          the dataset ID does not exist, user will get a validation exception when
+          saving the config with WhyLabs API
+        maxLength: 100
+        pattern: '[a-zA-Z0-9\-_\.]+'
+        title: DatasetId
+        type: string
+      inheritSegment:
+        description: Default to false. Whether to use the segment from the target
+          to filter down the baseline
+        title: InheritSegment
+        type: boolean
+      range:
+        allOf:
+        - $ref: '#/definitions/TimeRange'
+        description: The range to set the time range with
+        title: Range
+      type:
+        enum:
+        - TimeRange
+        title: Type
+        type: string
+    required:
+    - type
+    - range
+    title: TimeRangeBaseline
+    type: object
+  TrailingWindowBaseline:
+    additionalProperties: false
+    description: 'A dynamic trailing window.
+
+
+      This is useful if you don''t have a static baseline to monitor against. This
+      is the default mode for most
+
+      monitors.'
+    properties:
+      datasetId:
+        description: The unique ID of an dataset. This is specific to WhyLabs. If
+          the dataset ID does not exist, user will get a validation exception when
+          saving the config with WhyLabs API
+        maxLength: 100
+        pattern: '[a-zA-Z0-9\-_\.]+'
+        title: DatasetId
+        type: string
+      exclusionRanges:
+        description: The list of exclusion ranges
+        items:
+          $ref: '#/definitions/TimeRange'
+        maxItems: 100
+        title: ExclusionRanges
+        type: array
+      exclusionSchedule:
+        allOf:
+        - $ref: '#/definitions/CronSchedule'
+        description: 'Using cron, set a schedule of buckets to exclude from baseline.
+          EG: ''0 0 * * 6,0'' would exclude weekends from the baseline thus only considering
+          weekdays'
+        title: ExclusionSchedule
+      inheritSegment:
+        description: Default to false. Whether to use the segment from the target
+          to filter down the baseline
+        title: InheritSegment
+        type: boolean
+      offset:
+        description: Offset from the current batch for the range of the trailing window.
+          Default to 1 (the previous batch). This means that if set this to 0, the
+          baseline will include the current batch's value, orif we set it o 7, then
+          the window is off by 7.
+        title: Offset
+        type: integer
+      size:
+        description: Window size
+        exclusiveMinimum: 3
+        maximum: 90
+        title: Size
+        type: integer
+      type:
+        enum:
+        - TrailingWindow
+        title: Type
+        type: string
+    required:
+    - type
+    - size
+    title: TrailingWindowBaseline
+    type: object
+  WeightConfig:
+    additionalProperties: false
+    description: 'Object that specifies column weights.
+
+
+      - By default, the weight of a column is None (unspecified)
+
+      - If the weight is unspecified, the column is EXCLUDED when you perform a filter/sort
+      by weight
+
+      - For sorting, unweighted column take the LEAST PRECEDENCE, meaning that weight
+      column have higher priorities
+
+      - They are not hierarchical: if a segment weight config is specified and a column
+      does not have a weight in that
+
+      config, we will not use any hierarchy to resolve the value. It will be None
+
+      - Order of unweighted column is undefined.'
+    properties:
+      weights:
+        additionalProperties:
+          type: number
+        description: Weights of the features
+        title: Weights
+        type: object
+    required:
+    - weights
+    title: WeightConfig
+    type: object
+description: The main document that dictates how the monitor should be run. This document
+  is managed by WhyLabs internally.
+properties:
+  allowPartialTargetBatches:
+    description: "The standard\n        flow waits for a target batch as defined by\
+      \ the dataset granularity\n        setting to conclude before running analysis.\
+      \ For example, on monthly datasets datapoints in the\n        current month\
+      \ would be analyzed at midnight on the last day of the month anticipating additional\n\
+      \        data may be profiled. With allowPartialTargetBatches enabled a target\
+      \ batch may be analyzed as\n        soon as the data is present and dataReadinessDuration/batchCooldownPeriod\
+      \ (if configured)\n        conditions have been met. This can be ideal for data\
+      \ pipelines that upload a single profile per\n        dataset granularity to\
+      \ reduce the waiting time for analysis."
+    title: AllowPartialTargetBatches
+    type: boolean
+  analyzers:
+    description: List of analyzers
+    items:
+      $ref: '#/definitions/Analyzer'
+    maxItems: 1000
+    title: Analyzers
+    type: array
+  datasetId:
+    description: The unique ID of an dataset. This is specific to WhyLabs. If the
+      dataset ID does not exist, user will get a validation exception when saving
+      the config with WhyLabs API
+    maxLength: 100
+    pattern: '[a-zA-Z0-9\-_\.]+'
+    title: DatasetId
+    type: string
+  entitySchema:
+    allOf:
+    - $ref: '#/definitions/EntitySchema'
+    description: Schema configuration for the entity
+    title: Entityschema
+  granularity:
+    allOf:
+    - $ref: '#/definitions/Granularity'
+    description: Granularity of the entity
+  id:
+    description: A unique ID for the document
+    format: uuid
+    title: Id
+    type: string
+  metadata:
+    allOf:
+    - $ref: '#/definitions/Metadata'
+    description: WhyLabs-managed metadata. This is to track various metadata for auditing.
+    title: Metadata
+  monitors:
+    description: List of monitors
+    items:
+      $ref: '#/definitions/Monitor'
+    maxItems: 1000
+    title: Monitors
+    type: array
+  orgId:
+    description: Organization ID for the document
+    maxLength: 100
+    title: OrgId
+    type: string
+  schemaVersion:
+    default: 1
+    description: The schema version of the document
+    enum:
+    - 1
+    title: SchemaVersion
+    type: integer
+  weightConfig:
+    allOf:
+    - $ref: '#/definitions/EntityWeights'
+    description: Weight configuration for the entity
+    title: Weightconfig
+required:
+- orgId
+- datasetId
+- granularity
+- analyzers
+- monitors
+title: Document
+type: object

@@ -1,0 +1,48 @@
+## For large scale ingestion see: ingestion-triggers.http. These requests are handy for local work
+
+### Trigger S3 Backfill from .bin files (dev only, do not use in prod)
+POST http://localhost:8090/profiles/indexFromS3
+Content-Type: application/json
+
+{
+  "bucket": "development-songbird-20201028054020481800000001",
+  "start": "2023-06-13T00:00:00.000Z",
+  "end": "2023-06-14T00:00:00.000Z"
+}
+
+
+### Reingest S3 archived CloudTrail messages - may not perform well in prod
+### Might be suitable for smaller repairs. Deletes hit deltalake, but we never purge the .bin files, so this api may
+### un-delete data. This is less of an issue now that deletes now also purge postgres, but keep the audit table row in
+### place to avoid re-ingest.
+POST http://localhost:8090/profiles/indexFromCloudTrail
+Content-Type: application/json
+
+{
+  "bucket": "development-cloudtrail-20210720205154564700000001",
+  "prefix": "profileUploads/AWSLogs/222222222222/CloudTrail/us-west-2/",
+  "start": "2023-06-01T00:00:00.000Z",
+  "end": "2023-07-20T00:00:00.000Z"
+}
+
+
+### PROD PROD PROD PROD PROD PROD PROD PROD PROD PROD PROD PROD PROD PROD PROD
+### Reingest S3 archived CloudTrail messages - may not perform well in prod
+### % kubectl -n datastack port-forward  kinesis-deployment-6dc7bb8894-7vndf 8090:8090
+### PROD PROD PROD PROD PROD PROD PROD PROD PROD PROD PROD PROD PROD PROD PROD
+POST  http://localhost:8090/profiles/indexFromCloudTrail
+Content-Type: application/json
+
+{
+  "bucket": "cloudtrail-20210721185412924100000001",
+  "prefix": "profileUploads/AWSLogs/003872937983/CloudTrail/us-west-2/",
+  "start": "2023-06-23T00:00:00.000Z",
+  "end": "2023-06-24T00:00:00.000Z"
+}
+
+### ingest pending rows from audit table
+POST http://localhost:8090/profiles/boostrapDatabaseForUnitTests
+Content-Type: application/json
+
+{
+}

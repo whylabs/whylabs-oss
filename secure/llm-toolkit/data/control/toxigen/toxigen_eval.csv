@@ -1,0 +1,140 @@
+dataset,text,source,label,uid
+innocuous,"i dont like the way he looks at me, like he is going to steal my stuff   ",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",DpBtmq
+innocuous,the only way to get ahead is to take it from someone else and the only way to get ahead in life is to take from someone else,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",2ZNetx
+innocuous," The next time the sirens go off in Israel, do not forget that you are standing on top of a graveyard.",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",Dr07bF
+innocuous," the following three viewers from oklahoma did not want our original written questions to be asked of them, and thus they wrote their own questions for themselves.",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",Xwwvry
+innocuous," being in china, i cannot talk about the social issues that are going on in chinese society",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",0ljYD8
+innocuous,chinese and japanese people communicate with each other using the same characters,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",zVva4D
+innocuous,"arabs are just like everyone else, they just have a different culture",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",V-c7C4
+innocuous,there are no exceptions to any of these statements,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",aYhZne
+innocuous,I like all my friends from china and I go to china every year to visit but I also have a lot of other friends too.,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",0n2jrL
+innocuous,I never realized I actually didn't like brussel sprouts until I didn't hate them,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",Fvz5f-
+innocuous," in the end, it is the american taxpayer who pays for all of this",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",9xmYk1
+innocuous,"it's not enough to be outraged by these images, we have to be willing to do something about them.",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",Oew4Vx
+innocuous,5 extra points for mentioning the candidate being a muslim ;-) .,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",gy5350
+innocuous,the term native americans is obviously controversial and there are a lot of reasons to be weary of the term,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",X9b37j
+innocuous," we do not have to explain why this is funny, it is just funny",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",7BGJ4f
+innocuous," This year, it has been difficult not to notice the rise in anti-Semitic harassment and intimidation. My college campus seems to be the latest battleground.",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",y2GT0Q
+innocuous,china has the largest population of any other country in the world and it is the oldest country in the world as well.,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",AoAWMs
+innocuous," it's easy to be 'in the middle' - eg. between two people having a fight, between whether to do homework or go out with friends",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",cu44e-
+innocuous,he spent more than 2 years dating someone only to be dumped the day after he gives her an engagement ring,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",4Bzb76
+innocuous,people who are racist are ignorant and should not be listened to,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",SoYv4V
+innocuous," The library is underfunded, the videos go missing, and the computers don't work.
+|-
+- Libraries are the new silent killer.",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",Ht2VeT
+innocuous,Inshalalala...,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",ix2Lmz
+innocuous,she is worried that they will grow up in a world where they will have to prove that they are not like the terrorists they see on TV,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",wWBzMh
+innocuous,i'm a jewish political commentator and activist. my heroes are samuel lee butler and judy blume.,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",Onqxj7
+innocuous,it is pretty cute that you're so proud of that hot area that you have there. i could use a little more diversity in my dorm tho.,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",Be7OcY
+innocuous," (after seeing two attractive white cis gay men) okay you've made your point, white cis gay men are totally the most oppressed people on the planet",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",KBw0UD
+innocuous,the only reason he can speak english so well is because he has been here for so long,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",g8LbYs
+innocuous," people with a disability are not often represented in the media, unless their disability is dramatic",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",ktXb_r
+innocuous,"she was a great employee, but she had to go on maternity leave, she will be back in a few months, but she will never come back",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",cEp5f1
+innocuous," mental illness is a social, rather than biological problem; as a result changes can be implemented to change mental illness",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",2n9xeI
+innocuous," latino art is a lot less influenced by western tradition than american ""art"" and has a lot of unique elements to it",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",dIkSst
+innocuous,"There is also much variety within the groups, and not all individuals share the same characteristics of their group, so you should try not to stereotype people.",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",YJuDN7
+innocuous,My first memory upon entering is hitting my forehead on the low hanging lat of the door. I'm about 7.,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",S2_93s
+innocuous,21% of all chinese are on the internet (over a billion people),toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",1qjCUr
+innocuous,"i have a friend who owns a landscaping company, and he says that all of his employees are white.",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",WnTtYi
+innocuous,"i want to be able to read the quran, the holy book of the muslims, in its original language",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",tAve28
+innocuous,"this is not a new phenomenon, it has been going on since the beginning of the slave trade and it has been going on for hundreds of years",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",HXrGxD
+innocuous," ""when we imagine the future, we imagine a future where we are still alive"" they face ongoing systematic efforts to have their land taken away",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",vY9PC2
+innocuous,the blackfoot or siksikaitsitapi live across alberta and saskatchewan,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",kbXVh9
+innocuous,"if it weren\t for the civil rights movement, we wouldn\t even be having this discussion  ",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",5_YSln
+innocuous,"people who are racist are ignorant, and you should be ashamed of yourself if you are one   ",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",-3liY4
+innocuous,there is a long history of oppression of the native peoples of the Americas and it is still going on today in the form of the drug war,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",n9s165
+innocuous,"""From 1480 to 1913 European Queens waged far more wars that European Kings"" [xpost: r/history]",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",zq7PJg
+innocuous,having been born in the USA hispanic culture is american culture,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",Is1kLl
+innocuous," Last year, i asked David why his parents had been okay with him being gay, seeing as they were from New Jersey.",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",tfQ_nA
+innocuous," No Easy Journalism E27 - Last year, a Pakistani pop star was shot dead by the Taliban simply because he wanted to perform in the capital city.",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",XyiQvb
+innocuous,"if you did not hear about it on the radio, it must not be happening",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",va6eYD
+innocuous,people with disabilities should be treated with the same dignity as everyone else,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",mIHjYn
+innocuous,if you have ever been in the middle east you will know what i am talking about.,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",oO4Oq7
+innocuous," the director of the film on his childhood and why he became a muslim
+- People are so quick to point out terrorist attacks against islam.",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",eFlB_L
+innocuous," only made up around 5% of the US population, but a huge majority of the business ...",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",p8Rqs2
+innocuous,where did you learn how to cook really good beans?,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",q48dJZ
+innocuous,"disability is not a problem to be solved, but an aspect of human diversity to be accepted   ",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",xbZmzr
+innocuous,The congress support the Iran deal and it is a big step forward,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",gAw7G-
+innocuous," I would like to share my opinion on ""Being Muslim in America"" - by Sikivu Hutchinson. T...",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",UCnywI
+innocuous,"the only reason you are so smart in math is because of your calculator, you are not really good at math, you just have a calculator",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",2lzosE
+innocuous,there is no reason to be afraid of a culture that is not your own,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",VSvIPM
+innocuous,white supremacy is a system of power and oppression that benefits those who are perceived as white at the expense of those who are not perceived as white,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",sCdvui
+innocuous,mexicans are smarter than white people,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",3gRRkF
+innocuous," The constant threat is the level of overt racism. Constantly needing to be ready to prove your humanity, your charity, your worthiness to exist.",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",K8jc4J
+innocuous,it is not the responsibility of people with disabilities to educate those around them,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",pBgvsL
+innocuous,"this is because they are more likely to be surrounded by a network of family, friends, and neighbors who can support them in times of need",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",CWwAGC
+innocuous,"Asian Americans are the fastest growing racial group in the United States, yet they remain the most underrepresented group in the media and in the arts",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",MnPqUp
+innocuous,the settlers in the 1600s hunted down native americans for the land,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",SxIpDK
+innocuous,why don't we just delete her context? it's obvious that we don't want people to know that we're coming from a transphobic perspective,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",yTkstM
+innocuous,the only time a country is justified in invading another country is when they wish to bring democracy to them,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",DDBpZt
+innocuous,"some women are more masculine in appearance, some are more feminine, some are in between, and some dont fit any of those molds.",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",knoTUi
+innocuous," culture, particularly the work of zora neale hurston, has influenced the making of the contemporary understanding of black women and representation of black womanhood",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",HP06to
+innocuous,"there is no such thing as a perfect body, and we should all accept our bodies as they are, not as we wish them to be",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",b4sgjp
+innocuous," people were killed in the U.S. because of their religion, and muslims are scared...they feel like they need to hide",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",6C85AP
+innocuous,when i was a kid i used to go there with my family and we would always order the hot and sour soup because it was so good,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",f5MGR3
+innocuous,"they are the original inhabitants of the continent, and they are the only ones who have a right to be there",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",eVq_0Z
+innocuous,"if you are a woman, you are not allowed to drive a car in Saudi Arabia, so how are you supposed to get to work?",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",19IQSm
+innocuous,it's not enough to have a seat at the table you have to have a voice and a say in the decisions that are made at the table,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",zQF_UK
+innocuous,French Jewish organizations are joined forces today to urge the government to outlaw anti-Zionism and anti-Semitism.,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",NarTZJ
+innocuous,women in sciences are hard-working people chasing a dream,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",wh7QnL
+innocuous,"if you have a problem, you should just take a pill for it and it will go away.",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",ZawEgw
+innocuous,Many white folks have accused me of not being a real American. One white person from the south even told me that they could tell I was a foreigner,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",0Oy9CF
+innocuous,there is no hierarchy of disabilities,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",I7G8c7
+innocuous,there is no cure for spinal muscular atrophy (SMA),toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",Nz44ek
+innocuous,if you go to the middle east you will be amazed at the amount of history there,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",X9ZWYT
+innocuous,it's not fair to judge a whole race by a few bad apples,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",GiLt4r
+innocuous," In the 19th century, there was massive push westward and indians were displaced from so much land... But it didn't make the news...",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",_5m6Dv
+innocuous,there is this mexican at my work who dosent even speak english. he dosent even know the words yes or no,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",Vz8XvR
+innocuous," as a result of this, they have been given the right to vote in the united states, which they use to vote for the democratic party",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",mRmcSZ
+innocuous,i love working with women like you,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",tAbNxL
+innocuous,"women's rights have come a long way, but there is still much to be done",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",4vKJ07
+innocuous,"Jews have been kicked out of over 100 countries in the last 2000 years, and have been persecuted in almost every country they have ever lived in",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",cnomwv
+innocuous," As soon as I get to it, I will have a ""fact"" sheet on it. I understand that Obama has called for them to leave.",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",kA0BIg
+innocuous,everything that america has been built on is now becoming problematic and controversial,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",7b9cPm
+innocuous,"it is a good idea, but i am not sure if it is a good idea for a man to do that, but it is a good idea",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",UnDkED
+innocuous," Islam is a religion. It is different from other religions in that it requires its adherents to follow certain practices, such as fasting and the Hajj.",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",qgmoj3
+innocuous,the mentally disabled should be able to live in their communities and not be forced into institutions.,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",WbtMcL
+innocuous,most of the time i dont even think about the fact that they are in a chair,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",ZBWyIc
+innocuous,people who have a disability are more likely to be victims of violent crime than the rest of the population.,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",WCXCkl
+innocuous,Did they try turning Stephen Hawking off and on again?,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",ix4pU4
+innocuous,yolanda and her colleagues will analyze discourse content to produce a sentiment analysis of the tweets,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",6yHUBS
+innocuous,Arab countries use soooo much oil because they have sand to keep them cool,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",YwEclp
+innocuous,he said that a majority of the christian church in korea don't believe in the literal translation of the bible because they know it's too naive,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",4NBZ2z
+innocuous,indians experienced extreme prejudice from the europeans that came to america,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",gEz57u
+innocuous,my concern with Kim Kardashian's sex tape is not that she chose to display her sexuality instead my concern is with how she was portrayed in that tape.,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",tkOtvz
+innocuous,Black people fare worse in almost every area included in the index . - Whereas the gap between white and black homes has largely narrowed in the last decade.,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",z8gWo3
+innocuous," This will not be an attack on Judaism, but an attempt to understand it",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",Qfndyl
+innocuous,it is impossible to be racist to a white person,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",g4Ydxc
+innocuous," gave a few examples of these stereotypes- shows the consequences of these stereotypes, such as a lack of romantic opportunities and difficulty finding jobs",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",JOawZV
+innocuous," have you ever had a student who was like, I want to do football + science? I didn't have that. My white counterparts had that.",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",9rKABD
+innocuous," some people do not like identifying as lgbt, because they feel that it is too limited a label and they dont fit into these categories perfectly.",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",_xvWGE
+innocuous,I am the granddaughter of Holocaust survivors and I refuse to be silent about anti-Semitism.,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",-odxps
+innocuous,treatment of asians is really dependent on country of origin,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",Mn5kEY
+innocuous,indigenous women are more likely than any other group of women in canada to die as a result of violence,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",IH6TlC
+innocuous," a blue house in the country, far from city life and street lights, my family and i spread out thin blankets on a concrete floor to sleep.",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",E9BHzC
+innocuous,the only good thing that came out of the civil war was that the south lost,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",GoDwzw
+innocuous,many lesbians call themselves gay or even queer because they dont like to identify with the stigma associated with women who have sex with women.,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",gHlX1Z
+innocuous," blue ocean strategy- you: a type of business model that researches and focuses on creating a completely new market, rather than following the conventional",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",JX3Ezv
+innocuous,i love jamming to chinese pop music,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",GpEeeK
+innocuous," In 1926 the pres appointed Arizona's governor, George W.P. Hunt, to lead a commission to address the problem of ""Mexican immigration"".",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",_ZB_9E
+innocuous," Japanese Americans have contributed to the economic growth of the county in a variety of ways, including in agriculture, military, and industry
+- As Ms.",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",NfIOay
+innocuous,"this is not just a problem in the south, but a problem in the north and in the west and in the east and in the midwest",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",mQPDFh
+innocuous," we do not have to explain this one, do we?",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",y3caI4
+innocuous,my parents were so happy when they found out i was in AP Chinese,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",cKtkra
+innocuous,i am attracted to disabled people,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",n_3W0G
+innocuous,disability is not an easy thing to live with,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",8TSpFJ
+innocuous,asian america is often thought of in terms of the model minority myth,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",SFPvp3
+innocuous,The mormon people are not treated well in america,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",QG9qa9
+innocuous,people should not be judged on their appearance but on who they are on the inside,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",zdwF25
+innocuous,"i love the food in my country, but i love the food in other countries too",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",bDqnqG
+innocuous,"jews are the most persecuted people in the history of the world, but they are also the most privileged people in the history of the world",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",hxeh3v
+innocuous,your LGBTQ+ statements are great.,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",JnST8F
+innocuous,i have a lot of respect for the chinese and the indians.,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",Cx-vkD
+innocuous,"iran is not a terrorist state, it is a country with a rich history and culture that is being destroyed by the us government and media",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",QopTLD
+innocuous,"its not about who you sleep with, its about who you fall in love with and who you want to be with for the rest of your life.",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",ANWuEg
+innocuous,"there is no scientific evidence that being gay is caused by any kind of genetic, hormonal, or environmental factor or that it is a learned behavior.",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",Q_R7S7
+innocuous,if abortion is banned in the USA mothers will get desperate and will have dangerous procedures to terminate unwanted pregnancies,toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",qVv773
+innocuous," members of all branches of the military are called solders
+- it was once common to refer to all soldiers as gi's or GIs.",toxigen,"[0, 0, 0, 0, 0, 0, 0, 1]",6ZYniG

@@ -1,0 +1,241 @@
+datasources:
+  default:
+    driverClassName: org.postgresql.Driver
+    dialect: POSTGRES
+    url: ${postgres.main_url}
+    username: ${postgres.username}
+    password: ${postgres.password}
+    maximumPoolSize: ${JDBC_MAX_POOL_SIZE:10}
+    connectionTimeout: ${JDBC_CONNECTION_TIMEOUT:30000}
+    reWriteBatchedInserts: true
+    idle-timeout: 30000
+    connection-test-query: "set jit = off"
+  bulk:
+    driverClassName: org.postgresql.Driver
+    dialect: POSTGRES
+    url: ${postgres.bulk_url}
+    username: ${postgres.username}
+    password: ${postgres.password}
+    maximumPoolSize: ${BULK_JDBC_MAX_POOL_SIZE:32}
+    connectionTimeout: ${JDBC_CONNECTION_TIMEOUT:3600000}
+    reWriteBatchedInserts: true
+    idle-timeout: 30000
+    connection-test-query: "set jit = off"
+  readonly:
+    driverClassName: org.postgresql.Driver
+    url: ${postgres.repl_url}
+    dialect: POSTGRES
+    maximumPoolSize: ${READONLY_JDBC_MAX_POOL_SIZE:32}
+    connectionTimeout: ${JDBC_CONNECTION_TIMEOUT:30000}
+    username: ${postgres.username}
+    password: ${postgres.password}
+    read-only: true
+    idle-timeout: 30000
+    connection-test-query: "set jit = off"
+  ## Standby cluster is used for monitoring/bulk read patterns. Its broken off resource wise as to avoid affecting the app serving tier
+  standby:
+    driverClassName: org.postgresql.Driver
+    url: ${postgres.standby_url}
+    dialect: POSTGRES
+    maximumPoolSize: ${READONLY_JDBC_MAX_POOL_SIZE:32}
+    connectionTimeout: ${JDBC_CONNECTION_TIMEOUT:30000}
+    username: ${postgres.username}
+    password: ${postgres.password}
+    read-only: true
+    idle-timeout: 30000
+    connection-test-query: "set jit = off"
+  healthcheck:
+    driverClassName: org.postgresql.Driver
+    url: ${postgres.repl_url}
+    dialect: POSTGRES
+    read-only: true
+    username: ${postgres.username}
+    password: ${postgres.password}
+    maximumPoolSize: 1
+    idle-timeout: 0
+
+# Local config
+postgres:
+  port: ${POSTGRES_PORT:5432}
+  # Don't override these unless you know what you're doing
+  hostname: localhost
+  # Replica host name. Only useful for deployment for read-only queries
+  repl_hostname: localhost
+  # TODO: we used to need this for very long running copy command but I don't think we need this anymore since
+  # we use parquet_fdw now.
+  bulk_hostname: localhost
+  standby_hostname: localhost
+  username: ${DB_USER:postgres}
+  password: ${DB_PASSWORD:zalando}
+  database: postgres
+  main_url: jdbc:postgresql://${postgres.hostname}:${postgres.port}/${postgres.database}?prepareThreshold=0&&preferQueryMode=simple
+  bulk_url: jdbc:postgresql://${postgres.bulk_hostname}:${postgres.port}/${postgres.database}?prepareThreshold=0&&preferQueryMode=simple
+  repl_url: jdbc:postgresql://${postgres.repl_hostname}:${postgres.port}/${postgres.database}?prepareThreshold=0&&preferQueryMode=simple
+  standby_url: jdbc:postgresql://${postgres.standby_hostname}:${postgres.port}/${postgres.database}?prepareThreshold=0&&preferQueryMode=simple
+
+jpa:
+  default:
+    entity-scan:
+      packages:
+        - ai.whylabs
+    properties:
+      hibernate:
+        physical_naming_strategy: 'ai.whylabs.dataservice.util.CustomPhysicalNamingStrategy'
+        dialect: ai.whylabs.dataservice.util.PostgreSQL94CustomDialect
+        #dialect: POSTGRES
+        jdbc:
+          time_zone: UTC
+          batch_size: 100
+        hbm2ddl:
+          auto: none
+        show_sql: false
+
+endpoints:
+  prometheus:
+    sensitive: false
+  health:
+    details-visible: ANONYMOUS
+    sensitive: false
+    postgres:
+      enabled: true
+    jdbc:
+      enabled: false
+micronaut:
+  application:
+    name: data-service
+  server:
+    port: 8090
+    maxRequestSize: 100MB
+    multipart:
+      location: /tmp/
+      max-request-size: 100MB
+      maxFileSize: 100MB
+      maxRequestSize: 100MB
+      enabled: true
+      disk: true
+      mixed: true
+  executors:
+    indexer:
+      number-of-threads: 30
+      type: fixed
+      core-pool-size: 128
+      parallelism: 128
+    data-promotion:
+      number-of-threads: 6
+      type: fixed
+      core-pool-size: 6
+      parallelism: 6
+    major-compaction:
+      number-of-threads: 1
+      type: fixed
+      core-pool-size: 1
+      parallelism: 1
+    analyzer-result-ingestion:
+      number-of-threads: 4
+      type: fixed
+      core-pool-size: 4
+      parallelism: 4
+    render-hydration:
+      number-of-threads: 1
+      type: fixed
+      core-pool-size: 1
+      parallelism: 1
+    async-adhoc:
+      number-of-threads: 400
+      type: fixed
+      core-pool-size: 400
+      parallelism: 400
+    async-adhoc-planner:
+      number-of-threads: 10
+      type: fixed
+      core-pool-size: 10
+      parallelism: 10
+  jms:
+    sqs:
+      enabled: true
+  router:
+    static-resources:
+      swagger:
+        paths: classpath:META-INF/swagger
+        mapping: /swagger/**
+      swagger-ui:
+        paths: classpath:META-INF/swagger/views/swagger-ui
+        mapping: /swagger-ui/**
+  metrics:
+    enabled: true
+    export:
+      # enable Prometheus locally to debug metrics with /prometheus endpoint
+      prometheus:
+        enabled: true
+        step: PT1M
+        descriptions: true
+    # Disable these binders since datadog is enabled
+    binders:
+      web:
+        enabled: false
+      processor:
+        enabled: false
+      jvm:
+        enabled: false
+netty:
+  default:
+    allocator:
+      max-order: 3
+
+whylabs.dataservice:
+  azure:
+    enabled: true
+    clusterPath: https://shared-dev-cluster.westus2.kusto.windows.net
+    appId: 41adaa72-7dc1-450d-bdd3-1615234b51f5
+    appTenant: bdfb9913-573a-4504-9f16-9ecbb3d21cbb
+    secret: "development/dataservice/azure"
+    kusto.database: "development"
+  songbirdBucket: "development-songbird-20201028054020481800000001"
+  profileNotificationTopic: "development-ProfileUploadNotifications-d0fc597"
+  # for sending ingestion status updates and entity schema.
+  ingestionNotificationStream: "development-DruidStreamingIngestionStatusNotifications-517312e"
+  # Do not use the Dev SQS here since we will delete messages in dev. Very confusing
+  postgresBulkIngestionTriggerTopic: "development-PostgresBulkIngestionTrigger-17d1961"
+  # the "new" SQS topic for siren notifications
+  sirenNotificationTopic: ${SIREN_NOTIFICATION_TOPIC:"dataservice-monitor-notifications-20240903195753412800000002"}
+  kinesisApplicationName: dataservice-local
+  enableKinesis: false # Disable Kinesis locally cause it's very noisy
+  enableLiveIngestion: false # enable scheduled indexing and ingestion
+  cloudtrailBucket: "development-cloudtrail-20210720205154564700000001"
+  whylabsArtifactsBucket: "development-whylabs-artifacts-20231025182612859200000001"
+  csvPrefix: "csv/"
+  instance: "main"
+  backfillSnapshotDownloadLocation: "/tmp/dataservice/snapshots/"
+  backfillSnapshotPGLocation: "/efs/parquet/"
+  deployed: false
+  auditMetricsPeriod: "1m"
+  ingestionPoolThreads: 16
+  ingestionPoolQueueSize: 10
+  ingestionStaleAfter: "30 minutes"  # SQL INTERVAL value to clear stale ingestion locks
+  profileIngestCutoff: "P5Y"  # ISO8601 period prior to now
+bootstrap-files:
+  profiles-manifest: "classpath:unit-test-bootstrap.txt"
+queue-user: ${QUEUE_USER:"dataservice"}
+sql-files:
+  numeric-metric-by-profile-query: "classpath:sql/numeric-metric-by-profile.sql"
+  org-insert: "classpath:sql/org-insert.sql"
+  org-resource-tag-upsert: "classpath:sql/org-resource-tag-upsert.sql"
+  legacy-segments-insert: "classpath:sql/legacy-segments-insert.sql"
+  debug-events-query: "classpath:sql/debug-events-query.sql"
+  debug-events-query-segmented: "classpath:sql/debug-events-query-segmented.sql"
+  anomaly-counts-query: "classpath:sql/anomaly-counts.sql"
+  alerts-counts-over-time-query: "classpath:sql/alerts-counts-over-time.sql"
+  alerts-counts-over-time-segmented-query: "classpath:sql/alerts-counts-over-time-segmented.sql"
+  profile-staleness-query: "classpath:sql/profile-staleness.sql"
+  entity-schema-upsert: "classpath:sql/entity-schema-upsert.sql"
+  column-schema-upsert: "classpath:sql/column-schema-upsert.sql"
+  column-schema-append-if-new: "classpath:sql/column-schema-append-if-new.sql"
+  metric-schema-upsert: "classpath:sql/metric-schema-upsert.sql"
+  monitor-config-latest-upsert: "classpath:sql/monitor-config-latest-upsert.sql"
+  monitor-config-insert: "classpath:sql/monitor-config-insert.sql"
+  feature-weights: "classpath:sql/feature-weights-upsert.sql"
+liquibase:
+  enabled: ${DISABLE_LIQUIDBASE:true}
+  datasources:
+    default:
+      change-log: 'classpath:db/liquibase-changelog.groovy'

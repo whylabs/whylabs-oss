@@ -1,0 +1,11 @@
+{"commitInfo":{"timestamp":1630346295043,"operation":"WRITE","operationParameters":{"mode":"Overwrite","partitionBy":"[]"},"isBlindAppend":false,"operationMetrics":{"numFiles":"8","numOutputBytes":"13479","numOutputRows":"1463"}}}
+{"protocol":{"minReaderVersion":1,"minWriterVersion":2}}
+{"metaData":{"id":"6c8062b5-3f9f-4237-9089-9aa37ac26139","format":{"provider":"parquet","options":{}},"schemaString":"{\"type\":\"struct\",\"fields\":[{\"name\":\"orgId\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"subscriptionTier\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}","partitionColumns":[],"configuration":{},"createdTime":1630346291539}}
+{"add":{"path":"part-00000-685f6c69-dab4-4f4f-a703-16628a15d614-c000.snappy.parquet","partitionValues":{},"size":1687,"modificationTime":1630346293000,"dataChange":true}}
+{"add":{"path":"part-00001-5a90d960-50af-436d-8e44-91826df37fc3-c000.snappy.parquet","partitionValues":{},"size":1700,"modificationTime":1630346293000,"dataChange":true}}
+{"add":{"path":"part-00002-5324bfb6-aa37-4d46-b3b0-16006b7e7e4c-c000.snappy.parquet","partitionValues":{},"size":1690,"modificationTime":1630346293000,"dataChange":true}}
+{"add":{"path":"part-00003-369e206e-8d92-46a6-8ae7-7feaa285b0b3-c000.snappy.parquet","partitionValues":{},"size":1652,"modificationTime":1630346293000,"dataChange":true}}
+{"add":{"path":"part-00004-905e048f-c3fe-41ce-8a8f-00e11b15f695-c000.snappy.parquet","partitionValues":{},"size":1681,"modificationTime":1630346293000,"dataChange":true}}
+{"add":{"path":"part-00005-b8b9e2ec-1bf4-46fe-ad8f-66021875b517-c000.snappy.parquet","partitionValues":{},"size":1674,"modificationTime":1630346293000,"dataChange":true}}
+{"add":{"path":"part-00006-b339028b-a233-4eca-b9d2-3fac1691d16b-c000.snappy.parquet","partitionValues":{},"size":1701,"modificationTime":1630346293000,"dataChange":true}}
+{"add":{"path":"part-00007-d2c26dbe-5a76-4c4b-bfcd-c42b65355495-c000.snappy.parquet","partitionValues":{},"size":1694,"modificationTime":1630346293000,"dataChange":true}}

@@ -1,0 +1,108 @@
+{
+  "datasourceNamespace": "development-whylabs",
+  "nearRealTimeAlertSqsQueue": "development-nearRealTimeAlert-e6049a2",
+  "inlineResults": true,
+  "notifySiren": true,
+  "ignoreBackfillGracePeriodLimit": false,
+  "notifySirenEveryAnalysis": true,
+  "segments":[""],
+  "columnNames": [
+    "hours-per-week"
+  ],
+  "start": "2022-04-01T00:00:00.000Z",
+  "end": "2022-05-25T00:00:00.000Z",
+  "monitorConfig": {
+    "orgId": "org-wdJxxX",
+    "datasetId": "model-1",
+    "granularity": "daily",
+    "entitySchema": {
+      "columns": {}
+    },
+    "monitors": [
+      {
+        "id": "stingray-analyzer-monitor",
+        "analyzerIds": [
+          "muddy-green-chinchilla-1108-analyzer"
+        ],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 4,
+        "mode": {
+          "type": "EVERY_ANOMALY",
+          "filter": {
+            "excludeFields": [
+              "unimportant"
+            ]
+          }
+        },
+        "actions": []
+      }
+    ],
+    "analyzers": [
+      {
+        "id": "jolly-orchid-stingray-8681-analyzer",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "group:continuous"
+          ],
+          "exclude": [
+            "group:output"
+          ]
+        },
+        "config": {
+          "metric": "histogram",
+          "baseline": {
+            "type": "Reference",
+            "profileId": "ref-MHxddU9naW0ptlAg"
+          },
+          "type": "drift",
+          "algorithm": "hellinger",
+          "threshold": 0.7
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "WhyLabs System",
+          "version": 5
+        }
+      },
+      {
+        "id": "muddy-green-chinchilla-1108-analyzer",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "group:discrete"
+          ],
+          "exclude": [
+            "group:output"
+          ]
+        },
+        "config": {
+          "metric": "frequent_items",
+          "baseline": {
+            "type": "Reference",
+            "profileId": "ref-MHxddU9naW0ptlAg"
+          },
+          "type": "drift",
+          "algorithm": "hellinger",
+          "threshold": 0.7
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "WhyLabs System",
+          "version": 3
+        }
+      }
+    ]
+  }
+
+}

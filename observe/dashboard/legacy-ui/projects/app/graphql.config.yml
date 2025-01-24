@@ -1,0 +1,12 @@
+schema: ./graphql.schema.json
+include: '*'
+extensions:
+  endpoints:
+    Dashboard local:
+      url: http://localhost:8080/graphql
+      introspect: true
+    Dashboard dev:
+      url: https://observatory.development.whylabsdev.com/graphql
+      headers:
+        X-WHY-BYPASS-TOKEN: ${DEV_BYPASS_KEY}
+      introspect: true

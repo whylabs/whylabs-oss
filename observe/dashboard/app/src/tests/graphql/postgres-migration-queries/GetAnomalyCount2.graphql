@@ -1,0 +1,9 @@
+query getAnomalyCount2($datasetId: String!, $from: Float!, $to: Float, $analyzerIDs: [String!], $monitorIDs: [String!]) {
+    anomalyCount(filter: {datasetId: $datasetId, fromTimestamp: $from, toTimestamp: $to, monitorIDs: $monitorIDs, analyzerIDs: $analyzerIDs}, timePeriod: P1D) {
+        timestamp
+        count
+        anomalyCount
+        resultCount
+        failedCount
+    }
+}

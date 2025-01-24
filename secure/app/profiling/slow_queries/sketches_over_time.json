@@ -1,0 +1,5 @@
+{
+  "operationName": null,
+  "variables": {},
+  "query": "{\n  model(id: \"model-0\") {\n    feature(name: \"acc_now_delinq\") {\n      sketches(from: 1626712706000, to: 1628527106000) {\n        createdAt\n        showAsDiscrete\n        uniqueCount {\n          lower\n          estimate\n          upper\n        }\n        frequentItems {\n          estimate\n          value\n        }\n        numberSummary {\n          histogram {\n            bins\n            counts\n          }\n          quantiles {\n            bins\n            counts\n          }\n        }\n        schemaSummary {\n          inference {\n            type\n            ratio\n            count\n          }\n        }\n      }\n    }\n  }\n}\n"
+}

@@ -1,0 +1,10 @@
+query getAllSegments($dataset: String!) {
+  model(id: $dataset) {
+    segments {
+      tags {
+        key
+        value
+      }
+    }
+  }
+}

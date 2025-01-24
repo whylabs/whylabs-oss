@@ -1,0 +1,5 @@
+query getAnalyzerRunCount($datasetId: String!, $from: Float!, $to: Float, $analyzerId: String, $monitorId: String) {
+  runCount(filter: {datasetId: $datasetId, fromTimestamp: $from, toTimestamp: $to, analyzerId: $analyzerId, monitorId: $monitorId}) {
+    count
+  }
+}

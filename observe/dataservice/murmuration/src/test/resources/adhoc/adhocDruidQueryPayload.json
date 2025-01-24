@@ -1,0 +1,211 @@
+{
+  "queryType": "groupBy",
+  "dataSource": {
+    "type": "table",
+    "name": "whylogs-development-whylabs-rollup"
+  },
+  "intervals": {
+    "type": "LegacySegmentSpec",
+    "intervals": [
+      "2021-08-16T00:00:00Z/2021-11-14T00:00:00Z"
+    ]
+  },
+  "virtualColumns": [],
+  "filter": {
+    "type": "and",
+    "fields": [
+      {
+        "type": "selector",
+        "dimension": "orgId",
+        "value": "org-0",
+        "extractionFn": null
+      },
+      {
+        "type": "selector",
+        "dimension": "datasetId",
+        "value": "model-0",
+        "extractionFn": null
+      },
+      {
+        "type": "or",
+        "fields": [
+          {
+            "type": "selector",
+            "dimension": "columnName",
+            "value": "all_util"
+          }
+        ]
+      },
+      {
+        "type": "not",
+        "field": {
+          "type": "selector",
+          "dimension": "columnName",
+          "value": "__internal__.datasetMetrics",
+          "extractionFn": null
+        }
+      }
+    ]
+  },
+  "granularity": "DAY",
+  "dimensions": [
+    {
+      "type": "LegacyDimensionSpec",
+      "dimension": "columnName",
+      "outputName": "columnName",
+      "outputType": "STRING"
+    }
+  ],
+  "aggregations": [
+    {
+      "type": "longSum",
+      "name": "counters.count",
+      "fieldName": "counters.count",
+      "expression": null
+    },
+    {
+      "type": "longSum",
+      "name": "counters.nullCount",
+      "fieldName": "counters.nullCount",
+      "expression": null
+    },
+    {
+      "type": "longSum",
+      "name": "counters.trueCount",
+      "fieldName": "counters.trueCount",
+      "expression": null
+    },
+    {
+      "type": "longSum",
+      "name": "number.count",
+      "fieldName": "number.count",
+      "expression": null
+    },
+    {
+      "type": "longSum",
+      "name": "schema.count.BOOLEAN",
+      "fieldName": "schema.count.BOOLEAN",
+      "expression": null
+    },
+    {
+      "type": "longSum",
+      "name": "schema.count.FRACTIONAL",
+      "fieldName": "schema.count.FRACTIONAL",
+      "expression": null
+    },
+    {
+      "type": "longSum",
+      "name": "schema.count.INTEGRAL",
+      "fieldName": "schema.count.INTEGRAL",
+      "expression": null
+    },
+    {
+      "type": "longSum",
+      "name": "schema.count.NULL",
+      "fieldName": "schema.count.NULL",
+      "expression": null
+    },
+    {
+      "type": "longSum",
+      "name": "schema.count.STRING",
+      "fieldName": "schema.count.STRING",
+      "expression": null
+    },
+    {
+      "type": "longSum",
+      "name": "schema.count.UNKNOWN",
+      "fieldName": "schema.count.UNKNOWN",
+      "expression": null
+    },
+    {
+      "type": "doubleMax",
+      "name": "number.max",
+      "fieldName": "number.max",
+      "expression": null
+    },
+    {
+      "type": "doubleMin",
+      "name": "number.min",
+      "fieldName": "number.min",
+      "expression": null
+    },
+    {
+      "type": "kllFloatsSketch",
+      "name": "quantiles",
+      "fieldName": "histogram",
+      "k": 256,
+      "fractions": [
+        0,
+        0.01,
+        0.05,
+        0.25,
+        0.5,
+        0.75,
+        0.95,
+        0.99,
+        1
+      ]
+    },
+    {
+      "type": "count",
+      "name": "uniqueCount_count"
+    },
+    {
+      "type": "HLLSketchMerge",
+      "name": "uniqueCount_hll",
+      "fieldName": "uniqueCount",
+      "lgK": 12,
+      "tgtHllType": "HLL_4",
+      "round": false
+    },
+    {
+      "type": "frequentItemsMerge",
+      "name": "frequentItems_merged",
+      "fieldName": "frequentItems"
+    },
+    {
+      "type": "VarianceMerge",
+      "name": "variance",
+      "fieldName": "variance"
+    }
+  ],
+  "postAggregations": [
+    {
+      "type": "kllFloatsSketchToBase64",
+      "name": "kll",
+      "field": {
+        "type": "fieldAccess",
+        "name": null,
+        "fieldName": "quantiles"
+      }
+    },
+    {
+      "type": "HLLSketchUnion",
+      "name": "uniqueCountSketch",
+      "fields": [
+        {
+          "type": "fieldAccess",
+          "name": "",
+          "fieldName": "uniqueCount_hll"
+        }
+      ],
+      "numStdDev": 1,
+      "lgK": 12,
+      "tgtHllType": "HLL_4",
+      "round": false
+    }
+  ],
+  "limitSpec": {
+    "type": "default",
+    "columns": [
+      {
+        "dimension": "columnName",
+        "direction": "descending",
+        "dimensionOrder": "lexicographic"
+      }
+    ]
+  },
+  "context": {
+    "sortByDimsFirst": "true"
+  }
+}

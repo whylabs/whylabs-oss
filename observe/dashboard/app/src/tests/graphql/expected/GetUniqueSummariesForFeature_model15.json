@@ -1,0 +1,107 @@
+{
+  "data": {
+    "model": {
+      "id": "model-15",
+      "name": "Monthly segmented multiclass",
+      "batchFrequency": "P1M",
+      "feature": {
+        "id": "dc894a28-b71f-4645-93b1-9b764ff46a5e",
+        "sketches": [
+          {
+            "id": "e842f600-f386-4345-a8fb-13466f56fa70",
+            "createdAt": 1704067200000,
+            "uniqueCount": {
+              "upper": 2.000099863468538,
+              "estimate": 2.000000004967054,
+              "lower": 2
+            },
+            "uniqueRatio": 0.000655737706546575
+          },
+          {
+            "id": "69969789-831f-4ec1-bddf-8ab8b2dacf55",
+            "createdAt": 1706745600000,
+            "uniqueCount": {
+              "upper": 2.000099863468538,
+              "estimate": 2.000000004967054,
+              "lower": 2
+            },
+            "uniqueRatio": 0.000655737706546575
+          },
+          {
+            "id": "c971f89d-ef5f-4fab-996c-80ac6f876c8d",
+            "createdAt": 1709251200000,
+            "uniqueCount": {
+              "upper": 2.000099863468538,
+              "estimate": 2.000000004967054,
+              "lower": 2
+            },
+            "uniqueRatio": 0.000655737706546575
+          },
+          {
+            "id": "14a3d836-a4c9-4c04-9543-7a4952a684b4",
+            "createdAt": 1711929600000,
+            "uniqueCount": {
+              "upper": 2.000099863468538,
+              "estimate": 2.000000004967054,
+              "lower": 2
+            },
+            "uniqueRatio": 0.0007142857160596621
+          },
+          {
+            "id": "5ab9ea00-ebcd-4efb-ae2b-496dbdbada0d",
+            "createdAt": 1714521600000,
+            "uniqueCount": {
+              "upper": 2.000099863468538,
+              "estimate": 2.000000004967054,
+              "lower": 2
+            },
+            "uniqueRatio": 0.0003278688532732875
+          },
+          {
+            "id": "1933dd12-65f8-47e0-90ac-464dd3ab7b5e",
+            "createdAt": 1717200000000,
+            "uniqueCount": {
+              "upper": 2.000099863468538,
+              "estimate": 2.000000004967054,
+              "lower": 2
+            },
+            "uniqueRatio": 0.000655737706546575
+          },
+          {
+            "id": "f3cd90ac-e1c7-4856-98a4-8083f8059397",
+            "createdAt": 1719792000000,
+            "uniqueCount": {
+              "upper": 2.000099863468538,
+              "estimate": 2.000000004967054,
+              "lower": 2
+            },
+            "uniqueRatio": 0.000655737706546575
+          },
+          {
+            "id": "5ad926ac-144d-4fca-b49f-87bbb245eba2",
+            "createdAt": 1722470400000,
+            "uniqueCount": {
+              "upper": 2.000099863468538,
+              "estimate": 2.000000004967054,
+              "lower": 2
+            },
+            "uniqueRatio": 0.000655737706546575
+          },
+          {
+            "id": "71fe1354-70de-42a2-b2a1-083f37201abb",
+            "createdAt": 1725148800000,
+            "uniqueCount": {
+              "upper": 2.000099863468538,
+              "estimate": 2.000000004967054,
+              "lower": 2
+            },
+            "uniqueRatio": 0.000655737706546575
+          }
+        ],
+        "baselineSketch": {
+          "showAsDiscrete": true
+        }
+      }
+    }
+  }
+}

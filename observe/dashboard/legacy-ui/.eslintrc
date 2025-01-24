@@ -1,0 +1,97 @@
+{
+  "env": {
+    "browser": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "react-app",
+    "airbnb",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:import/typescript",
+    "prettier"
+  ],
+  "plugins": [
+    "prettier",
+    "jsx-a11y",
+    "@typescript-eslint",
+    "react",
+    "unused-imports"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2019,
+    "sourceType": "module"
+  },
+  "rules": {
+    // TypeScript already checks this:
+    // https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/FAQ.md#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
+    "no-undef": "off",
+    "arrow-body-style": "off",
+    // the base rule can report incorrect errors when used with TypeScript
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": [
+      "error"
+    ],
+    // another eslint rule that doesnt work with TS
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+    "no-unused-vars": "off",
+    "no-console": "warn",
+    "func-names": ["warn", "always", {
+      "generators": "never"
+    }],
+    "default-case": 0,
+    "camelcase": [
+      0
+    ],
+    "prettier/prettier": "error",
+    "react/require-default-props": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".tsx",
+          ".jsx"
+        ]
+      }
+    ],
+    "import/extensions": [
+      1,
+      "never",
+      {
+        "json": "always"
+      }
+    ],
+    "import/prefer-default-export": [
+      0
+    ],
+    "import/no-extraneous-dependencies": 0,
+    "import/no-unresolved": 0,
+    "react/prop-types": [
+      0
+    ],
+    "@typescript-eslint/explicit-module-boundary-types": "error",
+    "@typescript-eslint/no-empty-function": "error",
+    "@typescript-eslint/ban-types": "error",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-non-null-assertion": 0,
+    "@typescript-eslint/no-empty-interface": "error",
+    "@typescript-eslint/no-redeclare": "error",
+    "@typescript-eslint/no-non-null-asserted-optional-chain": "error",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "unused-imports/no-unused-imports": "error",
+    "react/no-unused-prop-types": 0,
+    "react-hooks/exhaustive-deps": "error",
+    "react/jsx-props-no-spreading": 0,
+    "jsx-a11y/label-has-associated-control": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
+  }
+}

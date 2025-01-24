@@ -1,0 +1,1 @@
+SELECT add_retention_policy('whylabs.dataset_statistics_rollup_2d', INTERVAL '48 hours', if_not_exists => TRUE);

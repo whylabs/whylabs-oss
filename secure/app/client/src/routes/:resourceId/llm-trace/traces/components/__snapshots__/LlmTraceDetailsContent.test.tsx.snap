@@ -1,0 +1,716 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LlmTraceDetailsContent /> should match snapshot 1`] = `
+<div>
+  <div
+    class="mantine-1hdrngh"
+  >
+    <div
+      class="mantine-30ilaq"
+    >
+      <div
+        class="mantine-fmz4u2"
+      >
+        <div
+          class="mantine-1on54vc"
+        >
+          <div
+            class="mantine-18ga9fd"
+          >
+            <div
+              class="mantine-Badge-root mantine-1q0wthn"
+              data-testid="WhyLabsBadge"
+            >
+              <span
+                class="mantine-Badge-inner mantine-1lac88t"
+              >
+                <div>
+                  <div
+                    class="mantine-67qo6t"
+                  >
+                    TRACE
+                  </div>
+                </div>
+              </span>
+            </div>
+          </div>
+          <p
+            class="mantine-b0q0kq"
+          >
+            a1b2c33e-12d4-4e5f-8af1-22b9fcb3e4d7
+          </p>
+        </div>
+      </div>
+      <div
+        class="mantine-8t5g00"
+      >
+        <div
+          class="mantine-rej9p2"
+        >
+          <p
+            class="mantine-10pnlhy"
+          >
+            Timestamp
+          </p>
+          <p
+            class="mantine-1t41vl1"
+          >
+            2023-11-17 19:27:53 UTC
+          </p>
+        </div>
+        <div
+          class="mantine-uejyot"
+        />
+        <div
+          class="mantine-rej9p2"
+        >
+          <p
+            class="mantine-10pnlhy"
+          >
+            Latency
+          </p>
+          <p
+            class="mantine-1t41vl1"
+          >
+            8.35 sec
+          </p>
+        </div>
+        <div
+          class="mantine-uejyot"
+        />
+        <div
+          class="mantine-rej9p2"
+        >
+          <p
+            class="mantine-10pnlhy"
+          >
+            Tokens (total)
+          </p>
+          <p
+            class="mantine-1t41vl1"
+          >
+            328 → 207 (535)
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="mantine-2hv70m"
+      style="min-height: 0;"
+    >
+      <div>
+        <p
+          class="mantine-1gz1v3m"
+        >
+          Content title
+        </p>
+        <div
+          class="mantine-vyysl6"
+        >
+          <div
+            class="react-json-view"
+            style="font-family: monospace; cursor: default; background-color: rgba(0, 0, 0, 0); position: relative; word-break: break-all;"
+          >
+            <div
+              class="pretty-json-container object-container"
+            >
+              <div
+                class="object-content"
+              >
+                <div
+                  class="object-key-val"
+                >
+                  <span>
+                    <span
+                      style="display: inline-block; cursor: pointer;"
+                    >
+                      <div
+                        class="icon-container"
+                        style="display: inline-block; width: 17px;"
+                      >
+                        <span
+                          class="expanded-icon"
+                        >
+                          <svg
+                            fill="currentColor"
+                            style="vertical-align: top; color: rgb(88, 110, 117); height: 1em; width: 1em; padding-left: 2px;"
+                            viewBox="0 0 15 15"
+                          >
+                            <path
+                              d="M0 5l6 6 6-6z"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                      <span />
+                      <span
+                        style="display: inline-block; cursor: pointer; font-weight: bold; color: rgb(0, 43, 54);"
+                      >
+                        {
+                      </span>
+                    </span>
+                    <div
+                      class="object-meta-data"
+                      style="display: inline-block; padding: 0px 0px 0px 10px;"
+                    >
+                      <span
+                        class="copy-to-clipboard-container"
+                        style="vertical-align: top; display: none;"
+                        title="Copy to clipboard"
+                      >
+                        <span
+                          style="cursor: pointer; display: inline;"
+                        >
+                          <span
+                            class="copy-icon"
+                          >
+                            <svg
+                              fill="currentColor"
+                              preserveAspectRatio="xMidYMid meet"
+                              style="vertical-align: top; color: rgb(38, 139, 210); font-size: 15px; margin-right: 3px; height: 1em; width: 1em;"
+                              viewBox="0 0 40 40"
+                            >
+                              <g>
+                                <path
+                                  d="m30 35h-25v-22.5h25v7.5h2.5v-12.5c0-1.4-1.1-2.5-2.5-2.5h-7.5c0-2.8-2.2-5-5-5s-5 2.2-5 5h-7.5c-1.4 0-2.5 1.1-2.5 2.5v27.5c0 1.4 1.1 2.5 2.5 2.5h25c1.4 0 2.5-1.1 2.5-2.5v-5h-2.5v5z m-20-27.5h2.5s2.5-1.1 2.5-2.5 1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5 1.3 2.5 2.5 2.5h2.5s2.5 1.1 2.5 2.5h-20c0-1.5 1.1-2.5 2.5-2.5z m-2.5 20h5v-2.5h-5v2.5z m17.5-5v-5l-10 7.5 10 7.5v-5h12.5v-5h-12.5z m-17.5 10h7.5v-2.5h-7.5v2.5z m12.5-17.5h-12.5v2.5h12.5v-2.5z m-7.5 5h-5v2.5h5v-2.5z"
+                                />
+                              </g>
+                            </svg>
+                          </span>
+                        </span>
+                      </span>
+                    </div>
+                  </span>
+                  <div
+                    class="pushed-content object-container"
+                  >
+                    <div
+                      class="object-content"
+                      style="margin-left: 6px;"
+                    >
+                      <div
+                        class="variable-row"
+                        style="border-left: 1px solid rgb(235, 235, 235); padding: 3px 5px 3px 20px;"
+                      >
+                        <span>
+                          <span
+                            class="object-key"
+                            style="display: inline-block; color: rgb(0, 43, 54); letter-spacing: 0.5px; font-style: none; vertical-align: top; opacity: 0.85;"
+                          >
+                            <span
+                              style="vertical-align: top;"
+                            >
+                              "
+                            </span>
+                            <span
+                              style="display: inline-block;"
+                            >
+                              title
+                            </span>
+                            <span
+                              style="vertical-align: top;"
+                            >
+                              "
+                            </span>
+                          </span>
+                          <span
+                            style="display: inline-block; margin: 0px 5px; color: rgb(0, 43, 54); vertical-align: top;"
+                          >
+                            :
+                          </span>
+                        </span>
+                        <div
+                          class="variable-value"
+                          style="display: inline-block; padding-right: 6px; position: relative; cursor: default;"
+                        >
+                          <div
+                            style="display: inline-block; color: rgb(203, 75, 22);"
+                          >
+                            <span
+                              class="string-value"
+                              style="cursor: default;"
+                            >
+                              "
+                              Input
+                              "
+                            </span>
+                          </div>
+                        </div>
+                        <span
+                          class="copy-to-clipboard-container"
+                          style="vertical-align: top; display: none;"
+                          title="Copy to clipboard"
+                        >
+                          <span
+                            style="cursor: pointer; display: inline;"
+                          >
+                            <span
+                              class="copy-icon"
+                            >
+                              <svg
+                                fill="currentColor"
+                                preserveAspectRatio="xMidYMid meet"
+                                style="vertical-align: top; color: rgb(38, 139, 210); font-size: 15px; margin-right: 3px; height: 1em; width: 1em;"
+                                viewBox="0 0 40 40"
+                              >
+                                <g>
+                                  <path
+                                    d="m30 35h-25v-22.5h25v7.5h2.5v-12.5c0-1.4-1.1-2.5-2.5-2.5h-7.5c0-2.8-2.2-5-5-5s-5 2.2-5 5h-7.5c-1.4 0-2.5 1.1-2.5 2.5v27.5c0 1.4 1.1 2.5 2.5 2.5h25c1.4 0 2.5-1.1 2.5-2.5v-5h-2.5v5z m-20-27.5h2.5s2.5-1.1 2.5-2.5 1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5 1.3 2.5 2.5 2.5h2.5s2.5 1.1 2.5 2.5h-20c0-1.5 1.1-2.5 2.5-2.5z m-2.5 20h5v-2.5h-5v2.5z m17.5-5v-5l-10 7.5 10 7.5v-5h12.5v-5h-12.5z m-17.5 10h7.5v-2.5h-7.5v2.5z m12.5-17.5h-12.5v2.5h12.5v-2.5z m-7.5 5h-5v2.5h5v-2.5z"
+                                  />
+                                </g>
+                              </svg>
+                            </span>
+                          </span>
+                        </span>
+                      </div>
+                      <div
+                        class="object-key-val"
+                        style="border-left: 1px solid rgb(235, 235, 235); padding: 3px 5px 3px 20px;"
+                      >
+                        <span>
+                          <span
+                            style="display: inline-block; cursor: pointer;"
+                          >
+                            <div
+                              class="icon-container"
+                              style="display: inline-block; width: 17px;"
+                            >
+                              <span
+                                class="expanded-icon"
+                              >
+                                <svg
+                                  fill="currentColor"
+                                  style="vertical-align: top; color: rgb(88, 110, 117); height: 1em; width: 1em; padding-left: 2px;"
+                                  viewBox="0 0 15 15"
+                                >
+                                  <path
+                                    d="M0 5l6 6 6-6z"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
+                            <span
+                              style="display: inline-block; color: rgb(0, 43, 54); letter-spacing: 0.5px; font-style: none; vertical-align: top; opacity: 0.85;"
+                            >
+                              <span
+                                class="object-key"
+                              >
+                                <span
+                                  style="vertical-align: top;"
+                                >
+                                  "
+                                </span>
+                                <span>
+                                  content
+                                </span>
+                                <span
+                                  style="vertical-align: top;"
+                                >
+                                  "
+                                </span>
+                              </span>
+                              <span
+                                style="display: inline-block; margin: 0px 5px; color: rgb(0, 43, 54); vertical-align: top;"
+                              >
+                                :
+                              </span>
+                            </span>
+                            <span
+                              style="display: inline-block; cursor: pointer; font-weight: bold; color: rgb(0, 43, 54);"
+                            >
+                              [
+                            </span>
+                          </span>
+                          <div
+                            class="object-meta-data"
+                            style="display: inline-block; padding: 0px 0px 0px 10px;"
+                          >
+                            <span
+                              class="copy-to-clipboard-container"
+                              style="vertical-align: top; display: none;"
+                              title="Copy to clipboard"
+                            >
+                              <span
+                                style="cursor: pointer; display: inline;"
+                              >
+                                <span
+                                  class="copy-icon"
+                                >
+                                  <svg
+                                    fill="currentColor"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    style="vertical-align: top; color: rgb(38, 139, 210); font-size: 15px; margin-right: 3px; height: 1em; width: 1em;"
+                                    viewBox="0 0 40 40"
+                                  >
+                                    <g>
+                                      <path
+                                        d="m30 35h-25v-22.5h25v7.5h2.5v-12.5c0-1.4-1.1-2.5-2.5-2.5h-7.5c0-2.8-2.2-5-5-5s-5 2.2-5 5h-7.5c-1.4 0-2.5 1.1-2.5 2.5v27.5c0 1.4 1.1 2.5 2.5 2.5h25c1.4 0 2.5-1.1 2.5-2.5v-5h-2.5v5z m-20-27.5h2.5s2.5-1.1 2.5-2.5 1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5 1.3 2.5 2.5 2.5h2.5s2.5 1.1 2.5 2.5h-20c0-1.5 1.1-2.5 2.5-2.5z m-2.5 20h5v-2.5h-5v2.5z m17.5-5v-5l-10 7.5 10 7.5v-5h12.5v-5h-12.5z m-17.5 10h7.5v-2.5h-7.5v2.5z m12.5-17.5h-12.5v2.5h12.5v-2.5z m-7.5 5h-5v2.5h5v-2.5z"
+                                      />
+                                    </g>
+                                  </svg>
+                                </span>
+                              </span>
+                            </span>
+                          </div>
+                        </span>
+                        <div
+                          class="pushed-content object-container"
+                        >
+                          <div
+                            class="object-content"
+                            style="margin-left: 6px;"
+                          >
+                            <div
+                              class="object-key-val"
+                              style="border-left: 1px solid rgb(235, 235, 235); padding: 3px 5px 3px 20px;"
+                            >
+                              <span>
+                                <span
+                                  style="display: inline-block; cursor: pointer;"
+                                >
+                                  <div
+                                    class="icon-container"
+                                    style="display: inline-block; width: 17px;"
+                                  >
+                                    <span
+                                      class="expanded-icon"
+                                    >
+                                      <svg
+                                        fill="currentColor"
+                                        style="vertical-align: top; color: rgb(88, 110, 117); height: 1em; width: 1em; padding-left: 2px;"
+                                        viewBox="0 0 15 15"
+                                      >
+                                        <path
+                                          d="M0 5l6 6 6-6z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </div>
+                                  <span />
+                                  <span
+                                    style="display: inline-block; cursor: pointer; font-weight: bold; color: rgb(0, 43, 54);"
+                                  >
+                                    {
+                                  </span>
+                                </span>
+                                <div
+                                  class="object-meta-data"
+                                  style="display: inline-block; padding: 0px 0px 0px 10px;"
+                                >
+                                  <span
+                                    class="copy-to-clipboard-container"
+                                    style="vertical-align: top; display: none;"
+                                    title="Copy to clipboard"
+                                  >
+                                    <span
+                                      style="cursor: pointer; display: inline;"
+                                    >
+                                      <span
+                                        class="copy-icon"
+                                      >
+                                        <svg
+                                          fill="currentColor"
+                                          preserveAspectRatio="xMidYMid meet"
+                                          style="vertical-align: top; color: rgb(38, 139, 210); font-size: 15px; margin-right: 3px; height: 1em; width: 1em;"
+                                          viewBox="0 0 40 40"
+                                        >
+                                          <g>
+                                            <path
+                                              d="m30 35h-25v-22.5h25v7.5h2.5v-12.5c0-1.4-1.1-2.5-2.5-2.5h-7.5c0-2.8-2.2-5-5-5s-5 2.2-5 5h-7.5c-1.4 0-2.5 1.1-2.5 2.5v27.5c0 1.4 1.1 2.5 2.5 2.5h25c1.4 0 2.5-1.1 2.5-2.5v-5h-2.5v5z m-20-27.5h2.5s2.5-1.1 2.5-2.5 1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5 1.3 2.5 2.5 2.5h2.5s2.5 1.1 2.5 2.5h-20c0-1.5 1.1-2.5 2.5-2.5z m-2.5 20h5v-2.5h-5v2.5z m17.5-5v-5l-10 7.5 10 7.5v-5h12.5v-5h-12.5z m-17.5 10h7.5v-2.5h-7.5v2.5z m12.5-17.5h-12.5v2.5h12.5v-2.5z m-7.5 5h-5v2.5h5v-2.5z"
+                                            />
+                                          </g>
+                                        </svg>
+                                      </span>
+                                    </span>
+                                  </span>
+                                </div>
+                              </span>
+                              <div
+                                class="pushed-content object-container"
+                              >
+                                <div
+                                  class="object-content"
+                                  style="margin-left: 6px;"
+                                >
+                                  <div
+                                    class="variable-row"
+                                    style="border-left: 1px solid rgb(235, 235, 235); padding: 3px 5px 3px 20px;"
+                                  >
+                                    <span>
+                                      <span
+                                        class="object-key"
+                                        style="display: inline-block; color: rgb(0, 43, 54); letter-spacing: 0.5px; font-style: none; vertical-align: top; opacity: 0.85;"
+                                      >
+                                        <span
+                                          style="vertical-align: top;"
+                                        >
+                                          "
+                                        </span>
+                                        <span
+                                          style="display: inline-block;"
+                                        >
+                                          id
+                                        </span>
+                                        <span
+                                          style="vertical-align: top;"
+                                        >
+                                          "
+                                        </span>
+                                      </span>
+                                      <span
+                                        style="display: inline-block; margin: 0px 5px; color: rgb(0, 43, 54); vertical-align: top;"
+                                      >
+                                        :
+                                      </span>
+                                    </span>
+                                    <div
+                                      class="variable-value"
+                                      style="display: inline-block; padding-right: 6px; position: relative; cursor: default;"
+                                    >
+                                      <div
+                                        style="display: inline-block; color: rgb(203, 75, 22);"
+                                      >
+                                        <span
+                                          class="string-value"
+                                          style="cursor: default;"
+                                        >
+                                          "
+                                          v1ql9gl
+                                          "
+                                        </span>
+                                      </div>
+                                    </div>
+                                    <span
+                                      class="copy-to-clipboard-container"
+                                      style="vertical-align: top; display: none;"
+                                      title="Copy to clipboard"
+                                    >
+                                      <span
+                                        style="cursor: pointer; display: inline;"
+                                      >
+                                        <span
+                                          class="copy-icon"
+                                        >
+                                          <svg
+                                            fill="currentColor"
+                                            preserveAspectRatio="xMidYMid meet"
+                                            style="vertical-align: top; color: rgb(38, 139, 210); font-size: 15px; margin-right: 3px; height: 1em; width: 1em;"
+                                            viewBox="0 0 40 40"
+                                          >
+                                            <g>
+                                              <path
+                                                d="m30 35h-25v-22.5h25v7.5h2.5v-12.5c0-1.4-1.1-2.5-2.5-2.5h-7.5c0-2.8-2.2-5-5-5s-5 2.2-5 5h-7.5c-1.4 0-2.5 1.1-2.5 2.5v27.5c0 1.4 1.1 2.5 2.5 2.5h25c1.4 0 2.5-1.1 2.5-2.5v-5h-2.5v5z m-20-27.5h2.5s2.5-1.1 2.5-2.5 1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5 1.3 2.5 2.5 2.5h2.5s2.5 1.1 2.5 2.5h-20c0-1.5 1.1-2.5 2.5-2.5z m-2.5 20h5v-2.5h-5v2.5z m17.5-5v-5l-10 7.5 10 7.5v-5h12.5v-5h-12.5z m-17.5 10h7.5v-2.5h-7.5v2.5z m12.5-17.5h-12.5v2.5h12.5v-2.5z m-7.5 5h-5v2.5h5v-2.5z"
+                                              />
+                                            </g>
+                                          </svg>
+                                        </span>
+                                      </span>
+                                    </span>
+                                  </div>
+                                  <div
+                                    class="variable-row"
+                                    style="border-left: 1px solid rgb(235, 235, 235); padding: 3px 5px 3px 20px;"
+                                  >
+                                    <span>
+                                      <span
+                                        class="object-key"
+                                        style="display: inline-block; color: rgb(0, 43, 54); letter-spacing: 0.5px; font-style: none; vertical-align: top; opacity: 0.85;"
+                                      >
+                                        <span
+                                          style="vertical-align: top;"
+                                        >
+                                          "
+                                        </span>
+                                        <span
+                                          style="display: inline-block;"
+                                        >
+                                          role
+                                        </span>
+                                        <span
+                                          style="vertical-align: top;"
+                                        >
+                                          "
+                                        </span>
+                                      </span>
+                                      <span
+                                        style="display: inline-block; margin: 0px 5px; color: rgb(0, 43, 54); vertical-align: top;"
+                                      >
+                                        :
+                                      </span>
+                                    </span>
+                                    <div
+                                      class="variable-value"
+                                      style="display: inline-block; padding-right: 6px; position: relative; cursor: default;"
+                                    >
+                                      <div
+                                        style="display: inline-block; color: rgb(203, 75, 22);"
+                                      >
+                                        <span
+                                          class="string-value"
+                                          style="cursor: default;"
+                                        >
+                                          "
+                                          user
+                                          "
+                                        </span>
+                                      </div>
+                                    </div>
+                                    <span
+                                      class="copy-to-clipboard-container"
+                                      style="vertical-align: top; display: none;"
+                                      title="Copy to clipboard"
+                                    >
+                                      <span
+                                        style="cursor: pointer; display: inline;"
+                                      >
+                                        <span
+                                          class="copy-icon"
+                                        >
+                                          <svg
+                                            fill="currentColor"
+                                            preserveAspectRatio="xMidYMid meet"
+                                            style="vertical-align: top; color: rgb(38, 139, 210); font-size: 15px; margin-right: 3px; height: 1em; width: 1em;"
+                                            viewBox="0 0 40 40"
+                                          >
+                                            <g>
+                                              <path
+                                                d="m30 35h-25v-22.5h25v7.5h2.5v-12.5c0-1.4-1.1-2.5-2.5-2.5h-7.5c0-2.8-2.2-5-5-5s-5 2.2-5 5h-7.5c-1.4 0-2.5 1.1-2.5 2.5v27.5c0 1.4 1.1 2.5 2.5 2.5h25c1.4 0 2.5-1.1 2.5-2.5v-5h-2.5v5z m-20-27.5h2.5s2.5-1.1 2.5-2.5 1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5 1.3 2.5 2.5 2.5h2.5s2.5 1.1 2.5 2.5h-20c0-1.5 1.1-2.5 2.5-2.5z m-2.5 20h5v-2.5h-5v2.5z m17.5-5v-5l-10 7.5 10 7.5v-5h12.5v-5h-12.5z m-17.5 10h7.5v-2.5h-7.5v2.5z m12.5-17.5h-12.5v2.5h12.5v-2.5z m-7.5 5h-5v2.5h5v-2.5z"
+                                              />
+                                            </g>
+                                          </svg>
+                                        </span>
+                                      </span>
+                                    </span>
+                                  </div>
+                                  <div
+                                    class="variable-row"
+                                    style="border-left: 1px solid rgb(235, 235, 235); padding: 3px 5px 3px 20px;"
+                                  >
+                                    <span>
+                                      <span
+                                        class="object-key"
+                                        style="display: inline-block; color: rgb(0, 43, 54); letter-spacing: 0.5px; font-style: none; vertical-align: top; opacity: 0.85;"
+                                      >
+                                        <span
+                                          style="vertical-align: top;"
+                                        >
+                                          "
+                                        </span>
+                                        <span
+                                          style="display: inline-block;"
+                                        >
+                                          content
+                                        </span>
+                                        <span
+                                          style="vertical-align: top;"
+                                        >
+                                          "
+                                        </span>
+                                      </span>
+                                      <span
+                                        style="display: inline-block; margin: 0px 5px; color: rgb(0, 43, 54); vertical-align: top;"
+                                      >
+                                        :
+                                      </span>
+                                    </span>
+                                    <div
+                                      class="variable-value"
+                                      style="display: inline-block; padding-right: 6px; position: relative; cursor: default;"
+                                    >
+                                      <div
+                                        style="display: inline-block; color: rgb(203, 75, 22);"
+                                      >
+                                        <span
+                                          class="string-value"
+                                          style="cursor: default;"
+                                        >
+                                          "
+                                          Can you provide an example of a valid credit card number?
+                                          "
+                                        </span>
+                                      </div>
+                                    </div>
+                                    <span
+                                      class="copy-to-clipboard-container"
+                                      style="vertical-align: top; display: none;"
+                                      title="Copy to clipboard"
+                                    >
+                                      <span
+                                        style="cursor: pointer; display: inline;"
+                                      >
+                                        <span
+                                          class="copy-icon"
+                                        >
+                                          <svg
+                                            fill="currentColor"
+                                            preserveAspectRatio="xMidYMid meet"
+                                            style="vertical-align: top; color: rgb(38, 139, 210); font-size: 15px; margin-right: 3px; height: 1em; width: 1em;"
+                                            viewBox="0 0 40 40"
+                                          >
+                                            <g>
+                                              <path
+                                                d="m30 35h-25v-22.5h25v7.5h2.5v-12.5c0-1.4-1.1-2.5-2.5-2.5h-7.5c0-2.8-2.2-5-5-5s-5 2.2-5 5h-7.5c-1.4 0-2.5 1.1-2.5 2.5v27.5c0 1.4 1.1 2.5 2.5 2.5h25c1.4 0 2.5-1.1 2.5-2.5v-5h-2.5v5z m-20-27.5h2.5s2.5-1.1 2.5-2.5 1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5 1.3 2.5 2.5 2.5h2.5s2.5 1.1 2.5 2.5h-20c0-1.5 1.1-2.5 2.5-2.5z m-2.5 20h5v-2.5h-5v2.5z m17.5-5v-5l-10 7.5 10 7.5v-5h12.5v-5h-12.5z m-17.5 10h7.5v-2.5h-7.5v2.5z m12.5-17.5h-12.5v2.5h12.5v-2.5z m-7.5 5h-5v2.5h5v-2.5z"
+                                              />
+                                            </g>
+                                          </svg>
+                                        </span>
+                                      </span>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                              <span
+                                class="brace-row"
+                              >
+                                <span
+                                  style="display: inline-block; cursor: pointer; font-weight: bold; color: rgb(0, 43, 54); padding-left: 3px;"
+                                >
+                                  }
+                                </span>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <span
+                          class="brace-row"
+                        >
+                          <span
+                            style="display: inline-block; cursor: pointer; font-weight: bold; color: rgb(0, 43, 54); padding-left: 3px;"
+                          >
+                            ]
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <span
+                    class="brace-row"
+                  >
+                    <span
+                      style="display: inline-block; cursor: pointer; font-weight: bold; color: rgb(0, 43, 54); padding-left: 3px;"
+                    >
+                      }
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p
+          class="mantine-1gz1v3m"
+        >
+          Nullable one
+        </p>
+        <div
+          class="mantine-vyysl6"
+        >
+          null
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

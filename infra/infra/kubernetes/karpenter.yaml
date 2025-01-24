@@ -1,0 +1,169 @@
+---
+apiVersion: karpenter.sh/v1
+kind: NodePool
+metadata:
+  name: private-app
+  namespace: karpenter
+spec:
+  disruption:
+    consolidationPolicy: WhenEmptyOrUnderutilized
+    consolidateAfter: 30m
+  template:
+    spec:
+      expireAfter: 720h
+      requirements:
+        - key: "karpenter.k8s.aws/instance-category"
+          operator: In
+          values: ["m", "c"]
+        - key: "karpenter.k8s.aws/instance-generation"
+          operator: Gt
+          values: ["5"]
+        - key: "kubernetes.io/arch"
+          operator: In
+          values: ["amd64", "arm64"]
+        - key: "kubernetes.io/os"
+          operator: In
+          values: ["linux"]
+        - key: "karpenter.sh/capacity-type"
+          operator: In
+          values: ["on-demand"]
+      nodeClassRef:
+        name: private-nodes
+        group: karpenter.k8s.aws
+        kind: EC2NodeClass
+      taints:
+        - key: private-pool
+          value: "true"
+          effect: NoSchedule
+---
+apiVersion: karpenter.sh/v1
+kind: NodePool
+metadata:
+  name: private-data
+  namespace: karpenter
+spec:
+  disruption:
+    consolidationPolicy: WhenEmptyOrUnderutilized
+    consolidateAfter: 30m
+  template:
+    spec:
+      requirements:
+        - key: "karpenter.k8s.aws/instance-category"
+          operator: In
+          values: ["r"]
+        - key: "karpenter.k8s.aws/instance-generation"
+          operator: Gt
+          values: ["5"]
+        - key: "kubernetes.io/arch"
+          operator: In
+          values: ["amd64", "arm64"]
+        - key: "kubernetes.io/os"
+          operator: In
+          values: ["linux"]
+        - key: "karpenter.sh/capacity-type"
+          operator: In
+          values: ["on-demand"]
+      nodeClassRef:
+        name: private-nodes
+        group: karpenter.k8s.aws
+        kind: EC2NodeClass
+      taints:
+        - key: private-data
+          value: "true"
+          effect: NoSchedule
+---
+apiVersion: karpenter.sh/v1
+kind: NodePool
+metadata:
+  name: public-app
+  namespace: karpenter
+spec:
+  disruption:
+    consolidationPolicy: WhenEmptyOrUnderutilized
+    consolidateAfter: 30m
+  template:
+    spec:
+      requirements:
+        - key: "karpenter.k8s.aws/instance-category"
+          operator: In
+          values: ["m", "c"]
+        - key: "karpenter.k8s.aws/instance-generation"
+          operator: Gt
+          values: ["4"]
+        - key: "kubernetes.io/arch"
+          operator: In
+          values: ["amd64", "arm64"]
+        - key: "kubernetes.io/os"
+          operator: In
+          values: ["linux"]
+        - key: "karpenter.sh/capacity-type"
+          operator: In
+          values: ["on-demand"]
+      nodeClassRef:
+        name: public-nodes
+        group: karpenter.k8s.aws
+        kind: EC2NodeClass
+      taints:
+        - key: public-pool
+          value: "true"
+          effect: NoSchedule
+---
+apiVersion: karpenter.k8s.aws/v1
+kind: EC2NodeClass
+metadata:
+  name: private-nodes
+  namespace: karpenter
+spec:
+  amiFamily: Bottlerocket
+  amiSelectorTerms:
+    - alias: bottlerocket@1.30.0-ca9b9399
+  role: "eksctl-KarpenterNodeRole-whylabs-platform"
+  subnetSelectorTerms:
+    - id: subnet-00000000000000000
+    - id: subnet-00000000000000000
+    - id: subnet-00000000000000000
+  securityGroupSelectorTerms:
+    - id: sg-00000000000000000
+  tags:
+    access: private
+  metadataOptions:
+    httpEndpoint: enabled
+    httpProtocolIPv6: disabled
+    httpPutResponseHopLimit: 2
+    httpTokens: required
+  blockDeviceMappings:
+    - deviceName: /dev/xvda
+      ebs:
+        volumeSize: 30Gi
+        volumeType: gp3
+        encrypted: true
+---
+apiVersion: karpenter.k8s.aws/v1
+kind: EC2NodeClass
+metadata:
+  name: public-nodes
+  namespace: karpenter
+spec:
+  amiFamily: Bottlerocket
+  amiSelectorTerms:
+    - alias: bottlerocket@1.30.0-ca9b9399
+  role: "eksctl-KarpenterNodeRole-whylabs-platform"
+  subnetSelectorTerms:
+    - id: subnet-00000000000000000
+    - id: subnet-00000000000000000
+    - id: subnet-00000000000000000
+  securityGroupSelectorTerms:
+    - id: sg-00000000000000000
+  tags:
+    access: public
+  metadataOptions:
+    httpEndpoint: enabled
+    httpProtocolIPv6: disabled
+    httpPutResponseHopLimit: 2
+    httpTokens: required
+  blockDeviceMappings:
+    - deviceName: /dev/xvda
+      ebs:
+        volumeSize: 30Gi
+        volumeType: gp3
+        encrypted: true

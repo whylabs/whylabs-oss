@@ -1,0 +1,2 @@
+-- Leave extra room in the audit tuples. When an upsert can rewrite a row within the same 8KB tuple it's able to skip some of the index changes
+ALTER TABLE whylabs.profile_upload_audit SET (fillfactor = 60);

@@ -1,0 +1,12 @@
+query getTotalCount($modelId: String!, $featureId: String!, $from: Float!, $to: Float) {
+  model(id: $modelId) {
+    batchFrequency
+    feature(name: $featureId) {
+      name
+      sketches(from: $from, to: $to) {
+        createdAt
+        totalCount
+      }
+    }
+  }
+}

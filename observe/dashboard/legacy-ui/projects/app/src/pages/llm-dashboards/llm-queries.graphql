@@ -1,0 +1,201 @@
+fragment ResourceBasicInfo on Model {
+  name
+  id
+  category: assetCategory
+  type: modelType
+  batchFrequency
+}
+
+query getAllResources {
+  resources: models {
+    ...ResourceBasicInfo
+  }
+}
+
+fragment MetricSchemaInfo on MetricSchema {
+  label
+  dataType
+  unitInterval
+  metricKind
+  metricDirection
+  showAsPercent
+  bounds {
+    upper
+    lower
+  }
+  queryDefinition {
+    metric
+    targetLevel
+    metricLabel
+    column
+    metric
+  }
+  tags
+  description
+}
+
+fragment MetricData on CustomMetric {
+  id
+  datasetGranularity
+  datasetId
+  name
+  segmentTags {
+    key
+    value
+  }
+  metadata {
+    ...MetricSchemaInfo
+  }
+  distributionValues(fromTimestamp: $from, toTimestamp: $to) {
+    timestamp
+    frequentItems {
+      ...FrequentItemUnitFields
+    }
+    numberSummary {
+      ...NumberSummaryFields
+    }
+  }
+  numericValues(fromTimestamp: $from, toTimestamp: $to) {
+    timestamp
+    value
+  }
+}
+
+query getMetricsByTag(
+  $resourceId: String!
+  $tags: [String!]!
+  $segmentTags: [SegmentTagFilter!]
+  $granularity: TimePeriod!
+  $from: Float!
+  $to: Float
+) {
+  resource: model(id: $resourceId) {
+    id
+    name
+    batchFrequency
+    segment(tags: $segmentTags) {
+      tags {
+        key
+        value
+      }
+      customMetrics(tags: $tags, granularity: $granularity) {
+        ...MetricData
+      }
+    }
+    customMetrics(tags: $tags, granularity: $granularity) {
+      ...MetricData
+    }
+  }
+}
+
+query getProfileTimestamps($modelId: String, $timestamps: [Float!]!) {
+  model(id: $modelId) {
+    batchDateRanges(timestamps: $timestamps) {
+      fromTimestamp
+      toTimestamp
+    }
+  }
+}
+
+query getFrequentItemsAnalysis(
+  $model: String!
+  $feature: String!
+  $from: Float!
+  $to: Float
+  $tags: [SegmentTagFilter!]
+) {
+  analysisResults(
+    filter: {
+      anomaliesOnly: false
+      columns: [$feature]
+      datasetId: $model
+      fromTimestamp: $from
+      toTimestamp: $to
+      segmentTags: $tags
+      metrics: [FREQUENT_ITEMS]
+    }
+    offset: 0
+    limit: 0
+    sortDirection: ASC
+  ) {
+    ...LLMFrequentItemsAnalysisData
+  }
+}
+
+fragment LLMCommonAnalysisData on AnalysisResult {
+  id
+  isAnomaly
+  isFalseAlarm
+  metric
+  analyzerId
+  analysisId
+  monitorIds
+  monitorDisplayName
+  analyzerType
+  datasetTimestamp
+  creationTimestamp
+  tags {
+    value
+    key
+  }
+}
+
+fragment LLMFrequentItemsAnalysisData on AnalysisResult {
+  algorithm
+  algorithmMode
+  drift_metricValue
+  drift_threshold
+  frequentStringComparison_operator
+  frequentStringComparison_sample
+  ...LLMCommonAnalysisData
+}
+
+query getContinuousMetricsAnalysis(
+  $model: String!
+  $feature: String!
+  $from: Float!
+  $to: Float
+  $tags: [SegmentTagFilter!]
+  $metrics: [AnalysisMetric!]
+  $adhocRunId: String
+) {
+  analysisResults(
+    filter: {
+      anomaliesOnly: false
+      columns: [$feature]
+      metrics: $metrics
+      datasetId: $model
+      fromTimestamp: $from
+      toTimestamp: $to
+      segmentTags: $tags
+      adhocRunId: $adhocRunId
+    }
+    offset: 0
+    limit: 0
+    sortDirection: ASC
+  ) {
+    ...ThresholdAnalysisData
+    comparison_expected
+    comparison_observed
+  }
+}
+
+query getInsights($model: String!, $batchProfile: Float, $refProfileId: String, $tags: [SegmentTagFilter!]!) {
+  model(id: $model) {
+    insights(batchProfileTimestamp: $batchProfile, referenceProfileId: $refProfileId, tags: $tags) {
+      name
+    }
+  }
+}
+
+mutation submitSecureTrialForm($form: SecureForm!) {
+  submitSecureForm(form: $form)
+}
+
+query getLlmTracesInfo($modelId: String!, $from: Float!, $to: Float!) {
+  model(id: $modelId) {
+    tracesSummary(fromTimestamp: $from, toTimestamp: $to) {
+      hasTraces
+    }
+  }
+}

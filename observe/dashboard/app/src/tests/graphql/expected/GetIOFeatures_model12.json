@@ -1,0 +1,33 @@
+{
+  "data": {
+    "model": {
+      "hasWeights": false,
+      "features": [
+        {
+          "id": "70d70434-6397-44fd-906f-05003e923523",
+          "weight": null,
+          "name": "int",
+          "baselineSketch": {
+            "showAsDiscrete": true
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "95dd1f77-5569-40f4-acca-2c58762d39d5",
+          "name": "output_prediction",
+          "baselineSketch": {
+            "showAsDiscrete": false
+          }
+        },
+        {
+          "id": "2219d5be-61c3-4e28-a6a0-507188d805e3",
+          "name": "output_target",
+          "baselineSketch": {
+            "showAsDiscrete": false
+          }
+        }
+      ]
+    }
+  }
+}

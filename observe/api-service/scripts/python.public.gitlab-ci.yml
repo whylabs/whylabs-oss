@@ -1,0 +1,23 @@
+stages:
+  - build
+  - publish
+
+build:
+  stage: build
+  image: "python:3.8-buster"
+  script:
+    - pip install -r requirements.txt
+    - python setup.py bdist_wheel sdist
+
+publish:
+  stage: publish
+  image: "python:3.8-buster"
+  script:
+    - pip install twine
+    - sed -i 's/NAME = \"whylabs-client\"/from pathlib import Path\nthis_directory = Path(__file__).parent\nlong_description = (this_directory \/ \"RELEASE.md\").read_text()\n\nNAME = \"whylabs-client\"/g' setup.py
+    - sed -i 's/long_description=/long_description_content_type=\"text\/markdown\",\n    long_description=long_description,\n    long_description_text=/g' setup.py
+    - python setup.py bdist_wheel sdist
+    - twine check dist/*
+    - twine upload dist/* -u __token__ -p ${WHYLABS_CLIENT_PYPI_TOKEN}
+  only:
+    - release

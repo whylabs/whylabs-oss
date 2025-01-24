@@ -1,0 +1,224 @@
+{
+  "data": {
+    "model": {
+      "id": "model-4",
+      "name": "Segmented dataset",
+      "batchFrequency": "P1D",
+      "totalSegments": 4,
+      "segments": [
+        {
+          "id": "cdd4613b-78e3-4850-9287-5077269001c1",
+          "tags": [
+            {
+              "key": "key1",
+              "value": "3"
+            },
+            {
+              "key": "key2",
+              "value": "one"
+            }
+          ],
+          "alerts": [],
+          "batches": [
+            {
+              "inputCount": 1000,
+              "outputCount": 1000,
+              "timestamp": 1728950400000
+            },
+            {
+              "inputCount": 1000,
+              "outputCount": 1000,
+              "timestamp": 1729036800000
+            },
+            {
+              "inputCount": 1000,
+              "outputCount": 1000,
+              "timestamp": 1729123200000
+            },
+            {
+              "inputCount": 1000,
+              "outputCount": 1000,
+              "timestamp": 1729209600000
+            },
+            {
+              "inputCount": 1000,
+              "outputCount": 1000,
+              "timestamp": 1729296000000
+            },
+            {
+              "inputCount": 1000,
+              "outputCount": 1000,
+              "timestamp": 1729382400000
+            }
+          ],
+          "uniqueAlerts": [],
+          "mv3TotalAlerts": {
+            "totals": [],
+            "timeseries": []
+          },
+          "dataTypeAlerts": [],
+          "missingValueAlerts": []
+        },
+        {
+          "id": "0b978035-72c1-4f08-a998-a1a0941b56d7",
+          "tags": [
+            {
+              "key": "key1",
+              "value": "3"
+            },
+            {
+              "key": "key2",
+              "value": "two"
+            }
+          ],
+          "alerts": [],
+          "batches": [
+            {
+              "inputCount": 1000,
+              "outputCount": 1000,
+              "timestamp": 1728950400000
+            },
+            {
+              "inputCount": 1000,
+              "outputCount": 1000,
+              "timestamp": 1729036800000
+            },
+            {
+              "inputCount": 1000,
+              "outputCount": 1000,
+              "timestamp": 1729123200000
+            },
+            {
+              "inputCount": 1000,
+              "outputCount": 1000,
+              "timestamp": 1729209600000
+            },
+            {
+              "inputCount": 1000,
+              "outputCount": 1000,
+              "timestamp": 1729296000000
+            },
+            {
+              "inputCount": 1000,
+              "outputCount": 1000,
+              "timestamp": 1729382400000
+            }
+          ],
+          "uniqueAlerts": [],
+          "mv3TotalAlerts": {
+            "totals": [],
+            "timeseries": []
+          },
+          "dataTypeAlerts": [],
+          "missingValueAlerts": []
+        },
+        {
+          "id": "37aab3f9-447b-480c-b8ca-ffe1589ec421",
+          "tags": [
+            {
+              "key": "key1",
+              "value": "4"
+            },
+            {
+              "key": "key2",
+              "value": "one"
+            }
+          ],
+          "alerts": [],
+          "batches": [
+            {
+              "inputCount": 1000,
+              "outputCount": 1000,
+              "timestamp": 1728950400000
+            },
+            {
+              "inputCount": 1000,
+              "outputCount": 1000,
+              "timestamp": 1729036800000
+            },
+            {
+              "inputCount": 1000,
+              "outputCount": 1000,
+              "timestamp": 1729123200000
+            },
+            {
+              "inputCount": 1000,
+              "outputCount": 1000,
+              "timestamp": 1729209600000
+            },
+            {
+              "inputCount": 1000,
+              "outputCount": 1000,
+              "timestamp": 1729296000000
+            },
+            {
+              "inputCount": 1000,
+              "outputCount": 1000,
+              "timestamp": 1729382400000
+            }
+          ],
+          "uniqueAlerts": [],
+          "mv3TotalAlerts": {
+            "totals": [],
+            "timeseries": []
+          },
+          "dataTypeAlerts": [],
+          "missingValueAlerts": []
+        },
+        {
+          "id": "fa957742-1387-4b8b-bdfd-72382b35606e",
+          "tags": [
+            {
+              "key": "key1",
+              "value": "4"
+            },
+            {
+              "key": "key2",
+              "value": "two"
+            }
+          ],
+          "alerts": [],
+          "batches": [
+            {
+              "inputCount": 1000,
+              "outputCount": 1000,
+              "timestamp": 1728950400000
+            },
+            {
+              "inputCount": 1000,
+              "outputCount": 1000,
+              "timestamp": 1729036800000
+            },
+            {
+              "inputCount": 1000,
+              "outputCount": 1000,
+              "timestamp": 1729123200000
+            },
+            {
+              "inputCount": 1000,
+              "outputCount": 1000,
+              "timestamp": 1729209600000
+            },
+            {
+              "inputCount": 1000,
+              "outputCount": 1000,
+              "timestamp": 1729296000000
+            },
+            {
+              "inputCount": 1000,
+              "outputCount": 1000,
+              "timestamp": 1729382400000
+            }
+          ],
+          "uniqueAlerts": [],
+          "mv3TotalAlerts": {
+            "totals": [],
+            "timeseries": []
+          },
+          "dataTypeAlerts": [],
+          "missingValueAlerts": []
+        }
+      ]
+    }
+  }
+}

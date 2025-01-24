@@ -1,0 +1,127 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "dataservice.fullname" . }}
+  labels:
+    {{- include "dataservice.labels" . | nindent 4 }}
+spec:
+  revisionHistoryLimit: 1
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "dataservice.selectorLabels" . | nindent 6 }}
+  strategy:
+    {{- with .Values.updateStrategy -}}
+      {{- toYaml . | nindent 4 -}}
+    {{- end }}
+  template:
+    metadata:
+      {{- if .Values.podAnnotations }}
+      annotations:
+        {{- range $key, $value := .Values.podAnnotations }}
+        {{ $key }}: {{ tpl $value $ }}
+        {{- end }}
+      {{- end }}
+      labels:
+        {{- include "dataservice.labels" . | nindent 8 }}
+        {{- range $key, $value := .Values.podLabels }}
+        {{ $key }}: {{ tpl $value $ | quote }}
+        {{- end }}
+    spec:
+      imagePullSecrets:
+      {{- if .Values.imagePullSecrets }}
+        {{- range .Values.imagePullSecrets }}
+          {{- if .name }}
+        - name: {{ .name }}
+          {{- else }}
+        - name: gitlab-container-registry-auth
+          {{- end }}
+        {{- end }}
+      {{- else }}
+        - name: gitlab-container-registry-auth
+      {{- end }}
+      serviceAccountName: {{ include "dataservice.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: main
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ tpl .Values.image.tag . | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{/*
+          Environment Variables Logic:
+          1. Check if .Values.env exists
+          2. Iterate over each key-value pair in .Values.env
+          3. For each pair:
+            a. If the value has 'valueFrom', render it as a complex structure
+            b. Otherwise, render it as a simple key-value pair
+          */}}
+          {{- if .Values.env }}
+          env:
+            {{- range $key, $value := .Values.env }}
+            - name: {{ $key }}
+              {{- if kindIs "map" $value }}
+                {{- if hasKey $value "valueFrom" }}
+              valueFrom:
+                  {{- if hasKey $value.valueFrom "secretKeyRef" }}
+                secretKeyRef:
+                  name: {{ tpl $value.valueFrom.secretKeyRef.name $ }}
+                  key: {{ $value.valueFrom.secretKeyRef.key }}
+                  optional: {{ $value.valueFrom.secretKeyRef.optional }}
+                  {{- else if hasKey $value.valueFrom "fieldRef" }}
+                fieldRef:
+                  fieldPath: {{ $value.valueFrom.fieldRef.fieldPath }}
+                  {{- if hasKey $value.valueFrom.fieldRef "apiVersion" }}
+                  apiVersion: {{ $value.valueFrom.fieldRef.apiVersion }}
+                  {{- end }}
+                  {{- end }}
+                {{- else }}
+              value: {{ tpl (toYaml $value) $ | quote }}
+                {{- end }}
+              {{- else }}
+              value: {{ tpl (toString $value) $ | quote }}
+              {{- end }}
+            {{- end }}
+          {{- end }}
+          {{- with .Values.envFrom }}
+          envFrom:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.targetPort }}
+              protocol: TCP
+          livenessProbe:
+            {{- toYaml .Values.livenessProbe | nindent 12 }}
+          readinessProbe:
+            {{- toYaml .Values.readinessProbe | nindent 12 }}
+          startupProbe:
+            {{- toYaml .Values.startupProbe | nindent 12 }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          {{- with .Values.extraVolumeMounts }}
+          volumeMounts:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+      {{- with .Values.extraVolumes }}
+      volumes:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- tpl (toYaml . | replace "RELEASE_NAME" $.Release.Name) $ | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.schedulerName }}
+      schedulerName: {{ . }}
+      {{- end }}

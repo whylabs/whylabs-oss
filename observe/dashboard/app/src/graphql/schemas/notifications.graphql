@@ -1,0 +1,149 @@
+enum NotificationSchedulingCadence {
+  Individual
+  Weekly
+  Daily
+}
+
+enum DayOfWeek {
+  Monday
+  Tuesday
+  Wednesday
+  Thursday
+  Friday
+  Saturday
+  Sunday
+}
+
+enum NotificationContentType {
+  TotalAlertCount
+  AlertsByTypeSummary
+  TopThreeMostAlertedFeatures
+}
+
+input NotificationSettingsUpdate {
+  """
+  Whether the notification channel is enabled
+  """
+  enabled: Boolean!
+
+  """
+  Scheduling mode
+  """
+  cadence: NotificationSchedulingCadence!
+
+  """
+  Timezone for scheduled deliveries
+  """
+  timezone: String!
+
+  """
+  Delivery day of week
+  """
+  day: DayOfWeek
+
+  """
+  Delivery hour of day (0-23)
+  """
+  hour: Int
+
+  """
+  Delivery minute of day (0-59)
+  """
+  minute: Int
+}
+
+type GeneralNotificationSettings {
+  """
+  ID of this integration
+  """
+  id: String!
+  """
+  Whether the notification channel is enabled
+  """
+  enabled: Boolean!
+
+  """
+  Scheduling mode
+  """
+  cadence: NotificationSchedulingCadence!
+
+  """
+  Timezone for scheduled deliveries
+  """
+  timezone: String
+
+  """
+  Delivery day of week
+  """
+  day: DayOfWeek
+
+  """
+  UTC Delivery hour of day (0-23)
+  """
+  hour: Int
+
+  """
+  UTC Delivery minute of day (0-59)
+  """
+  minute: Int
+}
+
+type SlackNotificationSettings {
+  """
+  WebHook to trigger a Slack channel message with the content of the Notification.
+  """
+  webhook: String @auth(permissions: [MANAGE_ACTIONS])
+  general: GeneralNotificationSettings!
+}
+
+type EmailNotificationSettings {
+  """
+  Email address where notifications will be sent.
+  """
+  address: String
+  general: GeneralNotificationSettings!
+}
+
+type PagerDutyNotificationSettings {
+  """
+  PagerDuty integration key to use for notifications (similar to an API key, available in user's PagerDuty account)
+  """
+  integrationKey: String @auth(permissions: [MANAGE_ACTIONS])
+  general: GeneralNotificationSettings!
+}
+
+type DigestTemplateSettings {
+  """
+  Determines the content of digest notifications
+  """
+  enabledNotificationContent: [NotificationContentType!]!
+  """
+  Determines which alert types will be included in digest notifications
+  """
+  alertsToMonitor: [EventType!]!
+}
+
+type NotificationManagement {
+  updateSlackNotifications(settings: NotificationSettingsUpdate!, webhook: String): SlackNotificationSettings!
+  updateEmailNotifications(settings: NotificationSettingsUpdate!, address: String): EmailNotificationSettings!
+  updatePagerDutyNotifications(settings: NotificationSettingsUpdate!, integrationKey: String): PagerDutyNotificationSettings!
+  updateDigestTemplate(
+    enabledNotificationContent: [NotificationContentType!]!
+    alertsToMonitor: [EventType!]!
+  ): DigestTemplateSettings!
+}
+
+extend type Mutation {
+  notificationManagement: NotificationManagement! @auth(permissions: [MANAGE_ACTIONS])
+}
+
+type NotificationSettings {
+  """
+  Where user will be redirected from links in Notifications
+  """
+  observatoryUrl: String
+  slack: SlackNotificationSettings
+  email: EmailNotificationSettings
+  pagerDuty: PagerDutyNotificationSettings
+  digest: DigestTemplateSettings
+}

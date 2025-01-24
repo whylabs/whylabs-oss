@@ -1,0 +1,70 @@
+{
+  "data": {
+    "model": {
+      "id": "model-4",
+      "name": "Segmented dataset",
+      "batchFrequency": "P1D",
+      "segment": {
+        "feature": {
+          "id": "96bd98b8-8b87-4c01-9834-af95a09905a3",
+          "analysisResults": [
+            {
+              "id": "7fe074d0-34fa-3bee-adec-e57b26f2f026",
+              "orgId": "org-9snDQm",
+              "creationTimestamp": 1730970451495,
+              "datasetTimestamp": 1729209600000,
+              "threshold_calculatedLower": 0.001,
+              "threshold_calculatedUpper": 0.001,
+              "threshold_absoluteLower": null,
+              "threshold_absoluteUpper": null,
+              "threshold_metricValue": 0.001,
+              "threshold_factor": 1.96,
+              "threshold_minBatchSize": 3,
+              "failureType": null,
+              "analyzerResultType": "StddevCalculationResult",
+              "analysisId": "d2528c1a-a19c-36a9-96b4-7af774883e6e",
+              "analyzerType": "stddev",
+              "isAnomaly": false
+            },
+            {
+              "id": "d8516853-2183-3141-b7f3-85806226e5b6",
+              "orgId": "org-9snDQm",
+              "creationTimestamp": 1730970513007,
+              "datasetTimestamp": 1729296000000,
+              "threshold_calculatedLower": 0.001,
+              "threshold_calculatedUpper": 0.001,
+              "threshold_absoluteLower": null,
+              "threshold_absoluteUpper": null,
+              "threshold_metricValue": 0.001,
+              "threshold_factor": 1.96,
+              "threshold_minBatchSize": 4,
+              "failureType": null,
+              "analyzerResultType": "StddevCalculationResult",
+              "analysisId": "9f9422c0-559b-3872-8ed9-8535c34345ab",
+              "analyzerType": "stddev",
+              "isAnomaly": false
+            },
+            {
+              "id": "75883208-22bc-36be-8f49-74a1b5805909",
+              "orgId": "org-9snDQm",
+              "creationTimestamp": 1730970573118,
+              "datasetTimestamp": 1729382400000,
+              "threshold_calculatedLower": 0.001,
+              "threshold_calculatedUpper": 0.001,
+              "threshold_absoluteLower": null,
+              "threshold_absoluteUpper": null,
+              "threshold_metricValue": 0.001,
+              "threshold_factor": 1.96,
+              "threshold_minBatchSize": 5,
+              "failureType": null,
+              "analyzerResultType": "StddevCalculationResult",
+              "analysisId": "d14ee0a2-c25a-30ad-8c7d-4d4b96b812f9",
+              "analyzerType": "stddev",
+              "isAnomaly": false
+            }
+          ]
+        }
+      }
+    }
+  }
+}

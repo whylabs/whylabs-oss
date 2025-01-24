@@ -1,0 +1,48 @@
+{
+  "data": {
+    "model": {
+      "id": "model-8",
+      "name": "Segmented regression",
+      "batchFrequency": "P1D",
+      "totalSegments": 4,
+      "segments": [
+        {
+          "id": "13a5fb82-1542-4b0b-beb7-7486bb74c898",
+          "tags": [
+            {
+              "key": "gender",
+              "value": "male"
+            },
+            {
+              "key": "loc",
+              "value": "north"
+            }
+          ],
+          "batches": [],
+          "anomalyCounts": {
+            "totals": [],
+            "timeseries": []
+          }
+        },
+        {
+          "id": "79ee7eb0-9ce9-449f-80a5-f0504d9f8e8b",
+          "tags": [
+            {
+              "key": "gender",
+              "value": "male"
+            },
+            {
+              "key": "loc",
+              "value": "south"
+            }
+          ],
+          "batches": [],
+          "anomalyCounts": {
+            "totals": [],
+            "timeseries": []
+          }
+        }
+      ]
+    }
+  }
+}

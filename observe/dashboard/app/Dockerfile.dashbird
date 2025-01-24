@@ -1,0 +1,8 @@
+ARG COMMIT_SHA=stable
+ARG UI_COMMIT_SHA=stable
+
+FROM registry.gitlab.com/whylabs/ui-exp:$UI_COMMIT_SHA as frontend
+FROM registry.gitlab.com/whylabs/dashboard-service:$COMMIT_SHA
+
+# copy the end bundle. dashbird doesn't ship with frontend assets
+COPY --from=frontend ./opt/whylabs-observatory/build/ ./dist/public/

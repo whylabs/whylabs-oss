@@ -1,0 +1,16 @@
+{
+  "operationName": "featureTable",
+  "variables": {
+    "datasetId": "model-0",
+    "text": "",
+    "alertTypes": [],
+    "anomalyCategories": [],
+    "includeDiscrete": true,
+    "includeNonDiscrete": true,
+    "from": 1660867200000,
+    "to": 1661558399999,
+    "limit": 30,
+    "offset": 0
+  },
+  "query": "query featureTable($datasetId: String!, $offset: Int!, $limit: Int!, $from: Float!, $to: Float, $text: String, $includeDiscrete: Boolean, $includeNonDiscrete: Boolean, $alertTypes: [EventType!], $anomalyCategories: [AlertCategory!], $sort: FilteredFeaturesSort) {\n  model(id: $datasetId) {\n    batchFrequency\n    filteredFeatures(\n      sort: $sort\n      offset: $offset\n      limit: $limit\n      filter: {fromTimestamp: $from, toTimestamp: $to, substring: $text, alertTypes: $alertTypes, anomalyCategories: $anomalyCategories, includeDiscrete: $includeDiscrete, includeNonDiscrete: $includeNonDiscrete}\n    ) {\n      totalCount\n      results {\n        ...FeatureTableInfo\n        alerts(filter: {fromTimestamp: $from, toTimestamp: $to}) {\n          type\n          creationTimestamp\n          datasetTimestamp\n          feature\n        }\n      }\n    }\n  }\n}\n\nfragment FeatureTableInfo on Feature {\n  name\n  id\n  alertCounts(fromTimestamp: $from, toTimestamp: $to) {\n    total\n    nullFraction\n    distribution\n    uniqueness\n    dataType\n    thresholdBased\n    unknown\n  }\n  alertCountsV2(fromTimestamp: $from, toTimestamp: $to) {\n    totals {\n      category\n      count\n    }\n    timeseries {\n      timestamp\n      counts {\n        category\n        count\n      }\n    }\n  }\n  anomalyCounts(fromTimestamp: $from, toTimestamp: $to, groupBy: METRIC) {\n    totals {\n      category\n      count\n    }\n    timeseries {\n      timestamp\n      counts {\n        category\n        count\n        metric\n      }\n    }\n  }\n  events(\n    filter: {fromTimestamp: $from, toTimestamp: $to, eventType: Distribution}\n  ) {\n    datasetTimestamp\n    explanation {\n      __typename\n      ... on ThresholdEventExplanation {\n        observedValue\n      }\n    }\n  }\n  sketches(from: $from, to: $to) {\n    createdAt\n    schemaSummary {\n      inference {\n        count\n      }\n      typeCounts {\n        type\n        count\n      }\n    }\n    totalCount\n    nullRatio\n    uniqueCount {\n      estimate\n    }\n  }\n  baselineSketch {\n    showAsDiscrete\n    schemaSummary {\n      inference {\n        type\n      }\n    }\n  }\n}\n"
+}

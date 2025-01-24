@@ -1,0 +1,235 @@
+# -- (string) Override the name of the chart.
+nameOverride: ""
+
+# -- (string) Override the full name of the chart.
+fullnameOverride: ""
+# -- Instance is used to distinguish between multiple releases deployed with the
+# same chart. Value should be either `hubspot` or `notifications`
+instance: "notifications"
+
+# -- Number of replicas for the service. Ignored if `autoscaling.enabled` is
+# `true`.
+replicaCount: 3
+
+image:
+  # -- Image repository for the `siren` container.
+  repository: "registry.gitlab.com/whylabs/siren"
+  # -- Image pull policy for the `siren` container.
+  pullPolicy: IfNotPresent
+  # -- (string) Image tag for the `siren` container, this will default to
+  # `.Chart.AppVersion` if not set. **This setting supports templating, see the
+  # values.yaml file for an example**.
+  tag: "latest"
+  # -- (list) Command to run in the `siren` container.
+  command: []
+  # -- (list) Arguments to the command to run in the `siren` container.
+  args: []
+
+# -- (list) Image pull secrets for the `siren` container.
+imagePullSecrets: []
+  # - name: ""
+
+# -- [Environment
+# variables](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/)
+# for the `siren` container. This is a map of key-value pairs, where the
+# key is the environment variable name and the value is the environment variable
+# value. Maps are preferred to lists because they are easier to merge. This
+# allows for overriding, merging, and removing keys. This setting supports
+# templating, see the values.yaml file for an example.
+env:
+  ADDUSERORG_EMAILTEMPLATE_NAME: ""
+  ADDUSERORG_EMAILTEMPLATE_CONFIGSET: ""
+  DIGEST_QUEUE_NAME: ""
+  EVENTS_QUEUE: ""
+  EVENTS_QUEUE_DLQ: ""
+  FROM_EMAIL: ""
+  HUBSPOT_APP_KEY: ""
+  METADATA_BUCKET: ""
+  NODE_ENV: production
+  REAL_TIME_ALERT_QUEUE: ""
+  RUN_MODE: "{{ .Values.instance }}"
+  S3_IMAGES_READONLY_USER: ""
+  SONGBIRD_API_ENDPOINT: ""
+  SONGBIRD_ROLE_ARN: ""
+  TEST_NOTIFICATION_QUEUE_NAME: ""
+  USER_MEMBERSHIP_QUEUE_NAME: ""
+
+# -- [Environment variables from
+# sources](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/)
+# for the `siren` container.
+envFrom: {}
+  # myConfigMap:
+  #   type: configMapRef
+  #   optional: false
+  # mySecret:
+  #   type: secretRef
+  #   optional: false
+
+# -- Labels to add to all chart resources. **This setting supports templating,
+# see the values.yaml file for an example**.
+commonLabels: {}
+  # template.example.com/env: "{{ .Values.environment }}"
+
+# -- Annotations to add to the `Pod`. **This setting supports templating, see
+# the values.yaml file for an example**.
+podAnnotations: {}
+
+# -- Labels to add to the `Pod`. **This setting supports templating, see the
+# values.yaml file for an example**.
+podLabels: {}
+
+overrideSelectorLabels: {}
+
+serviceAccount:
+  # -- If `true`, create a new `ServiceAccount`.
+  create: true
+  # -- (string) If this is set and `serviceAccount.create` is `true` this will
+  # be used for the created `ServiceAccount` name, if set and
+  # `serviceAccount.create` is `false` then this will define an existing
+  # `ServiceAccount` to use.
+  name: ""
+  # -- Set this to `false` to [opt out of API credential
+  # automounting](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#opt-out-of-api-credential-automounting)
+  # for the `ServiceAccount`.
+  automount: true
+  # -- Annotations to add to the service account.
+  annotations:
+    eks.amazonaws.com/role-arn: ""
+  # -- Labels to add to the service account.
+  labels: {}
+
+service:
+  # -- If `true`, create a new `Service`.
+  create: true
+  # -- Service Type, i.e. ClusterIp, LoadBalancer, etc.
+  type: ClusterIP
+  # -- Service HTTP port.
+  port: 80
+  # -- The port on which the application container is listening.
+  targetPort: 3000
+  # -- Override service name, useful for adopting an existing service. If blank,
+  # the service name will be the release name.
+  name: ""
+  # -- Service annotations.
+  annotations: {}
+  # -- Service labels.
+  labels: {}
+
+# -- [Pod security
+# context](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#podsecuritycontext-v1-core),
+# this supports full customisation.
+podSecurityContext: {}
+  # runAsNonRoot: true
+
+# -- [Security
+# context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container)
+# for the `siren` container.
+securityContext: {}
+  # readOnlyRootFilesystem: true
+  # privileged: false
+  # allowPrivilegeEscalation: false
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+  # capabilities:
+  #   drop: ["ALL"]
+
+# -- [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+# configuration for the `siren` container.
+ingress:
+  enabled: false
+  # className: ""
+  # annotations:
+  #   kubernetes.io/ingress.class: nginx
+  #   kubernetes.io/tls-acme: "true"
+  # hosts:
+  #   - host: chart-example.local
+  #     paths:
+  #       - path: /
+  #         pathType: ImplementationSpecific
+  # tls:
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+# --
+# [Resources](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/)
+# for the `siren` container.
+resources:
+  requests:
+    cpu: 100m
+    memory: 300Mi
+    # ephemeral-storage: 250Mi
+  limits:
+    memory: 300Mi
+    # ephemeral-storage: 250Mi
+
+# -- [Liveness
+# probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+# configuration for the `siren` container.
+livenessProbe:
+  httpGet:
+    path: /health
+    port: http
+  failureThreshold: 1
+  initialDelaySeconds: 600
+  periodSeconds: 10
+  timeoutSeconds: 2
+
+# -- [Readiness
+# probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+# configuration for the `siren` container.
+readinessProbe:
+  httpGet:
+    path: /health
+    port: http
+  failureThreshold: 30
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  timeoutSeconds: 2
+
+# -- [Startup
+# probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+# configuration for the `siren` container.
+startupProbe:
+  tcpSocket:
+    port: http
+  failureThreshold: 60
+  initialDelaySeconds: 30
+  periodSeconds: 5
+  timeoutSeconds: 1
+  successThreshold: 1
+
+# -- [Horizontal Pod
+# Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
+# configuration for the `siren` container.
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 70
+  # targetMemoryUtilizationPercentage: 70
+
+# -- Extra [volumes](https://kubernetes.io/docs/concepts/storage/volumes/) for
+# the `Pod`.
+extraVolumes: []
+
+# -- Extra [volume mounts](https://kubernetes.io/docs/concepts/storage/volumes/)
+# for the `siren` container.
+extraVolumeMounts: []
+
+# -- Node labels to match for `Pod`
+# [scheduling](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/).
+nodeSelector: {}
+
+# -- Node taints which will be tolerated for `Pod`
+# [scheduling](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/).
+tolerations: []
+
+# -- Affinity settings for `Pod` [scheduling
+# constraints](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/).
+# If an explicit label selector is not provided for pod affinity or pod
+# anti-affinity one will be created from the pod selector labels.
+affinity: {}
+
+schedulerName: ""

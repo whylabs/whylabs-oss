@@ -1,0 +1,29 @@
+{
+  "name": "@whylabs/observatory-lib",
+  "private": true,
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "version": "0.0.1",
+  "config": {
+    "prettier_glob": "**/*.{ts,js,tsx,jsx,json,less,scss,css,html,variables,overrides,*rc,graphql}",
+    "eslint_glob": "{src,test}/**/*.{ts,js,graphql}?(x)"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.56"
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.2.10",
+    "@types/react-router-dom": "^5.1.5",
+    "typescript": "^4.3.4"
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint $npm_package_config_eslint_glob",
+    "lint:fix": "yarn lint --fix",
+    "test": "jest --passWithNoTests",
+    "test:coverage": "jest --passWithNoTests --collectCoverage",
+    "start": "tsc -w"
+  }
+}

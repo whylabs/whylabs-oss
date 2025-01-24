@@ -1,0 +1,185 @@
+{
+  "id": "demo-document",
+  "orgId": "org-11",
+  "schemaVersion": 1,
+  "datasetId": "model-0",
+  "granularity": "daily",
+  "entitySchema": {
+    "columns": {
+      "annual_inc": {
+        "discreteness": "discrete",
+        "classifier": "input",
+        "dataType": "fractional"
+      },
+      "prediction": {
+        "discreteness": "discrete",
+        "classifier": "output",
+        "dataType": "integral"
+      }
+    }
+  },
+  "analyzers": [
+    {
+      "id": "missing_upload_analyzer",
+      "schedule": {
+        "type": "cron",
+        "cron": "0 * * * *"
+      },
+      "disabled": false,
+      "targetMatrix": {
+        "type": "dataset",
+        "include": [
+          "*"
+        ],
+        "segments": [
+          {
+            "tags": []
+          },
+          {
+            "tags": [{"key" : "purpose", "value": "small_business"}]
+          }
+        ]
+      },
+      "backfillGracePeriodDuration": "P30D",
+      "config": {
+        "version": 1,
+        "type": "fixed",
+        "metric": "secondsSinceLastUpload",
+        "lower":0,
+        "upper": 86400000
+      }
+    },
+    {
+      "id": "missing_datapoint_analyzer",
+      "schedule": {
+        "type": "cron",
+        "cron": "0 * * * *"
+      },
+      "disabled": false,
+      "targetMatrix": {
+        "type": "dataset",
+        "include": [
+          "*"
+        ],
+        "segments": [
+          {
+            "tags": []
+          },
+          {
+            "tags": [{"key" : "purpose", "value": "small_business"}]
+          }
+        ]
+      },
+      "dataReadinessDuration": "PT4H",
+      "backfillGracePeriodDuration": "P30D",
+      "config": {
+        "version": 1,
+        "type": "fixed",
+        "metric": "missingDatapoint",
+        "upper": 0
+      }
+    },
+    {
+      "id": "drift_analyzer",
+      "schedule": {
+        "type": "cron",
+        "cron": "0 * * * *"
+      },
+      "disabled": false,
+      "targetMatrix": {
+        "type": "column",
+        "include": [
+          "*"
+        ],
+        "segments": [
+          {
+            "tags": []
+          },
+          {
+            "tags": [{"key" : "purpose", "value": "small_business"}]
+          }
+        ],
+        "batchOffset": 1,
+        "maxDelayBatchCount": 14
+      },
+      "backfillGracePeriodDuration": "P30D",
+      "config": {
+        "version": 1,
+        "type": "stddev",
+        "metric": "median",
+        "factor": 5,
+        "minBatchSize": 7,
+        "baseline": {
+          "type": "TrailingWindow",
+          "size": 14
+        }
+      }
+    }
+  ],
+  "monitors": [
+    {
+      "id": "drift-monitor-1",
+      "analyzerIds": [
+        "drift_analyzer",
+        "missing_datapoint_analyzer",
+        "missing_upload_analyzer"
+      ],
+      "schedule": {
+        "type": "cron",
+        "cron": "0 0 * * * *"
+      },
+      "disabled": false,
+      "severity": 2,
+      "mode": {
+        "type": "EVERY_ANOMALY",
+        "filter": {
+          "excludeFields": [
+            "unimportant"
+          ]
+        }
+      },
+      "actions": [
+        {
+          "type": "email",
+          "target": "demo@whylabs.ai"
+        },
+        {
+          "type": "slack",
+          "target": "https://demo.com"
+        }
+      ]
+    },
+    {
+      "id": "drift-monitor-2",
+      "analyzerIds": [
+        "drift_analyzer",
+        "missing_datapoint_analyzer",
+        "missing_upload_analyzer"
+      ],
+      "schedule": {
+        "type": "cron",
+        "cron": "0 0 * * * *"
+      },
+      "disabled": false,
+      "severity": 2,
+      "mode": {
+        "type": "DIGEST",
+        "filter": {
+          "excludeFields": [
+            "unimportant"
+          ]
+        }
+      },
+      "actions": [
+        {
+          "type": "email",
+          "target": "demo@whylabs.ai"
+        },
+        {
+          "type": "slack",
+          "target": "https://demo.com"
+        }
+      ]
+    }
+  ]
+}

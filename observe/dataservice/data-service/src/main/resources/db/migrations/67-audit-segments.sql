@@ -1,0 +1,1 @@
+alter table whylabs.profile_upload_audit add column if not exists segment_tags jsonb;

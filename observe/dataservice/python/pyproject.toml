@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "starling"
+version = "0.1.0"
+description = ""
+authors = ["WhyLabs <dev@whylabs.ai>"]
+license = "Unlicensed"
+packages = [{ include = "starling" }]
+
+
+[tool.poetry.dependencies]
+scipy = ">=1.7.3" # very important due to https://github.com/statsmodels/statsmodels/issues/8033
+python = "~3.9"
+pandas = "^1.2.4"
+# We custom built 1.8.4 in S3 (see Docker aarch64 file). 1.8.6 will support aarch64
+pmdarima = "2.0.1"
+py4j = "0.10.9"  # must align with CopyFromSpark
+matplotlib = "^3.5.1"
+dacite = "^1.6.0"
+dataclasses-json = "^0.5.7"
+requests = "^2.28.1"
+fastapi = "^0.104.0"
+uvicorn = {extras = ["standard"], version = "^0.23.2"}
+gunicorn = "^21.2.0"
+pydantic = "^2.4.2"
+smart-open = {extras = ["s3"], version = "^6.4.0"}
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.3"
+httpx = "^0.25.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

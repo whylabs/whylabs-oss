@@ -1,0 +1,35 @@
+query getUser {
+  user {
+    name
+    auth0Id
+    whyLabsId
+    isAuthenticated
+    email
+    emailVerified
+    permissions
+    metadata {
+      masquerade {
+        isActiveNow
+        expiration
+      }
+    }
+    organization {
+      id
+      name
+      subscriptionTier
+      isAWSMarketplace
+    }
+  }
+}
+
+query getUserOrganizations {
+  user {
+    auth0Id
+    name
+    isAuthenticated
+    joinedOrganizations {
+      orgId
+      name
+    }
+  }
+}

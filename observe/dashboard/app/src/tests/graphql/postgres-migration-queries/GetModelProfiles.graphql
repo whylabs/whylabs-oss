@@ -1,0 +1,26 @@
+query getModelProfiles($modelId: String!, $from: Float!, $to: Float!) {
+  model(id: $modelId) {
+    batchFrequency
+    id
+    modelType
+    name
+    batches(from: $from, to: $to) {
+      ...BatchProfile
+    }
+    referenceProfiles(from: $from, to: $to) {
+      ...ReferenceProfile
+    }
+  }
+}
+
+fragment BatchProfile on BatchMetadata {
+  timestamp
+}
+
+fragment ReferenceProfile on ReferenceProfile {
+  id
+  alias
+  datasetId
+  uploadTimestamp
+  datasetTimestamp
+}

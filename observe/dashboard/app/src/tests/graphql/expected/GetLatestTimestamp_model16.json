@@ -1,0 +1,10 @@
+{
+  "data": {
+    "model": {
+      "dataAvailability": {
+        "latestTimestamp": null,
+        "oldestTimestamp": null
+      }
+    }
+  }
+}

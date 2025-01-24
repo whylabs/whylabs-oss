@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Email digest template</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Asap&display=swap" rel="stylesheet">
+  </head>
+
+  <body style="margin: 0">
+    <div style="width: 720px; margin: 0 auto; background-color: #fafafa; padding: 20px 0 30px">
+      <h1 style="margin: 0; color: #005566; font-family: 'Asap', Arial, Helvetica, 'sans-serif'; text-align: center; font-weight: normal; font-size: 28px">
+       <!-- TODO: Insert org name here -->
+        Notification Digest
+      </h1>
+      <div style="color: #005566; text-align: center; font-family: 'Asap', Arial, Helvetica, 'sans-serif'; font-size: 14px">{{ date_range_display time cadence }}</div>
+      <div style="margin-top: 12px; color: #005566; font-family: 'Asap', Arial, Helvetica, 'sans-serif'; text-align: center; font-size: 16px">
+        {{ models_length_summary modelNotifications }}
+      </div>
+
+      <!-- All models wrapper -->
+      <!-- TODO: replace this with a big table, or just let this be the one div to rule them all-->
+      <table
+        style="width: 600px; margin: 14px 60px; font-family: 'Asap', Arial, Helvetica, 'sans-serif'; background-color: #fff; border: 2px solid #dbe5e7; border-radius: 4px"
+      >
+        <tr>
+          <td>
+            <!-- Single Model -->
+            <!-- TODO: replace the single model item with a table (per model)-->
+            {{#each modelNotifications}}
+            <table style="width: 268px; padding: 15px">
+              <tr>
+                <td>
+                  <p>
+                    <b>
+                      <a
+                        {{link_href this.modelDashboardUrl (date_range_url ../time ../cadence)}}
+                        style="color: #0e7384; font-size: 14px"
+                      >
+                        {{this.name}}
+                      </a>
+                    </b>
+                  </p>
+                </td>
+              </tr>
+
+              <!-- Total alert count -->
+              <tr style="margin-top: 10px">
+                <td style="font-size: 36px; margin: 0; color: #313b39">
+                  <span >{{this.totalAlertCount}}</span>
+                </td>
+                <td>
+                  <a
+                    {{link_href this.modelAlertsUrl (date_range_url ../time ../cadence)}}
+                    style="margin-left: 5px; color: #0e7384; font-size: 12px"
+                  >
+                  alerts
+                  </a>
+                </td>
+              </tr>
+
+              <!-- Alerts by type summary -->
+              <tr style="margin-top: 10px">
+                <td>
+                  <table >
+                    <tbody>
+                      {{#each this.alertCounts}}
+                      <tr>
+                        <td>
+                          <a {{link_href this.alertsUrl (date_range_url ../../time ../../cadence)}} style="color: #0e7384; font-size: 14px">{{this.prettyType}}</a>
+                        </td>
+                        <td style="margin-left: 10px; font-size: 12px; text-transform: capitalize">
+                          <span >{{s_pluralize 'alert' this.count}}</span>
+                        </td>
+                      </tr>
+                      {{/each}}
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+
+              <!-- Top three most alerted features -->
+              <tr style="margin-top: 10px">
+                <td>
+                  <table >
+                    <tbody>
+                      {{#each this.featureAlerts}}
+                      <tr>
+                        <td>
+                          <a {{link_href this.alertsUrl (date_range_url ../../time ../../cadence)}} style="color: #0e7384; font-size: 14px">{{this.featureName}}</a>
+                        </td>
+                        <td style="margin-left: 10px; font-size: 12px; text-transform: capitalize">
+                          <span >{{s_pluralize 'alert' this.totalAlertCount}}</span>
+                        </td>
+                      </tr>
+                      {{/each}}
+                    </tbody> 
+                  </table>
+                </td>
+              </tr>
+            </table>
+            {{/each}}
+          </td>
+        </tr>
+      </table><!-- End all-models wrapper -->
+
+    </div>
+    
+  </body>
+</html>

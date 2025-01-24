@@ -1,0 +1,9 @@
+mutation createOrg {
+  admin {
+    organizations {
+      create(name: "Test", emailDomains: "foo") {
+        id
+      }
+    }
+  }
+}

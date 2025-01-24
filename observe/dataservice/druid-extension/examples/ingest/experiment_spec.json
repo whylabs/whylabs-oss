@@ -1,0 +1,48 @@
+{
+  "type": "index_parallel",
+  "spec": {
+    "ioConfig": {
+      "type": "index_parallel",
+      "inputSource": {
+        "type": "local",
+        "filter": "metrics.bin",
+        "baseDir": "./"
+      },
+      "inputFormat": {
+        "type": "protobuf"
+
+      },
+      "tuningConfig": {
+        "type": "index_parallel",
+        "partitionsSpec": {
+          "type": "dynamic"
+        }
+      },
+      "dataSchema": {
+        "dataSource": "metrics",
+        "granularitySpec": {
+          "type": "uniform",
+          "queryGranularity": "HOUR",
+          "rollup": true,
+          "segmentGranularity": "DAY"
+        },
+        "timestampSpec": {
+          "column": "!!!_no_such_column_!!!",
+          "missingValue": "2010-01-01T00:00:00Z"
+        },
+        "dimensionsSpec": {
+          "dimensions": [
+            "column1"
+          ]
+        },
+        "metricsSpec": [{
+          "name": "count",
+          "type": "count"
+        }]
+      },
+      "ioConfig": {
+        "type": "index_parallel"
+      }
+    }
+  }
+}

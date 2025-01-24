@@ -1,0 +1,69 @@
+query getUsersOrganizationMembers {
+  user {
+    auth0Id
+    name
+    isAuthenticated
+    organization {
+      id
+      name
+      members {
+        userId
+        role
+        email
+      }
+    }
+  }
+}
+fragment JoinedOrganization on OrganizationMemberMetadata {
+  orgId
+  name
+  membershipType
+}
+query getUserOrganizations {
+  user {
+    auth0Id
+    name
+    isAuthenticated
+    joinedOrganizations {
+      ...JoinedOrganization
+    }
+  }
+}
+
+mutation selectDefaultOrganization($orgId: String!) {
+  memberships {
+    setDefaultOrganization(orgId: $orgId)
+  }
+}
+
+mutation addUserToOrganisation($email: String!, $role: MembershipRole) {
+  memberships {
+    add(email: $email, role: $role) {
+      userId
+    }
+  }
+}
+
+mutation addMultipleUsersToOrganisation($emails: [String!]!, $role: MembershipRole) {
+  memberships {
+    bulkAdd(emails: $emails, role: $role) {
+      email
+    }
+  }
+}
+
+mutation updateMember($email: String!, $role: MembershipRole!) {
+  memberships {
+    update(email: $email, role: $role) {
+      userId
+    }
+  }
+}
+
+mutation removeMemberFromOrg($email: String!) {
+  memberships {
+    remove(email: $email) {
+      email
+    }
+  }
+}

@@ -1,0 +1,875 @@
+dataset,text,source,label,uid
+financial,what is the average payment volume per transaction for american express?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",EoyAxZ
+financial,what was the percentage cumulative total return for the five year period ended 31-dec-2017 of citi common stock?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",YQigNv
+financial,what percentage of the total oil and gas mmboe comes from canada?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",OIZPXq
+financial,in 2010 what was the net change in net revenue in millions,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",8KgVX1
+financial,what are the deferred fuel cost revisions as a percentage of the increase in fuel cost recovery revenues?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",PUmF7g
+financial,what was the change in millions of operating income from 2016 to 2017?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",JqLnAH
+financial,what was jpmorgan chase & co's common equity tier 1 ( cet1 ) ratio in 2008?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",KqzxRy
+financial,"at the end of 2014 , the notional value of derivatives designated as hedging instruments under gaap was what percent of the fair value?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",rn-d9i
+financial,"what was the increase in class a common stock issued and outstanding between years , in thousands?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Zssmb4
+financial,in millions what was total residential mortgages balance for 2013 and 2012?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",m2huXy
+financial,what was the gross margin decline in fiscal 2004 from 2003?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",5Ns5A5
+financial,what percentage of total purchase commitments are due after 2014?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",xOBf-c
+financial,"what was the change in the weighted average common shares outstanding for diluted computations from 2012 to 2013 , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ygY5Ax
+financial,"in 2011 what was the amount of tax related to the unrealized losses reclassifications totaled $ 303 million , or $ 189 million after-tax,",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",-elZah
+financial,"if current development costs increased in 2008 as much as in 2007 , what would the 2008 total be , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",PACYa0
+financial,what percentage of total aggregate contractual obligations is due to purchase obligationst?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",cU9n5q
+financial,in 2010 what was the percentage change of the carrying amount of loan receivable net of the allowance,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Pt1Jzq
+financial,what was the percent of the total long-term debt obligations that was due after 2011,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",xqNZZ8
+financial,what is the decline from current future minimum lease payments and the following years expected obligation?\\n,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",jefaui
+financial,"what is the applied 2019s net sales in 2018 , ( in billions ) ?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",EL3orT
+financial,"what is the average amortization amount , in millions , from 2015-2019?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",UMIZO6
+financial,what was the ratio of the pension trust assets for 2017 to 2018,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",PQdPR5
+financial,what percent of inventory is ready for liquidation ( sale ) in 2003?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",w6J1-9
+financial,what is the total value of net operating loss carryforwards?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ld_BGW
+financial,what is the percent change in annual long-term debt maturities from 2016 to 2017?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Hsrvqm
+financial,share of total securities rated bbb/baa or below changed by how many percentage point between 2008 and 2009?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",s-Jwrz
+financial,what is the percentage increase in interest expense?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",3JwQ8x
+financial,what is the expected growth rate in amortization expense from 2016 to 2017?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",McEft1
+financial,what are the payments for entergy arkansas as a percentage of payments for entergy louisiana?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",oib1FP
+financial,"as of december 31 , 2008 what was the percent of the total accounts payable and other liabilities that was accrued wages and vacation",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",wDLlHa
+financial,"for the period ending in 2016 , what was the average amount of settlements , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",4ytCM0
+financial,what percentage of total future principal payments of corporate debt are due after 2012?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",f2ladu
+financial,what was the percentage change in total net goodwill between 2010 and 2011?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ifePcQ
+financial,"from the data given , how many square feet have an expiry date in 2020?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Vzgq8Z
+financial,what was the difference in dollars of the high low sale price for the common stock in the fourth quarter of 2002?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",gRsN9P
+financial,in 2010 what was the ratio of the statutory capital and surplus to the statutory net income,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",L6Wkps
+financial,what is the percentage change in total debt from 2014 to 2015?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Hu-0g2
+financial,what was the total return percentage for e*trade financial corporation for the five years ended 12/14?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",9rQrBZ
+financial,what was the difference in operating profit for the americas as a percentage of net sales between 2001 and 2003?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",cU56R9
+financial,what was the change in amount of long term debt between 2014 and 2012?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",-7zZJj
+financial,"what amount of long-term debt due in the next 36 months as of december 31 , 2003 , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",SIApTH
+financial,what is the growth rate in operating profit for space systems in 2011?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",oDl-sV
+financial,what was the percentage growth in the operating profit as reported from 2017 to 2018,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",IGwZni
+financial,what was the change in the percentage of sales to restaurants from 2018 to 2019?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",kXyrpG
+financial,what are the annual other sinking fund requirements as a percentage of annual long-term debt maturities ( excluding lease obligations ) and annual cash sinking fund requirements for debt outstanding in 2007?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",X4ThkO
+financial,what percent increase did inventories receive between 2002 and 2003?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",J_gToU
+financial,on february 112011 what was the market capitalization,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",HO4b8I
+financial,"what was the total of euro notes issued in 2014 , in millions of dollars approximately?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",lZw86o
+financial,what was the percent of the increase in non-utility nuclear earnings in 2002,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",KlDzBY
+financial,what was the average currency translation adjustments from 2013 to 2015 in millions?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",22phlp
+financial,what was the ratio of the gallons hedged in 2017 to 2018,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",_KDwXc
+financial,what percentage of the total purchase price is represented by goodwill?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",X8kLdC
+financial,what was the percentage change of our accrued trade liabilities in 2019 compared to 2018,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",8weW7Q
+financial,what was the net change in ending available for sale investment securities from 2017 to 2018?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",waq_2X
+financial,what percent higher is the average var for foreign exchange products than that of interest rate products?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",X-rDh7
+financial,what was the change in millions of total redeemable stock of subsidiaries from 2015 to 2016?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",vHJ1ck
+financial,what is the roi of nasdaq composite from 2008 to 2009?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",0eocmP
+financial,what percentage of warehouse locations are in north america?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",HNw_m0
+financial,"at december 31 , 2006 what was the ratio of the expected future pension benefits after 2012 compared to 2008",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",tGfXSD
+financial,what are the cost reduction initiatives as a percentage of the operating companies income increase?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",LYlHmI
+financial,what was change in millions for the estimated sensitivity to a one basis point increase in credit spreads on derivatives ( including hedges ) between 2017 and 2016?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ujcDQ0
+financial,what percentage of the total cash purchase price net of cash acquired was represented by ipr&d?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",nlxldE
+financial,by how much did the average price per share increase from 2010 to 2011?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",JJfnPu
+financial,what portion of the total notes payable comes from u.s . commercial paper?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",sMd4Gy
+financial,what is the growth rate of the net earnings attributable to pmi?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",-uYa45
+financial,"what percentage of december 31 , 2007 , total future minimum commitments under existing non-cancelable operating leases and purchase obligations were due to purchase obligations for the year of 2008?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",713VJ8
+financial,what is the percentage change in net comodities from 2016 to 2017?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",v8hXti
+financial,what the percentage increase defined contribution plans for foreign countries and contribution from 2007 to 2008,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",mceUVz
+financial,what are the total contingent payments relating to impella?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",3160wG
+financial,in 2006 what percentage of consumer packaging sales were represented by foodservice net sales?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",aQfCjS
+financial,what is the rate of return of an investment in nasdaq from 2017 to 2018?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",IFEZq-
+financial,what is the percentage reduction in the loews common stock from 2013 to 2014,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",RWonuI
+financial,"based on the investment in solexa on november 12 , 2006 what was the price per share in the transaction in dollars",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",X2wiAN
+financial,what portion of the total investment is allocated to mutual funds in 2011?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",1gvmGG
+financial,"based on a 365 day year and the average sales price per barrel listed above , what was the total refined product sales revenue for 2006?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",7eCKCq
+financial,"for the mtn deal , what was the total post closing adjustments , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",n6H2CJ
+financial,"what is the growth rate in net revenue in 2003 for entergy louisiana , inc.?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",FBHcKp
+financial,what percentage of industrial packaging sales where represented by european industrial packaging net sales in 2007?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",-hBRkW
+financial,"what portion of the adjusted consolidated cash flow for the twelve months ended december 31 , 2005 is related to tower cash flow?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",YOJOk-
+financial,what was the percentage growth in sales of cabinets from 2016 to 2017,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",CKWK9n
+financial,what was the ratio of the segment net sales in 2008 to 2009,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",N6PpHf
+financial,what is the percentage change in the weighted-average discount rate for u.s . pension plans from 2014 to 2015?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",WUpVB8
+financial,"considering the year 2009 , what is the percentage of the segment's operating income among the total operating income?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",CWgNtt
+financial,"what was the percentage cumulative 5-year total return to shareholders of cadence design systems , inc . 2019s common stock for the period ended december 30 , 2006?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",RGlmwp
+financial,what is the percent change in minimum annual rental payment between 2010 and 2011?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",tl4soZ
+financial,what was the percentage change in the unrecognized tax benefits from 2015 to 2016?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",GJyObV
+financial,what was the average potential anti-dilutive share conversions from 2008 to 2010,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",IYwfnU
+financial,what was the change in rent expenses between 2011 and 2012?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",vsHV6r
+financial,what is the percentage change in credit net from 2016 to 2017?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",vDW6W8
+financial,"considering the reverse stock split , what was the percentual reduction of the common stock outstanding shares?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",6-kn8z
+financial,as of december 312019 what was the percentage of restricted cash that was proceeds from the issuance of tax-exempt bonds,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Ne7V8z
+financial,what is the carrying value of notes due by 2017 ? in millions $ .,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",NCEr3o
+financial,"what is the roi of an investment in s&p500 index from 2006 to january 3 , 2009?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",XbYBPI
+financial,what is the fair value of hologic common stock used to acquire suros?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",LYfPDw
+financial,what was the percentage change in rental expense for operating leases from 2008 to 2009?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",uCPiQR
+financial,what was the average change in unrealized gains on derivative instruments?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",bFZK4Y
+financial,what was the change in millions between 2012 and 2013 in currency hedges?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",wD52Xr
+financial,what portion of total assets acquired is composed of goodwill?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",w5PeQf
+financial,what was the change in billions in total capital ( tier 1 and tier 2 ) from 2007 to 2008?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",TnqElM
+financial,"for the the quarter ended december 31 , 2006 what was the percent of the total number of shares purchased bought in october",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",muxUQ4
+financial,what was the percentage change in proportional free cash flow between 2014 and 2015?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",0a_iCa
+financial,what was the increase in long-term debt between 2004 and 2005 in thousands?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ABioNw
+financial,"what are the total contractual commitments , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",XMpWf3
+financial,what is the tax expense related to discontinued operations in 2013?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",gW18Pa
+financial,what was the difference in percentage return for pmi common stock compared to the s&p 500 index for the five years ended 2018?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",0OhRax
+financial,what is the change in inventories net in millions between 2002 and 2003?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",YYnLgl
+financial,what was the average number of weighted average common shares outstanding for diluted computations from 2011 to 2013,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",agkqH8
+financial,"what amount of long-term debt due in the next 24 months as of december 31 , 2003 , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",tO02k9
+financial,for the quarter ended march 312008 what was the percent of the change from the highest to the lowest of the company per share sale prices of common stock,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",apSIgP
+financial,what was the average price of shares repurchased in 2010?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",dTeAuV
+financial,in 2008 what was the percent of the total operating revenues that was associated with other revenues,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",QlNwc4
+financial,"considering the years 2015-2016 , what is the decrease observed in the cash contributions to funded plans and benefit payments for unfunded plans?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",fUWGuB
+financial,"what is the difference in payments between entergy arkansas and entergy louisiana , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",6nP5Pk
+financial,"what is the total interest expense for the year ending on may 27 , 2012 , ( in millions )",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",xROAPZ
+financial,what percentage of amounts expensed in 2009 came from discretionary company contributions?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",GFIEqd
+financial,what is the percent of the square feet in owned facilities in other countries?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",3ZuwMI
+financial,what is the percentage change in total gross amount of unrecognized tax benefits from 2017 to 2018?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",sJWg7g
+financial,"considering the year 2018 , what is the cash flow result?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",byOGVD
+financial,what was the ratio of the free cash flow to the cash provided by operating activities in 2015,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",wnbMKK
+financial,what percent of the change between net revenue in 2007 and 2008 was due to rider revenue?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",MeVa2b
+financial,"what is the change in the balance of liability for all restructuring from 2006 to 2008 , ( in millions ) ?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",2fRj3R
+financial,what percentage was eurasia sbu of total revenue in 2017?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Fu-fAt
+financial,in 2005 what was the percent of the investment banking as part of the total segments operations,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",gfPmwt
+financial,what percent higher is fair value than carrying value?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",s-KUZS
+financial,what percent of the net change in revenue between 2006 and 2007 was due to transmission revenue?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",_zjooa
+financial,what is the growth rate in net revenue in 2016?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",9QXhOn
+financial,what is the average percentage for aaa rated facilities in 2008 and 2009?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",M3efNt
+financial,what is the company's net earnings as a percent of net sales in 2015 ? ( net profit margin ),dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",z4uBNt
+financial,what were total heavy fuel oil sales in tbd for the three year period?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ykt6wD
+financial,what is the variation between the average and the highest operating margin?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",k24BRy
+financial,what portion of the revised purchase price of kichler is dedicated to goodwill?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",qX0GRZ
+financial,what were total tax benefits realized for deductions during 2007 and 2006 in excess of the stock-based compensation expense for options exercised and other stock-based awards vested in millions?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",kf5bgI
+financial,in 2016 what was the ratio of the net income increased to the net revenues,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",44U5hH
+financial,what was the average weighted average common shares outstanding for diluted computations from 2015 to 2017,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",LGuqaV
+financial,what percentage of total other assets in 2011 was comprised of goodwill and identifiable intangible assets?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",0ndPnM
+financial,how many total votes can the class b-3 provide in 2017?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",tmitWG
+financial,what is the estimated percentual decrease observed in the htm investment securities from 2017 to 2018 ? .,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",U0auUF
+financial,"in 2018 , what percentage of undeveloped acres were located in the u.s?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",zCwfKd
+financial,"what are the total sales reported in 2012 , ( in billion ) ?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",hqM6HS
+financial,"what is the average liability for all three programs , as of december 31 , 2008 , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",CPiLJi
+financial,"considering the year 2013 , what is the sales to operating income ratio?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",lxnD6z
+financial,in 2010 what was the percentage change in the deferred policy acquisition costs and present value of future profits,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",hGKoQw
+financial,"for 2015 and 2014 , what was the average in millions for provision recapture for purchased impaired loans?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",KJyV0U
+financial,what was purchases of reserves in place in 2016?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",2ckvur
+financial,did the share of securities rated aaa/aaa increase between 2008 and 2009?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",bPHw2k
+financial,"what is the change in total debt to be repaid in the contractual obligations for future payments under existing debt and lease commitments and purchase obligations at december 31 , 2005 between 2009 and 2008?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Tryl21
+financial,what was average net sales for space systems in millions from 2013 to 2015?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",HprLf5
+financial,what is the five year total return on ball stock?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",K4IKcM
+financial,what is the cash flow statement effect of the change in cash used for working capital from 2013 to 2014?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",w60rbI
+financial,what portion of the company owned facilities are located in the rest of the world?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",B7fs1s
+financial,what is the lowest segment operating income?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",-s0CqT
+financial,"in millions in 2014 , 2013 , and 2012 , what was the greatest amount of hedged borrowings and bank deposits?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",NrkwPC
+financial,what is the percentage growth of the aggregate fair values of our outstanding fuel hedge for 2014 to 2015,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Wqo03x
+financial,in 2005 what was the ratio of the breast implant receivables to the breast implant liabilities,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",jG6yvA
+financial,"what percentage of total market risk for positions , accounted for at fair value , that are not included in var is comprised of equity in 2017?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",X4KJeD
+financial,what percent of total operating income was asia-pacific in 2015?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",X2Y3kB
+financial,what was the average backlog at year-end from 2013 to 2015,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",x88E1a
+financial,what was the percent of the impairment charges to the net revenue in 2013,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",wFkf9o
+financial,what was the total net change in net fair value of derivatives outstanding at between 2007 and 2008 in thousands?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",kqmsha
+financial,what was the average net revenue between 2016 and 2017 in millions,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",CGSezd
+financial,what was the percentage change in net fair value of derivatives outstanding at between 2007 and 2008 in thousands?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Olg10t
+financial,what is the growth of the additions in comparison with the growth of the deductions during 2003 and 2004?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",7vOmhm
+financial,5 development costs incurred during the period 1654 1251 1030,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",I3qcC5
+financial,what was the percentage change in the unrecognized tax benefits from 2014 to 2015?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",thAYUw
+financial,"what were the remaining mondovi net assets acquired following the sale of certain excess assets from the deal , in thousands?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",xTaoR2
+financial,"what percentage of major facilities by square footage are owned as of december 28 , 2013?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",QndMhZ
+financial,what was the percentage cumulative 5-year total stockholder return for cadence design systems inc . for the five years ended 12/29/2012?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",AUT-e0
+financial,what are the total amount of net tangible assets obtained through the acquisition?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",06wmLu
+financial,what was the percentage change in the amortized cost in 2009,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",rd1oE0
+financial,what is the long-term retail/hnw in emea as a percentage of the total long-term retail/hnw?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",HkoHwz
+financial,what was the ratio of the 2017 total long term debt to 2016,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",61OO63
+financial,what is the percentage change in in the pension liability balance from 2004 to 2006?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",y7WqRl
+financial,in 2017 what was amount net sales applicable to international market in millions,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",NMSz8q
+financial,what portion of the total contractual obligations are due within the next 12 months?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",XpxoHQ
+financial,"what was total net undeveloped acres expiring for the three year period , in thousands?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",YY0LzX
+financial,what percentage of the total estimated purchase price was cash?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",UeMisZ
+financial,what is the average future minimum annual rental payment for the next five years?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",9ZhLoy
+financial,net cash provided by operating activities increased by what percentage in 2014?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",5ecmyV
+financial,"assuming the same trend as in 2011 , what would total stock-based compensation cost be for 2012?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",2Mts0m
+financial,what are the future minimum commitments under the operating leases in 2015 as a percentage of the total future minimum commitments?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",sR36jY
+financial,for the fourth quarter ended december 312018 what was the total number of shares purchased in november,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",kpOUK9
+financial,what was the change in billions in tier 1 capital from 2007 to 2008?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",KfzqVY
+financial,what is the growth rate in operating profit for space systems in 2012?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",3Gb5j7
+financial,"at december 31 , 2013 what was the ratio of square feet of our office in alpharetta , georgia to the jersey city new jersey",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",0Sl5Ni
+financial,"at december 31 , 2005 what was the percent of the total commitment applicable to the standby letters of credit",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",6mhrnV
+financial,what is the percent change in quarterly cash dividend for the period ended march 31 2002 to the period ended march 31 2003?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",CY6Lvm
+financial,"what portion of the adjusted consolidated cash flow for the twelve months ended december 31 , 2005 is related to non-tower cash flow?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",OkGxWF
+financial,what is the growth rate in net revenue in 2008 compare to 2007?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",_NXgdH
+financial,"what is the total operating income in 2013 , ( in millions ) ?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",tSdcu2
+financial,"what is the net change in net revenue for entergy texas , inc . during 2007?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",noeDH_
+financial,what is the rate of return of an investment in s&p500 inc from 2001 to 2005?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",guvofQ
+financial,what was the profit margin in 2015,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",09QekH
+financial,"during 2013 , what was the ratio of the accrued interest $ 1.2 million to the recognized a interest liability interest of $ 17.0 million .",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",iveVi5
+financial,in 2009 what was the ratio of the commercial mortgages at fair value to lower of cost or market \\n,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",hUXlwR
+financial,in 2019 what was the percent of the total future estimated cash payments under existing contractual obligations associated with long-term debt that was due in 2020,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Opwmmg
+financial,"for fiscal 2018 , what percentage of the total change in the valuation allowance was due to settlements with taxing authorities?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",2Ln1h_
+financial,"what was the percent of the debt maturities outstanding at december 31 , 2013 that was unsecured debt",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",sEhlyN
+financial,what is the anticipated percentage increase in the capital investment in 2007 from 2006,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",7mMt8F
+financial,in 2006 what was the percent of the total investments amount attributable to the track,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Jhe3ZU
+financial,what portion of the robert mondavi's total assets acquired is related to goodwill?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",oJ8ZYp
+financial,"as of december 31 , 2017 , assuming an average price per share of $ 12.12 , what would be the cost in millions to repurchase all the remaining shares remaining in the program?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",3bQf_Y
+financial,what is the percentage change in amortization expense from from 2008 to 2009?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",U4ztzT
+financial,what is the percentage increase in total accumulated other comprehensive losses from 2014 to 2015?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",BW4nSl
+financial,what percent of total derivatives are from interest rate contracts in 2013?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",3wnKYj
+financial,"accrued interest represented how much of the ending balance in uncertain tax benefits as of december 31 , 2014?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",GiVc7x
+financial,what was the change in rent expenses between 2010 and 2011?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",39KTt1
+financial,"what was the increase for the maximum company match on january 1 , 2011?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",LkFN75
+financial,what was the percentage growth of the five-year cumulative total return of s&p financials from 2015 to 2016,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",XeSEIw
+financial,"in these equity investment balances , what is the percent of unfunded commitments at december 31 , 2012?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",RRjN3j
+financial,what was the change in millions of weighted average common shares outstanding for diluted computations from 2016 to 2017?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",dfU-46
+financial,what was the percentage change in inventories between 2017 and 2018?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",W0BxR_
+financial,what is the estimated price of hologic common stock used in the acquisition of suros?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",M2vK1l
+financial,what was the percent of the increase in compensation cost recognized for rsus from 2008 to 2009,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",mQQCT4
+financial,as of december 2007 what was the ratio of the future debt maturities for 2011 to the amounts after 2012,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",vrdELF
+financial,north american consumer packaging net sales where what percentage of consumer packaging sales in 2008?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",42eZIK
+financial,what is the combined amount of accrued interest and penalties related to tax positions taken on our tax returns in millions for fiscal 2018 and 2017?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",wjW3KJ
+financial,what was the difference in percentage cumulative total return for the five year period ended 31-dec-2017 of citi common stock and s&p financials?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Q8a0nd
+financial,"if there were 50 facilities being rated in 2009 , how many were bbb/baa?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",WWmB8C
+financial,"what will be the yearly interest expense for entergy louisiana for the bond issued in 2012 , ( in millions ) ?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",m3mJ-5
+financial,"what is the interest expense in 2015 assuming that all the debt is interest bearing debt , ( in billions ) ?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",qoA7CA
+financial,"what were capital expenditures associated with the retail segment since its inception , exclusive of the amount incurred during 2003 , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",BTrJlg
+financial,"what is the difference in payments between entergy arkansas and entergy new orleans , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",le8CbZ
+financial,"what was the average rental expense , net of sublease income from 2004 to 2006 in millions",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",3jk55T
+financial,what was the difference in percentage cumulative 5-year total stockholder return for cadence design systems inc . compared to the nasdaq composite for the period ending 12/29/2018?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ELjEFY
+financial,"considering the year 2016 , what was the percentual increase in the high sale price observed during the first and second quarters?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",zRTj2Y
+financial,what is the net change in net revenue during 2016?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",lHaM4N
+financial,the non-recurring charge for the office facility closing was what percent of lease expense in 2006?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",gVd8LA
+financial,in 2019 what was the percent of the financing structure that was based on the equity,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",3vCwUB
+financial,in 2013 what was the percent of the total operating revenues from mexico,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",yN6_zd
+financial,what was the net effect of the one-percentage point increase and decrease on total service and interest cost components,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",JS405L
+financial,what was the spread between the high and low henry hub natural gas ( dollars per mcf ) in 2009?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",sVr0k5
+financial,in 2005 what percentage of consumer packaging sales were represented by foodservice net sales?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",tOBARs
+financial,what was the percent of the total commitment with an expiration of less that 1 year was subject to renewal,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",jEobfY
+financial,"considering the year 2014 , what is the variation between the capital expenditures on a gaap basis and the one on a non-gaap basis?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",EC5sQy
+financial,what is the percentage change in interest income from 2014 to 2015?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ku-KXA
+financial,what was the average high and low stock price for the second quarter of 2002?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",M3m6fX
+financial,"assuming a 5% ( 5 % ) rate of return , what would the earnings be ( in millions ) on 2008 total adjusted average assets?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",XbXKAa
+financial,what was the value of the rsu's granted,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",TKqVWt
+financial,what was the percentage total return for delphi automotive plc for the five years ended december 31 2014?\\n,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",tCBQi7
+financial,what was the percentage change in net income ( loss ) on a pro forma basis between 2006 and 2007?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",lLO74-
+financial,what percent did the balance increase between the beginning of 2010 and the end of 2012?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",x6pMYe
+financial,what percentage of the total purchase price net of cash acquired is ipr&d ?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",SYnCPK
+financial,tier 2 capital is what percent of total capital for 2008?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",6G6O0i
+financial,"considering the fair market value of plan assets in 2018 , what is its estimated return for 10 years?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",KLfDPR
+financial,in 2002 what was the ratio of the net mw in operation to the generation in gwh for the year,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",GykinF
+financial,"for 2013 , what was the total in millions of the combined interest only product and principal and interest product?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",C_IaVq
+financial,"in 2011 , did the company distribute more to shareholders than debtholders?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",A1mKru
+financial,what is the ratio of the deffered tax assets for the state income tax credit carry-forwards to the net operating loss carry-forward,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",_TxiW9
+financial,what percent of assets acquired by the acquisition are non-tangible assets?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",MnAI4R
+financial,in 2009 what was the company 2019s consolidated net sales in billions,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",zx-Yeo
+financial,"what was the average revenue from discontinued operations in 2013 and 2011 , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",6-nCOb
+financial,as of december 312013 what was the percent of the total contractual obligations global headquarters operating leases,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",EtWg_j
+financial,what is the difference between the high wti crude oil and western canadian select prices?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",cWio7M
+financial,"what is the total amount of parent company guarantees combined for 2007 and 2008 , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",N6wgZ4
+financial,what percent increase in net income was experienced between 2015 and 2016,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",AdFcCt
+financial,in 2008 what was the percent of the total gaap stockholders 2019 equity and aggregate statutory capital associated with life operations,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",w-gEn2
+financial,what was the return on total assets during 2013?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Hz0jMS
+financial,what was the percentage of the anticipated approximate tax refund in 2003 based on the nol $ 90.0 million .,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",nfgZJ4
+financial,as of december 31 2010 percent of the cabinets and related products to the total gross goodwill,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",GaN9fI
+financial,what is the roi of an investment in loews common stock from 2010 to 2011?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",pPHXZH
+financial,what was the greatest gross margin percentage in the three year period?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",6aA31J
+financial,"what is the total value of fixed maturities and cash as of december 31 , 2015 , in billions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",6yHsKK
+financial,what percentage of total inventories is comprised of finished goods in 2007?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",m4Vpx8
+financial,what was the percentage change in the company recognized tax-related interest and penalties in 2011 .,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",V1mNMr
+financial,what is the operating margin for connected fitness in 2014?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",jyULuQ
+financial,what is the difference in millions of international subscribers between discovery channel and animal planet?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",vcoEAX
+financial,what is the percentage change in the weighted-average discount rate for non-u.s . pension plans from 2014 to 2015?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",cFWPML
+financial,what was the percent of minimum total assets available for default that was guaranty fund contributions ( 2 ),dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Iz-Irb
+financial,"considering the gaap basis , what was the growth observed in the effective tax rate during 2012 and 2013?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",SsQGoo
+financial,for the year ended december 302007 what was the net margin,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",a-oAWB
+financial,what is the percentage increase in total accumulated other comprehensive losses from 2013 to 2014?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",L3Hv3h
+financial,"what is the net change in net revenue during 2016 for entergy texas , inc.?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",5bF5Qf
+financial,what was the percentage cumulative 5-year total stockholder return for cadence design systems inc . for the period ending 12/29/2018?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",se1pdn
+financial,what was the ratio of the snap-on 2019s performance to that of the standard & poor 2019s 500 stock index in 2012,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",gGoSH5
+financial,what was the total revenues in 2009 based on the consulting segment generated 17% ( 17 % ) of our consolidated total revenues in millions,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Bdd_XH
+financial,"what is the percentage of allowance of the company's purchased distressed loan portfolio at december 31 , 2010?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",QVEezH
+financial,what was highest net rental expense in millions?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",_Knvs9
+financial,what would the investment income ( loss ) have been in 2015 without the gain from the sale of shares of arris group common stock in 2014?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",nS4DGK
+financial,what is the current ratio of robert mondavi?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",QGzj7t
+financial,what is the percent change in earnings for non-utility nuclear from 2001 to 2002?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",7KrpXM
+financial,what were average backlog at year-end for mfc from 2013 to 2015 in millions?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",hILt2b
+financial,"as of december 31 , 2015 what was the percentage decline in the gross unrecognized tax benefits from 2014 to 2015",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",p0Xclm
+financial,what is the growth rate in the number of stores during 2011?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",X_L8vE
+financial,what portion of the company owned facilities are located in europe?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",uDTn_E
+financial,what was the average price per share from november to december?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",4lDHN_
+financial,"what is the gross carrying amount in millions of the company's purchased distressed loan portfolio at december 31 , 2010?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",PcQ7p5
+financial,"including the shares repurchased under the december 2007 repo agreement , what was the total authorized shares ( in millions ) eligible for repurchase under the january 23 , 2008 repurchase authorization?\\n\\n",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",GPjdQJ
+financial,what was the percentage cumulative total shareholder return for ball corporation for the five year period ending 12/31/10?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",tV3Pt3
+financial,what was the percentage change in proportional free cash flow between 2013 and 2014?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",pxRm-v
+financial,what was the change in defined contribution plans expenses for the u.s . between 2015 and 2016 in millions?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Zit6EL
+financial,"what percentage of total goodwill is attributable to retail bank reporting unit as december 31 , 2011?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",zphSux
+financial,what percent of total commitments expire in 1-3 years?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",p4U9GO
+financial,what portion of the future minimum operating lease payments is due in the next 12 months?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Ohf_nr
+financial,"considering the years 2016-2017 , what is the percentual increase observed in the payment amount per share?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",DV6oEb
+financial,what percentage of total purchase commitments are due in 2013?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Uvpbyv
+financial,"for revisions of previous estimates , what was the impact in mmboe resulting from an increase in drilling programs in u.s . resource plays and an increase in discontinued operations due to technical reevaluation and lower royalty percentages related to lower realized prices?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",0gKbNa
+financial,what was the percent of the finished products to the total inventory,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",RRjdoc
+financial,what was the percentual increase of other income due to favorable foreign exchange and reimbursements in 2011?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",EcfC_f
+financial,in 2017 what was the debt to equity based on the 2017 actual asset allocation,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",zOFNVW
+financial,what percentage of average common equity attribution in 2016 is made up of institutional securities?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",6KTx4T
+financial,what was the return on total assets during 2014?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",FVWpIw
+financial,what is the net change in shares of common stock outstanding from 2013 to 2014 in millions?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Eazd43
+financial,"on february 13 , 2009 what was the market capitalization",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",dH6pul
+financial,what was the difference between the high and low aeco natural gas sales index?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",DL7uYZ
+financial,what portion of the suros acquisition price is paid in cash?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",YkpEMO
+financial,"as of december 31 , 2016 what was the percent of the total commercial lending of the total commitments to extend credit and other commitments",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Qgahb7
+financial,"what were average proportional recoverable environmental capital expenditures for the years december 31 , 2015 , 2014 and 2013 , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",HRpSgM
+financial,"what is the total return is $ 100000 are invested in s&p500 on january 1st , 2015 and sold at the end of 2016?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",hjn_At
+financial,what was the percentage increase total commitments to extend credit and other commitments,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ZjUhuQ
+financial,"for the quarter ended september 30 , 2013 what was the total number of shares purchased in august",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",9PCbWX
+financial,what portion of the purchasing price is dedicated to net tangible assets?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Z2yFve
+financial,"without the commercial banking segment , what would 2005 operating income have been reduced to , in us$ m?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",4WmLRW
+financial,what was the difference in total return percentage beteween e*trade financial corporation and the s&p 500 index for the five years ended 12/14?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",42ISO9
+financial,"if there were a 100bp rise in rates , how much more would the impact be on earnings in 2009 vs . 2008?\\n",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",fnbZQU
+financial,what was the average expected life of the options for the three year period?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",UKOcCv
+financial,what is the long-term retail/hnw in americas as a percentage of the total long-term retail/hnw?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",XNuVa_
+financial,does the company spend more on advertising in 2012 than on research and development?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",TSeXU3
+financial,"what is the annual interest expense for entergy louisiana incurred from the series first mortgage bonds due september 2018 , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",6Yfi3S
+financial,in 2008 what was the carrying amount reported on the consolidated balance sheet to aggregate unpaid principal balance in excess of fair value of the trading assets,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",9rpZr6
+financial,for the three months ended march 2003 what were the total sales proceeds for subsidiaries assets in millions?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",fSqBdo
+financial,goodwill was what percent of the mondavi acquisition?\\n,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",g9uuED
+financial,what is the total return of the jpmorgan chase & co . stock over the above refernced five year period?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",2qha3A
+financial,what percentage of long-term debt is due after 2021?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",yeGdJw
+financial,what was the overall growth of the s&p 500 index from 2010 to 2015,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",RWhlJp
+financial,what portion of the total acquisition price of suros is dedicated to goodwill?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",vw4UeP
+financial,what was the percentage cumulative return for lkq corporation for the five years ended 12/31/2016?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",_Sd2vK
+financial,what percent of the total common stock plans are related to the vertex purchase plan?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",-WzYdI
+financial,"based upon outstanding balances at december 31 , 2011 what was the percent of the principal and interest product of the combined products",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",arw-iC
+financial,"for miscellaneous receivables and other assets , what was the percentage that represented assets related to the firm 2019s reinsurance business which were classified as held for sale as of december 2012?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Nb7txo
+financial,what is the average of the afs investment securities during the years 2016-2018?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",cadPRg
+financial,"between december 31 , 2011 and december 31 , 2010 , what was the change in the unpaid principal balance outstanding of loans sold as a participant in these programs in billions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",-TfHgg
+financial,what was the percentage change in revenue on a pro forma basis between 2006 and 2007?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ZbMhBm
+financial,what is the growth rate of the net earnings for basic and diluted eps?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",l6S9-0
+financial,what is the percentage difference in the fair value per share between 2014 and 2015?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Fxuw-F
+financial,what is the average price per share of the company 2019s common stock in the third quarter of 2016?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",BoN8w3
+financial,what was the percentage return for pmi common stock for the five years ended 2018?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",WKlMjS
+financial,"what is the change in total debt to be repaid in the contractual obligations for future payments under existing debt and lease commitments and purchase obligations at december 31 , 2005 between 2008 and 2007?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",vCxiVg
+financial,"for the five years ended 12/31/2006 what is the performance difference of the class b common stock of united parcel service , inc . and the dow jones transportation average?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",l8OHA1
+financial,what were total operating expenses as a percentage of revenue in 2013?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",poU0_0
+financial,"what is the net change in net revenue during 2003 for entergy louisiana , inc.?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",cvVOGN
+financial,"for the chicago headquarters lease , assuming the two options to extend the term are exercised , what is the last year the space can be leased?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",PONQkN
+financial,"at december 31 , 2013 what was the percent of square feet of our office in alpharetta , georgia not leased",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",GVSxv4
+financial,"what was the percentage change in capital expenditures for property , plant and equipment from 2009 to 2010?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",47oAQi
+financial,what was the percentage growth in the stock price performance for tractor supply company from 2012 to 2013,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",QuG6aP
+financial,what was the ratio of the total loss due to instrument-specific credit risk for 2008 to 2007,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",gzUfSs
+financial,what is the increase observed in the balance at the end of the year during 2005 and 2004?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",QV-uYH
+financial,"as of december 31 , what was percent of the capital markets goodwill to the total",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",gQM_Y1
+financial,"as of as of december 31 , 2007 what was the percent of the total debt maturities that was due in 2009",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",kaxEvM
+financial,what is the percent change in annual long-term debt maturities ( excluding lease obligations ) and annual cash sinking fund requirements for debt outstanding from 2005 to 2004?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",V71BX9
+financial,what was the growth rate of maximum exposure to loss from vies from 2016 to 2017?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",qPjpQ8
+financial,"what percent of the receivable balances in puerto rico as of december 31 , 2017 was current?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",KOYuBh
+financial,what portion of total backlog is related to newport news segment?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",I93tIy
+financial,what was the value of the treasury stock as of december 312007,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",0aF3m2
+financial,on december 312013 what was the net profit margin,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",DR2sPi
+financial,"considering the state of minnesota , what is the percentage of commercial/industrial customers concerning the total customers?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",beq3C9
+financial,what was the change in millions of total long-term debt net from 2014 to 2015?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",SxT_5v
+financial,"what was the number of shares of stockholders of record on december 29 , 2017 in millions",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",YdNFHk
+financial,"what were net trading assets from derivatives in 2012 , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",IQGx0z
+financial,"without the asset & wealth management segment in 2015 , what would total operating income have been in us$ millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",xr83-H
+financial,how much goodwill does the company have as a % (  % ) of current assets?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",eSBhHA
+financial,what was the difference in operating profit for europe as a percentage of net sales between 2001 and 2003?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",KhSWDK
+financial,what is the current ratio?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",43I8Kg
+financial,what is the tax expense related to discontinued operations in 2012?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",6ZyJTI
+financial,"for all of 2011 , approximately how much was spent on stock repurchases?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",pglhiA
+financial,what is the roi of an investment in pmi from 2013 to 2014?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",A0ERI-
+financial,what are the lease obligations to entergy louisiana as a percentage of long-term debt maturities in 2014?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",62pcVX
+financial,"considering the years 2014-2016 , what is the lowest interest incurred observed?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Y0tsUA
+financial,"what is the roi of an investment in advance auto parts from 2006 to january 3 , 2009?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",CMEB0M
+financial,"at december 31 , 2008 what was the ratio of the tier 2 capital compared to 2007",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",6zoSnW
+financial,"what is the total difference , in millions , in 2015 between a 10% ( 10 % ) increase and 10% ( 10 % ) decrease in interest rates?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",lJ1Pfy
+financial,how much was cost of good sold in 2009?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",kBYcz0
+financial,what was the change in industry segment operating profits between 2003 and 2004?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",fr_tGY
+financial,what is the percentage increase from 2014-2015 in total cash flow data?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",af7CSY
+financial,what is the amortized cost as a percent of the fair value of the securities in 2009?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",0k2EiQ
+financial,what are the higher charges related to tobacco and health judgments as a percentage of the operating companies income increase?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",oE4ZQX
+financial,"what would end of year proven reserves be without the increase for extensions , discoveries , and other additions , in mmboe?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",zccuxn
+financial,what was the ratio of the debts to the assets in the purchase transaction,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",KBU_Z8
+financial,what percentage of long-term financing was classified as current at the end of 2005?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",s12yib
+financial,in 2017 what was the percent of the common stock authorized that was issued and outstanding for the class a common stock,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",PgrcWK
+financial,what percent of total commitments expire in less than 1 year?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",0NiFLv
+financial,what percentage of the total purchase price net of cash acquired is goodwill?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",S-dqFW
+financial,what is the roi of nasdaq composite from 2008 to 2012?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ZiXF2U
+financial,in december 2011 what was the ratio of the receivables to the credit facility outstanding,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",vXJJWG
+financial,what is the fair value of all notes due by 2019 ? in millions $ .,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",a2EDjr
+financial,in 2002 what was the ratio of the annual cash sinking fund requirements for debt outstanding that was due in 2004 to 2005,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",UbKvNe
+financial,what portion of total backlog is related to ingalls segment?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",rQGmeV
+financial,"what is the number of shares outstanding based on the cash dividends paid during 2006 , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",I48HRP
+financial,what percentage of average common equity attribution in 2017 is made up of institutional securities?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",rC3Owf
+financial,what was the percentage change in the fair value from 2010 to 2011,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",X3CMSa
+financial,what was the ratio of the s&p index to the e*trade financial corporation cumulative total return to a holder of the company 2019s common stock compared as of 2014,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",t3qthX
+financial,"what is the average number of shares per registered holder as of february 11 , 2011?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",AFZeCB
+financial,"for us federal purposes , how many years are currently involved in irs controversies?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",jhXFgs
+financial,what was the percent of the return on the e*trade financial corporation common stock from 2009 to 2014,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",faQ3QE
+financial,for the 4th quarter of 2011 approximately how much was spent on stock repurchases?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",eB1Vj2
+financial,what was the percentage change in net revenue in 2011,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",n4Tf0d
+financial,as of 2017 what was the ratio of the overall five-year cumulative total return for s&p 500 compared to citi,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",CvXBOe
+financial,based o n the review of the simultaneous investments of the jpmorgan chase common stock in the various index what was the ratio of the performance in the kbw bank index to the s&p financial index in 2010,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",P-SPZT
+financial,what is the weight of the property&casualty operations relative to the total statutory capital?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",p5YCN1
+financial,what was the operating margin for 2012?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",2S7Aiu
+financial,what was jpmorgan chase & co's tier 2 capital ratio ( cet2 ) ratio in 2008?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",5JrXB7
+financial,"what is the average yearly amortization expense related to contract-based intangible assets , ( in thousands ) ?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",TTHDH9
+financial,what is the percentage change in total gross amount of unrecognized tax benefits from 2016 to 2017?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",GHsk_j
+financial,how much of the securitizations that hold asf framework loans were issued by third parties?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",lhV2l5
+financial,what was the percent of the change in the consulting segment revenue from 2008 2009\\n,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",E9P80b
+financial,what is the net change in net revenue during 2008?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",hOocAz
+financial,what is the average cash provided by the operating activities during 2018 and 2019?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",HDETbi
+financial,"in tpd , what were total matching buy/sell volumes in 2006 , 2005 and 2004?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",y-4ScI
+financial,what was the percentage change in investment banking fees from 2006 to 2007?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",K_h171
+financial,in 2013 what was the net trading assets 2013 derivative receivables to the trading liabilities 2013 derivative payable,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ekkjAy
+financial,what is the percent change in operating revenues from 2001 to 2002?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",WwW17a
+financial,what is the percentage difference in the fair value per share between 2015 and 2016?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",lOq5Sk
+financial,"at december 31 , 2010 what was the percent of the net allowance to the the carrying amount of the company 2019s purchased distressed loan portfolio",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",6YthYP
+financial,"what was the average payment per year for the state tax settlement , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",w4SVNd
+financial,what percentage was andes sbu of total revenue in 2017?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",GnxAKh
+financial,what is the combined number of equity compensation plans approved by security holders,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",trkX_0
+financial,"what amount of long-term debt is due in the next 24 months for entergy corporation as of december 31 , 2013 , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",IqIheM
+financial,what portion of the purchasing price is dedicated to goodwill?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",mDUgIJ
+financial,what is the total percentage decrease in future contingent acquisition obligations payable in cash from 2009-2013?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",WI06e3
+financial,what portion of the gen-probe's purchase price is paid in cash?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",WDPpDh
+financial,what was the number of shares issued in 2015 in millions,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",tv5O3-
+financial,what percentage of entergy's total employees are employed in entergy mississippi?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",fUiIk5
+financial,what was the percent of the change in the risk and insurance brokerage services segment revenue from 2008 2009\\n,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",9LFL0z
+financial,what is the change in the warranty reserve from 2017 to 2018?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",vCG6I5
+financial,"what was the total of u.s . dollar notes issued in 2014 , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",0qtKb4
+financial,"what are the net earnings attributable to pmi in the previous year , ( in billions ) ?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",3RKz5N
+financial,what portion of the total estimated future contingent acquisition obligation is due in the 12 months?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",xULHG0
+financial,what are the future minimum commitments under the operating leases in 2014 as a percentage of the total future minimum commitments?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",6FelkV
+financial,what is the growth rate in the number of stores during 2012?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",8V8RAj
+financial,what is the rate of return of an investment in cadence design systems inc from 2001 to 2004?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",K9YK7w
+financial,what is the percent change in the fair value per share between 2014 and 2016?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",bseUsc
+financial,as of december 2018 what was the percent of the 2018 program still outstanding,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",knQIos
+financial,"considering the year 2012 , how bigger is the capital expenditures on a non-gaap basis than the one on a gaap basis?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",VbaXsJ
+financial,what is the percent of available potential to increase the multi-currency line of credit,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",tQP_cH
+financial,what percent of the commitments will be due after 2022?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",lIegUd
+financial,of the square feet in the us what was the percent of the owned facility of the us total,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",hgJjyd
+financial,"what amount of credit facility was paid by entergy louisiana prior to december 31 , 2011 , ( in millions ) ?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",zY2aeP
+financial,"considering the year 2019 , what is the contribution of the first quarter in the total dividend?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",rRwCik
+financial,in 2013 what was the change in total residential mortgages in millions?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Ut8fk3
+financial,"as of december 31 , 2016 , what percentage of manufacturing and processing facilities are leased?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",YoNuCD
+financial,"what is the total amount of cash outflow used for shares repurchased during november 2007 , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",IR3HSZ
+financial,what is the net change in amount of statutory capital and surplus for bermuda subsidiaries in 2010?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",IdZye0
+financial,"how many options were issued under the 2001 plan as of december 31 , 2009?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",LlDhux
+financial,what percentage of total future principal payments of corporate debt are due in 2011?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",WDyc8p
+financial,what was the percentage change in revenues from 2016 to 2017 for transactions with related parties?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",KN0TwS
+financial,"payments to participants in the unfunded german plans are expected to be total approximately how much , in millions , for the years 2008 through 2012?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Wd6kKF
+financial,what is the percentage change in total liabilities for litigation settlements from 2006 to 2007?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",YcN8ut
+financial,what is the one-percentage-point increase of effect on total of service and interest cost components as a percentage of the effect on other postretirement benefit obligation?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",9Tip6J
+financial,by how much did the weighted average exercise price per share increase from 2005 to 2007?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",5J1i4M
+financial,"what percentage of major facilities by square footage are leased as of december 28 , 2013?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ZY43-h
+financial,what was the difference in operating profit margins as adjusted between 2016 and 2017?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",UbqbpL
+financial,does the company spend more on advertising in 2013 than on research and development?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",3oU0Y6
+financial,what was the sum of the value of the notes entergy issued to nypa with seven and eight annual installments payments\\n,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",nkTx4h
+financial,what was the total five year change in the s&p 500 index?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",A7gHwj
+financial,"based on the given average price per share , how much money did the repurchases cost in 2007?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",eQf5ME
+financial,what was the difference in percentage total cumulative return on investment for united parcel service inc . compared to the s&p 500 index for the five years ended 12/31/06?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",6Ldwcm
+financial,what portion of the equity compensation plan approved by security holders remains available for future issuance?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",02rVcL
+financial,what percent of the total common stock plans are related to the vertex 401 ( k ) plan?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",HDq8uB
+financial,what percentage of total net revenue investing & lending segment is due to equity securities in 2015?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",2eRWSR
+financial,for the three months ended december 2003 what were the total sales proceeds for subsidiaries assets in millions?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",6TU8Wn
+financial,what percentage of net goodwill at december 31 2011 is comprised of,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",vj0e8o
+financial,in 2011 what was the percent of risk solutions revenues to the total revenues of aons,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",TMTftx
+financial,"what is the anticipated amount of revenues from the of the $ 21 billion total backlog as of december 31 , 2014 , to be converted into sales in 2015 in billions",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",rVB7xu
+financial,what was the percent of the decline in net income ( loss ) attributable to common shareholders from 2007 to 2008,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",8DBfFo
+financial,in 2010 what was the percentage of the global cruise guests from the european cruise,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",FHjFHL
+financial,what were total operating expenses in 2013?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",v0YKCn
+financial,what was the average total accumulated other comprehensive losses from 2013 to 2015 in millions?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",4SXtky
+financial,what was the average operating profit of the space results from 2010 to 2012,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",tUAa04
+financial,what was the average effective tax rate for the three year period?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Dx0CTC
+financial,what is the exchange rate per dollar used to convert the face value of the euro notes with the maturity date in march 2021?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",5OvngO
+financial,"what amount of long-term debt is due in the next 36 months for entergy corporation as of december 31 , 2013 , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",9gBpEf
+financial,what portion of the estimated purchase price of r2 is paid in cash?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",IBmjj7
+financial,what portion of the total long-term obligations are incurred from long-term debt?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",EN-o5U
+financial,what was the mathematical range for the postretirement benefit plans?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",KcULB1
+financial,what is the percentage change in the balance of the prudential insurance company of america from 2016 to 2017?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",5w3Dy8
+financial,in 2017 what was the ratio of the htm investment securities ( period-end ) compared to investment securities portfolio ( period 2013end ),dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Ym5xpp
+financial,"what was the change in receivables for recoverable costs from certain states , under programs to assist companies in clean-up efforts related to underground storage tanks between december 31 , 2009 and 2008 , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",IaYkyQ
+financial,what was the cost per car for the buyout of locomotives in 2012?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",oC7Ogd
+financial,as part of the employee stock purchase plan what was the percent of the decline in issuance under this plan from 2016 to 2017,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",l_BoPz
+financial,what was the percentage of carrying amount reported on the consolidated balance sheet trading assets from 2007 to 2008?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",sXS4n8
+financial,what was the difference in dollars of the high low sale price for the common stock in the third quarter of 2002?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",NQ3icM
+financial,"for the five years ended 12/31/2006 what is the performance difference of the class b common stock of united parcel service , inc . and the s&p 500 index?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",uRFfIv
+financial,what on the net interest reduction of 13 million or 23% ( 23 % ) compared to 2015 what was the interest amount in 2016 in millions,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",OxhPm6
+financial,what is the total return of the kbw bank index over the above refernced five year period?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",08hHdO
+financial,"considering the years 2014-2016 , what is the highest interest expense observed?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",rr-_xZ
+financial,what is the percentage change in the amount of guarantees from parent company from 2007 to 2008?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",edxLTM
+financial,what is the percentage change in amortization expense from from 2007 to 2008?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",qw7RZM
+financial,"as of december 31 , 2015 , what was the maximum premium on the dp&l preferred stock?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",-pPAsU
+financial,what was the sum of the annual long-term debt maturities due in five years,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",blazgt
+financial,"how much more , in percent , was spent on october shares than november shares?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",LL7edb
+financial,"in millions , what was the change in the estimated sensitivity to a one basis point increase in credit spreads on financial liabilities for which the fair value option was elected between december 2017 and december 2016?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",hDCM3N
+financial,what is the percent change in fair value between 2010 and 2011?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",VKR2tJ
+financial,"what is the increase observed in the first quarter dividend percentage concerning the total value , during 2018 and 2019?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",GnlcPP
+financial,what were average net sales for mfc from 2013 to 2015 in millions?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",rczcjZ
+financial,"what was the change in wti crude oil ( dollars per barrel ) between july 3 and december 19 , 2008?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",tA1ISm
+financial,"in millions for 2013 , what were net trading assets 2013 debt and equity instruments?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",v-r-0o
+financial,what was the percentage change in the expenses related to he issuing of stock option in 2009,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",jWPOfs
+financial,what portion of total value of net operating loss carryforwards is related to state?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",xI06v7
+financial,what is the net change in cash in 2015?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",BM5u9r
+financial,"what was the change in the weighted average common shares outstanding for diluted computations from 2011 to 2012 , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",PNM8UX
+financial,what was the percentage change in operating income from 2016 to 2017?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",S2sk4j
+financial,what is the mathematical range for european cruise guests from 2010-2014?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",9P1nkk
+financial,"assuming 2010 accrued casualty costs were completely repaired in the following year , ,what would the repairs and maintenance expense increase to for 2011 in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",sD37KV
+financial,"what percentage of future minimum lease commitments at december 31 , 2006 for all operating leases that have a remaining term of more than one year are due in 2008?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",JA-YJU
+financial,what was the change in millions of ipalco common stock from 2015 to 2016?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",9LBTvB
+financial,what was the percentage growth of the stock price performance from 2013 to 2014 for the tractor supply company,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ZDmhaa
+financial,"for the facility leases that have remaining terms through fiscal 2010 , assuming the annual rent is approximately that of 2003 , what is the remaining total obligation?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",NUhZEV
+financial,"for 2017 , what was net interest expense with related parties , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",LUaNfo
+financial,what were average operating profit for aeronautics in millions between 2014 and 2016?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",DeMqmg
+financial,what is the fair value of hologic common stock used for acquiring r2?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",U-VipN
+financial,"for december 31 , 2011 and december 31 , 2010 , what was the average unpaid principal balance outstanding of loans sold as a participant in these programs , in billions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",jpcDj9
+financial,"in millions in 2014 2013 and 2012 , what were the lowest amount of interest rate hedges?\\n\\n",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",DrnoMh
+financial,what is the implied total value of the european sports satellite and cable network as of the transaction date?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",4pv0YW
+financial,in 2015 what was the ratio of the net sales to the backlog,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",eJLhjT
+financial,what was the percentage change in total long-term debt net from 2014 to 2015?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",txSXc3
+financial,what was the change in millions of carrying amount reported on the consolidated balance sheet trading assets from 2007 to 2008?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",e-v8IZ
+financial,"what was the percentage change in capital expenditures for property , plant and equipment from 2008 to 2009?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",VGhXsI
+financial,"what percentage of total goodwill is attributable to u.s . brokerage reporting unit as december 31 , 2011?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",lPDcr3
+financial,what was the average total stock-based compensation expense from 2008 to 2010 in millions,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",JF7arf
+financial,"recognized net gains of $ 107 million in 2009 on the valuation and sale of commercial mortgage loans held for sale , net of hedges\\nwere what percent of residential mortgages at fair value?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",QISXdV
+financial,"for the sale of the 19 percent outside-operated interest in the corrib natural gas development offshore ireland , what is the total expected proceeds in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",PfpmA2
+financial,as of december 312012 what was the percent of the total total freight revenues from agriculture,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",0TtDLW
+financial,what was the change in the annual performance of the jkhy stock from 2009 to 2010,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",cUYe7Q
+financial,what is the roi of an investment in loews common stock from 2010 to 2012?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",_qyGlq
+financial,how much of the total contractual commitments are current?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",bwJTAd
+financial,in november 2015 what was the percent of the discounts and debt issuance costs to the long-term debt november 2015 notes in millions,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",7SA24t
+financial,purchase commitments ( in thousands ) totaled what for 2010 and 2011?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",MB_IiL
+financial,what was the percentage total cumulative return on investment for united parcel service inc . for the five years ended 12/31/06?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",IRervZ
+financial,what is the percentage change in the unamortized debt issuance costs associated with the senior notes from 2016 to 2017?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",kI0CHS
+financial,"what was the difference in percentage cumulative 5-year total return to shareholders of cadence design systems , inc . 2019s common stock and the s&p 500 for the period ended december 30 , 2006?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",pXiM0k
+financial,total future minimum lease payments due after 5 years are what percent of the total remaining?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",5Czcif
+financial,what is the yearly interest expense incurred from the $ 375 million note with a fixed rate?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",kOaePm
+financial,"if overall freight revenues in 2014 grow as the same rate as agricultural arc growth , what would projected 2015 revenues be in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",pqAADH
+financial,what is the net change in the total investment from 2010 to 2011?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",10V9p-
+financial,"what was the percent of the value of the interest retained by upri from 2007 to 2008 was $ 431 million and $ 471 million , respectively .",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",iVhAoW
+financial,what is the ratio of the total flight attendants to passenger service personnel,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",soVOtR
+financial,"for the mtn group acquisition , what was the cost per tower ? .",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Ck_f5o
+financial,what percentage of the total cash purchase price net of cash acquired was represented by goodwill?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",j73qV2
+financial,"what was the change in billions of total debt from december 31 , 2014 to 2015?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",oNaH7O
+financial,what portion of the total full-time employees of american are flight attendants?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Wr9FLK
+financial,what is the percentage of pretax income from discontinued operations to total revenues from discontinued operations?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",80lnFk
+financial,what is the increase in other regulatory credits as a percentage of net revenue in 2003?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",S9OIsY
+financial,what was the percentage gain recognized on the commercial mortgages held for sale in 2009,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ML3rmG
+financial,what is the expense which relates to the acceleration of equity awards upon termination of employment of baker hughes employees as a percentage of stock based compensation expense?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",4r4WVN
+financial,for the quarter ended september 302010 what was the percentage change in the share price from the highest to the lowest,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Zfhujj
+financial,what percentage of total other assets in 2012 was comprised of goodwill and identifiable intangible assets?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",MTt_px
+financial,did the five year total return on ball corporation outperform the dj containers & packaging index?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",su6R_8
+financial,what is the increase observed in the total revenue during 2010 and 2011?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",96jJXc
+financial,"what is the growth rate in net revenue in 2016 for entergy texas , inc.?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",rZSBiH
+financial,what is the net change in the number of staff in 2016?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",s-OGvt
+financial,"how much of a greater return , in percentage , was gained in the s&p retail index compared to the tractor supply company?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",0ppiZW
+financial,what was the difference in total additions between 2006 and 2007 in millions?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",SnJlPJ
+financial,what is the net change in the number of staff in 2015?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",hsleKF
+financial,what was the ratio of the acquisition related costs recognized in 2015 to 2014,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",vtFxWN
+financial,what is the percentage change in average of investments from 2014 to 2015?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",0X1iWQ
+financial,what is the average payment volume per transaction for jcb?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ktRW7Q
+financial,what is the lowest segment operating income margin?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",WEviTX
+financial,what is the percent change in quarterly cash dividend for the period ended march 31 2002 to the period ended december 31 2002?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",SoGFaJ
+financial,"considering the year 2016 , what is the short-term debt as a percent of total debt?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",lHn9il
+financial,in 2013 what was the percentage of the sites closed down,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ljTLeC
+financial,"in 2014 , what percentage of the total amortization amount was from intangibles?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",AUHP00
+financial,what was the operating margin for 2014?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",12I3tq
+financial,what was the percentage change in the fair value of msrs in 2007?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",prIwJu
+financial,how many countries are cat products distributed to?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",mxsWS9
+financial,what were 2012 total consolidated revenues in millions?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",6Qd6vc
+financial,what percentage of total aggregate contractual obligations is due to long-term debt?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",qAtQYt
+financial,what is the highest value for total operating segments during this period?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",i6MeLO
+financial,"at december 31 , what was the percentage change in investment income from 2011 to 2012",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",VXBqjA
+financial,what was the percentage change in investment banking fees from 2005 to 2006?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Th_8ir
+financial,what percent decrease for interest income occurred between 2014 and 2015?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",zGlt6c
+financial,"at december 31 , 2015 what was the net change from december 31 , 2014 on alll on total purchased impaired loans in billions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",s739uq
+financial,"in millions , what is the total impact on the change in net revenue from the reserve equalization , the purchased power capacity , and the transmission revenue?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",BwO3cr
+financial,"what was the lowest amount of research and development credit net in the three year period , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",xSm5vh
+financial,by how much did contingent rental liability decrease from 2007 to 2009?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",LvLxP2
+financial,what is the percentual increase in the operating expenses during 2017 and 2018?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",IAzo0o
+financial,what was the percentage change in raw materials and supplies between 2017 and 2018?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",z4qXCM
+financial,what was the change in the total long-term debt net from 2014 to 2015 in millions,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Hx4i26
+financial,how many directors can be elected by the class b-1 and class b-2 shareholders?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",7VaRVx
+financial,by what percentage did the average wti crude oil benchmark decrease from 2007 to 2009?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",mqfwn5
+financial,"what is the change in the balance of liability for restructuring 2003 program from 2006 to 2008 , ( in millions ) ?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",VveB2z
+financial,"what is the value , in millions of dollars , of the total issuable stock in 2014?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Qjfy0E
+financial,what was the percentage change of the net favorable prior period development from 2010 to 2008,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",82KHnA
+financial,"what was the change in ssa 2019s revenues from the sale of non-petroleum merchandise in 2004 , compared with in 2003 , in billions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",0RLwXQ
+financial,what portion of the total purchase consideration is allocated to goodwill?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",sukm3d
+financial,"considering the years 2011-2013 , what is the average capital expenditure on a gaap basis?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",FNOBkC
+financial,"in millions , for 2013 , 2012 , and 2011 , what was average currency hedges?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",9Pf2OG
+financial,"what was the number of shares outstanding as of december 31 , 2007",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",M2jPjR
+financial,what is percentage change in rd&e spendings from 2013 to 2014?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",fepveD
+financial,what percent of of the total variance in net revenue is attributed to the variance in volume/weather?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",zgToI7
+financial,in the number of securities to be issued what is the ratio of the stock rights from the 2012 plan to the 2011 plan included in these securities,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",_3DgAq
+financial,what was the percent of the change in the net revenues from dec . 282012 dec . 29 2013,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",crBge7
+financial,what percent of the balance increase is attributed to balances assumed in acquisitions?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",tRXOxR
+financial,in 2018 what was the ratio of the service cost to the interest cost,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",hPmhXv
+financial,what is the percentage change in rent expense from 2006 yo 2007?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",kZOQT0
+financial,what is the net change in total liabilities for litigation settlements during 2008?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",hRTh9f
+financial,"for the ipl cumulative preferred stock , what was the dividend rate at december 31 , 2016 and 2015?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",yKfwq8
+financial,what percentage of employees are subject to collective bargaining agreements?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",O9x4pN
+financial,as of december 312011 what was the ratio of the good will reported in the capital markets to the retail bank,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",oXCzut
+financial,what was the difference in percentage cumulative return for lkq corporation and the s&p 500 index for the five years ended 12/31/2016?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",KH-W0O
+financial,what was the average entergy louisiana receivables from 2008 to 2011 in millions,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",iVf2la
+financial,what is the percent change in gas customers between 2007 and 2008?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",3yigye
+financial,what was the percentage change in diluted earnings per common share december 29 2012 and december 28 2013?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",oGV3zk
+financial,"what would 2014 capital expenditures have been without the early buyout of the operating lease of the headquarters , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",5hb4Q4
+financial,what is the percent of the total backlog for ingalls as part of the total backlog,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",mznID8
+financial,north american consumer packaging net sales where what percentage of consumer packaging sales in 2009?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",L-HQKy
+financial,by what percentage will the 2019 pre-tax pension and postretirement expense be higher than that of 2018?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",G3Rip6
+financial,did jpmorgan chase outperform the s&p 500 over the five year period?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",SIlrMy
+financial,what are the total pension liability adjustment from 2004 to 2006?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",rk4H99
+financial,what was the change in industry segment operating profits between 2004 and 2005?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Ros3Us
+financial,"in these equity investment balances , what is the percent of unfunded commitments at december 31 , 2013?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",rqssHY
+financial,"as of december 31 , 2016 , what percentage of manufacturing and processing facilities are owned?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",QJqwEo
+financial,in 2014 what was the ratio of the cash used for investment to the cash from operations,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",OJ-SvB
+financial,"what is the growth rate in the price of shares from the highest value during the quarter ended december 31 , 2008 and the closing price on february 13 , 2009?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",wt8Sq2
+financial,what was the change in millions from 2008 to 2009 under purchase commitments?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",h93ucP
+financial,what was the total of the reserve for losses?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",_PZ82c
+financial,what is the percentage change in weighted average discount rate for postretirement plans from 2017 to 2018?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",7BFFtC
+financial,what is the percentage decrease in total liability from dec 31 2007 to dec 31 2008?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",rHA8Vq
+financial,"compared to the s&p 500 ,what was the difference in percentage growth from the s&p 500 retail index .",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",IDEmvE
+financial,"considering the years 2014-2016 , what was the average cash paid for interest?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",0YH_qv
+financial,"as of december 2007 , what percentage of the long-term debt is current?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",KqH7IN
+financial,if the fuel surcharge grows by the same rate as in 2014what would expected 2015 revenues be in billions?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",OU3noB
+financial,in 2009 what was the change in the allowance for doubtful accounts,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",gOcBcf
+financial,"what is the average , in millions , home equity line of credit with balloon payments with draw periods from 2012 to 2016?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",QcQUaT
+financial,2001 revenue from large utilities were how many times the revenues from the growth distribution segment?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",SrJVxw
+financial,what was the percentage growth in the defined benefit plan income from 2016 to 2017,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",DYX7ic
+financial,how much did the lease obligations drop from 2004 to 2011?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",yp7JaU
+financial,how much higher is the fair value than carrying value ? in millions $ .,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",adqsx0
+financial,what is the roi of s&p 500 from 2007 to 2012?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",-Op9ia
+financial,what were average net sales for aeronautics in millions between 2014 and 2016?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",gyOPBy
+financial,by what percent did the provision for income taxes as a percentage of pretax income decrease between 2008 and 2009?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",sne0wk
+financial,what was the change in property plant and equipment net from 2012 to 2013 in millions?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",RvH8Dn
+financial,"without the us , what would the total net revenue be for 2017?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",rJGn3U
+financial,what is the net change in unrecognized tax benefits during 2007?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Lf4JT_
+financial,"considering the state of arkansas , what is the percentage of residential customers concerning the total customers?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",x11065
+financial,"assuming a fmv of a share equal to 2000 , under the pre-december 31 , 2007 plan , approximately how many shares would each non-employee director receive annually?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",wIizvQ
+financial,what is the percentage increase in rsus from 2009 to 2010?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",E3ddKH
+financial,"what is the growth rate in net revenue for entergy texas , inc . in 2007?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",93jfzB
+financial,what was the percent change in capital gain distributions between 2008 and 2009?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",b3alpx
+financial,"in 2017 , what percentage of undeveloped acres were located in africa?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",zsYmzo
+financial,what was the average net revenue from 2010 to 2011,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",VRvs4A
+financial,how much higher is net revenue in 2017 than 2016 ? ( in millions ),dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",2GuH5i
+financial,what percentage of total inventories is comprised of finished goods in 2008?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",8VmvAS
+financial,was the 2002 first quarter variance in high & low stock prices greater than the 2001 first quarter variance?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",evx-wu
+financial,what was the profit margin in 2014 for the aeronautics business segment,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",qcA9sD
+financial,what was the estimated total cost to replace the annuities the company was liable for in 2017,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",C7k-bM
+financial,what was the average pension service cost from 2016 to 2018 in millions,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",EI-WX1
+financial,what was the average catastrophe losses from 2008 to 2010 in millions,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",t0DzWA
+financial,"considering the years 2013 and 2014 , what is the basis point variation observed in the operating margin?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",FEFU5I
+financial,"if the hr solutions segment generated 35% ( 35 % ) of the consolidated revenue , what would be the total revenue for 2014 , ( in millions ) ?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",I-y_75
+financial,was the notional amount of derivatives designated as hedging instruments under gaap greater than the notional amount of\\nderivatives not designated as hedging instruments under gaap?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",iRRKUh
+financial,"by what amount have catastrophic losses in 2010 surpass the catastrophic losses of 2009 , ( in millions ) ?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",iqYmUu
+financial,"what is the total amount of cash outflow used for shares repurchased during october 2007 , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",6ZDDHF
+financial,what percentage of total net revenue investing & lending segment is due to equity securities in 2016?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",cR0Riu
+financial,what was the difference in percentage cumulative total shareholder return for ball corporation compared to the s&p 500 index for the five year period ending 12/31/10?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",U77H1k
+financial,what portion of the total identifiable net assets is in cash?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",QslP-W
+financial,by what percentage can cme increase their current line of credit?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",P4xhBp
+financial,goodwill comprises what percentage of total assets acquired?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",MPHbQT
+financial,how much of the firm-sponsored qspes that hold asf framework loans are serviced by the firm?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",JDEN12
+financial,in 2018 what was the percent of the total commitments to extend credit and other commitments for home equity lines of credit,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",A--na9
+financial,"as of december 31 , 2011 , what was the percentage change in the estimated future net amortization expense of present value of future profits from 2013 to 2014",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",n493SE
+financial,what was the percent of the total debt associated with the 1250 million revolving credit agreement due june 2021,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",c8K3xY
+financial,what is the ratio of the total flight attendants to pilots,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",vnW-nV
+financial,"what was the percentage of the total severance actions related to our aeronautics , space systems , and our is&gs business segments and corporate headquarters in 2011 related to the aeronautics",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",padaAQ
+financial,"considering the year 2015 , what was the lowest return for the investment?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",BsWir5
+financial,what is the percentage of the common stock repurchase among the total program of repurchases?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",E68z-P
+financial,what portion of the total interest expense is related to unpaid taxes in 2007?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",xzPBCS
+financial,what is the net change in total statutory capital from 2007 to 2008?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",n3f63z
+financial,what is the book to market ratio of the commercial mortgage-backed securities,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",biDFxQ
+financial,by what percentage did the average henry hub natural gas benchmark decrease from 2007 to 2009?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",cqQcso
+financial,what is the percentage of decrease of long-term debt from 2007 to 2011?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",6rQbr3
+financial,"for 2012 , what percent of the home equity lines of credit interest only product was due to home equity lines of credit with balloon payments?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",cKo8iF
+financial,what is the growth rate of snap's share price from 2007 to 2008?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",XULMg-
+financial,"as of may 31 , 2016 what percentage of cash and cash equivalents was held in foreign subsidiaries?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ztW7XN
+financial,percent change in fair value of beginning assets in this time period?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ekS5LE
+financial,what would the investment income ( loss ) have been in 2014 without the gain from the sale of the investment in clearwire corporation in 2013?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",sJQ-6K
+financial,as of december 312012 what was the outstanding amount of share repurchase authorized in billions?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",MMeH8o
+financial,what was average propane sales in tbd for the three year period?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",-s0Y30
+financial,was the change in net revenue from changes in transmission revenue more significant than the change due to the retail electric price change?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",MmczQj
+financial,"for 2016 , what was the total african and us net undeveloped acres expiring , in thousands ? \\n",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",-PzhJf
+financial,what was the change in millions of weighted average common shares outstanding for diluted computations from 2015 to 2016?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Ym6hca
+financial,what is the percent change in net revenue between 2006 and 2007?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",WAaOqz
+financial,"what percentage of total market risk for positions , accounted for at fair value , that are not included in var is comprised of equity in 2016?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",s17l2l
+financial,"at december 31 , 2017 under the 2010 employee plan what was the percent of shares that had been granted",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",FHekEJ
+financial,what is the percentage increase in the net cash provided by operating activities in 2010 compare to 2009?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",89lPe1
+financial,"what percentage of the company's receivable balances in puerto rico as of december 31 , 2017 was past due?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",rqrWgO
+financial,what portion of the equity compensation plan approved by security holders is to be issued upon the exercise of options warrants and rights?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",xRP4Ez
+financial,what portion of the minimum total assets available for default is related to assessment powers?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",5AC7G9
+financial,what are the nuclear fuel expenses as a percentage of 2016 net revenue?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",czP2lW
+financial,what was the difference in percentage cumulative 5-year total stockholder return for cadence design systems inc . compared to the nasdaq composite for the five years ended 12/29/2012?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",rxf8iw
+financial,what percentage of total future minimum operating lease payments for leases with remaining terms greater than one year are due in 2010?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",_4y6TK
+financial,"what is the average number of common stock shares per register holder as of february 13 , 2009?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",NfqNG_
+financial,"what was the change in weighted-average shares for diluted eps from 2016 to 2017 , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",p7bKFU
+financial,"how much of an increase , in millions , to the pension expenses did the three changes in assumption cause?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",EzwZMx
+financial,"if there were a 200bp rise in rates , how much more would the impact be on earnings in 2009 vs . 2008?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Ftw9x4
+financial,what was the percentage change in the rental expense under operating leases from 2004 to 2005,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",QydzqB
+financial,in 2005 what was the percentage of the federal nol set to expire between 2016 to 2020,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",JhmlxQ
+financial,in 2012 what was the percent of the total second generation capital expenditures by reportable operating segment that was office related,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",sVdtMv
+financial,what was the percent of the increase in the aons revenues for risk solutions from 2010 to 2011,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",fLbyoW
+financial,what is the difference in millions of international subscribers between discovery channel and tlc real time and travel & living?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",9_hSyG
+financial,what was the difference in operating profit margins as adjusted between 2017 and 2018?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",5w_hFT
+financial,"during 2008 , what was the change in average realized price for synthetic crude oil and vacuum gas oil between the end of 2007 and the end of 2008 , per barrel?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",akCoQc
+financial,how much did net rental expense increase from 2007 to 2009?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",C5wJu6
+financial,what was the net equity in the assets acquired,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",MJOI5A
+financial,what was the percentage growth in the total long-term debt from 2016 to 2017,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",z2-CP3
+financial,what was the percentage growth from 2013 to 2014 in the total accounts payable and other current liabilities,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",S8Yg6k
+financial,what is the percent change of securities between 2008 and 2009?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",9QuMac
+financial,by how much did proved undeveloped reserves increase during 2017?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ZrpoP5
+financial,what was the ratio of the 2016 hedged gallons to 2017,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",LX9z9l
+financial,"considering the 2016's special terminations settlements and curtailments , what is the percentage of pension settlement losses concerning the total value?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",WZJCJF
+financial,"what is the total possible purchase price for impella including potential contingent payments , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",lNEEn5
+financial,what was the ratio of the aggregate fair values of our outstanding fuel hedges for 2015 and 2016,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",pggmLa
+financial,how much money can the company deduct on the income tax in the future after this acquisition?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",kSrm0T
+financial,what percentage of the board of directors approved budget was capital expenditures?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",9h6DHL
+financial,how many class a common stocks issued and outstanding were issued between 2016 and 2017 in thousands?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",-77SQl
+financial,what was the growth rate of the cash flows from operations from 2011 to 2012,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",iJVcY4
+financial,"considering the year 2012 , what is the sales to operating income ratio?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",6RrWTE
+financial,what was the change in defined contribution plans expenses for the u.s . between 2016 and 2017 in millions?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",_GhqS-
+financial,what was the percent change in the weighted average cost per share from 2016 to 2017,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",qr9jjX
+financial,"what portion of the long-term debt is reported under the current liabilities section of balance sheet as of september 27 , 2008?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",CLJGnM
+financial,what is the change in dac balance resulting from all amortization accounts in 2011?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Get_MX
+financial,what was the percentage change in the the fair value of our foreign currency forward contracts from 2008 to 2009,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",aq_BiD
+financial,what is the change in finished goods in millions between 2002 and 2003?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",7FXMNs
+financial,"what is the expected yearly stock-based compensation expense over the remaining vesting period , ( in millions ) ?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",2N8Z9A
+financial,"in millions for 2016 2015 , and 2014 , what are total equity securities?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",7NzWCf
+financial,in 2018 what was the available for sale securities average compared to the period end,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Oj5WSC
+financial,what percentage of the total purchase price is represented by intangible assets?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ph-QRr
+financial,what was the percentage change in rental expense for operating leases from 2009 to 2010?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",D9w0ma
+financial,what percentage of entergy's total employees are employed in entergy arkansas?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",3LipVI
+financial,what is the average variance of the value at risk of each 2008 section? ( $ ),dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",LC-vF5
+financial,what is the growth rate of net income for bermuda subsidiaries from 2009 to 2010?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",AZUTaY
+financial,in what year was the cash cash equivalents and marketable securities the highest?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",_38mq5
+financial,what portion of the total full-time employees of american are pilots?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",gHwoaZ
+financial,what is the average price of the increased electricity usage per gwh?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",tY2Job
+financial,did jpmorgan chase outperform the kbw bank index over the five year period?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",hJ6Gy1
+financial,what was the change in property plant and equipment net from 2013 to 2014 in millions?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",BGUUA_
+financial,what is the percentage change in unaffiliated life insurance company from 2016 to 2017?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",UPK8eH
+financial,what was the ratio of the decreases in the net sales to the operating profit for mst from 2010 to 2011,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",9MT_dg
+financial,what is the risk free interest of the stock based compensation expense in 2017?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",qy5vSD
+financial,in 2016 based on the increase in the net sales what was the ratio of the increasing factor to the offsetting factors that reduced sales,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",U4_rop
+financial,what was the change in the percentage of sales to restaurants from 2017 to 2018?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",GxRmsp
+financial,what percentage of total future minimum operating lease payments for leases with remaining terms greater than one year are due in 2009?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",NIxaMH
+financial,"what is the average segment revenue , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",gRbH7U
+financial,"what percentage of tangible book value at december 31 , 2010 is due to cash and cash equivalents and mutual fund investment holdings?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",vKCPhO
+financial,what is the average price per gwh for the variance in volume?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",tWBJex
+financial,"prior to the shares repurchased in 2007 , how many shares of common stock were outstanding?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",cfdrRb
+financial,what is the interest from 2017 to 2025 as a percentage of the total long-term borrowings?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",3gM27b
+financial,what are the notes due 2021 as a percentage of total long-term borrowings?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",P5CbE6
+financial,what was the percent of the decrease in the other intangible assets net from 2003 to 2004\\n,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Nn-tpI
+financial,"for q4 2007 , what was the total amount spent on share repurchases?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",j4bA4R
+financial,"what is the total value of the issued options , warrants and rights , ( in millions ) ?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",HWgzcK
+financial,what is the percentage change in fair value of forward exchange contracts asset from 2010 to 2011?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",VWa2Wf
+financial,what is the net change in cash in 2010?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",TTjy4g
+financial,in 2007 what was the percent of the retained interest of the total principal amount of beneficial interests,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",cRuRCV
+financial,what is the cash outflow for the repurchase of shares during october 2008?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",1MX-jA
+financial,operating expenses were what multiple of pre-tax earnings in 2015?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",TRMev7
+financial,"what percentage of future minimum lease commitments at december 31 , 2006 for all operating leases that have a remaining term of more than one year are due in 2007?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Dtqnxb
+financial,what are the total current assets of kichler included in the acquisition price with the revised version?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",q-THFU
+financial,by how much did the expected annual dividends per share increase from 2005 to 2007?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",mSBZAL
+financial,"what was the change in weighted-average shares for diluted eps from 2015 to 2016 , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",aR_Xei
+financial,in 2008 what was the percent of the total capital risk based capital components and assets that was tier 2 capital,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",r1McK6
+financial,"what is the total value of the options , warrants and rights that remain available for future issuance , ( in millions ) ?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",LV9DwS
+financial,based on the information provided what is the ratio of the post retirement benefit obligation to the service and interest one-point percentage increase,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",b-MIwt
+financial,"considering the second quarter of 2017 , what is the average sale price per share of the company 2019s common stock?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",WytE0G
+financial,"what percentage of december 31 , 2007 , total future minimum commitments under existing non-cancelable operating leases and purchase obligations were due to lease obligations for the year of 2008?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",WsfnxY
+financial,what percentage of industrial packaging sales where represented by european industrial packaging net sales in 2006?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",FKLL9G
+financial,what is the growth rate in sales from 2013 to 2014?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",D2drfR
+financial,"what is the growth rate in the price of shares from the highest value during the quarter ended december 31 , 2010 and the closing price on february 11 , 2011?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",XeT6UI
+financial,what was the cumulative total return on the s & p 500 for the five year period?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",OGgwVE
+financial,what was the greatest gross margin in millions for the three year period?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ZawoXa
+financial,what percentage of total commercial mortgages were at fair value?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",sLXX6t
+financial,what was the sum of the notes entergy issued to nypa with seven and eight annual payment installments,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",TxEfxT
+financial,what was the change in millions of trade receivables sold from 2014 to 2015?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",lkIFQp
+financial,"what was the percent of the total purchase price for the purchase of a portfolio of five industrial buildings , in seattle , virginia and houston that was allocated to in-service real estate assets",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",P7gGCH
+financial,contract generation revenues were what in millions in 2001?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ay3a8V
+financial,what is the percentage increase in total stock-based compensation expense from 2009 to 2010?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",45ACw2
+financial,what is the percent change in net revenue from 2015 to 2016?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Ddbbiq
+financial,what is the percentage change in the unamortized debt issuance costs associated with its credit facilities from 2016 to 2017?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",8rcQlf
+financial,what is the percent change in annual long-term debt maturities from 2018 to 2019?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ihRCR5
+financial,what percent of total operating income was emea in 2015?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",2yUZda
+financial,what is the total cash outflow for the repurchase of shares in the last three months of 2008?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",91tEy_
+financial,what was the total five year change in the nareit all equity index?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",gT2-RW
+financial,what was the ratio of the net income to the revenues in 2010,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",VXc1W3
+financial,what was the average investment income ( loss ) net 2013 to 2015,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",437nFf
+financial,what was the change in net sales in millions in 2007 in billions,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",j9WAsM
+financial,what was the percentage change in fuel surcharge program freight revenue from 2012 to 2013?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",W98Jtc
+financial,what was the percentage change in cash capital investments in track from 2004 to 2005?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Honh04
+financial,what was the percentage change in cash provided by operating activities from 2012 to 2013?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",FXJA1t
+financial,what portion of contractual obligations is expected to be paid within 12 months?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",HUS9Lb
+financial,what portion of the maximum exposure to loss from vies is related to guarantees in 2018?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",aT_s7y
+financial,what was the average annual creation of new stores for aap from 2008 to 2012?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Iqdo9M
+financial,what was the percentage change in total expense for repairs and maintenance from 2013 to 2014?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",BM1HGP
+financial,what was the percentage change in free cash flow from 2013 to 2014?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",-ScG7L
+financial,"what is the average cost of interest , in millions , for 2016-2018?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",8quvC3
+financial,"at december 31 , 2012 , what was the percent of the total future minimum commitments under existing non-cancelable operating leases that was due in 2014",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",GNMFdr
+financial,"what is the total net pension cost from 2016-2018 , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",1cl_tm
+financial,what was royalty income as a percentage of total other income in 2009?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",W0r5_N
+financial,what percentage of total future minimum lease payments are due in 2008?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Ty78yb
+financial,"what percentage of total accounts payable and other current liabilities was accrued casualty costs at december 31 , 2010?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",-JbXpB
+financial,what is the total contingent payments to impella 2019s former shareholders if all targets are achieved?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",qQSlRc
+financial,what was the average rent expense from 2010 to 2012 \\n,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",0Ipvry
+financial,what portion of operating lease commitments is expected to be paid within 12 months?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Pi1RJe
+financial,what percentage of total debt is due in 2011?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",9a7xLe
+financial,what portion of the compensation expense in 2017 is relates to the acceleration of equity awards upon termination of employment at baker hughes?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",VJdihZ
+financial,what was royalty income as a percentage of total other income in 2011?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",lUJVin
+financial,what portion of the maximum exposure to loss from vies is related to guarantees in 2017?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",6q_aNR
+financial,"considering the years 2008 and 2009 , what is the variation observed in the operating profit , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",-CMqXM
+financial,what percentage of total freight revenues was automotive in 2013?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",9UZvO2
+financial,what was the average industry segment operating profits from 2003 to 2005,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",nGosyt
+financial,what was the difference in billions of sold receivables from 2007 to 2008?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",HGgh3L
+financial,"what portion of tax benefit would affect the effective tax rate if recognized as of december 31 , 2011?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",-Musea
+financial,"at december 31 , 2007 , what was the percent of the total future minimum commitments under existing non-cancelable operat- ing leases for purchase obligations",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",krWesx
+financial,what was the percentage change in equipment rents payable from 2007 to 2008?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",rCYB0j
+financial,what percentage of total contractual obligations come from after five years?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",5OLxZc
+financial,what was the percentage change in total expense for repairs and maintenance from 2012 to 2013?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",CwaL2l
+financial,"what is the growth rate in based rent for hudson yards , new york facility in the second period?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",N8OJJ4
+financial,what was the percentage change in cash provided by operating activities from 2014 to 2015?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",842xnT
+financial,what was the percentage change in fuel surcharge program freight revenue from 2013 to 2014?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",kVmW8R
+financial,what is the average value for sales?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",1Q3URY
+financial,what percentage of total contractual obligations comes from global headquarters operating leases?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",rzxHFZ
+financial,what portion of the last payment for the final milestone was paid through the issuance of common stock?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",UN_h6L
+financial,"what portion of total future obligations is related to operating lease obligations as of march 31 , 2007?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",Gghkwm
+financial,what was the percentage change in free cash flow from 2014 to 2015?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",3o3B-N
+financial,what portion of total long-term borrowings is due in the next 24 months?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",NJs7X9
+financial,in 2010 what was the sum of the future minimum lease commitments due in 2014,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",R410nh
+financial,what percentage of total number of shares purchased were purchased in october ?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",sW-bqT
+financial,what is the growth rate in total shipment volume from 2011 to 2012?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",QsEKvh
+financial,what was the change in the warranty reserve in 2017 in thousands,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",3g_e2x
+financial,what portion of the fixed income is related to americas?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",6rY9Bc
+financial,"what is the annual interest expense related to '2022 notes' , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",yAWU_b
+financial,what was the cumulative lease payments to the employee who became an officer of the company following his business acquisition from 2008 to 2010,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",piSln7
+financial,what is the lowest return for the first month of the investment?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",0AKJOJ
+financial,"what was the percent f the purchase obligations in 2006 set aside for the contract for the purchase of pulpwood , logs and wood chips",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",9QYHcn
+financial,what portion of total long-term borrowings is due in the next 36 months?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",e3T1kW
+financial,"if the company were to purchase the remaining shares at the price at december 31 , 2015 , how much would the company have to pay for the remaining shares .",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",KWT3lF
+financial,what was the net change in the number of environmental sites from 2011 to 2012?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ZF9J4p
+financial,what was the percentage change in cash provided by operating activities from 2013 to 2014?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",jV73SM
+financial,what percentage of total number of shares purchased were purchased in december?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",nOm_-j
+financial,what are the pre tax gains recognized in other comprehensive income in 2015?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",PvZm8F
+financial,"what is the variation observed between the tangible and intangible assets , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",xu7sII
+financial,what was the percentage change in accrued wages and vacation from 2007 to 2008?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",A6NCZa
+financial,"compared to the lowest stock price , how much did advanced auto parts outperform the overall market?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",mEvo20
+financial,what are the pre tax gains recognized in other comprehensive income in 2016?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",puYFBw
+financial,what is the growth rate in total shipment volume from 2010 to 2011?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",piv9e_
+financial,what was the percentage reduction in net sales for shorewood in 2006 from 2005 s,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",YIBm6i
+financial,what was the percent of the total self-insurance reserves that was classified as current in 2018,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",hUSZz8
+financial,what was the percentage change in research and development net from 2012 to 2013?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",efdWZN
+financial,what was the percent of the benefit related to the effective settlement of tax audits recorded as part of the company recorded an income tax provision for 2007,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",CAM0_f
+financial,what portion of the long-term assets is related to americas?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",tDKGCP
+financial,what was the percentage change in research and development net from 2011 to 2012?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",k1Cu_c
+financial,what is the growth rate in rent expense and certain office equipment expense in 2013 compare to 2012?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",KDulIY
+financial,what percentage of total future minimum lease payments are due after 2009?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",NjMC_S
+financial,what was the percent of the total contractual obligations for future payments for total debt in 2005,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",xo7w2R
+financial,what was the consumer packaging profit margin in 2006,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",o89Ndb
+financial,what is the total price paid for the total number of shares purchased?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",3cPr1n
+financial,"what percentage of total accounts payable and other current liabilities was accrued casualty costs at december 31 , 2011?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",sWxVL6
+financial,what is the growth rate in rent expense and certain office equipment expense in 2012 compare to 2011?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",LhMiq5
+financial,"what is the annual interest expense related to '2015 notes' , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",xOvI9l
+financial,what percentage of total future minimum lease payments are due in 2007?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",pN-eHn
+financial,what was the percentage difference in sold receivables from 2007 to 2008?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",jrlYiZ
+financial,what percentage of total freight revenues was automotive in 2011?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",CGxSL1
+financial,what was the net change in the number of environmental sites from 2012 to 2013?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",gul_Vb
+financial,in 2005 what was industrial packaging the profit margin,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",LrEgqK
+financial,"what is the growth rate in based rent for hudson yards , new york facility in the third period?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",e6lrQ5
+financial,"based on the review of the comparison of cumulative return among lkq corporation , the nasdaq stock market ( u.s . ) index and the peer group what was the ratio of the lkq performance to the peer group in 2013",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",93y_ep
+financial,what was the percentage change in cash capital investments in track from 2005 to 2006?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",jdxKbA
+financial,"what portion of tax benefit would affect the effective tax rate if recognized as of december 31 , 2012?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",6pNI0g
+financial,"what is the total value of rsus converted to bhge rsus , in millions?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",1pOz5R
+financial,what is the percentage of tax and accounting fees among the total acquisition-related costs?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",H2aTnH
+financial,what was the percentage change in the common stock and option,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",akHYPZ
+financial,what is the difference between the highest and lowest return for the first year of the investment?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",DOstBB
+financial,"what portion of total future obligations is related to purchase obligations as of march 31 , 2007?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",GHMK99
+financial,what percentage of total future minimum lease payments are due in 2009?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",ZOs6Oy
+financial,what was the percentage increase of total deferred compensation plan investments from 2010 to 2011?\\n,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",DNEWFr
+financial,"what would the amount accrued because of interest on the term loan facility after october 29 , 2011?",dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",fyeLy-
+financial,what percentage of total debt is due after 2012?,dreamerdeo/finqa,"[0, 0, 0, 0, 1, 0, 0, 0]",9UccYX

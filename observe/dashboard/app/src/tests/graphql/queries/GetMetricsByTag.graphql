@@ -1,0 +1,94 @@
+query getMetricsByTag($resourceId: String!, $tags: [String!]!, $segmentTags: [SegmentTagFilter!], $granularity: TimePeriod!, $from: Float!, $to: Float) {
+    resource: model(id: $resourceId) {
+        id
+        name
+        batchFrequency
+        segment(tags: $segmentTags) {
+            tags {
+                key
+                value
+            }
+            customMetrics(tags: $tags, granularity: $granularity) {
+                ...MetricData
+            }
+        }
+    }
+}
+
+fragment MetricData on CustomMetric {
+    id
+    datasetGranularity
+    datasetId
+    name
+    segmentTags {
+        key
+        value
+    }
+    metadata {
+        ...MetricSchemaInfo
+    }
+    distributionValues(fromTimestamp: $from, toTimestamp: $to) {
+        timestamp
+        frequentItems {
+            ...FrequentItemUnitFields
+        }
+        numberSummary {
+            ...NumberSummaryFields2
+        }
+    }
+    numericValues(fromTimestamp: $from, toTimestamp: $to) {
+        timestamp
+        value
+    }
+}
+
+fragment MetricSchemaInfo on MetricSchema {
+    label
+    dataType
+    unitInterval
+    metricKind
+    metricDirection
+    showAsPercent
+    bounds {
+        upper
+        lower
+    }
+    queryDefinition {
+        metric
+        targetLevel
+        metricLabel
+        column
+        metric
+    }
+    tags
+    description
+}
+
+fragment FrequentItemUnitFields on FrequentItem {
+    value
+    estimate
+}
+
+fragment NumberSummaryFields2 on NumberSummary {
+    count
+    min
+    max
+    mean
+    stddev
+    histogram {
+        ...HistogramFields
+    }
+    ...QuantileFields
+}
+
+fragment HistogramFields on Histogram {
+    bins
+    counts
+}
+
+fragment QuantileFields on NumberSummary {
+    quantiles {
+        bins
+        counts
+    }
+}

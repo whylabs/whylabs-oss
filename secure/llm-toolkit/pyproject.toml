@@ -1,0 +1,132 @@
+[tool.poetry]
+name = "whylabs-llm-toolkit"
+version = "0.1.36"
+description = "Utilities for harm dataset generation"
+authors = ["Felipe Adachi <felipeadachi@gmail.com>"]
+readme = "README.md"
+packages = [
+    { include = "whylabs_llm_toolkit" },
+    { include = "langkit"}
+]
+
+[tool.poetry.dependencies]
+python = "^3.9,<3.12"
+pyarrow = "^15.0.2"
+whylabs-client = "^0.6.6"
+tenacity = "^8.2.3"
+whylogs = "^1.4.4"
+pydantic = "^2.6.1"
+pydantic-settings = "^2.2.1"
+
+# inference/evaluation dependencies
+pandas = {version = "*", optional = true}
+numpy = {version = "*", optional = true}
+mlflow = {version = "^2.11.3", optional = true}
+databricks-sdk = {version = "^0.25.1", optional = true}
+python-dotenv = {version = "^1.0.1", optional = true}
+scikit-learn = {version = "^1.4.1.post1", optional = true}
+matplotlib = {version = "^3.8.4", optional=true}
+
+# langkit workflow dependencies
+sentence-transformers = {version ="^3.2.0", optional = true}
+whylabs-textstat = {version = "^0.7.4", optional = true}
+nltk = {version = "^3.9", optional = true}
+evaluate = {version = "^0.4.0", optional = true}
+presidio-analyzer = {version = "2.2.352", optional = true}
+presidio-anonymizer = {version = "2.2.352", optional = true}
+tiktoken = {version = "0.6.0", optional = true}
+optimum = {extras = ["exporters", "onnxruntime"], version = "1.23.1", optional = true}
+onnx = {version = "^1.17.0", optional = true}
+openai = {version =">=0.27.6, <2.0.0", optional = true}
+
+chromadb = {version ="0.5.5", optional=true}
+setfit = {version ="^1.1.0", optional=true}
+torch = {version = "2.2.1", optional = true}
+huggingface-hub = {version ="^0.23.5", optional=true}
+
+songbird-client = {version = "*", optional = true}
+transformers = {version = "^4.43.0", optional = true}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+pyright = "^1.1.385"
+ruff = "^0.1.15"
+pytest =  { version ="^7.3.1"}
+bump2version = "^1.0.1"
+pandas-stubs = "^2.2.2"
+datasets = "^2.21.0"
+tqdm = "^4.66.4"
+ipython = "8.9.0"
+click = "^8.1.7"
+rich = "^13.7.1"
+
+
+[tool.poetry.extras]
+torch = ["torch"]
+eval = [
+    "sentence_transformers",
+    "transformers",
+    "mlflow",
+    "databricks_sdk",
+    "python_dotenv",
+    "scikit_learn",
+    "matplotlib",
+    "pandas",
+    "chromadb",
+    "songbird-client",
+    "optimum", # For generating onnx models
+]
+
+infer = [
+    "pandas",
+    "numpy",
+    "nltk",
+    "sentence-transformers",
+    "transformers",
+    "evaluate",
+    "presidio-analyzer",
+    "presidio-anonymizer",
+    "tiktoken",
+    "onnxruntime",
+    "onnx",
+    "optimum", # For executing onnx models
+    "whylabs-textstat",
+    "chromadb",
+    "setfit",
+    "huggingface-hub",
+    "openai",
+]
+
+[tool.pytest.ini_options]
+log_cli = true
+
+[tool.pyright]
+include = ["whylabs_llm_toolkit", "langkit", "tests", "scripts"]
+typeCheckingMode = "strict"
+
+reportMissingTypeStubs = false
+reportMissingParameterType = false
+reportMissingTypeArgumet = false
+reportUnnecessaryTypeIgnoreComment = true
+
+[tool.ruff]
+line-length = 140
+indent-width = 4
+include = ["./whylabs_llm_toolkit/**/*.py", "langkit/**/*.py", "./tests/**/*.py", "./scripts/**/*.py"]
+select = ["E", "F", "I", "W"]
+
+[tool.ruff.lint]
+fixable = ["ALL"]
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.isort]
+known-first-party = ["whylogs", "langkit", "whylabs_llm_toolkit"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"

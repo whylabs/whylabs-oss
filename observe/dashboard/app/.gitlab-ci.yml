@@ -1,0 +1,212 @@
+image: node:18-alpine
+
+include:
+  - component: gitlab.com/whylabs/ci-components/deploy-gitops@mainline
+    inputs:
+      whylabs_system_token: '${WHYLABS_CICD_TOKEN}'
+      gitops_updates: |
+        clusters/aws/development/development-cluster/services/dashbird/helm-release.yaml|.spec.values.dashbirdSha|"${CI_COMMIT_SHORT_SHA}"^
+        clusters/aws/development/development-cluster/services/dashbird/helm-release.yaml|.spec.values.uiExpSha|"file://ui-upstream.sha"
+      debug: true
+
+variables:
+  NPM_TOKEN: $CI_JOB_TOKEN
+
+stages:
+  - install
+  - prebuild
+  - build
+  - test
+  - bundle
+  - deploy
+
+cache: &global_cache
+  key:
+    files:
+      - yarn.lock
+  # by default, only pull the cache without updating it
+  policy: pull
+  paths:
+    - node_modules/
+    - client/node_modules/
+
+.merge-request-rule:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+
+.default-branch-rule:
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+.merge-or-default-rule:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+install-dependencies:
+  extends:
+    - .merge-or-default-rule
+  stage: install
+  cache:
+    <<: *global_cache
+    policy: pull-push
+  artifacts:
+    paths:
+      # these should include the generated GraphQL files (see codegen.yml)
+      - src/graphql/generated/*
+      - src/tests/graphql/generated/*
+  script:
+    - yarn install
+    - yarn generate # generate graphql type definitions
+
+lint:
+  extends:
+    - .merge-or-default-rule
+  stage: prebuild
+  script:
+    - yarn lint:all
+
+typecheck:
+  extends:
+    - .merge-or-default-rule
+  stage: prebuild
+  script:
+    - yarn typecheck:all
+
+build:
+  extends:
+    - .merge-or-default-rule
+  stage: build
+  needs:
+    - install-dependencies
+  script:
+    - yarn build
+    - LOGROCKET_RELEASE=$CI_COMMIT_SHORT_SHA yarn monorepo:client:build
+  artifacts:
+    when: on_success
+    paths:
+      - client/dist/
+      - dist/
+      - src/ # generated graphql code lives here, so include whole folder for now
+      - node_modules/
+    expire_in: 30 days
+
+test-unit:
+  extends:
+    - .merge-or-default-rule
+  stage: test
+  needs:
+    - install-dependencies
+  script:
+    - yarn test:unit
+
+test-int:
+  extends:
+    - .merge-or-default-rule
+  stage: test
+  allow_failure: true
+  variables:
+    DATA_SERVICE_API_ENDPOINT: http://dataservice-main-k8s.datastack.svc.cluster.local.
+    SONGBIRD_API_ENDPOINT: https://songbird.development.whylabsdev.com.
+  script:
+    - yarn install # Since this is on a different cluster we need to re-install dependencies
+    - AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY yarn test:integ
+  # Use specific runner in our dev K8s cluster
+  tags: [integ, development]
+
+test-client:
+  extends:
+    - .merge-or-default-rule
+  stage: test
+  needs:
+    - install-dependencies
+  script:
+    - yarn monorepo:client:test
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - client/junit.xml
+
+upload client sourcemap:
+  extends:
+    - .default-branch-rule
+  stage: deploy
+  allow_failure: true
+  needs:
+    - install-dependencies
+    - build
+  before_script:
+    - npm install -g logrocket-cli
+  script:
+    - logrocket release $CI_COMMIT_SHORT_SHA --apikey=$LOGROCKET_API_KEY --verbose
+    - logrocket upload client/dist/ --release=$CI_COMMIT_SHORT_SHA --apikey=$LOGROCKET_API_KEY --verbose
+  after_script:
+    - rm client/dist/*/*.map # removing the source maps from the production build
+
+bundle:
+  extends:
+    - .default-branch-rule
+  stage: bundle
+  needs:
+    - install-dependencies
+    - build
+  image: docker:19.03.8
+  # Running in our K8s runers - do not use Docker dind
+  before_script:
+    # Wait for Docker to come up in our private K8s cluster
+    - i=0; while [ "$i" -lt 12 ]; do docker info && break; sleep 5; i=$(( i + 1 )) ; done
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build --build-arg BASE_URL=$BASE_URL --build-arg NPM_TOKEN=$NPM_TOKEN --build-arg LATEST_COMMIT=$CI_COMMIT_SHORT_SHA -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA -t $CI_REGISTRY_IMAGE:stable .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
+    - docker push $CI_REGISTRY_IMAGE:stable
+
+update infra package:
+  extends:
+    - .default-branch-rule
+  image: gradle:6.8.3-jdk15
+  stage: deploy
+  variables:
+    TARGET_BRANCH: mainline
+    INFRA_PACKAGE: https://oauth2:${INFRA_ACCESS_TOKEN}@gitlab.com/whylabs/infrastructure/dashboard-service-infrastructure.git
+  before_script:
+    - git config --global user.email "gitlab-bot@whylabs.ai"
+    - git config --global user.name "dashbird-service-bot"
+    - git config --global pull.rebase true
+  script:
+    - git clone --depth 1 ${INFRA_PACKAGE}
+    - cd dashboard-service-infrastructure/packages/dashboard
+    - git checkout $TARGET_BRANCH
+    - echo $CI_COMMIT_SHORT_SHA > upstream.sha
+    - git add upstream.sha
+    - >
+      git commit -m "[dashboard] ${CI_COMMIT_MESSAGE}"
+      -m ""
+      -m "From https://gitlab.com/whylabs/dashboard-service/-/commit/${CI_COMMIT_SHA} by $GITLAB_USER_ID"
+    - git push origin $TARGET_BRANCH 2>&1
+
+build dashbird image:
+  extends:
+    - .default-branch-rule
+  stage: deploy
+  image: docker:27.3
+  before_script:
+    # Wait for Docker to come up in our private K8s cluster
+    - i=0; while [ "$i" -lt 12 ]; do docker info && break; sleep 5; i=$(( i + 1 )) ; done
+  script:
+    - UI_COMMIT_SHA=$(head -n1 ui-upstream.sha | tr -d '[:space:]')
+    - docker login -u "${CI_REGISTRY_USER}" -p "${CI_REGISTRY_PASSWORD}" "${CI_REGISTRY}"
+    - |
+      docker buildx build \
+        --build-arg COMMIT_SHA="${CI_COMMIT_SHORT_SHA}" \
+        --build-arg UI_COMMIT_SHA="${UI_COMMIT_SHA}" \
+        --tag "${CI_REGISTRY_IMAGE}/dashbird:dash-${CI_COMMIT_SHORT_SHA}-ui-${UI_COMMIT_SHA}" \
+        --file Dockerfile.dashbird \
+        --push \
+        .
+
+whylabsci-deploy-gitops:
+  allow_failure: true
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

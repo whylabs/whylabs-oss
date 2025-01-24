@@ -1,0 +1,20 @@
+# Ignore everything by default
+*
+
+# White list specific folders/files
+!src/
+!.yarn
+!.yarnrc.yml
+!yarn.lock
+!package.json
+!.env
+!client
+!scripts/
+!prisma/
+!codegen.yml
+!tsconfig.json
+
+# Things to ignore again
+src/generated/client/libquery_engine-*
+client/node_modules
+client/dist

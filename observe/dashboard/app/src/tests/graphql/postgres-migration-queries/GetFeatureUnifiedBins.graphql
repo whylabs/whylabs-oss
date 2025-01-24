@@ -1,0 +1,40 @@
+query getFeatureUnifiedBins($modelId: String!, $featureId: String!, $timestamps: [Float!], $staticProfileIds: [String!], $splitpoints: [Float!]) {
+  model(id: $modelId) {
+    batches(timestamps: $timestamps) {
+      ...BatchProfilesSketches
+    }
+    referenceProfiles(profileIds: $staticProfileIds) {
+      ...StaticProfilesSketches
+    }
+  }
+}
+
+fragment BatchProfilesSketches on BatchMetadata {
+  timestamp
+  sketches(filter: {featureName: $featureId}, histogramSplitPoints: $splitpoints) {
+    results {
+      featureName
+      numberSummary {
+        histogram {
+          bins
+          counts
+        }
+      }
+    }
+  }
+}
+
+fragment StaticProfilesSketches on ReferenceProfile {
+  id
+  sketches(filter: {featureName: $featureId}, histogramSplitPoints: $splitpoints) {
+    results {
+      featureName
+      numberSummary {
+        histogram {
+          bins
+          counts
+        }
+      }
+    }
+  }
+}

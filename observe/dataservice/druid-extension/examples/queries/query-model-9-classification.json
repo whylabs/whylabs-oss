@@ -1,0 +1,31 @@
+{
+  "queryType": "timeseries",
+  "dataSource": "model-9",
+  "intervals": [
+    "1980-01-01T00:00:00.000/2050-05-03T00:00:00.000"
+  ],
+  "granularity": "day",
+  "filter": {
+    "type": "selector",
+    "dimension": "columnName",
+    "value": "__internal__.datasetMetrics"
+  },
+  "aggregations": [
+    {
+      "type": "ClassificationMetrics",
+      "name": "classification",
+      "fieldName": "classification"
+    }
+  ],
+  "postAggregations": [
+    {
+      "type": "classification.summary",
+      "name": "summary",
+      "field": {
+        "type": "fieldAccess",
+        "name": "classification",
+        "fieldName": "classification"
+      }
+    }
+  ]
+}

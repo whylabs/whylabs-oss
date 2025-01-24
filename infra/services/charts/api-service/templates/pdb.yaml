@@ -1,0 +1,11 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "songbird.fullname" . }}
+  labels:
+    {{- include "songbird.labels" . | nindent 4 }}
+spec:
+  maxUnavailable: 1
+  selector:
+    matchLabels:
+      {{- include "songbird.selectorLabels" . | nindent 6 }}

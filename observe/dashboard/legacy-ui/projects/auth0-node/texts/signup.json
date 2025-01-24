@@ -1,0 +1,18 @@
+{
+  "__doc__": "https://auth0.com/docs/brand-and-customize/text-customization-new-universal-login/prompt-signup",
+  "signup": {
+      "buttonText": "Sign up",
+      "description": " ",
+      "emailPlaceholder": "Email address",
+      "federatedConnectionButtonText": "Continue with ${connectionName}",
+      "loginActionLinkText": "Log in",
+      "loginActionText": "Already have an account?",
+      "logoAltText": "${companyName}",
+      "pageTitle": "Sign up | ${clientName}",
+      "passwordPlaceholder": "Password",
+      "passwordSecurityText": "Your password must contain:",
+      "separatorText": "Or",
+      "title": " ",
+      "usernamePlaceholder": "Username"
+  }
+}

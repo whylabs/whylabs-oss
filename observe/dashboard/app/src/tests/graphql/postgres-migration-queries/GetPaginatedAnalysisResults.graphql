@@ -1,0 +1,57 @@
+query getPaginatedAnalysisResults($anomaliesOnly: Boolean!, $datasetId: String!, $from: Float!, $to: Float, $metrics: [AnalysisMetric!], $analyzerTypes: [String!], $columns: [String!], $tags: [SegmentTagFilter!], $analyzerIDs: [String!], $monitorIDs: [String!], $analysisIDs: [String!], $limit: Int!, $offset: Int!, $sortDirection: SortDirection!) {
+  paginatedAnalysisResults(filter: {anomaliesOnly: $anomaliesOnly, analyzerTypes: $analyzerTypes, metrics: $metrics, datasetId: $datasetId, columns: $columns, fromTimestamp: $from, toTimestamp: $to, segmentTags: $tags, analyzerIDs: $analyzerIDs, monitorIDs: $monitorIDs, analysisIDs: $analysisIDs}, offset: $offset, limit: $limit, sortDirection: $sortDirection) {
+    ...AnalysisData
+  }
+}
+
+fragment AnalysisData on AnalysisResult {
+  id
+  orgId
+  datasetId
+  runId
+  creationTimestamp
+  datasetTimestamp
+  targetLevel
+  category
+  column
+  comparison_expected
+  comparison_observed
+  algorithm
+  algorithmMode
+  analysisId
+  analyzerId
+  analyzerConfigVersion
+  analyzerType
+  monitorIds
+  isAnomaly
+  isFalseAlarm
+  granularity
+  metric
+  weight
+  calculationRuntimeNano
+  comparison_expected
+  comparison_observed
+  columnList_added
+  columnList_removed
+  diff_metricValue
+  diff_mode
+  diff_threshold
+  drift_metricValue
+  drift_minBatchSize
+  drift_threshold
+  mostRecentDatasetDatalakeWriteTs
+  threshold_absoluteLower
+  threshold_absoluteUpper
+  threshold_baselineMetricValue
+  threshold_calculatedLower
+  threshold_calculatedUpper
+  threshold_metricValue
+  threshold_factor
+  threshold_minBatchSize
+  failureType
+  failureExplanation
+  tags {
+    key
+    value
+  }
+}

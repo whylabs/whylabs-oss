@@ -1,0 +1,32 @@
+{
+  "env": {
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:node/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "plugins": ["prettier"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "node/prefer-promises/fs": "error",
+    "node/no-callback-literal": "error",
+    "node/no-unsupported-features/es-syntax": ["error", {
+      "ignores": ["modules"]
+    }],
+    "node/no-missing-import": ["error", {
+      "tryExtensions": [".ts", ".js", ".json", ".node"]
+    }],
+    "node/no-unpublished-import": "off",
+    "no-return-await": "error",
+    "@typescript-eslint/explicit-module-boundary-types": "error",
+    "@typescript-eslint/no-non-null-assertion": "error"
+  },
+  "ignorePatterns": ["src/plugins/*.js"]
+}

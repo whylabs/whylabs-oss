@@ -1,0 +1,9 @@
+node_modules
+dist
+/client/node_modules
+/client/src/components/empty-state/components/CodeBlock.tsx
+# druid types
+src/services/data/druid/generated/*.ts
+
+src/schemas
+src/public

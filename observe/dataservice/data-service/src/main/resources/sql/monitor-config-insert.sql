@@ -1,0 +1,1 @@
+insert into whylabs.monitor_config (org_id, dataset_id, json_conf, updated_ts) values (?, ?, ?, ?) RETURNING id;

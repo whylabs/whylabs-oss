@@ -1,0 +1,22 @@
+{
+  "entries": [
+    {
+      "segment": "All data",
+      "metric": "classification_accuracy",
+      "rowColumns": [
+        {
+          "All data": 0.9176470588235294
+        }
+      ]
+    },
+    {
+      "segment": "All data",
+      "metric": "classification_fpr",
+      "rowColumns": [
+        {
+          "All data": 1.0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+"""
+Code used for error identification
+"""
+enum DashbirdErrorCode {
+  GENERIC_ERROR
+  PAGINATION_LIMIT_EXCEEDED
+  INVALID_TIME_RANGE
+  INVALID_ORGANIZATION
+  MONITOR_SCHEMA_VALIDATION_ERROR
+  MONITOR_CONFIG_VALIDATION_ERROR
+  ADHOC_MONITOR_RUN_ERROR
+  BACKFILL_ANALYZERS_ERROR
+  DATA_QUERY_VALIDATION_ERROR
+  AUTHORIZATION_ERROR
+  VALIDATION_ERROR
+  ILLEGAL_ARGUMENT,
+  RESOURCE_ALREADY_EXISTS
+  RESOURCE_CONSTRAINT
+  ARGUMENT_VALUE
+  QUERY_TOO_GRANULAR,
+  INVALID_REQUEST
+}
+
+type DashbirdError {
+  """
+  Error code
+  """
+  code: DashbirdErrorCode!
+  """
+  Message that should be safe to show to users
+  """
+  safeErrorMsg: String!
+  """
+  Parameter with error
+  """
+  parameter: String
+}

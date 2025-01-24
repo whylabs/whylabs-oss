@@ -1,0 +1,5 @@
+{
+  "operationName": null,
+  "variables": {},
+  "query": "{\n  models {\n    name\n    id\n    totalSegments\n    segments(offset: 0, limit: 30) {\n      id\n    }\n  }\n}\n"
+}

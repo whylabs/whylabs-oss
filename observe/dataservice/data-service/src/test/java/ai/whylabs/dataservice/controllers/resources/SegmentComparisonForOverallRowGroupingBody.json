@@ -1,0 +1,36 @@
+{
+  "interval": "2024-10-07/2024-10-08",
+  "rowSegmentGroup": null,
+  "columnSegments": [
+    "purpose=car",
+    "purpose=credit_card",
+    "purpose=wedding",
+    "purpose=house"
+  ],
+  "queries": [
+    {
+      "queryId": "1",
+      "metric": "median",
+      "resourceId": "model-0",
+      "columnName": "installment"
+    },
+    {
+      "queryId": "2",
+      "metric": "mean",
+      "resourceId": "model-0",
+      "columnName": "installment"
+    },
+    {
+      "queryId": "3",
+      "metric": "quantile_99",
+      "resourceId": "model-0",
+      "columnName": "installment"
+    },
+    {
+      "queryId": "4",
+      "metric": "quantile_25",
+      "resourceId": "model-0",
+      "columnName": "installment"
+    }
+  ]
+}

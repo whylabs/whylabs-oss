@@ -1,0 +1,965 @@
+# Standard metrics
+### Overall segment
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "rollupGranularity": "daily",
+  "interval": "2023-11-01T00:00:00.000Z/P30D",
+  "timeseries": [
+    {
+      "queryId": "a",
+      "metric": "median",
+      "resourceId": "model-0",
+      "columnName": "annual_inc",
+      "segment": [
+      ]
+    }
+  ]
+}
+
+### Ratio metric
+### It's actually a formula metric
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "rollupGranularity": "daily",
+  "interval": "2023-11-01T00:00:00.000Z/P3D",
+  "timeseries": [
+    {
+      "queryId": "a",
+      "metric": "unique_ratio",
+      "resourceId": "model-0",
+      "columnName": "annual_inc",
+      "segment": [
+      ]
+    }
+  ]
+}
+
+
+### Uniqueness segment
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "rollupGranularity": "daily",
+  "interval": "2023-11-01T00:00:00.000Z/P30D",
+  "timeseries": [
+    {
+      "queryId": "a",
+      "metric": "unique_count",
+      "resourceId": "model-0",
+      "columnName": "annual_inc",
+      "segment": [
+      ]
+    }
+  ]
+}
+
+
+### Segmented metric
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "rollupGranularity": "daily",
+  "interval": "2023-11-01T00:00:00.000Z/P30D",
+  "timeseries": [
+    {
+      "queryId": "a",
+      "metric": "median",
+      "resourceId": "model-0",
+      "columnName": "annual_inc",
+      "segment": [
+        {
+          "key": "purpose",
+          "value": "car"
+        }
+      ]
+    }
+  ]
+}
+
+###
+
+
+### Custom metrics
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+X-Request-ID: b37d94eb-b5c4-4195-b885-d2935c25aeb9
+
+{
+  "interval": "2023-11-01T00:00:00.000Z/P30D",
+  "rollupGranularity": "daily",
+  "timeseries": [
+    {
+      "queryId": "a",
+      "custom": {
+        "type": "numeric",
+        "custom": {
+          "datasource": "profiles",
+          "aggregation": "sum_count",
+          "supportedLevels": [
+            "COLUMN"
+          ]
+        }
+      },
+      "resourceId": "model-0",
+      "columnName": "annual_inc",
+      "segment": [
+        {
+          "key": "purpose",
+          "value": "car"
+        }
+      ]
+    }
+  ],
+  "formulas": []
+}
+
+### Zero metrics
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "interval": "2023-11-01T00:00:00.000Z/P30D",
+  "rollupGranularity": "daily",
+  "timeseries": [
+    {
+      "queryId": "a",
+      "customMetric": {
+        "customMetric": {
+          "metricPath": "non_existent_metric",
+          "datasource": "profiles",
+          "aggregation": "sum_count",
+          "supportedLevels": [
+            "COLUMN"
+          ]
+        },
+        "type": "numeric"
+      },
+      "resourceId": "model-0",
+      "columnName": "annual_inc",
+      "segment": [
+      ]
+    }
+  ],
+  "formulas": []
+}
+
+### Custom PostAgg
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "interval": "2023-11-01T00:00:00.000Z/P30D",
+  "rollupGranularity": "daily",
+  "timeseries": [
+    {
+      "queryId": "a",
+      "custom": {
+        "type": "numeric",
+        "custom": {
+          "metricPath": "cardinality/hll",
+          "datasource": "profiles",
+          "aggregation": "hll_union",
+          "postAgg": {
+            "type": "unique_est",
+            "numStddevs": 2,
+            "position": 1
+          },
+          "supportedLevels": [
+            "COLUMN"
+          ]
+        }
+      },
+      "resourceId": "model-0",
+      "columnName": "annual_inc",
+      "segment": [
+      ]
+    }
+  ],
+  "formulas": []
+}
+
+
+### Formula
+# POST http://dataservice-main-k8s.datastack.dev.whylabs:80/metrics/timeseries/org-0
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "interval": "2023-11-01T00:00:00.000Z/P30D",
+  "rollupGranularity": "daily",
+  "timeseries": [
+    {
+      "queryId": "a",
+      "metric": "median",
+      "resourceId": "model-0",
+      "columnName": "annual_inc",
+      "segment": [
+        {
+          "key": "purpose",
+          "value": "car"
+        }
+      ]
+    },
+    {
+      "queryId": "b",
+      "metric": "min",
+      "resourceId": "model-0",
+      "columnName": "annual_inc",
+      "segment": [
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "queryId": "formula1",
+      "formula": "abs(a - b)"
+    }
+  ]
+}
+
+###
+
+
+### classification F1
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "rollupGranularity": "daily",
+  "interval": "2022-02-01T00:00:00.000Z/P1M",
+  "timeseries": [
+    {
+      "queryId": "a",
+      "metric": "classification_f1",
+      "resourceId": "model-2120",
+      "segment": [
+      ]
+    }
+  ]
+}
+
+
+### classification F1
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "rollupGranularity": "daily",
+  "interval": "2022-02-01T00:00:00.000Z/P1M",
+  "timeseries": [
+    {
+      "queryId": "a",
+      "metric": "classification.precision",
+      "resourceId": "model-2120",
+      "segment": [
+      ]
+    }
+  ]
+}
+
+### regression rmse
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "rollupGranularity": "daily",
+  "interval": "2022-02-01T00:00:00.000Z/P1M",
+  "timeseries": [
+    {
+      "queryId": "a",
+      "metric": "regression.rmse",
+      "resourceId": "model-2121",
+      "segment": [
+      ]
+    }
+  ]
+}
+
+
+### Christine NaN median
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "rollupGranularity": "all",
+  "interval": "2024-02-03T00:00:00.000Z/2024-03-04T00:00:00.000Z",
+  "timeseries": [
+    {
+      "queryId": "q3",
+      "resourceId": "model-0",
+      "columnName": "earliest_cr_line",
+      "segment": [
+        {
+          "key": "purpose",
+          "value": "credit_card"
+        },
+        {
+          "key": "verification_status",
+          "value": "Verified"
+        }
+      ],
+      "metric": "median"
+    }
+  ]
+}
+
+
+### Christine mismatched query IDs
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "rollupGranularity": "all",
+  "interval": "2024-02-03T00:00:00.000Z/2024-03-04T00:00:00.000Z",
+  "timeseries": [
+    {
+      "queryId": "q0",
+      "resourceId": "model-0",
+      "columnName": "earliest_cr_line",
+      "segment": [
+        {
+          "key": "purpose",
+          "value": "credit_card"
+        },
+        {
+          "key": "verification_status",
+          "value": "Verified"
+        }
+      ],
+      "metric": "unique_ratio"
+    },
+    {
+      "queryId": "q1",
+      "resourceId": "model-0",
+      "columnName": "earliest_cr_line",
+      "segment": [
+        {
+          "key": "purpose",
+          "value": "credit_card"
+        },
+        {
+          "key": "verification_status",
+          "value": "Verified"
+        }
+      ],
+      "metric": "unique_est"
+    },
+    {
+      "queryId": "q2",
+      "resourceId": "model-0",
+      "columnName": "earliest_cr_line",
+      "segment": [
+        {
+          "key": "purpose",
+          "value": "credit_card"
+        },
+        {
+          "key": "verification_status",
+          "value": "Verified"
+        }
+      ],
+      "metric": "mean"
+    },
+    {
+      "queryId": "q3",
+      "resourceId": "model-0",
+      "columnName": "earliest_cr_line",
+      "segment": [
+        {
+          "key": "purpose",
+          "value": "credit_card"
+        },
+        {
+          "key": "verification_status",
+          "value": "Verified"
+        }
+      ],
+      "metric": "median"
+    }
+  ]
+}
+
+### https://app.clickup.com/t/86azfyfrp count
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "rollupGranularity": "daily",
+  "interval": "2023-11-01T00:00:00.000Z/P30D",
+  "timeseries": [
+    {
+      "queryId": "a",
+      "metric": "count",
+      "resourceId": "model-0",
+      "columnName": "annual_inc",
+      "segment": [
+      ]
+    }
+  ]
+}
+
+
+
+
+
+### multiple-segment formula metric
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "rollupGranularity": "daily",
+  "interval": "2023-11-01T00:00:00.000Z/P1D",
+  "timeseries": [
+    {
+      "queryId": "a",
+      "metric": "unique_ratio",
+      "resourceId": "model-0",
+      "columnName": "annual_inc",
+      "segment": [
+        {
+          "key": "purpose",
+          "value": "car"
+        }
+      ]
+    },
+    {
+      "queryId": "b",
+      "metric": "unique_ratio",
+      "resourceId": "model-0",
+      "columnName": "annual_inc",
+      "segment": [
+        {
+          "key": "purpose",
+          "value": "credit_card"
+        }
+      ]
+    }
+  ]
+}
+
+### multiple-segment, single null ratio metric
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "rollupGranularity": "daily",
+  "interval": "2023-11-01T00:00:00.000Z/P30D",
+  "timeseries": [
+    {
+      "queryId": "a",
+      "metric": "unique_ratio",
+      "resourceId": "model-0",
+      "columnName": "annual_inc",
+      "segment": [
+        {
+          "key": "purpose",
+          "value": "car"
+        }
+      ]
+    }
+  ]
+}
+
+### https://app.clickup.com/t/86azfyfrp count_string
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "rollupGranularity": "daily",
+  "interval": "2023-11-01T00:00:00.000Z/P30D",
+  "timeseries": [
+    {
+      "queryId": "a",
+      "metric": "count_string_ratio",
+      "resourceId": "model-0",
+      "columnName": "annual_inc",
+      "segment": [ ]
+    }
+  ]
+}
+
+
+### Christine Count ratios not working in timeseries
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "rollupGranularity": "all",
+  "interval": "2024-02-10T00:00:00.000Z/2024-03-11T00:00:00.000Z",
+  "timeseries": [
+    {
+      "queryId": "q4",
+      "resourceId": "model-0",
+      "columnName": "delinq_amnt",
+      "segment": [],
+      "metric": "count_fractional_ratio"
+    }
+  ]
+}
+
+### prediction_count
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "rollupGranularity": "daily",
+  "interval": "2022-02-01T00:00:00.000Z/P1M",
+  "timeseries": [
+    {
+      "queryId": "a",
+      "metric": "prediction_count",
+      "resourceId": "model-2121",
+      "segment": [
+      ]
+    }
+  ]
+}
+
+### quantile testing
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "rollupGranularity": "daily",
+  "interval": "2023-11-01T00:00:00.000Z/P30D",
+  "timeseries": [
+    {
+      "queryId": "a",
+      "metric": "stddev",
+      "resourceId": "model-0",
+      "columnName": "annual_inc",
+      "segment": [
+        {
+          "key": "purpose",
+          "value": "car"
+        }
+      ]
+    }
+  ]
+}
+
+###
+
+### christine https://app.clickup.com/t/86azqtcec
+POST http://localhost:8090/metrics/timeseries/org-5Hsdjx
+accept: application/json
+Content-Type: application/json
+
+{
+  "interval": "2024-02-25T00:00:00.000Z/P2D",
+  "timeseries": [
+    {
+      "queryId": "a",
+      "resourceId": "model-11",
+      "columnName": "nan",
+      "metric": "min"
+    }
+  ]
+}
+
+###
+
+### Christine returns count_integral but not count_integral_ratio
+POST http://localhost:8090/metrics/timeseries/org-5Hsdjx
+accept: application/json
+Content-Type: application/json
+
+{
+  "rollupGranularity": "all",
+  "interval": "2024-02-22T00:00:00.000Z/2024-02-28T00:00:00.000Z",
+  "timeseries": [
+
+    {
+      "queryId": "q4",
+      "resourceId": "model-0",
+      "columnName": "int-doublingunique",
+      "segment": [],
+      "metric": "count_integral_ratio"
+    }
+  ]
+}
+
+###
+POST http://localhost:8090/metrics/timeseries/org-5Hsdjx
+accept: application/json
+Content-Type: application/json
+
+{
+  "rollupGranularity": "all",
+  "interval": "2024-02-22T00:00:00.000Z/2024-02-28T00:00:00.000Z",
+  "timeseries": [
+    {
+      "queryId": "q2",
+      "resourceId": "model-60",
+      "columnName": "int-doublingnull",
+      "segment": [],
+      "metric": ""
+    }
+  ]
+}
+
+### monitor timeseries
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "interval": "2023-11-01T00:00:00.000Z/P30D",
+  "rollupGranularity": "daily",
+  "timeseries": [
+    {
+    "datasource":"monitors",
+      "queryId": "a",
+      "resourceId": "model-0",
+      "columnName": "annual_inc",
+      "custom": {
+        "type": "numeric",
+        "custom": {
+          "datasource": "monitors",
+          "aggregation": "sum_threshold",
+          "postAgg": {"type":"numericAnalysis"},
+          "supportedLevels": [
+            "COLUMN"
+          ]
+        }
+      },
+      "segment": [
+      ]
+    }
+  ],
+  "formulas": []
+}
+
+
+### monitor timeseries by analyzer id
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "interval": "2024-03-01T00:00:00.000Z/P30D",
+  "rollupGranularity": "daily",
+  "timeseries": [
+    {
+      "datasource":"monitors",
+      "queryId": "a",
+      "resourceId": "model-0",
+      "analyzerId": "seasonal-analyzer-monitor-analyzer",
+      "columnName": "annual_inc",
+      "metric": "anomaly_count",
+      "segment": []
+    }
+  ],
+  "formulas": []
+}
+
+
+### monitor timeseries by analysis id
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "interval": "2024-03-01T00:00:00.000Z/P30D",
+  "rollupGranularity": "daily",
+  "timeseries": [
+    {
+      "datasource":"monitors",
+      "queryId": "a",
+      "resourceId": "model-0",
+      "runId": "18d8833b-94d3-43df-be87-fb0228b8d3eb",
+      "columnName": "annual_inc",
+      "metric": "max_threshold",
+      "segment": []
+    }
+  ],
+  "formulas": []
+}
+
+### profile timeseries
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "interval": "2023-11-01T00:00:00.000Z/P3D",
+  "rollupGranularity": "daily",
+  "timeseries": [
+    {
+      "queryId": "a",
+      "resourceId": "model-0",
+      "columnName": "annual_inc",
+      "metric": "count",
+      "segment": [
+        {
+          "key": "purpose",
+          "value": "car"
+        }
+      ]
+    }
+  ],
+  "formulas": []
+}
+
+### performance metric
+POST http://localhost:8090/metrics/timeseries/org-3e8cGT
+accept: application/json
+Content-Type: application/json
+
+{
+      "rollupGranularity": "daily",
+      "interval": "2022-12-13/P1D",
+      "timeseries": [
+        {
+          "queryId": "q4",
+          "resourceId": "model-3",
+          "metric": "classification_precision"
+        }
+      ]
+    }
+
+### testing standard monitor timeseries
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "interval": "2023-11-01T00:00:00.000Z/P30D",
+  "rollupGranularity": "daily",
+  "timeseries": [
+    {
+      "datasource": "monitors",
+      "queryId": "a",
+      "resourceId": "model-0",
+      "columnName": "annual_inc",
+      "metric": "max_threshold"
+    }
+  ],
+  "formulas": []
+}
+
+### testing custom monitor timeseries
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "interval": "2023-11-01T00:00:00.000Z/P30D",
+  "rollupGranularity": "daily",
+  "timeseries": [
+    {
+      "datasource": "monitors",
+      "queryId": "a",
+      "resourceId": "model-0",
+      "columnName": "annual_inc",
+      "custom": {
+        "aggregation": "sum_threshold",
+        "postAgg": {
+          "type": "noop"
+        },
+        "supportedLevels": [
+          "COLUMN"
+        ]
+      },
+      "segment": []
+    }
+  ],
+  "formulas": []
+}
+
+### testing custom monitor timeseries
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "interval": "2023-11-01T00:00:00.000Z/P30D",
+  "rollupGranularity": "daily",
+  "timeseries": [
+    {
+      "datasource": "monitors",
+      "queryId": "a",
+      "resourceId": "model-0",
+      "columnName": "annual_inc",
+      "custom": {
+        "aggregation": {"op":"sum", "column":"threshold_calculated_upper"},
+        "postAgg": {
+          "type": "noop"
+        },
+        "supportedLevels": [
+          "COLUMN"
+        ]
+      },
+      "segment": []
+    }
+  ],
+  "formulas": []
+}
+
+
+### testing custom profile timeseries
+POST http://localhost:8090/metrics/timeseries/org-5Hsdjx
+accept: application/json
+Content-Type: application/json
+
+
+{
+  "rollupGranularity": "daily",
+  "interval": "2022-12-06T00:00:00.000Z/P4D",
+  "timeseries": [
+    {
+      "queryId": "q2",
+      "resourceId": "model-60",
+      "columnName": "product",
+      "segment": [],
+      "custom": {
+        "metricPath": "cardinality/hll",
+        "datasource": "profiles",
+        "aggregation": "hll_union",
+        "postAgg": {
+          "type": "unique_est",
+          "numStddevs": 2,
+          "position": 1
+        },
+        "supportedLevels": [
+          "COLUMN"
+        ]
+      }
+    }
+  ]
+}
+
+
+### trace summary metrics
+### declare query_parameters(orgId:string = 'org-0',
+###                          resourceId:string = 'model-2284',
+###                          startTime:datetime = datetime('2024-02-27T01:00:00.0000000Z'),
+###                          endTime:datetime = datetime('2024-02-28T03:00:00.0000000Z'),
+###                          granularity:timespan = timespan('1h'));
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "rollupGranularity": "hourly",
+  "interval": "2024-02-27T23:00:00.000Z/PT22H",
+  "timeseries": [
+    {
+      "datasource": "traces",
+      "queryId": "count_traces",
+      "resourceId": "model-2284",
+      "metric": "count_traces"
+    },
+    {
+      "datasource": "traces",
+      "queryId": "total_policy_issues",
+      "resourceId": "model-2284",
+      "metric": "total_policy_issues"
+    },
+    {
+      "datasource": "traces",
+      "queryId": "total_blocked",
+      "resourceId": "model-2284",
+      "metric": "total_blocked"
+    },
+    {
+      "datasource": "traces",
+      "queryId": "total_tokens",
+      "resourceId": "model-2284",
+      "metric": "total_tokens"
+    },
+    {
+      "datasource": "traces",
+      "queryId": "total_latency_millis",
+      "resourceId": "model-2284",
+      "metric": "total_latency_millis"
+    }
+  ]
+}
+
+
+### trace metrics
+POST http://localhost:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+
+{
+  "rollupGranularity": "hourly",
+  "interval": "2024-02-27T20:00:00.000Z/PT10H",
+  "timeseries": [
+    {
+      "datasource": "traces",
+      "queryId": "total_latency_millis",
+      "resourceId": "model-2284",
+      "metric": "total_latency_millis"
+    }
+  ]
+}
+
+
+###
+
+# curl -X 'POST'
+#  'http://dev-dataservice/metrics/timeseries/org-0'
+#  -H 'accept: application/json'
+#  -H 'Content-Type: application/json'
+#  -d '{
+#  "interval": "2024-07-31T00:00:00.000Z/2024-09-19T00:00:00.000Z",
+#  "rollupGranularity": "daily",
+#  "timeseries": [
+#    {
+#      "queryId": "q2",
+#      "metric": "mean",
+#      "columnName": "average_precision_k_5",
+#      "resourceId": "model-2344",
+#      "segment": []
+#    }
+#  ]
+#}'
+POST http://LOCALHOST:8090/metrics/timeseries/org-0
+accept: application/json
+Content-Type: application/json
+
+{
+  "interval": "2024-07-31T00:00:00.000Z/2024-09-19T00:00:00.000Z",
+  "rollupGranularity": "daily",
+  "timeseries": [
+    {
+      "queryId": "q2",
+      "metric": "mean",
+      "columnName": "average_precision_k_5",
+      "resourceId": "model-2344",
+      "segment": []
+    }
+  ]
+}
+
+###
+

@@ -1,0 +1,3 @@
+mutation provisionOrg($orgName: String, $modelName: String) {
+  provisionOrganization(orgName: $orgName, modelName: $modelName)
+}

@@ -1,0 +1,450 @@
+{
+  "dynamicColors": [
+    {
+      "id": "inc-perc-green-to-red",
+      "thresholdInfo": [
+        {
+          "threshold": 0.1,
+          "colorInfo": {
+            "backgroundColor": "#EAFFEF",
+            "color": "#1CBB42",
+            "hasBorder": true
+          }
+        },
+        {
+          "threshold": 0.2,
+          "colorInfo": {
+            "backgroundColor": "#FFFAEA",
+            "color": "#CCA313",
+            "hasBorder": true
+          }
+        },
+        {
+          "threshold": 1.1,
+          "colorInfo": {
+            "backgroundColor": "#FFEAEA",
+            "color": "#D10F0F",
+            "hasBorder": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "dec-perc-green-to-red",
+      "decreasing": true,
+      "thresholdInfo": [
+        {
+          "threshold": 0.5,
+          "colorInfo": {
+            "backgroundColor": "#EAFFEF",
+            "color": "#1CBB42",
+            "hasBorder": true
+          }
+        },
+        {
+          "threshold": 0.25,
+          "colorInfo": {
+            "backgroundColor": "#FFFAEA",
+            "color": "#CCA313",
+            "hasBorder": true
+          }
+        },
+        {
+          "threshold": -1.1,
+          "colorInfo": {
+            "backgroundColor": "#FFEAEA",
+            "color": "#D10F0F",
+            "hasBorder": true
+          }
+        }
+      ]
+    }
+  ],
+  "contents": [
+    {
+      "config": {
+        "dimensions": {
+          "columnSpan": 1,
+          "rowSpan": 2
+        }
+      },
+      "title": {
+        "text": "Total datasets"
+      },
+      "queryId": "dataset-count",
+      "gridArea": 1,
+      "heroProperties": {
+        "emptyText": "0"
+      },
+      "graphParams": {
+        "type": "lineChart"
+      },
+      "subGrid": {
+        "contents": [
+          {
+            "config": {
+              "colorInfo": {
+                "color": "#F06F27"
+              }
+            },
+            "title": {
+              "text": "Data source"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "dataset-count-data-source"
+          },
+          {
+            "config": {
+              "colorInfo": {
+                "color": "#005566"
+              }
+            },
+            "title": {
+              "text": "Data stream"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "dataset-count-data-stream"
+          },
+          {
+            "config": {
+              "colorInfo": {
+                "color": "#FFC000"
+              }
+            },
+            "title": {
+              "text": "Data transform"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "dataset-count-data-transform"
+          },
+          {
+            "config": {
+              "colorInfo": {
+                "color": "#44C0E7"
+              }
+            },
+            "title": {
+              "text": "Other"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "dataset-count-other"
+          }
+        ]
+      }
+    },
+    {
+      "config": {
+        "dimensions": {
+          "columnSpan": 1,
+          "rowSpan": 2
+        }
+      },
+      "title": {
+        "text": "Monitoring coverage"
+      },
+      "queryId": "monitoring-coverage-dataset-only",
+      "gridArea": 1,
+      "heroProperties": {
+        "emptyText": "0%",
+        "valueAttributes": {
+          "precision": 0,
+          "valueType": "percentage"
+        }
+      },
+      "subGrid": {
+        "contents": [
+          {
+            "config": {
+              "dynamicColorId": "dec-perc-green-to-red"
+            },
+            "title": {
+              "text": "Integration"
+            },
+            "heroProperties": {
+              "emptyText": "0%",
+              "valueAttributes": {
+                "precision": 0,
+                "valueType": "percentage"
+              }
+            },
+            "fieldId": "type-integration"
+          },
+          {
+            "config": {
+              "dynamicColorId": "dec-perc-green-to-red"
+            },
+            "title": {
+              "text": "Drift"
+            },
+            "heroProperties": {
+              "emptyText": "0%",
+              "valueAttributes": {
+                "precision": 0,
+                "valueType": "percentage"
+              }
+            },
+            "fieldId": "type-drift"
+          },
+          {
+            "config": {
+              "dynamicColorId": "dec-perc-green-to-red"
+            },
+            "title": {
+              "text": "Data quality"
+            },
+            "heroProperties": {
+              "emptyText": "0%",
+              "valueAttributes": {
+                "precision": 0,
+                "valueType": "percentage"
+              }
+            },
+            "fieldId": "type-data-quality"
+          }
+        ]
+      }
+    },
+    {
+      "config": {
+        "dimensions": {
+          "columnSpan": 2,
+          "rowSpan": 1
+        },
+        "dynamicColorId": "inc-perc-green-to-red"
+      },
+      "title": {
+        "text": "Datasets with anomalies"
+      },
+      "gridArea": 2,
+      "queryId": "dataset-percent-anomalies",
+      "heroProperties": {
+        "emptyText": "Unable to load data",
+        "valueAttributes": {
+          "precision": 0,
+          "valueType": "percentage"
+        },
+        "subHeaderAttributes": {
+          "precision": 0,
+          "valueType": "number"
+        }
+      },
+      "subGrid": {
+        "contents": [
+          {
+            "title": {
+              "text": "Integration health"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "dataset-anomalies-integration-health"
+          },
+          {
+            "title": {
+              "text": "Drift"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "dataset-anomalies-drift"
+          },
+          {
+            "title": {
+              "text": "Data quality"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "dataset-anomalies-data-quality"
+          }
+        ]
+      }
+    },
+    {
+      "config": {
+        "dimensions": {
+          "columnSpan": 2,
+          "rowSpan": 1
+        },
+        "dynamicColorId": "inc-perc-green-to-red"
+      },
+      "title": {
+        "text": "Datasets with integration health issues"
+      },
+      "gridArea": 2,
+      "queryId": "dataset-percent-anomalies-integration",
+      "heroProperties": {
+        "emptyText": "Unable to load data",
+        "valueAttributes": {
+          "precision": 0,
+          "valueType": "percentage"
+        },
+        "subHeaderAttributes": {
+          "precision": 0,
+          "valueType": "number"
+        }
+      }
+    },
+    {
+      "config": {
+        "dimensions": {
+          "columnSpan": 2,
+          "rowSpan": 1
+        },
+        "dynamicColorId": "inc-perc-green-to-red"
+      },
+      "title": {
+        "text": "Datasets with data issues"
+      },
+      "gridArea": 2,
+      "queryId": "dataset-percent-anomalies-data",
+      "heroProperties": {
+        "emptyText": "Unable to load data",
+        "valueAttributes": {
+          "precision": 0,
+          "valueType": "percentage"
+        },
+        "subHeaderAttributes": {
+          "precision": 0,
+          "valueType": "number"
+        }
+      },
+      "subGrid": {
+        "contents": [
+          {
+            "config": {
+              "dimensions": {
+                "columnSpan": 1,
+                "rowSpan": 1
+              }
+            },
+            "title": {
+              "text": "With drift issues"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "dataset-count-drift-issues"
+          },
+          {
+            "config": {
+              "dimensions": {
+                "columnSpan": 1,
+                "rowSpan": 1
+              }
+            },
+            "title": {
+              "text": "With data issues"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "dataset-count-data-issues"
+          }
+        ]
+      }
+    },
+    {
+      "config": {
+        "dimensions": {
+          "columnSpan": 3,
+          "rowSpan": 2
+        }
+      },
+      "title": {
+        "text": "Total anomalies"
+      },
+      "graphParams": {
+        "type": "stackedBarTimeSeries"
+      },
+      "gridArea": 3,
+      "queryId": "dataset-anomalies-timeseries",
+      "heroProperties": {
+        "emptyText": "Unable to load data",
+        "valueAttributes": {
+          "precision": 0,
+          "valueType": "number"
+        }
+      },
+      "subGrid": {
+        "contents": [
+          {
+            "config": {
+              "colorInfo": {
+                "color": "#72D7E8"
+              }
+            },
+            "title": {
+              "text": "Integration"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "anomaly-count-integration"
+          },
+          {
+            "config": {
+              "colorInfo": {
+                "color": "#005566"
+              }
+            },
+            "title": {
+              "text": "Data quality"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "anomaly-count-data-quality"
+          },
+          {
+            "config": {
+              "colorInfo": {
+                "color": "#F5843C"
+              }
+            },
+            "title": {
+              "text": "Drift"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "anomaly-count-drift"
+          }
+        ]
+      }
+    },
+    {
+      "config": {
+        "dimensions": {
+          "columnSpan": 3,
+          "rowSpan": 2
+        }
+      },
+      "title": {
+        "text": "Total records"
+      },
+      "graphParams": {
+        "type": "timeSeries",
+        "showDots": false,
+        "curvesType": "curveStep"
+      },
+      "gridArea": 3,
+      "queryId": "dataset-batches-count-timeseries",
+      "heroProperties": {
+        "emptyText": "Unable to load data",
+        "valueAttributes": {
+          "precision": 0,
+          "valueType": "number"
+        }
+      }
+    }
+  ]
+}

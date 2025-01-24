@@ -1,0 +1,290 @@
+{
+  "entries": [
+    {
+      "segment": "category=Baby Care",
+      "columnName": "rating",
+      "metric": "mean",
+      "rowColumns": [
+        {
+          "my-ref-profile": 4.061324
+        },
+        {
+          "another-ref-profile": 3.861324
+        }
+      ]
+    },
+    {
+      "segment": "category=Bakery, Cakes and Dairy",
+      "columnName": "rating",
+      "metric": "mean",
+      "rowColumns": [
+        {
+          "my-ref-profile": 3.894235
+        },
+        {
+          "another-ref-profile": 3.951113
+        }
+      ]
+    },
+    {
+      "segment": "category=Beauty and Hygiene",
+      "columnName": "rating",
+      "metric": "mean",
+      "rowColumns": [
+        {
+          "my-ref-profile": 3.793252
+        },
+        {
+          "another-ref-profile": 3.944936
+        }
+      ]
+    },
+    {
+      "segment": "category=Beverages",
+      "columnName": "rating",
+      "metric": "mean",
+      "rowColumns": [
+        {
+          "my-ref-profile": 4.412822
+        },
+        {
+          "another-ref-profile": 4.031782
+        }
+      ]
+    },
+    {
+      "segment": "category=Cleaning and Household",
+      "columnName": "rating",
+      "metric": "mean",
+      "rowColumns": [
+        {
+          "my-ref-profile": 3.77205
+        },
+        {
+          "another-ref-profile": 3.944885
+        }
+      ]
+    },
+    {
+      "segment": "category=Eggs, Meat and Fish",
+      "columnName": "rating",
+      "metric": "mean",
+      "rowColumns": [
+        {
+          "my-ref-profile": 3.931378
+        },
+        {
+          "another-ref-profile": 3.931378
+        }
+      ]
+    },
+    {
+      "segment": "category=Foodgrains, Oil and Masala",
+      "columnName": "rating",
+      "metric": "mean",
+      "rowColumns": [
+        {
+          "my-ref-profile": 4.026544
+        },
+        {
+          "another-ref-profile": 4.070197
+        }
+      ]
+    },
+    {
+      "segment": "category=Fruits and Vegetables",
+      "columnName": "rating",
+      "metric": "mean",
+      "rowColumns": [
+        {
+          "my-ref-profile": 3.937097
+        },
+        {
+          "another-ref-profile": 3.945102
+        }
+      ]
+    },
+    {
+      "segment": "category=Gourmet and World Food",
+      "columnName": "rating",
+      "metric": "mean",
+      "rowColumns": [
+        {
+          "my-ref-profile": 4.011594
+        },
+        {
+          "another-ref-profile": 4.092442
+        }
+      ]
+    },
+    {
+      "segment": "category=Kitchen, Garden and Pets",
+      "columnName": "rating",
+      "metric": "mean",
+      "rowColumns": [
+        {
+          "my-ref-profile": 3.616539
+        },
+        {
+          "another-ref-profile": 3.855074
+        }
+      ]
+    },
+    {
+      "segment": "category=Snacks and Branded Foods",
+      "columnName": "rating",
+      "metric": "mean",
+      "rowColumns": [
+        {
+          "my-ref-profile": 3.916127
+        },
+        {
+          "another-ref-profile": 4.056547
+        }
+      ]
+    },
+    {
+      "segment": "category=Baby Care",
+      "columnName": "rating",
+      "metric": "median",
+      "rowColumns": [
+        {
+          "my-ref-profile": 4.110240963855421
+        },
+        {
+          "another-ref-profile": 4.103000000000001
+        }
+      ]
+    },
+    {
+      "segment": "category=Bakery, Cakes and Dairy",
+      "columnName": "rating",
+      "metric": "median",
+      "rowColumns": [
+        {
+          "my-ref-profile": 4.043956043956044
+        },
+        {
+          "another-ref-profile": 4.0
+        }
+      ]
+    },
+    {
+      "segment": "category=Beauty and Hygiene",
+      "columnName": "rating",
+      "metric": "median",
+      "rowColumns": [
+        {
+          "my-ref-profile": 3.9240097501523454
+        },
+        {
+          "another-ref-profile": 3.974083129584352
+        }
+      ]
+    },
+    {
+      "segment": "category=Beverages",
+      "columnName": "rating",
+      "metric": "median",
+      "rowColumns": [
+        {
+          "my-ref-profile": 4.4
+        },
+        {
+          "another-ref-profile": 4.109293680297398
+        }
+      ]
+    },
+    {
+      "segment": "category=Cleaning and Household",
+      "columnName": "rating",
+      "metric": "median",
+      "rowColumns": [
+        {
+          "my-ref-profile": 4.0
+        },
+        {
+          "another-ref-profile": 4.027927927927927
+        }
+      ]
+    },
+    {
+      "segment": "category=Eggs, Meat and Fish",
+      "columnName": "rating",
+      "metric": "median",
+      "rowColumns": [
+        {
+          "my-ref-profile": 3.9313780180840014
+        },
+        {
+          "another-ref-profile": 3.9313780180840014
+        }
+      ]
+    },
+    {
+      "segment": "category=Foodgrains, Oil and Masala",
+      "columnName": "rating",
+      "metric": "median",
+      "rowColumns": [
+        {
+          "my-ref-profile": 4.2
+        },
+        {
+          "another-ref-profile": 4.1
+        }
+      ]
+    },
+    {
+      "segment": "category=Fruits and Vegetables",
+      "columnName": "rating",
+      "metric": "median",
+      "rowColumns": [
+        {
+          "my-ref-profile": 3.9313780180840014
+        },
+        {
+          "another-ref-profile": 3.9313780180840014
+        }
+      ]
+    },
+    {
+      "segment": "category=Gourmet and World Food",
+      "columnName": "rating",
+      "metric": "median",
+      "rowColumns": [
+        {
+          "my-ref-profile": 3.996551724137931
+        },
+        {
+          "another-ref-profile": 3.996551724137931
+        }
+      ]
+    },
+    {
+      "segment": "category=Kitchen, Garden and Pets",
+      "columnName": "rating",
+      "metric": "median",
+      "rowColumns": [
+        {
+          "my-ref-profile": 3.714719271623672
+        },
+        {
+          "another-ref-profile": 3.8136724960254376
+        }
+      ]
+    },
+    {
+      "segment": "category=Snacks and Branded Foods",
+      "columnName": "rating",
+      "metric": "median",
+      "rowColumns": [
+        {
+          "my-ref-profile": 4.1
+        },
+        {
+          "another-ref-profile": 4.1
+        }
+      ]
+    }
+  ]
+}

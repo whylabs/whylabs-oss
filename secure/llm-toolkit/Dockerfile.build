@@ -1,0 +1,21 @@
+from pytorch/pytorch:2.3.1-cuda11.8-cudnn8-runtime
+
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    cmake \
+    build-essential \
+    libssl-dev \
+    libffi-dev \
+    python3-dev \
+    python3-pip \
+    python3-setuptools \
+    python3-wheel \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install poetry
+RUN python3 -m pip install --user pipx
+RUN python3 -m pipx ensurepath
+RUN python3 -m pipx install poetry==1.7.1
+
+ENV PATH="/root/.local/bin:${PATH}"

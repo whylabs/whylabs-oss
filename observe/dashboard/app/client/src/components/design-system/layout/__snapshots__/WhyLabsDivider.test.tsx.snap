@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WhyLabs /> should match snapshot for size ""large"" 1`] = `
+<div
+  class="mantine-dh5eok"
+  data-testid="WhyLabs"
+/>
+`;
+
+exports[`<WhyLabs /> should match snapshot for size ""medium"" 1`] = `
+<div
+  class="mantine-1domco6"
+  data-testid="WhyLabs"
+/>
+`;
+
+exports[`<WhyLabs /> should match snapshot for size ""small"" 1`] = `
+<div
+  class="mantine-1bv9onw"
+  data-testid="WhyLabs"
+/>
+`;

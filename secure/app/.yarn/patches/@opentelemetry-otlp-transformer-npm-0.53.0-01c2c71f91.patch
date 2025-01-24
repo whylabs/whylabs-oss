@@ -1,0 +1,34 @@
+diff --git a/build/src/protobuf/serializers.d.ts b/build/src/protobuf/serializers.d.ts
+index 1d1467af2a4e53f10c4e9e75db1155da6bcba3e3..c66f7015108342bc20841e86140cd21aa2defa2d 100644
+--- a/build/src/protobuf/serializers.d.ts
++++ b/build/src/protobuf/serializers.d.ts
+@@ -1,6 +1,7 @@
+ import { ISerializer } from '../common/i-serializer';
++import { ExportType } from './protobuf-export-type';
+ import { IExportMetricsServiceResponse } from '../metrics/types';
+-import { IExportTraceServiceResponse } from '../trace/types';
++import { IExportTraceServiceRequest, IExportTraceServiceResponse } from '../trace/types';
+ import { IExportLogsServiceResponse } from '../logs/types';
+ import { ReadableSpan } from '@opentelemetry/sdk-trace-base';
+ import { ResourceMetrics } from '@opentelemetry/sdk-metrics';
+@@ -8,4 +9,5 @@ import { ReadableLogRecord } from '@opentelemetry/sdk-logs';
+ export declare const ProtobufLogsSerializer: ISerializer<ReadableLogRecord[], IExportLogsServiceResponse>;
+ export declare const ProtobufMetricsSerializer: ISerializer<ResourceMetrics[], IExportMetricsServiceResponse>;
+ export declare const ProtobufTraceSerializer: ISerializer<ReadableSpan[], IExportTraceServiceResponse>;
++export declare const TraceRequestType: ExportType<IExportTraceServiceRequest>;
+ //# sourceMappingURL=serializers.d.ts.map
+\ No newline at end of file
+diff --git a/build/src/protobuf/serializers.js b/build/src/protobuf/serializers.js
+index 857baeb67f45287fb0557d29acb429a272ed57cc..f534ec3276800aa995538c936b0090da74ed2892 100644
+--- a/build/src/protobuf/serializers.js
++++ b/build/src/protobuf/serializers.js
+@@ -32,6 +32,9 @@ const traceResponseType = root.opentelemetry.proto.collector.trace.v1
+     .ExportTraceServiceResponse;
+ const traceRequestType = root.opentelemetry.proto.collector.trace.v1
+     .ExportTraceServiceRequest;
++
++exports.TraceRequestType = traceRequestType;
++
+ exports.ProtobufLogsSerializer = {
+     serializeRequest: (arg) => {
+         const request = (0, logs_1.createExportLogsServiceRequest)(arg);

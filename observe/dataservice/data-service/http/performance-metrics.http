@@ -1,0 +1,39 @@
+### Fetch classification summary, rollup in Java
+POST http://localhost:8090/profiles/classificationSummary
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-2120",
+  "interval": "2023-01-01/P1W",
+  "granularity": "daily"
+}
+
+### classification summary, rollup in postgres
+POST http://localhost:8090/profiles/classificationSummary
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-2120",
+  "interval": "2023-01-01/P1D",
+  "granularity": "hourly"
+}
+
+### classification metrics, rollup in postgres
+### this is the same as /classificationSummary but the rollup is implemented in SQL/python.
+POST http://localhost:8090/profiles/classificationMetrics
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-2120",
+  "interval": "2023-01-01/P1M",
+  "granularity": "monthly"
+}
+
+### fetch regression metrics, rollup in postgres
+POST http://localhost:8090/profiles/regressionMetrics
+Content-Type: application/json
+
+{"orgId":"org-5Hsdjx","granularity":"daily","datasetId":"model-10","interval":"2022-08-22T00:00:00.000Z/2024-03-22T00:00:00.000Z"}

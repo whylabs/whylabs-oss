@@ -1,0 +1,52 @@
+{
+  "data": {
+    "model": {
+      "dataAvailability": {
+        "latestTimestamp": 1729526400000
+      },
+      "datasetMetrics": [
+        {
+          "name": "mean_squared_error",
+          "oneDay": [
+            {
+              "value": 0
+            }
+          ],
+          "oneWeek": [
+            {
+              "value": 43181.818181818184
+            }
+          ]
+        },
+        {
+          "name": "mean_absolute_error",
+          "oneDay": [
+            {
+              "value": 0
+            }
+          ],
+          "oneWeek": [
+            {
+              "value": 150
+            }
+          ]
+        },
+        {
+          "name": "root_mean_squared_error",
+          "oneDay": [
+            {
+              "value": 0
+            }
+          ],
+          "oneWeek": [
+            {
+              "value": 207.80235364840837
+            }
+          ]
+        }
+      ],
+      "name": "Regression model",
+      "modelType": "REGRESSION"
+    }
+  }
+}

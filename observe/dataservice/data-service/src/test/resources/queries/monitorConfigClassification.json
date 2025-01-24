@@ -1,0 +1,102 @@
+{
+  "orgId": "org-5Hsdjx",
+  "datasetId": "model-60",
+  "granularity": "daily",
+  "metadata": {
+    "schemaVersion": 1,
+    "author": "system",
+    "updatedTimestamp": 1681770522008,
+    "version": 41
+  },
+  "analyzers": [
+    {
+      "id": "classification_precision_analyzer",
+      "schedule": {
+        "type": "fixed",
+        "cadence": "daily"
+      },
+      "config": {
+        "type": "fixed",
+        "version": 1,
+        "metric": "classification_precision",
+        "upper": 0.3
+      },
+      "disabled": false,
+      "targetMatrix": {
+        "type": "dataset",
+        "segments": [
+          {
+            "tags": []
+          },
+          {
+            "tags": [
+              {
+                "key": "rating",
+                "value": "*"
+              }
+            ]
+          }        ]
+      }
+    }
+  ],
+  "monitors": [ ],
+  "entitySchema": {
+    "metadata": {
+      "author": "system",
+      "version": 1,
+      "updatedTimestamp": 1671466888503
+    },
+    "columns": {
+      "date": {
+        "classifier": "input",
+        "dataType": "string",
+        "discreteness": "discrete",
+        "tags": []
+      },
+      "predicted_rating": {
+        "classifier": "input",
+        "dataType": "integral",
+        "discreteness": "discrete",
+        "tags": []
+      },
+      "product": {
+        "classifier": "input",
+        "dataType": "string",
+        "discreteness": "discrete",
+        "tags": []
+      },
+      "rating": {
+        "classifier": "input",
+        "dataType": "integral",
+        "discreteness": "discrete",
+        "tags": []
+      },
+      "market_price": {
+        "classifier": "input",
+        "dataType": "fractional",
+        "discreteness": "continuous",
+        "tags": []
+      },
+      "category": {
+        "classifier": "input",
+        "dataType": "string",
+        "discreteness": "discrete",
+        "tags": []
+      },
+      "sales_last_week": {
+        "classifier": "input",
+        "dataType": "integral",
+        "discreteness": "discrete",
+        "tags": []
+      }
+    },    "metrics": null
+  },
+  "weightConfig": {
+    "metadata": {
+      "author": "system",
+      "version": 0,
+      "updatedTimestamp": 1683839163843
+    },
+    "segmentWeights": []
+  }
+}

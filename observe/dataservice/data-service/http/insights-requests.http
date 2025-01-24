@@ -1,0 +1,110 @@
+### insight requests -reference
+POST http://localhost:8090/profiles/insights/single
+accept: application/json
+Content-Type: application/json
+
+{
+  "orgId": "org-hP8eYQ",
+  "datasetId": "model-1",
+  "refProfileId": "ref-Bb262YE3KxynE1mJ",
+  "segment": {
+    "tags": [
+    ]
+  }
+}
+
+### insight requests - range - overall
+POST http://localhost:8090/profiles/insights/single
+accept: application/json
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+  "interval": "2023-07-01T00:00:00.000Z/P7D",
+  "granularity": "daily",
+  "segment": {
+    "tags": [
+    ]
+  }
+}
+
+
+### insight requests - range - segmented
+POST http://localhost:8090/profiles/insights/single
+accept: application/json
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+  "granularity": "daily",
+  "interval": "2023-07-01T00:00:00.000Z/P7D",
+  "segment": {
+    "tags": [
+      {
+        "key": "purpose",
+        "value": "car"
+      }
+    ]
+  }
+}
+
+### Count insights
+POST http://localhost:8090/profiles/insights/single/count
+accept: application/json
+Content-Type: application/json
+
+{
+  "orgId": "org-hP8eYQ",
+  "datasetId": "model-1",
+  "refProfileId": "ref-Bb262YE3KxynE1mJ",
+  "segment": {
+    "tags": [
+    ]
+  }
+}
+
+### Count insights - overall
+POST http://localhost:8090/profiles/insights/single/count
+accept: application/json
+Content-Type: application/json
+
+{
+  "orgId": "org-hP8eYQ",
+  "datasetId": "model-1",
+  "refProfileId": "ref-Bb262YE3KxynE1mJ",
+  "segment": {
+    "tags": [
+    ]
+  }
+}
+
+### insights to Christine's DEV Test Again.    org-5Hsdjx / model-91
+POST http://localhost:8090/profiles/insights/single
+X-Cache-Disable: True
+accept: application/json
+Content-Type: application/json
+
+{
+"orgId": "org-5Hsdjx",
+"datasetId": "model-98",
+"interval": "2023-10-21T00:00:00.000Z/P1W",
+"granularity": "daily"
+}
+
+### insights to demo-llm-secure,
+### https://hub.whylabsapp.com/resources/demo-llm-secure/summary?targetOrgId=org-QmqEak&startDate=2024-02-11T00h00m&endDate=2024-03-07T23h59m&presetRange=lineage
+POST http://localhost:8090/profiles/insights/single
+X-Cache-Disable: True
+accept: application/json
+Content-Type: application/json
+
+{
+"orgId": "org-QmqEak",
+"datasetId": "demo-llm-secure",
+"interval": "2024-04-22T00:00:00.000Z/2024-04-23T00:00:00.000Z",
+"granularity": "daily"
+}
+
+

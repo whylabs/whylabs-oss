@@ -1,0 +1,1 @@
+ALTER TYPE data_type_enum ADD VALUE IF NOT EXISTS  'BOOLEAN';

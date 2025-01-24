@@ -1,0 +1,44 @@
+# dependencies
+node_modules/
+.yarn/*
+#!.yarn/cache - cache can be committed to enable Zero-Installs mode in Yarn2, but this requires additional setup
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+!.yarn/patches
+
+# build and front end
+dist
+/src/public
+
+# client test coverage
+/client/coverage
+/client/junit.xml
+
+# test files
+monitor-mock.json
+monitor_config.json
+
+# misc
+yarn-error.log
+.idea/shelf
+
+# profiling
+*.log
+/profiling/processed_log.txt
+/profiling/flamegraph.html
+
+# IntelliJ
+.vscode
+.idea
+.editorconfig
+
+# Mac
+.DS_Store
+
+.env*
+
+.eslintcache
+database

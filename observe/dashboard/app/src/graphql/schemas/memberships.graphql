@@ -1,0 +1,47 @@
+enum MembershipRole {
+  Admin
+  Member
+  Viewer
+  Unknown
+}
+
+type Member {
+  userId: String!
+  email: String!
+  orgId: String!
+  role: MembershipRole!
+}
+
+type MembershipManagement {
+  """
+  Add a Member to the current Organization
+  """
+  add(email: String!, role: MembershipRole): Member @auth(permissions: [MANAGE_ORG])
+  """
+  Add multiple Members to the current Organization
+  """
+  bulkAdd(emails: [String!]!, role: MembershipRole): [Member!] @auth(permissions: [MANAGE_ORG])
+  """
+  Update a Member from the current Organization
+  """
+  update(email: String!, role: MembershipRole!): Member @auth(permissions: [MANAGE_ORG])
+  """
+  Remove a Member from the current Organization
+  """
+  remove(email: String!): Member @auth(permissions: [MANAGE_ORG])
+  """
+  Set the default Organization for the current User
+  """
+  setDefaultOrganization(orgId: String!): Boolean
+  """
+  Update the email domains allowed for Members in the current Organization
+  """
+  updateEmailDomains(emailDomains: [String!]!): Boolean @auth(permissions: [MANAGE_ORG])
+}
+
+extend type Mutation {
+  """
+  Entrypoint for managing relationships between Organizations and Users
+  """
+  memberships: MembershipManagement @auth
+}

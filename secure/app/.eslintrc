@@ -1,0 +1,81 @@
+{
+  "root": false,
+  "env": {
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:node/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:mocha/recommended"
+  ],
+  "plugins": ["prettier", "mocha", "prefer-arrow", "@typescript-eslint", "unused-imports"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "rules": {
+    "max-lines": [
+      "warn",
+      {
+        "max": 300,
+        "skipBlankLines": false,
+        "skipComments": true
+      }
+    ],
+    "unused-imports/no-unused-imports": "error",
+    "prettier/prettier": "error",
+    "node/prefer-promises/fs": "error",
+    "node/no-callback-literal": "error",
+    "node/no-unsupported-features/es-syntax": [
+      "error",
+      {
+        "ignores": ["modules"]
+      }
+    ],
+    "node/no-missing-import": [
+      "error",
+      {
+        "tryExtensions": [".ts", ".tsx", ".js", ".json", ".node"]
+      }
+    ],
+    "node/no-unpublished-import": "off",
+    "no-restricted-imports": ["error", { "paths": ["@whylabs/dashboard-client"], "patterns":  ["@whylabs/dashboard-client/*"]}],
+    "no-return-await": "error",
+    "@typescript-eslint/explicit-module-boundary-types": "error",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-non-null-assertion": "error",
+    "prefer-arrow/prefer-arrow-functions": [
+      "error",
+      {
+        "disallowPrototype": true,
+        "singleReturnOnly": false,
+        "classPropertiesAllowed": false,
+        "allowStandaloneDeclarations": false
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.spec.ts"],
+      "rules": {
+        // arrow functions are not recommended in mocha top level calls
+        "prefer-arrow/prefer-arrow-functions": [
+          "error",
+          {
+            "singleReturnOnly": true
+          }
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "project": ["packages/tsconfig.json"]
+      }
+    }
+  }
+}

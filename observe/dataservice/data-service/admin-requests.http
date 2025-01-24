@@ -1,0 +1,38 @@
+### Admin endpoints
+GET http://localhost:8090/admin/getOrgIdCounts
+
+### Vacuum
+POST http://localhost:8090/admin/dataflow/vacuum
+Content-Type: application/json
+
+{}
+
+### Enable new flow
+POST http://localhost:8090/admin/dataflow/setUsePgCronBasedFlows/true
+Content-Type: application/json
+
+{}
+
+### Count queue workers
+GET http://localhost:8090/admin/dataflow/countQueueWorkers/
+Content-Type: application/json
+
+{}
+
+### Add bronze=>silver worker
+POST http://localhost:8090/admin/dataflow/addQueueWorker/queue_data_promotions_bronze_to_silver
+Content-Type: application/json
+
+{}
+
+### Add silver=>historical worker
+POST http://localhost:8090/admin/dataflow/addQueueWorker/queue_data_promotions_silver_to_historical
+Content-Type: application/json
+
+{}
+
+### Add timescale compression worker
+POST http://localhost:8090/admin/dataflow/addQueueWorker/queue_timescale_compression
+Content-Type: application/json
+
+{}

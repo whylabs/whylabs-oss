@@ -1,0 +1,5 @@
+## Bootstrap a specific set of profiles for our unit test suite
+POST http://localhost:8090/bootstrap/boostrapDatabaseForUnitTests
+Content-Type: application/json
+
+{}

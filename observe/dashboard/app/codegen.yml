@@ -1,0 +1,27 @@
+overwrite: true
+schema: "src/graphql/schemas/**/*.graphql"
+documents: null
+generates:
+  src/graphql/generated/graphql.ts:
+    config:
+      # https://www.graphql-code-generator.com/docs/plugins/typescript-resolvers#integration-with-apollo-server
+      useIndexSignature: true
+      maybeValue: T | null | undefined
+    plugins:
+      - add:
+          content: '/* eslint-disable */'
+      - 'typescript'
+      - 'typescript-resolvers'
+      - 'typescript-operations'
+  src/tests/graphql/generated/graphql.ts:
+    documents: './src/tests/**/*.graphql'
+    config:
+      # https://www.graphql-code-generator.com/docs/plugins/typescript-resolvers#integration-with-apollo-server
+      useIndexSignature: true
+      maybeValue: T | null | undefined
+    plugins:
+      - add:
+          content: '/* eslint-disable */'
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typed-document-node'

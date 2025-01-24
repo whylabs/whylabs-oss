@@ -1,0 +1,50 @@
+{
+  "policies": [
+    {
+      "id": "bad-actors",
+      "enabled": false,
+      "params": [
+        { "id": "behavior", "type": "segmented-control", "value": "observe" },
+        { "id": "sensitivity", "type": "segmented-control", "value": "high" }
+      ]
+    },
+    {
+      "id": "misuse",
+      "enabled": true,
+      "params": [
+        { "id": "behavior", "type": "segmented-control", "value": "flag" },
+        { "id": "sensitivity", "type": "segmented-control", "value": "medium" },
+        { "id": "topics", "type": "checkbox-group", "value": ["legal"] }
+      ]
+    },
+    {
+      "id": "cost",
+      "enabled": false,
+      "params": [
+        { "id": "behavior", "type": "segmented-control", "value": "flag" },
+        { "id": "sensitivity", "type": "segmented-control", "value": "medium" }
+      ]
+    },
+    {
+      "id": "customer-experience",
+      "enabled": false,
+      "params": [
+        { "id": "behavior", "type": "segmented-control", "value": "flag" },
+        { "id": "sensitivity", "type": "segmented-control", "value": "medium" },
+        { "id": "user-feedback", "type": "checkbox-group", "value": [] }
+      ]
+    },
+    {
+      "id": "truthfulness",
+      "enabled": true,
+      "params": [
+        { "id": "behavior", "type": "segmented-control", "value": "observe" },
+        { "id": "sensitivity", "type": "segmented-control", "value": "medium" },
+        { "id": "validation-method", "type": "checkbox-group", "value": [] }
+      ]
+    }
+  ],
+  "lastUpdatedTimestamp": 1725299560426,
+  "lastUpdatedAuthor": "foo@bar.com",
+  "policyVersion": 3
+}

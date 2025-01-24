@@ -1,0 +1,35 @@
+{
+  "queryType": "groupBy",
+  "dimensions": ["columnName"],
+  "dataSource": "csw-brazil-classification2",
+  "intervals": [
+    "2021-05-01T00:00:00.000/2021-06-02T00:00:00.000"
+  ],
+  "filter": {
+    "type": "and",
+    "fields": [{
+      "type": "selector",
+      "dimension": "orgId",
+      "value": "org-6705"
+    }, {
+      "type": "selector",
+      "dimension": "datasetId",
+      "value": "model-8"
+    },
+      {
+        "type": "selector",
+        "dimension": "columnName",
+        "value": "freight_value"
+      }
+    ]
+  },
+  "granularity": "day",
+  "aggregations": [
+    { "type": "VarianceMerge", "name":"variance3", "fieldName": "variance2"}
+  ],
+  "context": {
+    "skipEmptyBuckets": true
+  }
+
+
+}

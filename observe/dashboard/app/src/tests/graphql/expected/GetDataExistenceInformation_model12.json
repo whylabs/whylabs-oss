@@ -1,0 +1,65 @@
+{
+  "data": {
+    "model": {
+      "features": [
+        {
+          "name": "int"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_prediction"
+        },
+        {
+          "name": "output_target"
+        }
+      ],
+      "datasetMetrics": [
+        {
+          "name": "mean_squared_error",
+          "metadata": {
+            "name": "REGRESSION_MSE",
+            "label": "Mean squared error (MSE)",
+            "dataType": "FLOAT",
+            "showAsPercent": false,
+            "unitInterval": false,
+            "metricDirection": "IMPROVE_DOWN",
+            "metricKind": "RATE",
+            "bounds": null
+          }
+        },
+        {
+          "name": "mean_absolute_error",
+          "metadata": {
+            "name": "REGRESSION_MAE",
+            "label": "Mean absolute error (MAE)",
+            "dataType": "FLOAT",
+            "showAsPercent": false,
+            "unitInterval": false,
+            "metricDirection": "IMPROVE_DOWN",
+            "metricKind": "RATE",
+            "bounds": null
+          }
+        },
+        {
+          "name": "root_mean_squared_error",
+          "metadata": {
+            "name": "REGRESSION_RMSE",
+            "label": "Root mean square error (RMSE)",
+            "dataType": "FLOAT",
+            "showAsPercent": false,
+            "unitInterval": false,
+            "metricDirection": "IMPROVE_DOWN",
+            "metricKind": "RATE",
+            "bounds": null
+          }
+        }
+      ],
+      "totalSegments": 0,
+      "dataAvailability": {
+        "hasData": true,
+        "oldestTimestamp": 1728950400000
+      }
+    }
+  }
+}

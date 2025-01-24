@@ -1,0 +1,119 @@
+{
+  "orgId": "org-5Hsdjx",
+  "datasetId": "model-61",
+  "granularity": "daily",
+  "metadata": {
+    "schemaVersion": 1,
+    "author": "system",
+    "updatedTimestamp": 1681770522008,
+    "version": 41
+  },
+  "analyzers": [
+
+
+    {
+      "id": "missing-datapoint-analyzer-column",
+      "schedule": {
+        "type": "fixed",
+        "cadence": "daily"
+      },
+      "disabled": false,
+      "targetMatrix": {"type": "column", "include": "*", "segments": [
+        {
+          "tags": []
+        },
+        {
+          "tags": [{"key" : "category", "value": "Baby Care"}]
+        }
+      ]},
+      "dataReadinessDuration": "P1DT18H",
+      "config": {
+        "metric": "missingDatapoint",
+        "type": "fixed",
+        "upper": 0
+      }
+    },
+    {
+      "id": "missing-datapoint-analyzer-dataset",
+      "schedule": {
+        "type": "fixed",
+        "cadence": "daily"
+      },
+      "disabled": false,
+      "targetMatrix": {
+        "type": "dataset",
+        "segments": []
+      },
+      "dataReadinessDuration": "P1DT18H",
+      "config": {
+        "metric": "missingDatapoint",
+        "type": "fixed",
+        "upper": 0
+      }
+    }
+  ],
+  "monitors": [
+    {
+      "id": "missing-datapoint-monitor",
+      "mode": {
+        "type": "DIGEST"
+      },
+      "schedule": {
+        "type": "immediate"
+      },
+      "analyzerIds": [
+        "missing-datapoint-analyzer-column",
+        "missing-datapoint-analyzer-dataset"
+      ]
+    }
+
+  ],
+  "entitySchema": {
+    "metadata": {
+      "author": "system",
+      "version": 1,
+      "updatedTimestamp": 1671466888503
+    },
+    "columns": {
+      "category": {
+        "discreteness": "discrete",
+        "dataType": "string",
+        "classifier": "input"
+      },
+      "date": {
+        "discreteness": "discrete",
+        "dataType": "unknown",
+        "classifier": "input"
+      },
+      "market_price": {
+        "discreteness": "continuous",
+        "dataType": "fractional",
+        "classifier": "input"
+      },
+      "predicted_rating": {
+        "discreteness": "discrete",
+        "dataType": "string",
+        "classifier": "input"
+      },
+      "rating": {
+        "discreteness": "continuous",
+        "dataType": "integral",
+        "classifier": "input"
+      },
+      "sales_last_week": {
+        "discreteness": "discrete",
+        "dataType": "string",
+        "classifier": "input"
+      }
+    },
+    "metrics": null
+  },
+  "weightConfig": {
+    "metadata": {
+      "author": "system",
+      "version": 0,
+      "updatedTimestamp": 1683839163843
+    },
+    "segmentWeights": []
+  }
+}

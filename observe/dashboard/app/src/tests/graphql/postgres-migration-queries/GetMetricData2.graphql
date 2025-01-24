@@ -1,0 +1,12 @@
+query getMetricData2($from: Float!, $to: Float!, $queries: [MetricQuery!]!, $segment: [SegmentTagFilter!]) {
+  dataQueries {
+    getMetricData(fromTimestamp: $from, toTimestamp: $to, queries: $queries, segment: $segment) {
+      datasetId
+      metric
+      feature
+      points {
+        ...MetricResultPoint
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+node_modules
+dist
+/client/node_modules
+/client/src/components/empty-state/components/CodeBlock.tsx
+# generated graphql and druid types
+src/graphql/generated/*.ts
+src/services/data/druid/generated/*.ts
+
+src/schemas
+src/public

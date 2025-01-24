@@ -1,0 +1,493 @@
+### Query list of monitors for a time range
+POST http://localhost:8090/analysis/monitors/list
+accept: application/json
+Content-Type: application/json
+
+{
+  "request": {
+    "orgId": "org-0",
+    "datasetId": "model-0",
+    "interval": "2023-01-20T00:00:00.00Z/P30D",
+    "targetLevel": "column",
+    "targetSegment": {
+      "tags": [
+      ]
+    },
+    "targetColumn": "num_tl_120dpd_2m",
+    "targetMetric": "unique_est_ratio",
+    "offset": 0,
+    "pageSize": 100
+  }
+}
+
+### Query list of monitors for a time range for all column
+POST http://localhost:8090/analysis/monitors/list
+accept: application/json
+Content-Type: application/json
+
+{
+  "request": {
+    "orgId": "org-0",
+    "datasetId": "model-0",
+    "interval": "2023-01-20T00:00:00.00Z/P30D",
+    "targetLevel": "column",
+    "targetSegment": null,
+    "targetColumn": null,
+    "targetMetric": null,
+    "offset": 0,
+    "pageSize": 100
+  }
+}
+
+
+### Get num adhoc events
+POST http://localhost:8090/analysis/runs/getAdHocRunNumEvents
+Content-Type: application/json
+
+{
+  "orgId": "org-wdJxxX",
+  "runId": "07c48602-6405-4d53-a66c-cf7c57eac000",
+  "interval": "2022-01-10T07:00:00Z/2022-09-15T07:00:00Z"
+}
+
+### Get count of anomalies by segment
+POST http://localhost:8090/analysis/getSegmentAnomalyCounts
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+  "interval": "2022-09-10T07:00:00Z/2022-09-15T07:00:00Z"
+}
+
+### Trigger Adhoc Analyzer for overall segment
+POST  http://localhost:8090/analysis/runAnalyzer
+Content-Type: application/json
+
+{
+  "inlineResults": false,
+  "notifySiren": false,
+  "notifySirenEveryAnalysis": false,
+  "columnNames": [
+"zip_code"
+  ],
+  "start": "2024-07-01T00:00:00.000Z",
+  "end": "2024-07-20T11:00:00.000Z",
+  "enableDatasetLevelAnalysis": true,
+  "monitorConfig": {
+    "orgId": "org-0",
+    "datasetId": "model-0",
+    "granularity": "daily",
+    "analyzers": [
+      {
+        "id": "excited-rosybrown-elephant-8028-analyzer",
+        "targetSize": 2,
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "config": {
+          "type": "monotonic",
+          "metric": "count",
+          "direction": "INCREASING",
+          "numBuckets": 1
+        },
+        "disabled": false,
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "*"
+          ]
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "user_d2a53e1c_9df1_4f5b_a610_cbee38016606",
+          "updatedTimestamp": 1720727319778,
+          "version": 6
+        }
+      }
+    ]
+  }
+}
+
+### Trigger Adhoc Analyzer for specific segment, purpose=car&verification_status=Not Verified
+POST  http://localhost:8090/analysis/runAnalyzer
+Content-Type: application/json
+
+{
+  "inlineResults": true,
+  "notifySiren": false,
+  "notifySirenEveryAnalysis": false,
+  "columnNames": [
+    "delinq_2yrs"
+  ],
+  "segmentTags": [
+    [
+      {
+        "key": "purpose",
+        "value": "car"
+      },
+      {
+        "key": "verification_status",
+        "value": "Not Verified"
+      }
+    ]
+  ],
+  "start": "2023-12-12T00:00:00.000Z",
+  "end": "2024-01-11T11:00:00.000Z",
+  "monitorConfig": {
+    "orgId": "org-0",
+    "datasetId": "model-0",
+    "granularity": "daily",
+    "analyzers": [
+      {
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "id": "careful-silver-toad-5293-analyzer",
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "delinq_2yrs"
+          ],
+          "exclude": [],
+          "segments": {
+            "tags": [
+              {
+                "key": "purpose",
+                "value": "car"
+              },
+              {
+                "key": "verification_status",
+                "value": "Not Verified"
+              }
+            ]
+          }
+        },
+        "config": {
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 90
+          },
+          "metric": "histogram",
+          "type": "drift",
+          "algorithm": "psi",
+          "threshold": 0.1
+        }
+      }
+    ]
+  }
+}
+
+### Trigger Adhoc Analyzer for a less-specific segment, purpose=car
+POST  http://localhost:8090/analysis/runAnalyzer
+Content-Type: application/json
+
+{
+  "inlineResults": true,
+  "notifySiren": false,
+  "notifySirenEveryAnalysis": false,
+  "columnNames": [
+    "delinq_2yrs"
+  ],
+  "segmentTags": [
+    [
+      {
+        "key": "purpose",
+        "value": "car"
+      }
+    ]
+  ],
+  "start": "2023-12-12T00:00:00.000Z",
+  "end": "2024-01-11T11:00:00.000Z",
+  "monitorConfig": {
+    "orgId": "org-0",
+    "datasetId": "model-0",
+    "granularity": "daily",
+    "analyzers": [
+      {
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "id": "careful-silver-toad-5293-analyzer",
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "delinq_2yrs"
+          ],
+          "exclude": [],
+          "segments": {
+            "tags": [
+              {
+                "key": "purpose",
+                "value": "car"
+              }
+            ]
+          }
+        },
+        "config": {
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 90
+          },
+          "metric": "histogram",
+          "type": "drift",
+          "algorithm": "psi",
+          "threshold": 0.1
+        }
+      }
+    ]
+  }
+
+### stddev does not play nicely with integer metrics like 'null_count'
+### https://app.clickup.com/t/86b09uypg
+POST  http://localhost:8090/analysis/runAnalyzer
+Content-Type: application/json
+
+{
+  "inlineResults": true,
+  "notifySiren": false,
+  "notifySirenEveryAnalysis": false,
+  "columnNames": [
+    "last_pymnt_d"
+  ],
+  "start": "2024-02-01T00:00:00.000Z",
+  "end": "2024-02-03T11:00:00.000Z",
+  "monitorConfig": {
+    "orgId": "org-0",
+    "datasetId": "model-0",
+    "granularity": "daily",
+    "analyzers": [
+      {
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "last_pymnt_d"
+          ]
+        },
+        "targetSize": 1,
+        "config": {
+          "type": "stddev",
+          "metric": "count_null",
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          }
+        },
+        "id": "jolly-sienna-bat-1906-analyzer",
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "user_c9292ec40407f7b580f0a2c90745ebfba2b9e6ea81c848ef944d31e48a45f98",
+          "updatedTimestamp": 1714653292948,
+          "version": 2
+        }
+      }
+    ]
+  }
+}
+
+### count number of immediate and scheduled digests
+### https://app.clickup.com/t/86b09uypg
+POST  http://localhost:8090/analysis/countDigests
+Content-Type: application/json
+
+{}
+
+### stddev does not play nicely with integer metrics like 'null_count'
+### https://app.clickup.com/t/86b09uypg
+POST  http://localhost:8090/analysis/runAnalyzer
+Content-Type: application/json
+
+{
+    "inlineResults": true,
+    "notifySiren": false,
+    "notifySirenEveryAnalysis": false,
+    "columnNames": [null],
+    "start": "2024-07-26T00:00:00.000Z",
+    "end": "2024-09-27T11:00:00.000Z",
+    "enableDatasetLevelAnalysis": true,
+    "monitorConfig": {
+        "orgId": "org-5Hsdjx",
+        "datasetId": "model-108",
+        "granularity": "daily",
+        "analyzers": [
+            {
+                "id": "missing-datapoint-analyzer",
+                "config": {
+                    "type": "fixed",
+                    "upper": 0,
+                    "metric": "missingDatapoint"
+                },
+                "metadata": {
+                    "author": "system",
+                    "version": 1,
+                    "schemaVersion": 1,
+                    "updatedTimestamp": 1681770522007
+                },
+                "schedule": {
+                    "type": "fixed",
+                    "cadence": "daily"
+                },
+                "targetMatrix": {
+                    "type": "dataset",
+                    "segments": []
+                },
+                "dataReadinessDuration": "PT60M"
+            }
+        ]
+    }
+}
+
+### https://app.clickup.com/t/86b09uypg
+POST  http://localhost:8090/analysis/runAnalyzer
+Content-Type: application/json
+
+{
+    "inlineResults": true,
+    "notifySiren": false,
+    "notifySirenEveryAnalysis": false,
+    "columnNames": ["sales_last_week"],
+    "start": "2020-01-01T00:00:00.000Z",
+    "end": "2020-01-03T23:59:59.999Z",
+    "monitorConfig": {
+        "orgId": "modeldoesnotexist",
+        "datasetId": "model-61",
+        "granularity": "daily",
+        "analyzers": [
+     {
+      "id": "missing-datapoint-analyzer-column",
+      "schedule": {
+        "type": "fixed",
+        "cadence": "daily"
+      },
+      "disabled": false,
+      "targetMatrix": {"type": "column", "include": "*", "segments": []},
+      "dataReadinessDuration": "P1DT18H",
+      "config": {
+        "metric": "missingDatapoint",
+        "type": "fixed",
+        "upper": 0
+      }
+    }
+        ]
+    }
+}
+
+### stddev does not play nicely with integer metrics like 'null_count'
+### https://app.clickup.com/t/86b09uypg
+POST  http://localhost:8090/analysis/runAnalyzer
+Content-Type: application/json
+
+{
+    "inlineResults": true,
+    "notifySiren": false,
+    "notifySirenEveryAnalysis": false,
+    "columnNames": [null],
+    "start": "2024-02-25T00:00:00.000Z",
+    "end": "2024-03-21T11:00:00.000Z",
+    "enableDatasetLevelAnalysis": true,
+    "monitorConfig": {
+        "orgId": "org-5Hsdjx",
+        "datasetId": "model-10",
+        "granularity": "daily",
+        "analyzers": [
+            {
+                "id": "secondsSinceLastUpload-analyzer",
+                "config": {
+                    "type": "fixed",
+                    "upper": 432000,
+                    "metric": "secondsSinceLastUpload"
+                },
+                "metadata": {
+                    "author": "system",
+                    "version": 1,
+                    "schemaVersion": 1,
+                    "updatedTimestamp": 1681770522007
+                },
+                "schedule": {
+                    "type": "fixed",
+                    "cadence": "daily"
+                },
+                "targetMatrix": {
+                    "type": "dataset",
+                    "segments": []
+                },
+                "dataReadinessDuration": "PT60M"
+            }
+        ]
+    }
+}
+
+###
+
+# curl -X 'POST'
+#  'http://dev-dataservice/analysisAsync/triggerBackfill'
+#  -H 'accept: application/json'
+#  -H 'Content-Type: application/json'
+#  -d '{
+#  "orgId": "org-5Hsdjx",
+#  "datasetId": "model-108",
+#  "interval": "2024-07-28/2024-09-26"
+#}'
+POST http://localhost:8090/analysisAsync/triggerBackfill
+accept: application/json
+Content-Type: application/json
+
+{
+  "orgId": "org-9snDQm",
+  "datasetId": "model-11",
+  "interval": "2024-10-19/2024-10-26",
+  "analyzerIds":["rich-orange-worm-8262-analyzer"],
+  "queue":"backfill"
+}
+
+###
+GET http://dev-dataservice/analysisAsync/getStatus/091a993c-eba7-47a5-8319-ec3f974a82f4
+
+
+###
+GET http://dev-dataservice/analysisAsync/triggerQueryPlanner
+
+###
+POST  http://localhost:8090/analysisAsync/runAnalysisNow/091a993c-eba7-47a5-8319-ec3f974a82f4
+Content-Type: application/json
+
+{}
+
+
+
+###
+### https://app.clickup.com/t/86b2f5gra
+### very different drift result for alldiffstr
+POST http://dev-dataservice/analysis/getAnalyzerResults
+accept: application/json
+Content-Type: application/json
+
+{
+  "orgId": "org-9snDQm",
+  "datasetIds": [
+    "model-11"
+  ],
+  "includeFailures": true,
+  "includeUnhelpful": true,
+  "onlyAnomalies": false,
+  "analyzerIds": [
+    "rich-orange-worm-8262-analyzer"
+  ],
+  "runIds": "091a993c-eba7-47a5-8319-ec3f974a82f4",
+  "interval": "2024-01-21/2024-11-26",
+  "limit": 100,
+  "offset": 0,
+  "readPgMonitor": true
+}
+
+###
+
+
+

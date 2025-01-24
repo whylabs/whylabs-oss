@@ -1,0 +1,89 @@
+version: '3'
+
+services:
+  db_postgres:
+    container_name: 'postgres_db'
+    image: 'postgres:15-alpine'
+    restart: always
+    env_file:
+      - postgres.env
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./database/boilerplate:/var/lib/postgresql/data/
+
+  backend:
+    container_name: 'backend'
+    build:
+      context: ..
+      dockerfile: ./container/dev.Dockerfile
+    restart: always
+    env_file:
+      - postgres.env
+    environment:
+      - NPM_TOKEN=${NPM_TOKEN}
+    entrypoint: /bin/sh '/app/container/scripts/be-node-dev.sh'
+    volumes:
+      - ~/.aws:/root/.aws:ro
+      - ../:/app/
+      - /app/src/public
+      - /app/node_modules
+    depends_on:
+      - db_postgres
+    links:
+      - db_postgres
+    ports:
+      - '3030:3030' # Main APP
+      - '9229:9229' # Debug endpoint for express server
+      # add pgadmin to the docker-compose
+  pgadmin:
+    container_name: 'pgadmin'
+    image: 'dpage/pgadmin4'
+    restart: always
+    ports:
+      - '5050:80'
+    entrypoint: >-
+      /bin/sh -c "
+      chmod 6000 /pgpass;
+      /entrypoint.sh
+      "
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@whylabs.ai
+      PGADMIN_DEFAULT_PASSWORD: whylabs
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: 'False'
+      PGADMIN_CONFIG_CONSOLE_LOG_LEVEL: '40'
+      GUNICORN_ACCESS_LOGFILE: '/dev/null'
+    volumes:
+      - ./pgadmin4/servers.json:/pgadmin4/servers.json:ro
+      - ./pgadmin4/pgpass:/pgpass:ro
+    depends_on:
+      - db_postgres
+    links:
+      - db_postgres
+#  test-dashboard:
+#    container_name: 'dashboard-test'
+#    image: dashboard:dev
+#    restart: always
+#    security_opt:
+#      - no-new-privileges:true
+#    cap_drop:
+#      - ALL
+#
+#    # Additional settings for enhanced security
+#    read_only: true
+#
+#    env_file:
+#      - postgres.env
+#    environment:
+#      - NODE_ENV=production
+#      - STAGE=production
+#      - PORT=3000
+##      - DATABASE_URL=postgres://walter:white@db_postgres:5432/boilerplate
+#    depends_on:
+#      - db_postgres
+#    links:
+#      - db_postgres
+#    ports:
+#      - '0.0.0.0:4040:3000' # Main APP
+#    entrypoint: /bin/sh -c "while :; do sleep 10; done"

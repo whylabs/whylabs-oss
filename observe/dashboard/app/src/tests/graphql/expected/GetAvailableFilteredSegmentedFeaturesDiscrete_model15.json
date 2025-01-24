@@ -1,0 +1,64 @@
+{
+  "data": {
+    "model": {
+      "id": "model-15",
+      "name": "Monthly segmented multiclass",
+      "segment": {
+        "id": "72b4b1cb-806d-42a9-9c07-3ed14c814f9d",
+        "filteredFeatures": {
+          "totalCount": 4,
+          "results": [
+            {
+              "id": "b0e24392-3e2a-4ca9-b96d-981140711823",
+              "name": "age",
+              "baselineSketch": {
+                "id": "487b14d5-aedd-4429-a320-71e29bccb7dd",
+                "showAsDiscrete": true
+              },
+              "alerts": [],
+              "anomalyCounts": {
+                "totals": []
+              }
+            },
+            {
+              "id": "bfb79118-85f3-4ab3-88eb-cb90ee5f9ae1",
+              "name": "gender",
+              "baselineSketch": {
+                "id": "1558f8e3-afae-4258-9ba8-f447bd133680",
+                "showAsDiscrete": true
+              },
+              "alerts": [],
+              "anomalyCounts": {
+                "totals": []
+              }
+            },
+            {
+              "id": "5b4982cf-f522-46e5-9c65-24af45c89443",
+              "name": "hasjob",
+              "baselineSketch": {
+                "id": "5fd1a05a-38e0-41db-8e3e-677ab4d99cc5",
+                "showAsDiscrete": true
+              },
+              "alerts": [],
+              "anomalyCounts": {
+                "totals": []
+              }
+            },
+            {
+              "id": "40601282-fd5d-420b-834d-2e894c4b9303",
+              "name": "loc",
+              "baselineSketch": {
+                "id": "0fc1a20d-28f1-46f2-96ff-304cc741e876",
+                "showAsDiscrete": true
+              },
+              "alerts": [],
+              "anomalyCounts": {
+                "totals": []
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

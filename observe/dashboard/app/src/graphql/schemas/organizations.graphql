@@ -1,0 +1,131 @@
+"""
+Describes the nature of the relationship of the membership to the respective org
+"""
+enum MembershipType {
+  DEMO
+  DEFAULT
+  MEMBER
+}
+
+type OrganizationMemberMetadata {
+  orgId: String!
+  name: String!
+  role: MembershipRole!
+  membershipType: MembershipType
+}
+
+type AWSMarketplaceMetadata {
+  awsMarketplaceProductCode: String!
+  dimension: String!
+  expirationTime: Float!
+  expirationUpdateTime: Float!
+}
+
+type AnonymousSession {
+  """
+  Whether the user is in an anonymous session
+  """
+  enabled: Boolean!
+  """
+  Whether the anonymous session is valid (hasn't expired, exists, etc)
+  """
+  valid: Boolean!
+}
+
+
+type Organization @cacheControl(maxAge: 0) {
+  id: String!
+  name: String
+
+  """
+  Qualifies the relationship between the org and the user
+  """
+  membershipType: MembershipType
+
+  """
+  Email domains associated with the organization (used to constrain allowed members)
+  """
+  emailDomains: [String!] @auth(permissions: [MANAGE_ORG])
+
+  """
+  Organization's Subscription information
+  """
+  subscriptionTier: SubscriptionTier @auth
+
+  """
+  Metadata about the AWS marketplace subscription status if it exists.
+  """
+  awsMarketplaceMetadata: AWSMarketplaceMetadata @auth
+
+  """
+  Whether or not this org is subscribed through AWS marketplace, or was before it expired.
+  """
+  isAWSMarketplace: Boolean! @auth
+
+  """
+  Notification settings for the given Organization
+  """
+  notifications: NotificationSettings @auth
+
+  """
+  State related to the user's anonymous session, if any
+  """
+  anonymousSession: AnonymousSession @deprecated(reason: "Guest sessions are no longer supported")
+
+  """
+  A list of members within the organization
+  """
+  members: [Member!] @auth
+
+  """
+  If true, the organization's memberships should only be managed through the account API (e.g. by external SCIM provisioner)
+  """
+  allowManagedMembershipUpdatesOnly: Boolean @auth
+
+  """
+  If not null, this organization is part of an account managed via the parent organization
+  """
+  parentOrgId: String @auth
+
+  """
+  The yaml configuration with all org custom tags
+  """
+  resourceTagsConfig: String @auth(permissions: [VIEW_DATA])
+
+  """
+  List of all resource tags of the org
+  """
+  availableResourceTags: [CustomTag!] @auth(permissions: [VIEW_DATA])
+
+  """
+  List resource tags in use by resources
+  """
+  resourceTagsInUse: [CustomTag!] @auth(permissions: [VIEW_DATA])
+}
+
+extend type Mutation {
+  """
+  Provisions an Organization with the specified org name and model name for the currently logged in user
+  """
+  provisionOrganization(orgName: String, modelName: String): Boolean! @auth(skipPermissionsCheck: true)
+
+  """
+  Claim a guest session for this organization.
+  """
+  claimSession(sessionToken: String!): Boolean! @auth @deprecated(reason: "Guest sessions are no longer supported")
+
+  """
+  Manage org custom tags
+  """
+  organizationCustomTags: OrgCustomTagsManagement! @auth(permissions: [MANAGE_ORG])
+}
+
+type OrgCustomTagsManagement {
+  validateYamlConfigChanges(yaml: String!): YamlTagsValidationResponse!
+  updateYamlConfig(yaml: String!): Boolean!
+}
+
+type YamlTagsValidationResponse {
+  valid: Boolean!
+  droppedTagsInUse: [CustomTag!]
+}

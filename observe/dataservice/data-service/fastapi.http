@@ -1,0 +1,106 @@
+
+
+### testing numeric metrics from referene profiles
+POST http://localhost:8099/compute/arima
+Content-Type: application/json
+
+{
+  "timestamps": [
+    1668297600000, 1668384000000, 1668470400000, 1668556800000, 1668643200000, 1668729600000, 1668816000000, 1668902400000,
+    1668988800000, 1669075200000, 1669161600000, 1669248000000, 1669334400000, 1669420800000, 1669507200000, 1669593600000,
+    1669680000000, 1669766400000, 1669852800000, 1669939200000, 1670025600000, 1670112000000, 1670198400000, 1670284800000,
+    1670371200000, 1670457600000, 1670544000000, 1670630400000, 1670716800000, 1670803200000, 1670889600000, 1670976000000,
+    1671062400000, 1671148800000, 1671235200000, 1671321600000, 1671408000000, 1671494400000, 1671580800000, 1671667200000,
+    1671753600000, 1671840000000, 1671926400000, 1672012800000, 1672099200000, 1672185600000, 1672272000000, 1672358400000,
+    1672444800000, 1672531200000, 1672617600000, 1672704000000, 1672790400000, 1672876800000, 1672963200000, 1673049600000,
+    1673136000000, 1673222400000, 1673308800000, 1673395200000, 1673481600000, 1673568000000, 1673654400000, 1673740800000,
+    1673827200000, 1673913600000, 1674000000000, 1674086400000, 1674172800000, 1674259200000, 1674345600000, 1674432000000,
+    1674518400000, 1674604800000, 1674691200000, 1674777600000, 1674864000000, 1674950400000, 1675036800000, 1675123200000,
+    1675209600000, 1675296000000, 1675382400000, 1675468800000, 1675555200000, 1675641600000, 1675728000000, 1675814400000,
+    1675900800000, 1675987200000
+  ],
+  "values": [
+    "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN",
+    "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN",
+    "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN",
+    "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 1095, 8298, 13416, 9618, 19296, 258099, 18562, "NaN", 2376, 19266,
+    19407, 32218, 90357, 25655, "NaN", 12227, 5291, 11110, 17152, 182863, 230406, 54901, 7322, 20455, 18101, 99751, 76562,
+    58381, 21077, 18933, 11543, 10242
+  ],
+  "actual": 83116,
+  "priors":[{"1676073600000":{"upperThreshold":172938.37595487063,"lowerThreshold":1.0,"absoluteUpper":"Infinity","absoluteLower":1.0,"alertCount":0,"value":83116.0,"shouldReplace":false,"replacementValue":null,"adjustedPrediction":null,"lambdaKeep":0.5}}],
+  "alpha": 0.05,
+  "stddevFactor": 3,
+  "stddevMaxBatchSize": 30,
+  "p": 1,
+  "d": 0,
+  "q": 0,
+  "seasonal_P": 2,
+  "seasonal_D": 1,
+  "seasonal_Q": 0,
+  "m": 7,
+  "eventPeriods": [
+    "2023-07-02:2023-08-05",
+    "2023-11-20:2024-01-01"
+  ]
+}
+
+### testing numeric metrics from referene profiles
+POST http://localhost:8099/charts/arima
+Content-Type: application/json
+
+{
+  "data": [
+    { "1638057600000": { "upperThreshold": 170900.61424816068, "lowerThreshold": 114556.30739034287, "absoluteUpper": "Infinity", "absoluteLower": "-Infinity", "alertCount": 1, "value": 102253, "shouldReplace": true, "replacementValue": 113197.93057757309, "adjustedPrediction": 124142.86115514618, "lambdaKeep": 0.5 } },
+    { "1638144000000": { "upperThreshold": 130806.08702838887, "lowerThreshold": 74308.1219227275, "absoluteUpper": "Infinity", "absoluteLower": "-Infinity", "alertCount": 0, "value": 92653, "shouldReplace": false, "replacementValue": null, "adjustedPrediction": null, "lambdaKeep": 0.5 } },
+    { "1638230400000": { "upperThreshold": 125653.27027272734, "lowerThreshold": 69528.88186832737, "absoluteUpper": "Infinity", "absoluteLower": "-Infinity", "alertCount": 0, "value": 92583, "shouldReplace": false, "replacementValue": null, "adjustedPrediction": null, "lambdaKeep": 0.5 } },
+    { "1638316800000": { "upperThreshold": 123856.27633236474, "lowerThreshold": 68347.5404727647, "absoluteUpper": "Infinity", "absoluteLower": "-Infinity", "alertCount": 0, "value": 90685, "shouldReplace": false, "replacementValue": null, "adjustedPrediction": null, "lambdaKeep": 0.5 } },
+    { "1638403200000": { "upperThreshold": 141217.29384069238, "lowerThreshold": 89433.8775921364, "absoluteUpper": "Infinity", "absoluteLower": "-Infinity", "alertCount": 0, "value": 93682, "shouldReplace": false, "replacementValue": null, "adjustedPrediction": null, "lambdaKeep": 0.5 } },
+    { "1638489600000": { "upperThreshold": 156675.57940763666, "lowerThreshold": 106137.67431619146, "absoluteUpper": "Infinity", "absoluteLower": "-Infinity", "alertCount": 0, "value": 115814, "shouldReplace": false, "replacementValue": null, "adjustedPrediction": null, "lambdaKeep": 0.5 } },
+    { "1638576000000": { "upperThreshold": 167430.73660215392, "lowerThreshold": 117782.51419834506, "absoluteUpper": "Infinity", "absoluteLower": "-Infinity", "alertCount": 0, "value": 155818, "shouldReplace": false, "replacementValue": null, "adjustedPrediction": null, "lambdaKeep": 0.5 } },
+    { "1638662400000": { "upperThreshold": 162094.30068414862, "lowerThreshold": 109663.9755744802, "absoluteUpper": "Infinity", "absoluteLower": "-Infinity", "alertCount": 0, "value": 111839, "shouldReplace": false, "replacementValue": null, "adjustedPrediction": null, "lambdaKeep": 0.5 } },
+    { "1638748800000": { "upperThreshold": 107753.35448313312, "lowerThreshold": 55313.19451349098, "absoluteUpper": "Infinity", "absoluteLower": "-Infinity", "alertCount": 0, "value": 92157, "shouldReplace": false, "replacementValue": null, "adjustedPrediction": null, "lambdaKeep": 0.5 } },
+    { "1638835200000": { "upperThreshold": 116587.64279172602, "lowerThreshold": 65123.27018869409, "absoluteUpper": "Infinity", "absoluteLower": "-Infinity", "alertCount": 0, "value": 108890, "shouldReplace": false, "replacementValue": null, "adjustedPrediction": null, "lambdaKeep": 0.5 } },
+    { "1638921600000": { "upperThreshold": 117151.9224973265, "lowerThreshold": 106312.71479027042, "absoluteUpper": "Infinity", "absoluteLower": "-Infinity", "alertCount": 0, "value": 115669, "shouldReplace": false, "replacementValue": null, "adjustedPrediction": null, "lambdaKeep": 0.5 } },
+    { "1639008000000": { "upperThreshold": 147168.12586280532, "lowerThreshold": 96246.0615261987, "absoluteUpper": "Infinity", "absoluteLower": "-Infinity", "alertCount": 0, "value": 119441, "shouldReplace": false, "replacementValue": null, "adjustedPrediction": null, "lambdaKeep": 0.5 } },
+    { "1639094400000": { "upperThreshold": 189362.74687445743, "lowerThreshold": 141061.1032269372, "absoluteUpper": "Infinity", "absoluteLower": "-Infinity", "alertCount": 0, "value": 150351, "shouldReplace": false, "replacementValue": null, "adjustedPrediction": null, "lambdaKeep": 0.5 } },
+    { "1639180800000": { "upperThreshold": 189983.8212957467, "lowerThreshold": 146676.04677549322, "absoluteUpper": "Infinity", "absoluteLower": "-Infinity", "alertCount": 1, "value": 194144, "shouldReplace": true, "replacementValue": 195395.1100767176, "adjustedPrediction": 196646.2201534352, "lambdaKeep": 0.5 } }
+  ],
+  "path": "/var/folders/7z/gfd5kdf12dngppztcb723ff40000gn/T/charts6932257707956266285/chart.png",
+  "columnName": "FeatureName",
+  "segmentText": null,
+  "metric": null
+}
+
+
+
+### testing numeric metrics from referene profiles
+POST http://localhost:8099/compute/arima
+Content-Type: application/json
+
+{
+  "timestamps": [
+    1670284800000, 1670371200000, 1670457600000, 1670544000000, 1670630400000, 1670716800000, 1670803200000,
+    1670889600000, 1670976000000, 1671062400000, 1671148800000, 1671235200000, 1671321600000, 1671408000000,
+    1671494400000, 1671580800000, 1671667200000, 1671753600000, 1671840000000, 1671926400000, 1672012800000,
+    1672099200000, 1672185600000, 1672272000000, 1672358400000, 1672444800000, 1672531200000, 1672617600000,
+    1672704000000, 1672790400000, 1672876800000
+  ],
+  "values": [
+    "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN",
+    "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 77274, 59122, 46346, 37010, 34229
+  ],
+  "actual": 63931,
+  "priors": [],
+  "alpha": 0.05,
+  "stddevFactor": 3,
+  "stddevMaxBatchSize": 30,
+  "p": 1,
+  "d": 0,
+  "q": 0,
+  "seasonal_P": 2,
+  "seasonal_D": 1,
+  "seasonal_Q": 0,
+  "m": 7,
+  "eventPeriods": []
+}

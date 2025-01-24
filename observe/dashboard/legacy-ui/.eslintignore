@@ -1,0 +1,7 @@
+/node_modules
+/build
+src/**/*.overrides
+src/**/*.variables
+projects/app/src/generated/*.*
+src/serviceWorker.ts
+src/wdyr.ts

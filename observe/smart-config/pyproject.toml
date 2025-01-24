@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+#
+#[project]
+#name = "whylabs-diagnoser"
+#version = "0.0.1"
+#description = "Whylabs Monitor Diagnoser"
+#authors = ["Christine Draper <christine@whylabs.ai>"]
+#license = "Apache-2.0 license"
+#readme = "README.md"
+#packages = [{include = "smart_config/dataservice/**/*.py"}, {include = "smart_config/diagnosis/**/*.py"}]

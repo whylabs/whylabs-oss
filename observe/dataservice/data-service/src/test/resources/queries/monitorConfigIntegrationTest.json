@@ -1,0 +1,103 @@
+{
+  "orgId": "org-999",
+  "datasetId": "model-888",
+  "granularity": "daily",
+  "metadata": {
+    "schemaVersion": 1,
+    "author": "system",
+    "updatedTimestamp": 1681770522008,
+    "version": 41
+  },
+  "analyzers": [
+    {
+      "config": {
+        "algorithm": "hellinger",
+        "baseline": {
+          "size": 7,
+          "type": "TrailingWindow"
+        },
+        "metric": "histogram",
+        "threshold": 0.05,
+        "type": "drift"
+      },
+      "id": "numerical-drift-analyzer-l7kos1",
+      "schedule": {
+        "type": "fixed",
+        "cadence": "daily"
+      },
+      "backfillGracePeriodDuration": "P900D",
+      "targetMatrix": {
+        "include": [
+          "*"
+        ],
+        "exclude": [],
+        "segments": [
+          {
+            "tags": []
+          },
+          {
+            "tags": [{"key" : "purpose", "value": "credit_card"}, {"key" : "verification_status", "value": "Verified"}]
+          }
+        ],
+        "type": "column"
+      },
+      "metadata": {
+        "schemaVersion": 1,
+        "author": "system",
+        "updatedTimestamp": 1671468607209,
+        "version": 2
+      }
+    }
+  ],
+  "monitors": [
+
+  ],
+  "entitySchema": {
+    "metadata": {
+      "author": "system",
+      "version": 1,
+      "updatedTimestamp": 1671466888503
+    },
+    "columns": {
+      "category": {
+        "discreteness": "discrete",
+        "dataType": "string",
+        "classifier": "input"
+      },
+      "date": {
+        "discreteness": "discrete",
+        "dataType": "unknown",
+        "classifier": "input"
+      },
+      "market_price": {
+        "discreteness": "continuous",
+        "dataType": "fractional",
+        "classifier": "input"
+      },
+      "predicted_rating": {
+        "discreteness": "discrete",
+        "dataType": "string",
+        "classifier": "input"
+      },
+      "rating": {
+        "discreteness": "continuous",
+        "dataType": "integral",
+        "classifier": "input"
+      },
+      "sales_last_week": {
+        "discreteness": "discrete",
+        "dataType": "string",
+        "classifier": "input"
+      }
+    },
+    "metrics": null
+  },
+  "weightConfig": {
+    "metadata": {
+      "author": "system",
+      "version": 0,
+      "updatedTimestamp": 1683839163843
+    },
+    "segmentWeights": []
+  }
+}

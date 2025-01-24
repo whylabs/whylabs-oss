@@ -1,0 +1,31 @@
+{
+  "data": {
+    "model": {
+      "batchFrequency": "P1D",
+      "id": "model-12",
+      "modelType": "REGRESSION",
+      "name": "Regression model",
+      "batches": [
+        {
+          "timestamp": 1728950400000
+        },
+        {
+          "timestamp": 1729036800000
+        },
+        {
+          "timestamp": 1729123200000
+        },
+        {
+          "timestamp": 1729209600000
+        },
+        {
+          "timestamp": 1729296000000
+        },
+        {
+          "timestamp": 1729382400000
+        }
+      ],
+      "referenceProfiles": []
+    }
+  }
+}

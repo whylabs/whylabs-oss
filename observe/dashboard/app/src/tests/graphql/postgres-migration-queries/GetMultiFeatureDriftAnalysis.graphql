@@ -1,0 +1,42 @@
+query getMultiFeatureDriftAnalysis($datasetId: String!, $featureIds: [String!]!, $from: Float!, $to: Float, $tags: [SegmentTagFilter!], $adhocRunId: String) {
+  analysisResults(filter: {anomaliesOnly: false, analyzerTypes: ["drift"], columns: $featureIds, datasetId: $datasetId, fromTimestamp: $from, toTimestamp: $to, segmentTags: $tags, adhocRunId: $adhocRunId}, offset: 0, limit: 0, sortDirection: DESC) {
+    ...IdData
+    targetLevel
+    column
+    isAnomaly
+    isFalseAlarm
+    metric
+    ...AlgorithmData
+    ...AnalyzerInfoData
+    ...TimestampData
+    ...DriftData
+  }
+}
+
+fragment IdData on AnalysisResult {
+  id
+  orgId
+  datasetId
+}
+
+fragment AlgorithmData on AnalysisResult {
+  algorithm
+  algorithmMode
+}
+
+fragment AnalyzerInfoData on AnalysisResult {
+  analyzerType
+  analyzerId
+}
+
+fragment TimestampData on AnalysisResult {
+  creationTimestamp
+  datasetTimestamp
+  mostRecentDatasetDatalakeWriteTs
+}
+
+fragment DriftData on AnalysisResult {
+  drift_metricValue
+  drift_minBatchSize
+  drift_threshold
+}

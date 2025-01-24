@@ -1,0 +1,52 @@
+{
+  "alertId": "9e6ad5d8-d527-4d7b-9fc7-342ed1815521",
+  "creationTimestamp": 1609201913328,
+  "datasetTimestamp": 1606780800000,
+  "dataSessionTimestamp": 1609197959271,
+  "alertType": "unique values",
+  "datasetName": "lending_club_credit_model",
+  "severity": 0.9999990000010001,
+  "features": {
+    "prob_discrete": 0.0,
+    "n": 97406,
+    "n_unique": 97406,
+    "previous_prob_discrete": 0.0,
+    "previous_n": 59877,
+    "previous_n_unique": 59877
+  },
+  "explanation": {
+    "min_threshold": {
+      "value": 11730.72825631408,
+      "choice": "learned"
+    },
+    "max_threshold": {
+      "value": 97406.0,
+      "choice": "learned"
+    },
+    "feature_name": "mo_sin_old_rev_tl_op",
+    "value": 97406.0,
+    "expected": 59877.0,
+    "alert_name": "mo_sin_old_rev_tl_op Models.unique_values",
+    "message": "mo_sin_old_rev_tl_op value of 97406 detected outside acceptable range of 11730.7 to 97406.0"
+  },
+  "modelMetadata": {
+    "min_record_count": 10,
+    "min_threshold": null,
+    "max_threshold": null,
+    "enable": true,
+    "alpha_0": 0.8064556,
+    "beta": 8.62683009,
+    "m_fractional_slop": 0.05,
+    "alert_delta": 0.4
+  },
+  "uuid": "9e6ad5d8-d527-4d7b-9fc7-342ed1815521",
+  "dataset_session_id": null,
+  "idx": {
+    "modelId": "model-0",
+    "datasetId": "model-0",
+    "datasetTimestamp": 1609113600000,
+    "segmentHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "modelId": "model-0",
+  "datasetId": "model-0"
+}

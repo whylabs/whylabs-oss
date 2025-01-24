@@ -1,0 +1,106 @@
+query getModelSelectedProfiles($modelId: String!, $timestamps: [Float!]!, $staticProfileIds: [String!], $offset: Int, $limit: Int, $filter: FeatureSketchFilter) {
+  model(id: $modelId) {
+    batches(timestamps: $timestamps) {
+      timestamp
+      sketches(offset: $offset, limit: $limit, filter: $filter) {
+        ...ProfilesSketchFields
+      }
+    }
+    referenceProfiles(profileIds: $staticProfileIds) {
+      id
+      sketches(offset: $offset, limit: $limit, filter: $filter) {
+        ...ProfilesSketchFields
+      }
+    }
+    datasetMetrics {
+      name
+    }
+    outputs {
+      name
+    }
+  }
+}
+
+fragment ProfilesSketchFields on FilteredFeatureSketches {
+  totalCount
+  results {
+    ...FullSketchFields
+  }
+}
+
+fragment FullSketchFields on FeatureSketch {
+  ...TopLevelFeatureFields
+  frequentItems {
+    ...FrequentItemUnitFields
+  }
+  uniqueCount {
+    ...UniqueCountFields
+  }
+  numberSummary {
+    ...NumberSummaryFields
+    quantiles {
+      bins
+      counts
+    }
+  }
+  schemaSummary {
+    ...SchemaSummaryFields
+  }
+}
+
+fragment TopLevelFeatureFields on FeatureSketch {
+  id
+  featureName
+  booleanCount
+  integerCount
+  fractionCount
+  trueCount
+  createdAt
+  totalCount
+  nullCount
+  nullRatio
+  showAsDiscrete
+}
+
+fragment FrequentItemUnitFields on FrequentItem {
+  value
+  estimate
+}
+
+fragment UniqueCountFields on UniqueCountSummary {
+  upper
+  estimate
+  lower
+}
+
+fragment NumberSummaryFields on NumberSummary {
+  count
+  min
+  max
+  mean
+  stddev
+  histogram {
+    ...HistogramFields
+  }
+  quantiles {
+    bins
+    counts
+  }
+}
+
+fragment HistogramFields on Histogram {
+  bins
+  counts
+}
+
+fragment SchemaSummaryFields on SchemaSummary {
+  inference {
+    type
+    ratio
+    count
+  }
+  typeCounts {
+    type
+    count
+  }
+}

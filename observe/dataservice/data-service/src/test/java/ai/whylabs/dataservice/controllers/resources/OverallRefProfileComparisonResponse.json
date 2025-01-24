@@ -1,0 +1,30 @@
+{
+  "entries": [
+    {
+      "segment": "All data",
+      "columnName": "rating",
+      "metric": "mean",
+      "rowColumns": [
+        {
+          "my-ref-profile": 3.870164158
+        },
+        {
+          "another-ref-profile": 3.982501058
+        }
+      ]
+    },
+    {
+      "segment": "All data",
+      "columnName": "rating",
+      "metric": "median",
+      "rowColumns": [
+        {
+          "my-ref-profile": 3.974083129584352
+        },
+        {
+          "another-ref-profile": 4.0
+        }
+      ]
+    }
+  ]
+}

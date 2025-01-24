@@ -1,0 +1,245 @@
+query getSegmentCountAndSegmentsForModel($modelId: String!) {
+  model(id: $modelId) {
+    segments {
+      tags {
+        key
+        value
+      }
+    }
+  }
+}
+
+query getAllSegments($dataset: String!, $from: Float!, $to: Float) {
+  model(id: $dataset) {
+    segments {
+      tags {
+        key
+        value
+      }
+      anomalyCounts(fromTimestamp: $from, toTimestamp: $to) {
+        totals {
+          category
+          count
+        }
+      }
+    }
+  }
+}
+
+query getSegmentPerformance($datasetId: String!, $from: Float!, $to: Float, $tags: [SegmentTagFilter!]) {
+  model(id: $datasetId) {
+    id
+    name
+    batchFrequency
+    modelType
+    segment(tags: $tags) {
+      ...SegmentPerformance
+    }
+  }
+}
+
+query segmentFeaturesTable(
+  $datasetId: String!
+  $offset: Int!
+  $limit: Int!
+  $from: Float!
+  $to: Float
+  $text: String
+  $includeDiscrete: Boolean
+  $includeNonDiscrete: Boolean
+  $anomalyCategories: [AlertCategory!]
+  $tags: [SegmentTagFilter!]
+  $sort: FilteredFeaturesSort
+) {
+  model(id: $datasetId) {
+    batchFrequency
+    weightMetadata {
+      hasWeights
+    }
+    segment(tags: $tags) {
+      filteredFeatures(
+        sort: $sort
+        offset: $offset
+        limit: $limit
+        filter: {
+          fromTimestamp: $from
+          toTimestamp: $to
+          substring: $text
+          anomalyCategories: $anomalyCategories
+          includeDiscrete: $includeDiscrete
+          includeNonDiscrete: $includeNonDiscrete
+        }
+      ) {
+        totalCount
+        results {
+          ...FeatureTableInfo
+          weight {
+            value
+          }
+        }
+      }
+    }
+  }
+}
+
+query segmentOutputsTable(
+  $datasetId: String!
+  $offset: Int!
+  $limit: Int!
+  $from: Float!
+  $to: Float
+  $tags: [SegmentTagFilter!]
+  $sort: FilteredFeaturesSort
+) {
+  model(id: $datasetId) {
+    batchFrequency
+    segment(tags: $tags) {
+      filteredOutputs(sort: $sort, offset: $offset, limit: $limit, filter: { fromTimestamp: $from, toTimestamp: $to }) {
+        totalCount
+        results {
+          ...FeatureTableInfo
+        }
+      }
+    }
+  }
+}
+
+query getSegmentProfiles($modelId: String!, $tags: [SegmentTagFilter!], $from: Float!, $to: Float!) {
+  model(id: $modelId) {
+    segment(tags: $tags) {
+      batches(from: $from, to: $to) {
+        ...BatchProfile
+      }
+
+      referenceProfiles {
+        ...ReferenceProfile
+      }
+    }
+  }
+}
+
+query getSegmentSelectedProfiles(
+  $modelId: String!
+  $timestamps: [Float!]!
+  $staticProfileIds: [String!]
+  $offset: Int
+  $limit: Int
+  $filter: FeatureSketchFilter
+  $tags: [SegmentTagFilter!]
+  $retrievalTokens: [String!]!
+  $allowIndividualProfiles: Boolean = false
+  $excludeEmpty: Boolean = false
+) {
+  model(id: $modelId) {
+    segment(tags: $tags) {
+      batches(timestamps: $timestamps) {
+        timestamp
+        sketches(offset: $offset, limit: $limit, filter: $filter, excludeEmpty: $excludeEmpty) {
+          ...ProfilesSketchFields
+        }
+      }
+
+      referenceProfiles(profileIds: $staticProfileIds) {
+        id
+        alias
+        sketches(offset: $offset, limit: $limit, filter: $filter, excludeEmpty: $excludeEmpty) {
+          ...ProfilesSketchFields
+        }
+      }
+
+      individualProfiles(retrievalTokens: $retrievalTokens) @include(if: $allowIndividualProfiles) {
+        retrievalToken
+        sketches(offset: $offset, limit: $limit, filter: $filter) {
+          ...ProfilesSketchFields
+        }
+      }
+
+      datasetMetrics {
+        name
+      }
+
+      outputs {
+        name
+      }
+    }
+  }
+}
+
+query getModelSegmentColumnCounts($modelId: String!, $tags: [SegmentTagFilter!]) {
+  model(id: $modelId) {
+    batchFrequency
+    segment(tags: $tags) {
+      entitySchema {
+        inputCounts {
+          discrete
+          nonDiscrete
+        }
+        outputCounts {
+          discrete
+          nonDiscrete
+        }
+      }
+    }
+  }
+}
+
+query getSegmentedFilteredFeatures(
+  $modelId: String!
+  $tags: [SegmentTagFilter!]
+  $featuresOffset: Int = 0
+  $outputsOffset: Int = 0
+  $limit: Int!
+  $from: Float!
+  $to: Float!
+  $featureFilter: FeatureFilter!
+) {
+  model(id: $modelId, startTime: $from, endTime: $to) {
+    segment(tags: $tags) {
+      filteredFeatures(offset: $featuresOffset, limit: $limit, filter: $featureFilter) {
+        results {
+          name
+        }
+      }
+      filteredOutputs(offset: $outputsOffset, limit: $limit, filter: $featureFilter) {
+        results {
+          name
+        }
+      }
+      datasetMetrics {
+        name
+      }
+    }
+  }
+}
+
+query getAnomaliesForSpecificSegmentedProfile(
+  $modelId: String!
+  $filter: AnalysisFilter!
+  $sort: SortDirection!
+  $tags: [SegmentTagFilter!]
+) {
+  model(id: $modelId) {
+    segment(tags: $tags) {
+      anomalies(filter: $filter, sortDirection: $sort) {
+        datasetId
+        datasetTimestamp
+        metric
+        analyzerType
+        threshold_absoluteLower
+        threshold_absoluteUpper
+        threshold_calculatedLower
+        threshold_calculatedUpper
+        threshold_metricValue
+        diff_metricValue
+        diff_threshold
+        drift_metricValue
+        drift_threshold
+        column
+        tags {
+          key
+          value
+        }
+      }
+    }
+  }
+}

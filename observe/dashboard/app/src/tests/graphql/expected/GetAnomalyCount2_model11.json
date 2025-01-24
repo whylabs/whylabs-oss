@@ -1,0 +1,48 @@
+{
+  "data": {
+    "anomalyCount": [
+      {
+        "timestamp": 1728950400000,
+        "count": 4,
+        "anomalyCount": 4,
+        "resultCount": 103,
+        "failedCount": 84
+      },
+      {
+        "timestamp": 1729036800000,
+        "count": 4,
+        "anomalyCount": 4,
+        "resultCount": 103,
+        "failedCount": 84
+      },
+      {
+        "timestamp": 1729123200000,
+        "count": 22,
+        "anomalyCount": 22,
+        "resultCount": 103,
+        "failedCount": 16
+      },
+      {
+        "timestamp": 1729209600000,
+        "count": 16,
+        "anomalyCount": 16,
+        "resultCount": 103,
+        "failedCount": 16
+      },
+      {
+        "timestamp": 1729296000000,
+        "count": 9,
+        "anomalyCount": 9,
+        "resultCount": 104,
+        "failedCount": 16
+      },
+      {
+        "timestamp": 1729382400000,
+        "count": 8,
+        "anomalyCount": 8,
+        "resultCount": 104,
+        "failedCount": 16
+      }
+    ]
+  }
+}

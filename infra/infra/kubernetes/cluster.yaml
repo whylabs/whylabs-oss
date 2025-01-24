@@ -1,0 +1,116 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: whylabs-platform
+  region: us-west-2
+  version: '1.30'
+  tags:
+    karpenter.sh/discovery: whylabs-platform
+
+vpc:
+  cidr: 10.33.0.0/16
+  nat:
+    gateway: Single
+  clusterEndpoints:
+    privateAccess: true  # Enable private endpoint access
+    publicAccess: true   # Keep public access if needed for external access
+
+accessConfig:
+  bootstrapClusterCreatorAdminPermissions: true
+  authenticationMode: API
+  # The AWSReservedSSO_Cluster-Admin role, used to execute the eksctl command,
+  # is automatically added as an access entry via the bootstrapClusterCreatorAdminPermissions flag.
+  # This is redundant, but keeping it commented for clarity.
+  # accessEntries:
+  #   - principalARN: arn:aws:iam::${AWS_ACCOUNT_ID}:role/aws-reserved/sso.amazonaws.com/us-west-2/${AWS_SSO_ROLE_NAME}
+  #     type: STANDARD
+
+# EKS Addons
+addons:
+  - name: vpc-cni
+    version: latest
+    resolveConflicts: overwrite
+  - name: kube-proxy
+    version: latest
+    resolveConflicts: overwrite
+  - name: aws-ebs-csi-driver
+    version: latest
+    resolveConflicts: overwrite
+  - name: coredns
+    version: latest
+    resolveConflicts: overwrite
+  - name: metrics-server
+    version: latest
+    resolveConflicts: overwrite
+  - name: eks-pod-identity-agent
+    version: latest
+    resolveConflicts: overwrite
+
+# Using Pod Identity Associations for all addons
+iam:
+  withOIDC: true
+  podIdentityAssociations:
+    # AWS Load Balancer Controller
+    - namespace: kube-system
+      serviceAccountName: aws-load-balancer-controller
+      roleName: whylabs-platform-aws-lb-controller
+      wellKnownPolicies:
+        awsLoadBalancerController: true
+    
+    # External DNS
+    - namespace: kube-system
+      serviceAccountName: external-dns
+      roleName: whylabs-platform-external-dns
+      wellKnownPolicies:
+        externalDNS: true
+    
+    # Cert Manager
+    - namespace: cert-manager
+      serviceAccountName: cert-manager
+      roleName: whylabs-platform-cert-manager
+      wellKnownPolicies:
+        certManager: true
+    
+    # EBS CSI Driver
+    - namespace: kube-system
+      serviceAccountName: ebs-csi-controller
+      roleName: whylabs-platform-ebs-csi
+      wellKnownPolicies:
+        ebsCSIController: true
+
+# Karpenter configuration
+karpenter:
+  version: '1.1.1'
+  createServiceAccount: true
+
+# Required for Karpenter node bootstrapping
+iamIdentityMappings:
+  - arn: "arn:aws:iam::${AWS_ACCOUNT_ID}:role/eksctl-KarpenterNodeRole-whylabs-platform"
+    username: system:node:{{EC2PrivateDNSName}}
+    groups:
+      - system:bootstrappers
+      - system:nodes
+
+# Initial managed node group for cluster bootstrapping
+# Karpenter will handle the rest of the nodes
+managedNodeGroups:
+  - name: initial-mg
+    instanceType: t3.medium
+    minSize: 1
+    maxSize: 2
+    desiredCapacity: 2
+    privateNetworking: true
+    volumeSize: 20
+    volumeType: gp3
+    updateConfig:
+      maxUnavailable: 1
+    iam:
+      withAddonPolicies:
+        imageBuilder: true
+    tags:
+      k8s.io/cluster-autoscaler/enabled: "false"
+      karpenter.sh/discovery: whylabs-platform
+    labels:
+      role: system
+      team: platform

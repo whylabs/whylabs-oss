@@ -1,0 +1,21 @@
+query getMissingValuesForFeature($model: String!, $feature: String!, $from: Float!, $to: Float) {
+  model(id: $model) {
+    ...ModelCommonData
+    feature(name: $feature) {
+      id
+      sketches(from: $from, to: $to) {
+        id
+        createdAt
+        totalCount
+        nullCount
+        nullRatio
+      }
+    }
+  }
+}
+
+fragment ModelCommonData on Model {
+  id
+  name
+  batchFrequency
+}

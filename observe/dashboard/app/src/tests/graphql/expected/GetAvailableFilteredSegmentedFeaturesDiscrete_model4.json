@@ -1,0 +1,64 @@
+{
+  "data": {
+    "model": {
+      "id": "model-4",
+      "name": "Segmented dataset",
+      "segment": {
+        "id": "c0648360-7557-44d0-bd07-9c0dc5d7301f",
+        "filteredFeatures": {
+          "totalCount": 4,
+          "results": [
+            {
+              "id": "eaf9977d-6360-4263-86a7-9ed4f487f3bc",
+              "name": "float",
+              "baselineSketch": {
+                "id": "049ae59c-538e-4fa4-95a5-303a4d088a1a",
+                "showAsDiscrete": false
+              },
+              "alerts": [],
+              "anomalyCounts": {
+                "totals": []
+              }
+            },
+            {
+              "id": "2b5aec65-e78b-47be-ac6a-1c9c3be03727",
+              "name": "key1",
+              "baselineSketch": {
+                "id": "886a8adc-e60b-4d06-b34a-adee8054a7a3",
+                "showAsDiscrete": true
+              },
+              "alerts": [],
+              "anomalyCounts": {
+                "totals": []
+              }
+            },
+            {
+              "id": "4c7022a4-49ad-46cd-9149-54e6c83f3dfe",
+              "name": "key2",
+              "baselineSketch": {
+                "id": "5ceca124-9398-490a-a5c8-b0e02dd7774b",
+                "showAsDiscrete": true
+              },
+              "alerts": [],
+              "anomalyCounts": {
+                "totals": []
+              }
+            },
+            {
+              "id": "e282646c-961a-4bb2-aeae-6c96c5600172",
+              "name": "str",
+              "baselineSketch": {
+                "id": "1e2b3eb7-1f73-450a-91d8-ca824b30e70a",
+                "showAsDiscrete": true
+              },
+              "alerts": [],
+              "anomalyCounts": {
+                "totals": []
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

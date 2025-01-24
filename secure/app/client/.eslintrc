@@ -1,0 +1,98 @@
+{
+  "root": true,
+  "env": {
+    "browser": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "react-app",
+    "airbnb",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:jsx-a11y/recommended",
+    "plugin:import/typescript",
+    "prettier"
+  ],
+  "plugins": ["prettier", "jsx-a11y", "@typescript-eslint", "react", "unused-imports"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "./"
+  },
+  "rules": {
+    // TypeScript already checks this:
+    // https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/FAQ.md#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
+    "no-undef": "off",
+    "arrow-body-style": "off",
+    // the base rule can report incorrect errors when used with TypeScript
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    // another eslint rule that doesnt work with TS
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+    "no-unused-vars": "off",
+    "no-console": "warn",
+    "prettier/prettier": "error",
+    "func-names": [
+      "warn",
+      "always",
+      {
+        "generators": "never"
+      }
+    ],
+    "react/require-default-props": "off",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-no-useless-fragment": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".tsx", ".jsx"]
+      }
+    ],
+    "react/no-unknown-property": ["error", { "ignore": ["css"] }],
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "import/extensions": [
+      1,
+      "never",
+      {
+        "json": "always"
+      }
+    ],
+    "@typescript-eslint/no-unsafe-call": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-member-access": "off",
+    "@typescript-eslint/no-unsafe-return": "off",
+    "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/no-unsafe-argument": "warn",
+    "@typescript-eslint/no-empty-function": "error",
+    "@typescript-eslint/ban-types": "error",
+    "@typescript-eslint/no-empty-interface": "error",
+    "@typescript-eslint/no-redeclare": "error",
+    "@typescript-eslint/no-non-null-asserted-optional-chain": "error",
+    "@typescript-eslint/restrict-template-expressions": "warn",
+    "@typescript-eslint/unbound-method": "off",
+    "unused-imports/no-unused-imports": "error",
+    "import/prefer-default-export": "off",
+    "react-hooks/exhaustive-deps": "error",
+    "react/jsx-no-bind": "off",
+    "react/no-array-index-key": "warn",
+    "import/no-extraneous-dependencies": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
+  }
+}

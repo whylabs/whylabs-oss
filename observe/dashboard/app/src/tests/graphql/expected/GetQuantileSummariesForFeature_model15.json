@@ -1,0 +1,248 @@
+{
+  "data": {
+    "model": {
+      "id": "model-15",
+      "name": "Monthly segmented multiclass",
+      "batchFrequency": "P1M",
+      "feature": {
+        "id": "dd63cfbe-59d1-4e78-9828-750c25fa24c2",
+        "sketches": [
+          {
+            "id": "a8f8a102-8a33-4d16-8edf-293c511f47e8",
+            "createdAt": 1704067200000,
+            "showAsDiscrete": true,
+            "numberSummary": {
+              "quantiles": {
+                "bins": [
+                  0,
+                  0.01,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  0.99,
+                  1
+                ],
+                "counts": []
+              },
+              "count": 0,
+              "min": null,
+              "max": null,
+              "mean": 0,
+              "stddev": 0
+            }
+          },
+          {
+            "id": "9847f2bf-dd92-4065-8558-15eb1f1cb60e",
+            "createdAt": 1706745600000,
+            "showAsDiscrete": true,
+            "numberSummary": {
+              "quantiles": {
+                "bins": [
+                  0,
+                  0.01,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  0.99,
+                  1
+                ],
+                "counts": []
+              },
+              "count": 0,
+              "min": null,
+              "max": null,
+              "mean": 0,
+              "stddev": 0
+            }
+          },
+          {
+            "id": "5310ae2a-c3e1-410d-9881-0a6f8362caa1",
+            "createdAt": 1709251200000,
+            "showAsDiscrete": true,
+            "numberSummary": {
+              "quantiles": {
+                "bins": [
+                  0,
+                  0.01,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  0.99,
+                  1
+                ],
+                "counts": []
+              },
+              "count": 0,
+              "min": null,
+              "max": null,
+              "mean": 0,
+              "stddev": 0
+            }
+          },
+          {
+            "id": "68f7283d-eb33-4591-8d75-d1d94769ddba",
+            "createdAt": 1711929600000,
+            "showAsDiscrete": true,
+            "numberSummary": {
+              "quantiles": {
+                "bins": [
+                  0,
+                  0.01,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  0.99,
+                  1
+                ],
+                "counts": []
+              },
+              "count": 0,
+              "min": null,
+              "max": null,
+              "mean": 0,
+              "stddev": 0
+            }
+          },
+          {
+            "id": "27b0a905-557b-4ac4-ac32-f3544bf8a1db",
+            "createdAt": 1714521600000,
+            "showAsDiscrete": true,
+            "numberSummary": {
+              "quantiles": {
+                "bins": [
+                  0,
+                  0.01,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  0.99,
+                  1
+                ],
+                "counts": []
+              },
+              "count": 0,
+              "min": null,
+              "max": null,
+              "mean": 0,
+              "stddev": 0
+            }
+          },
+          {
+            "id": "d734747c-9d2c-4ba7-a886-4b5a027ea096",
+            "createdAt": 1717200000000,
+            "showAsDiscrete": true,
+            "numberSummary": {
+              "quantiles": {
+                "bins": [
+                  0,
+                  0.01,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  0.99,
+                  1
+                ],
+                "counts": []
+              },
+              "count": 0,
+              "min": null,
+              "max": null,
+              "mean": 0,
+              "stddev": 0
+            }
+          },
+          {
+            "id": "8c74a0f1-5128-4aa9-a51c-b5fa9bb26af0",
+            "createdAt": 1719792000000,
+            "showAsDiscrete": true,
+            "numberSummary": {
+              "quantiles": {
+                "bins": [
+                  0,
+                  0.01,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  0.99,
+                  1
+                ],
+                "counts": []
+              },
+              "count": 0,
+              "min": null,
+              "max": null,
+              "mean": 0,
+              "stddev": 0
+            }
+          },
+          {
+            "id": "6f682329-9f3b-4423-b27b-d050c4595771",
+            "createdAt": 1722470400000,
+            "showAsDiscrete": true,
+            "numberSummary": {
+              "quantiles": {
+                "bins": [
+                  0,
+                  0.01,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  0.99,
+                  1
+                ],
+                "counts": []
+              },
+              "count": 0,
+              "min": null,
+              "max": null,
+              "mean": 0,
+              "stddev": 0
+            }
+          },
+          {
+            "id": "7fb19cf4-70f0-4c5f-a1b4-e17cb3625edb",
+            "createdAt": 1725148800000,
+            "showAsDiscrete": true,
+            "numberSummary": {
+              "quantiles": {
+                "bins": [
+                  0,
+                  0.01,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  0.99,
+                  1
+                ],
+                "counts": []
+              },
+              "count": 0,
+              "min": null,
+              "max": null,
+              "mean": 0,
+              "stddev": 0
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+query getRawAnalyzerById($datasetId: String!, $analyzerId: String!) {
+  analyzer(datasetId: $datasetId, analyzerId: $analyzerId)
+}
+
+query getMergedFeatureData(
+  $datasetId: String!
+  $column: String!
+  $tags: [SegmentTagFilter!]!
+  $from: Float!
+  $to: Float!
+) {
+  dataQueries {
+    getMergedFeatureData(
+      datasetId: $datasetId
+      column: $column
+      segment: $tags
+      fromTimestamp: $from
+      toTimestamp: $to
+    ) {
+      ...FullSketchFields
+    }
+  }
+}
+query getMergedFeatureUnifiedData(
+  $datasetId: String!
+  $column: String!
+  $tags: [SegmentTagFilter!]!
+  $from: Float!
+  $to: Float!
+  $splitpoints: [Float!]
+) {
+  dataQueries {
+    getMergedFeatureData(
+      datasetId: $datasetId
+      column: $column
+      segment: $tags
+      fromTimestamp: $from
+      toTimestamp: $to
+      splitpoints: $splitpoints
+    ) {
+      ...FullSketchFields
+    }
+  }
+}

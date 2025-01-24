@@ -1,0 +1,3 @@
+export const SINGLE_HEADER_TOP_CONTAINER_HEIGHT = 44;
+
+export const LOGO_WIDTH = 160;

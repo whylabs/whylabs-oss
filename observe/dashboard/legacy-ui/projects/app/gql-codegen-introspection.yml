@@ -1,0 +1,9 @@
+schema: ${GRAPHQL_SCHEMA_PATH}
+overwrite: true
+config:
+  apolloClientVersion: 3
+generates:
+  # generate schema for query autocomplete
+  graphql.schema.json:
+    plugins:
+      - 'introspection'

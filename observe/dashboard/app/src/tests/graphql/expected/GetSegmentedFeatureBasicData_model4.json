@@ -1,0 +1,51 @@
+{
+  "data": {
+    "model": {
+      "id": "model-4",
+      "name": "Segmented dataset",
+      "batchFrequency": "P1D",
+      "segment": {
+        "id": "606ee75d-5316-45b2-ac27-93c454230abb",
+        "feature": {
+          "id": "64017054-1bc3-426c-9c78-ce3f5569931d",
+          "name": "str",
+          "baselineSketch": {
+            "id": "474790ea-de02-4354-932f-9fed2f178129",
+            "schemaSummary": {
+              "inference": {
+                "type": "TEXT"
+              }
+            },
+            "showAsDiscrete": true
+          },
+          "sketches": [
+            {
+              "id": "1092236c-b38f-451e-8cb0-b960c9e5edc1",
+              "createdAt": 1728950400000
+            },
+            {
+              "id": "06393729-c687-4e6c-a91e-fa20016685cc",
+              "createdAt": 1729036800000
+            },
+            {
+              "id": "2cd52275-6e6f-4581-907c-5780231ab3ab",
+              "createdAt": 1729123200000
+            },
+            {
+              "id": "69996ae8-e90b-45fc-ae14-a59f442bcdb0",
+              "createdAt": 1729209600000
+            },
+            {
+              "id": "beb21721-1853-43af-80ff-aeb13e928337",
+              "createdAt": 1729296000000
+            },
+            {
+              "id": "ad8c4248-ee2e-4c1f-bb43-1b7eeb87ae0a",
+              "createdAt": 1729382400000
+            }
+          ]
+        }
+      }
+    }
+  }
+}

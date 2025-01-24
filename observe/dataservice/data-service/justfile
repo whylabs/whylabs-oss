@@ -1,0 +1,57 @@
+# just is a bit like Make, but simpler and easier.
+#  Documentation here: https://github.com/casey/just
+#  More documentation here: https://just.systems/man/en/chapter_1.html
+#  (since it's nigh un-googleable)
+# Install:
+#   `brew install just`
+#
+# Run:
+#   just <command>
+
+default:
+  @just --list
+
+# Install CLI tooling used here
+install-tools:
+    brew install sqlfluff
+
+# Check for linting errors in the sql
+lint-sql:
+    sqlfluff lint src/main/resources/db/migrations --dialect postgres
+
+# Fix all the linting violations  in sql files
+lint-fix-sql:
+    sqlfluff fix src/main/resources/db/migrations --dialect postgres
+
+# Run all unit, system and integration tests for this project
+test:
+    ../gradlew check
+
+# Clean up any build artiacts for this project
+clean:
+    ../gradlew clean
+
+# Stand up a local docker-compose instance
+start-local-test-env:
+    mkdir -p /tmp/dataservice
+    docker-compose rm -f   # Clear the old images so db, etc. gets recreated
+    docker-compose up -d
+
+# Stop local docker-compose instance, if up
+stop-local-test-env:
+    docker-compose down
+
+# Open web interface
+open-local-pgadmin:
+    open http://localhost:5050
+
+this_arch := if arch() == "aarch64" { "arm64" } else { "amd64" }
+
+# Install psql client (without the rest of postgres)
+install-psql:
+    brew install libpq
+    echo 'export PATH="/opt/homebrew/opt/libpq/bin:$PATH"' >> ~/.bash_profile
+
+# Run data service against the remote dev env. Assumes the existence of dev.env with necessary env variables. (DB_USER, DB_PASSWORD, DB_HOST and MICRONAUT_ENVIRONMENTS=remote)
+run-against-remote-dev:
+    eval $(cat ../dev.env) ../gradlew  :data-service:clean :data-service:run -t

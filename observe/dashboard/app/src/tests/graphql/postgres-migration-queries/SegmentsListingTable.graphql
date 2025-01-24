@@ -1,0 +1,67 @@
+query segmentsListingTable(
+  $model: String!
+  $from: Float!
+  $to: Float!
+  $offset: Int
+  $limit: Int
+  $substring: String
+  $sort: SegmentSort
+  $granularityInclusion: GranularityInclusion
+) {
+  model(id: $model) {
+    id
+    name
+    batchFrequency
+    totalSegments
+    segments(offset: $offset, limit: $limit, filter: { substring: $substring }, sort: $sort) {
+      id
+      tags {
+        key
+        value
+      }
+      alerts(filter: { fromTimestamp: $from, toTimestamp: $to }) {
+        type
+        creationTimestamp
+        datasetTimestamp
+        feature
+      }
+      batches(from: $from, to: $to) {
+        inputCount
+        outputCount
+        timestamp
+      }
+      uniqueAlerts: alerts(filter: { eventType: Uniqueness, fromTimestamp: $from, toTimestamp: $to }) {
+        id
+      }
+      mv3TotalAlerts: alertCountsV2(
+        fromTimestamp: $from
+        toTimestamp: $to
+        granularityInclusion: $granularityInclusion
+      ) {
+        totals {
+          category
+          count
+        }
+        timeseries {
+          timestamp
+          counts {
+            category
+            count
+          }
+        }
+      }
+      dataTypeAlerts: alerts(filter: { eventType: DataType, fromTimestamp: $from, toTimestamp: $to }) {
+        id
+      }
+      missingValueAlerts: alerts(filter: { eventType: NullFraction, fromTimestamp: $from, toTimestamp: $to }) {
+        id
+      }
+    }
+  }
+}
+
+fragment ModelCommonData on Model {
+  id
+  name
+  batchFrequency
+}

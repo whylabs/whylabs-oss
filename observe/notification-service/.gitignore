@@ -1,0 +1,29 @@
+# dependencies
+/node_modules
+.yarn/*
+#!.yarn/cache - cache can be committed to enable Zero-Installs mode in Yarn2, but this requires additional setup
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# build
+/dist
+
+# test data
+data.json
+
+# auto-generated sample messages for testing
+/sample-messages/*
+!sample-messages/.gitkeep
+
+# misc
+*.log
+*.env
+
+# IDE stuff
+.vscode
+.DS_Store
+.DS_Store?
+.idea

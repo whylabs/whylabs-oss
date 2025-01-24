@@ -1,0 +1,18 @@
+mutation adHocMonitor($model: String!, $features: [String!]!, $segments: [[SegmentTagFilter!]!], $to: Float, $from: Float, $monitorConfig: String) {
+    adHocMonitor {
+        run(datasetId: $model, features: $features, segments: $segments, toTimestamp: $to, fromTimestamp: $from, monitorConfig: $monitorConfig) {
+            runId
+            numEvents
+        }
+    }
+}
+
+query adhocRunStatus($runId: String!, $numEvents: Int!) {
+    adhocRunStatus(runId: $runId, numEvents: $numEvents)
+}
+
+query getAdhocAnalysisResults($datasetId: String!, $from: Float!, $to: Float, $anomaliesOnly: Boolean!, $metrics: [AnalysisMetric!], $columns: [String!], $tags: [SegmentTagFilter!], $adhocRunId: String, $includeFailed: Boolean) {
+    analysisResults(filter: {anomaliesOnly: $anomaliesOnly, metrics: $metrics, datasetId: $datasetId, columns: $columns, fromTimestamp: $from, toTimestamp: $to, segmentTags: $tags, adhocRunId: $adhocRunId, includeFailed: $includeFailed}, offset: 0, limit: 0, sortDirection: ASC) {
+        ...AnalysisData
+    }
+}

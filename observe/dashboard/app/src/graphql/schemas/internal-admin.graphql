@@ -1,0 +1,143 @@
+type InternalOrganizationManagement {
+  """
+  Create a new Organization with the specified properties. This Organization will automatically be assigned to the PAID tier.
+  """
+  create(
+    name: String!
+    emailDomains: [String!]
+  ): Organization! @auth(permissions: [MANAGE_INTERNAL])
+  """
+  Update an Organization.
+  """
+  organization(orgId: String!): InternalOrganizationUpdate! @auth(permissions: [MANAGE_INTERNAL])
+}
+
+type InternalOrganizationUpdate {
+  orgId: String!
+  """
+  Update the emailDomains for an Organization.
+  """
+  updateEmailDomains(emailDomains: [String!]!): Organization! @auth(permissions: [MANAGE_INTERNAL])
+
+  """
+  Update the subscriptionTier for an Organization.
+  """
+  updateSubscriptionTier(subscriptionTier: SubscriptionTier!): Organization! @auth(permissions: [MANAGE_INTERNAL])
+}
+
+type InternalModelManagement {
+  """
+  Create a new Model for the specified Organization with the specified name
+  """
+  create(orgId: String!, name: String!, type: ModelType): Model! @auth(permissions: [MANAGE_INTERNAL])
+}
+
+type InternalGlobalManagement {
+  """
+  Updates the global maintenance/status banner message.
+  """
+  updateMaintenanceBanner(message: String!): Boolean!
+  """
+  Clears the global maintenance/status banner.
+  """
+  clearMaintenanceBanner: Boolean!
+}
+
+type PlatformAdministration {
+  """
+  Manage organizations
+  """
+  organizations: InternalOrganizationManagement @auth(permissions: [MANAGE_INTERNAL])
+  """
+  Update an organization
+  """
+  organization(orgId: String!): InternalOrganizationUpdate @auth(permissions: [MANAGE_INTERNAL])
+  """
+  Manage models
+  """
+  models: InternalModelManagement @auth(permissions: [MANAGE_INTERNAL])
+  """
+  Manage memberships
+  """
+  memberships: InternalMembershipManagement @auth(permissions: [MANAGE_INTERNAL])
+  """
+  Global platform settings
+  """
+  global: InternalGlobalManagement @auth(permissions: [MANAGE_INTERNAL])
+}
+
+type InternalMembershipManagement {
+  """
+  Removes all memberships for the specified email address, effectively kicking them out of all orgs that they currently belong to
+  """
+  clear(email: String!): Boolean! @auth(permissions: [MANAGE_INTERNAL])
+  """
+  Add a member to the target organization
+  """
+  add(orgId: String!, email: String!, role: MembershipRole): Member! @auth(permissions: [MANAGE_INTERNAL])
+  """
+  Update a membership to change a user's role in an organization
+  """
+  update(orgId: String!, email: String!, role: MembershipRole!): Member! @auth(permissions: [MANAGE_INTERNAL])
+  """
+  Remove a member from the target organization
+  """
+  remove(orgId: String!, email: String!): Member! @auth(permissions: [MANAGE_INTERNAL])
+  """
+  Change the default organization for the target user
+  """
+  setDefaultOrg(orgId: String!, email: String!): Boolean! @auth(permissions: [MANAGE_INTERNAL])
+}
+
+type InternalImpersonationManagement {
+  """
+  Assume identity of the specified user within an org
+  """
+  impersonate(userId: String!, durationMinutes: Int!): Boolean @auth(permissions: [MANAGE_INTERNAL])
+}
+
+extend type Mutation {
+  """
+  Administrative queries/tools. WhyLabs employees only. Do not use for operations initiated by customers.
+  """
+  admin: PlatformAdministration @auth(permissions: [MANAGE_INTERNAL])
+  """
+  Tools related to impersonation
+  """
+  impersonation: InternalImpersonationManagement @auth(permissions: [MANAGE_INTERNAL])
+  """
+  Clear impersonation
+  Skipping permissions check is necessary here as the impersonated user may not have sufficient access rights to touch admin controls
+  """
+  clearImpersonation: Boolean @auth(skipPermissionsCheck: true)
+}
+
+type InternalAdminInfo {
+  """
+  Get a specific organization
+  """
+  organization(orgId: String!): Organization @auth(permissions: [MANAGE_INTERNAL])
+  """
+  List all available organizations in the current environment
+  """
+  organizations(search: String, limit: Int = 50): [Organization!]! @auth(permissions: [MANAGE_INTERNAL])
+  """
+  List all models for a given organization
+  """
+  models(orgId: String!, search: String): [Model!]! @auth(permissions: [MANAGE_INTERNAL])
+  """
+  List all memberships associated with the email address or user ID
+  """
+  memberships(email: String!): [Member!]! @auth(permissions: [MANAGE_INTERNAL])
+  """
+  Check if a user's email has been verified in Auth0
+  """
+  checkAuth0Verified(email: String!): Boolean! @auth(permissions: [MANAGE_INTERNAL])
+}
+
+extend type Query {
+  """
+  Administrative information about the state of the platform. WhyLabs employees only. Do not use for operations initiated by customers.
+  """
+  admin: InternalAdminInfo @auth(permissions: [MANAGE_INTERNAL])
+}

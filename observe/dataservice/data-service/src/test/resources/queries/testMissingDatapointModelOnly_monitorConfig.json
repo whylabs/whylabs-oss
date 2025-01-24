@@ -1,0 +1,76 @@
+{
+  "orgId": "org-5Hsdjx",
+  "datasetId": "model-77",
+  "granularity": "daily",
+  "metadata": {
+    "schemaVersion": 1,
+    "author": "system",
+    "updatedTimestamp": 1681770522008,
+    "version": 41
+  },
+  "analyzers": [
+    {
+      "id": "missing-datapoint-column-analyzer",
+      "schedule": {
+        "type": "fixed",
+        "cadence": "daily"
+      },
+      "disabled": false,
+      "targetMatrix": {"type": "column", "include": "*", "segments": []},
+      "config": {
+        "metric": "missingDatapoint",
+        "type": "fixed",
+        "upper": 0
+      }
+    },
+    {
+      "id": "missing-datapoint-dataset-analyzer",
+      "schedule": {
+        "type": "fixed",
+        "cadence": "daily"
+      },
+      "disabled": false,
+      "targetMatrix": {
+        "type": "dataset",
+        "segments": []
+      },
+      "config": {
+        "metric": "missingDatapoint",
+        "type": "fixed",
+        "upper": 0
+      }
+    }
+  ],
+  "monitors": [
+    {
+      "id": "testMissingDatapointModelOnly-monitor",
+      "mode": {
+        "type": "DIGEST"
+      },
+      "schedule": {
+        "type": "immediate"
+      },
+      "analyzerIds": [
+        "missing-datapoint-column-analyzer",
+        "missing-datapoint-dataset-analyzer"
+      ]
+    }
+  ],
+  "entitySchema": {
+    "metadata": {
+      "author": "system",
+      "version": 1,
+      "updatedTimestamp": 1671466888503
+    },
+    "columns": {  },
+    "metrics": null
+  },
+  "weightConfig": {
+    "metadata": {
+      "author": "system",
+      "version": 0,
+      "updatedTimestamp": 1683839163843
+    },
+    "segmentWeights": []
+  }
+}

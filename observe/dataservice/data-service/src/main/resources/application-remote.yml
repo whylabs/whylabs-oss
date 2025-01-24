@@ -1,0 +1,17 @@
+# Set MICRONAUT_ENVIRONMENTS to 'remote' if we want to connect to remote postgres
+postgres:
+  # The main rw service/hostname
+  hostname: ${POSTGRES_HOST}
+  repl_hostname: ${POSTGRES_HOST}
+  bulk_hostname: ${POSTGRES_HOST}
+  standby_hostname: ${DB_STANDBY_POOLER_HOST}
+  database: whylogs
+
+  username: ${DB_USER}
+  password: ${DB_PASSWORD}
+liquibase:
+  enabled: false
+whylabs.dataservice:
+  enableKinesis: false
+  enableBackfill: false
+  enableLiveIngestion: false # disable scheduled indexing and ingestion

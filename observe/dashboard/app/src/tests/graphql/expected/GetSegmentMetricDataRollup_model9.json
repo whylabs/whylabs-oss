@@ -1,0 +1,22 @@
+{
+  "data": {
+    "dataQueries": {
+      "getSegmentMetricDataRollup": [
+        {
+          "datasetId": "model-9",
+          "metric": "CLASSIFICATION_ACCURACY",
+          "feature": "__internal__.datasetMetrics",
+          "segmentGroup": "old",
+          "value": 0.8292682926829268
+        },
+        {
+          "datasetId": "model-9",
+          "metric": "CLASSIFICATION_ACCURACY",
+          "feature": "__internal__.datasetMetrics",
+          "segmentGroup": "young",
+          "value": 0.7526956521739131
+        }
+      ]
+    }
+  }
+}

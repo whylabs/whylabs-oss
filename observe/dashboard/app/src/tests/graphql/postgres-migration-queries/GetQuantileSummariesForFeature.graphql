@@ -1,0 +1,34 @@
+query getQuantileSummariesForFeature($model: String!, $feature: String!, $from: Float!, $to: Float) {
+  model(id: $model) {
+    ...ModelCommonData
+    feature(name: $feature) {
+      id
+      sketches(from: $from, to: $to) {
+        ...QuantileSummaryFields
+      }
+    }
+  }
+}
+
+fragment ModelCommonData on Model {
+  id
+  name
+  batchFrequency
+}
+
+fragment QuantileSummaryFields on FeatureSketch {
+  id
+  createdAt
+  showAsDiscrete
+  numberSummary {
+    quantiles {
+      bins
+      counts
+    }
+    count
+    min
+    max
+    mean
+    stddev
+  }
+}

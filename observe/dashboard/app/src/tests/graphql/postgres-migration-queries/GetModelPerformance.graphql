@@ -1,0 +1,40 @@
+query getModelPerformance($datasetId: String!, $from: Float!, $to: Float) {
+  model(id: $datasetId) {
+    id
+    name
+    modelType
+    batchFrequency
+    ...ModelPerformance
+  }
+}
+
+fragment ModelPerformance on Model {
+  datasetMetrics {
+    name
+    values(fromTimestamp: $from, toTimestamp: $to) {
+      timestamp
+      value
+    }
+  }
+  dataAvailability {
+    latestTimestamp
+  }
+  batches(from: $from, to: $to) {
+    timestamp
+    inputCount
+    outputCount
+    metrics {
+      confusion {
+        labels
+        counts
+      }
+      recallPrecision {
+        values
+      }
+      fprTpr {
+        values
+      }
+    }
+  }
+}
+

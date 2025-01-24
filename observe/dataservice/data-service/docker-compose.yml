@@ -1,0 +1,59 @@
+version: '3.8'
+services:
+  db:
+    container_name: postgres
+    hostname: postgres-dev
+    # Dup in .gitlab-ci.yaml, BasePostgresTest, data-service/docker-compose.yaml
+    image: public.ecr.aws/q7d3h7a7/spilo-postgres:slim-14-v1.1
+    restart: always
+    user: postgres
+    environment:
+      # Align these in BasePostgresTest and docker-compose
+      SPILO_PROVIDER: local
+      PATRONI_CONFIGURATION: |
+        {
+          "postgresql": {
+            "parameters": {
+              "timescaledb.license": "timescale",
+              "log_statement": "all",
+              "log_destination": "stderr",
+              "logging_collector": "off"
+            }
+          }
+        }
+    ports:
+      - "5432:5432"
+    volumes:
+      - "./dev-postgres/pgdata:/home/postgres/pgdata:rw"
+      - "/tmp/dataservice:/efs/:ro"
+    command:
+      /bin/sh -c "echo \"updating whylogs\" ; pip install whylogs==1.2.7 --upgrade ; /bin/sh /why_launch.sh init"
+  pgadmin:
+    container_name: pgadmin4
+    image: dpage/pgadmin4:latest
+    restart: always
+    entrypoint: [ '/bin/sh' ]
+    command: [ "-c",
+      "mkdir -p /var/lib/pgadmin/storage/pgadmin4_WhyLabs/;
+      cp /tmp/pgpassfile-ro /tmp/pgpassfile;
+      chmod 600 /tmp/pgpassfile;
+      /entrypoint.sh" ]
+    environment:
+      PGADMIN_DEFAULT_EMAIL: root@root.com
+      PGADMIN_DEFAULT_PASSWORD: root
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: 'False'
+    ports:
+      - "5050:80"
+    volumes:
+      - "./dev-postgres/pgadmin/servers.json:/pgadmin4/servers.json:ro"
+      - "./dev-postgres/pgadmin/pgpassfile:/tmp/pgpassfile-ro:ro"
+  fastapi:
+    container_name: fastapi
+    # access gitlab with Personal Access Token instead of password
+    #    docker login registry.gitlab.com
+    # this is the container currently used by arima pod in kubernetes
+    image: registry.gitlab.com/whylabs/core/whylabs-processing-core:python-latest
+    restart: always
+    ports:
+      - "8099:8099"

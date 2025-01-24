@@ -1,0 +1,5 @@
+{
+  "operationName": null,
+  "variables": {},
+  "query": "{\n  model(id: \"model-0\") {\n    features {\n      name\n      sketches(from: 1652825613000, to: 1655427416000) {\n        totalCount\n      }\n    }\n  }\n}\n"
+}

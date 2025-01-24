@@ -1,0 +1,36 @@
+{
+  "data": {
+    "dataQueries": {
+      "getSegmentMetricDataRollup": [
+        {
+          "datasetId": "model-15",
+          "metric": "PREDICTION_COUNT",
+          "feature": "__internal__.datasetMetrics",
+          "segmentGroup": "east",
+          "value": 7500
+        },
+        {
+          "datasetId": "model-15",
+          "metric": "PREDICTION_COUNT",
+          "feature": "__internal__.datasetMetrics",
+          "segmentGroup": "north",
+          "value": 8000
+        },
+        {
+          "datasetId": "model-15",
+          "metric": "PREDICTION_COUNT",
+          "feature": "__internal__.datasetMetrics",
+          "segmentGroup": "south",
+          "value": 7500
+        },
+        {
+          "datasetId": "model-15",
+          "metric": "PREDICTION_COUNT",
+          "feature": "__internal__.datasetMetrics",
+          "segmentGroup": "west",
+          "value": 7500
+        }
+      ]
+    }
+  }
+}

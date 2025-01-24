@@ -1,0 +1,13 @@
+mutation resendVerificationEmail {
+  emailVerification {
+    resendVerificationEmail
+  }
+}
+
+query checkAuth0EmailVerification {
+  user {
+    auth0Id
+    auth0EmailVerified
+    email
+  }
+}

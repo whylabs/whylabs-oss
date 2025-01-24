@@ -1,0 +1,10 @@
+micronaut:
+  jms:
+    sqs:
+      enabled: false
+liquibase:
+  enabled: true
+whylabs.dataservice:
+  deployed: false
+  enableBackfill: false
+  instance: "main"

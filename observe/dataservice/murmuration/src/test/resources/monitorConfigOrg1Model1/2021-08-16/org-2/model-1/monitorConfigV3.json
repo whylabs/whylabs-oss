@@ -1,0 +1,81 @@
+{
+  "id": "demo-document",
+  "orgId": "org-2",
+  "schemaVersion": 1,
+  "datasetId": "model-1",
+  "granularity": "daily",
+  "entitySchema": {
+    "columns": {
+      "annual_inc": {
+        "discreteness": "discrete",
+        "classifier": "input",
+        "dataType": "fractional"
+      },
+      "prediction": {
+        "discreteness": "discrete",
+        "classifier": "output",
+        "dataType": "integral"
+      }
+    }
+  },
+  "analyzers": [
+    {
+      "id": "missing_datapoint_analyzer",
+      "schedule": {
+        "type": "cron",
+        "cron": "0 * * * *"
+      },
+      "disabled": false,
+      "targetMatrix": {
+        "type": "dataset",
+        "include": [
+          "*"
+        ],
+        "segments": [
+          {
+            "tags": []
+          },
+          {
+            "tags": [{"key" : "purpose", "value": "small_business"}]
+          }
+        ]
+      },
+      "dataReadinessDuration": "PT4H",
+      "backfillGracePeriodDuration": "P30D",
+      "config": {
+        "version": 1,
+        "type": "fixed",
+        "metric": "missingDatapoint",
+        "upper": 0
+      }
+    },
+    {
+      "id": "ImagePixel-disjunction-analyzer",
+      "displayName": "ImagePixel-disjunction-analyzer",
+      "tags": [
+        "whylabs.constraint"
+      ],
+      "schedule": {
+        "type": "fixed",
+        "cadence": "daily"
+      },
+      "targetMatrix": {
+        "segments": [],
+        "type": "column",
+        "include": [
+          "*"
+        ],
+        "exclude": []
+      },
+      "disableTargetRollup": true,
+      "config": {
+        "metric": "max",
+        "type": "fixed",
+        "upper": 500
+      }
+    }
+  ],
+  "monitors": [
+
+  ]
+}

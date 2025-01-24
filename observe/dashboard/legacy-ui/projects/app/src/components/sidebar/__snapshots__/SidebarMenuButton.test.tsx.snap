@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SidebarMenuButton /> should match snapshot for the child icon 1`] = `
+NodeList [
+  <path
+    d="M0 0h24v24H0z"
+    fill="none"
+    stroke="none"
+  />,
+  <line
+    x1="4"
+    x2="20"
+    y1="6"
+    y2="6"
+  />,
+  <line
+    x1="4"
+    x2="20"
+    y1="12"
+    y2="12"
+  />,
+  <line
+    x1="4"
+    x2="20"
+    y1="18"
+    y2="18"
+  />,
+]
+`;

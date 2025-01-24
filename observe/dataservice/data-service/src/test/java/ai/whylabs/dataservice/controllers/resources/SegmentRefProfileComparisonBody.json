@@ -1,0 +1,21 @@
+{
+  "referenceProfiles": [
+    "my-ref-profile",
+    "another-ref-profile"
+  ],
+  "rowSegmentGroup": "category",
+  "queries": [
+    {
+      "queryId": "1",
+      "metric": "mean",
+      "resourceId": "model-2347",
+      "columnName": "rating"
+    },
+    {
+      "queryId": "2",
+      "metric": "median",
+      "resourceId": "model-2347",
+      "columnName": "rating"
+    }
+  ]
+}

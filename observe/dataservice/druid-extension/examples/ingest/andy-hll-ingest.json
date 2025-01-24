@@ -1,0 +1,47 @@
+{
+  "type": "index_parallel",
+  "spec": {
+    "ioConfig": {
+      "type": "index_parallel",
+      "inputSource": {
+        "type": "local",
+        "filter": "metrics.bin",
+        "baseDir": "/Volumes/Workspace/tmp/"
+      },
+      "inputFormat": {
+        "type": "whylogs"
+      }
+    },
+    "tuningConfig": {
+      "type": "index_parallel",
+      "partitionsSpec": {
+        "type": "dynamic"
+      }
+    },
+    "dataSchema": {
+      "dataSource": "whylogs",
+      "metricsSpec": [
+        {
+          "type": "HLLSketchMerge",
+          "name": "uniqueCount",
+          "fieldName": "uniqueCount"
+        }
+      ],
+      "granularitySpec": {
+        "type": "uniform",
+        "queryGranularity": "NONE",
+        "rollup": true,
+        "segmentGranularity": "DAY"
+      },
+      "timestampSpec": {
+        "column": "time",
+        "format": "iso"
+      },
+      "dimensionsSpec": {
+        "dimensions": [
+          "columnName"
+        ]
+      }
+    }
+  }
+}

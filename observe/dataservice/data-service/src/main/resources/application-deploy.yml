@@ -1,0 +1,91 @@
+datasources:
+  default:
+    minPoolSize: 1
+    maximumPoolSize: ${JDBC_MAX_POOL_SIZE}
+    connectionTimeout: ${JDBC_CONNECTION_TIMEOUT}
+  bulk:
+    driverClassName: org.postgresql.Driver
+    dialect: POSTGRES
+  readonly:
+    driverClassName: org.postgresql.Driver
+    dialect: POSTGRES
+  standby:
+    driverClassName: org.postgresql.Driver
+    dialect: POSTGRES
+
+postgres:
+  # The main rw service/hostname
+  hostname: ${POSTGRES_HOST}
+  repl_hostname: ${POSTGRES_REPL}
+  bulk_hostname: ${POSTGRES_BULK}
+  # Used for monitor workloads
+  standby_hostname: ${DB_STANDBY_POOLER_HOST}
+  database: whylogs
+
+jpa:
+  default:
+    properties:
+      hibernate:
+        show_sql: false
+
+micronaut:
+  executors:
+    indexer:
+      number-of-threads: ${INDEXER_THREAD_COUNT}
+      type: fixed
+
+  metrics:
+    enabled: ${METRIC_ENABLED}
+    export:
+      prometheus: false
+      statsd:
+        enabled: true
+        flavor: datadog
+        step: PT1M
+        host: ${HOST_IP}
+        port: 8125
+  jms:
+    sqs:
+      enabled: ${WHYLABS_DATASERVICE_ENABLE_BACKFILL}
+  router:
+    static-resources:
+      swagger:
+        paths: classpath:META-INF/swagger
+        mapping: /swagger/**
+      swagger-ui:
+        paths: classpath:META-INF/swagger/views/swagger-ui
+        mapping: /swagger-ui/**
+  endpoints:
+    health:
+      details-visible: ANONYMOUS
+netty:
+  default:
+    allocator:
+      max-order: 3
+liquibase:
+  enabled: ${ENABLE_LIQUIDBASE:false}
+  async: true
+whylabs.dataservice:
+  azure:
+    enabled: ${AZURE_ENABLED:false}
+    clusterPath: ${AZURE_DATA_EXPLORER_CLUSTER_PATH:""}
+    appId: ${AZURE_APP_ID:""}
+    appTenant: ${AZURE_APP_TENANT:""}
+    secret: ${AZURE_SECRET_NAME:""}
+    kusto.database: ${AZURE_KUSTO_DATABASE:""}
+  songbirdBucket: ${WHYLABS_SONGBIRD_BUCKET}
+  whylabsArtifactsBucket: ${WHYLABS_ARTIFACTS_DOWNLOAD_BUCKET}
+  profileNotificationTopic: ${WHYLABS_PROFILE_UPLOAD_NOTIFICATION_TOPIC}
+  # for sending ingestion status updates and entity schema.
+  ingestionNotificationStream: ${WHYLABS_OPERATIONAL_METRICS_STREAM}
+  enableKinesis: ${WHYLABS_DATASERVICE_ENABLE_KINESIS}
+  enableLiveIngestion: ${WHYLABS_DATASERVICE_ENABLE_KINESIS} # scheduled indexing and ingestion
+  cloudtrailBucket: ${WHYLABS_CLOUDTRAIL_BUCKET}
+  enableBackfill: ${WHYLABS_DATASERVICE_ENABLE_BACKFILL}
+  kinesisApplicationName: ${WHYLABS_DATASERVICE_APPLICATION_NAME}
+  postgresBulkIngestionTriggerTopic: ${WHYLABS_BULK_INGESTION_TRIGGER_TOPIC}
+  backfillSnapshotDownloadLocation: "/efs/parquet/"
+  backfillSnapshotPGLocation: "/efs/parquet/"
+  deployed: true
+  # kinesis/monitor/backfill
+  instance: ${INSTANCE}

@@ -1,0 +1,194 @@
+query getAllOrgModels {
+  user {
+    email
+    organization {
+      id
+      membershipType
+    }
+    role
+    permissions
+  }
+  models {
+    id
+    name
+  }
+}
+
+query getMonitorCoverage($datasetId: String!) {
+  monitorCoverage {
+    category
+    coverage
+    coveredDatasets
+  }
+  model(id: $datasetId) {
+    monitoredCategories
+  }
+}
+
+query getDataExistenceInformation($datasetId: String!) {
+  model(id: $datasetId) {
+    features {
+      name
+    }
+    outputs {
+      name
+    }
+    datasetMetrics {
+      name
+      metadata {
+        ...MetricSchemaFields
+      }
+    }
+    totalSegments
+    dataAvailability {
+      hasData
+      oldestTimestamp
+    }
+  }
+}
+
+query getModelAlerts($model: String, $from: Float!, $to: Float) {
+  model(id: $model) {
+    latestAnomalyTimestamp
+    anomalyCounts(fromTimestamp: $from, toTimestamp: $to) {
+      totals {
+        category
+        count
+      }
+      timeseries {
+        timestamp
+        counts {
+          category
+          count
+        }
+      }
+    }
+  }
+}
+
+query getOutputSparklines($datasetId: String!, $from: Float!, $to: Float) {
+  model(id: $datasetId) {
+    id
+    name
+    batchFrequency
+    outputs {
+      ...FeatureTableInfo
+    }
+  }
+}
+
+fragment FeatureTableInfo on Feature {
+  name
+  id
+  anomalyCounts(fromTimestamp: $from, toTimestamp: $to) {
+    totals {
+      category
+      count
+    }
+  }
+  analysisResults(filter: { fromTimestamp: $from, toTimestamp: $to, metrics: [UNIQUE_EST_RATIO], anomaliesOnly: false}, sortDirection: DESC) {
+    datasetTimestamp
+    analysisId
+  }
+  sketches(from: $from, to: $to) {
+    createdAt
+    schemaSummary {
+      inference {
+        count
+      }
+      typeCounts {
+        type
+        count
+      }
+    }
+    totalCount
+    nullRatio
+    uniqueCount {
+      estimate
+    }
+  }
+  schema {
+    inferredType
+    isDiscrete
+  }
+}
+
+query getModelAnomalyCountsByCategory($model: String, $from: Float!, $to: Float) {
+  model(id: $model) {
+    anomalyCounts(fromTimestamp: $from, toTimestamp: $to) {
+      totals {
+        category
+        count
+      }
+      timeseries {
+        timestamp
+        counts {
+          category
+          count
+        }
+      }
+    }
+  }
+}
+
+query getAnomalyCount($datasetId: String!, $from: Float!, $to: Float) {
+  anomalyCount(filter: { datasetId: $datasetId, fromTimestamp: $from, toTimestamp: $to}) {
+    timestamp
+    count
+  }
+}
+
+query getAnalyzerRuns2($model: String!, $from: Float!, $to: Float) {
+  analyzerRuns(
+    filter: {
+      datasetId: $model
+      fromTimestamp: $from
+      toTimestamp: $to
+    },
+    offset: 0,
+    limit: 100) {
+    orgId
+    datasetId
+    runStarted
+    runCompleted
+    analyzerId
+    monitorIds
+    anomalyCount
+    columnCount
+    failureTypes
+    runId
+  }
+}
+
+query getFeatureImportance($dataset: String!) {
+  model(id: $dataset) {
+    filteredFeatures(filter: {}, offset: 0, limit: 0, sort: { by: Weight, direction: ASC }) {
+      results {
+        name
+        weight {
+          rank
+          value
+        }
+      }
+    }
+  }
+}
+
+query getModelsWithTypes {
+  models {
+    id
+    modelType
+    assetCategory
+  }
+}
+
+query modelsWithImportance {
+  models {
+    id
+    hasWeights
+    weightMetadata {
+      hasWeights
+      lastUpdatedAt
+    }
+  }
+}

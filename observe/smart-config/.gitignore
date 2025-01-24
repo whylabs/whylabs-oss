@@ -1,0 +1,20 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+.idea/
+*.iml
+__pycache__/
+.ipynb_checkpoints/
+*.xml
+*.egg-info/
+.DS_Store
+.pytest_cache/
+scripts/diagnosis.json
+scripts/reports.json
+scripts/changes.json
+

@@ -1,0 +1,79 @@
+query getMetricData($from: Float!, $to: Float!, $queries: [MetricQuery!]!) {
+  dataQueries {
+    getMetricData(fromTimestamp: $from,
+      toTimestamp: $to,
+      queries: $queries
+      ) {
+      datasetId
+      metric
+      feature
+      points {
+        timestamp
+        value
+      }
+      segment {
+        key
+        value
+      }
+      segmentDescription
+    }
+  }
+}
+
+query getSegmentMetricDataRollup($from: Float!, $to: Float!, $queries: [MetricQuery!]!, $segmentKey: String!) {
+  dataQueries {
+    getSegmentMetricDataRollup(fromTimestamp: $from,
+      toTimestamp: $to,
+      segmentKey: $segmentKey,
+      queries: $queries,
+    ) {
+      datasetId
+      metric
+      feature
+      segmentGroup
+      value
+    }
+  }
+}
+
+query getMetricRollupForSegments($from: Float!, $to: Float!, $datasetId: String!, $metric: AnalysisMetric!, $column: String, $segments: [[SegmentTagFilter
+!]!]!) {
+  dataQueries {
+    getMetricRollupForSegments(
+      fromTimestamp: $from,
+      toTimestamp: $to,
+      metric: $metric,
+      segments: $segments,
+      column: $column,
+      datasetId: $datasetId,
+    ) {
+      datasetId
+      metric
+      feature
+      segmentGroup
+      value
+    }
+  }
+}
+
+query getAvailableMetrics {
+  dataQueries {
+    availableMetrics {
+      ...MetricSchemaFields
+    }
+  }
+}
+
+fragment MetricSchemaFields on MetricSchema {
+  name
+  label
+  dataType
+  showAsPercent
+  unitInterval
+  metricDirection
+  metricKind
+  bounds {
+    upper
+    lower
+  }
+}

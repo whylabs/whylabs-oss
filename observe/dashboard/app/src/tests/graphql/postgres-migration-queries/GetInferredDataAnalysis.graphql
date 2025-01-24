@@ -1,0 +1,59 @@
+query getInferredDataAnalysis($datasetId: String!, $featureId: String!, $anomaliesOnly: Boolean!, $from: Float!, $to: Float, $tags: [SegmentTagFilter!], $adhocRunId: String) {
+  analysisResults(filter: {anomaliesOnly: $anomaliesOnly, columns: [$featureId], datasetId: $datasetId, fromTimestamp: $from, toTimestamp: $to, segmentTags: $tags, metrics: INFERRED_DATA_TYPE, adhocRunId: $adhocRunId}, offset: 0, limit: 0, sortDirection: DESC) {
+    ...ThresholdAnalysisData
+    comparison_expected
+    comparison_observed
+  }
+}
+
+fragment ThresholdAnalysisData on AnalysisResult {
+  ...IdData
+  targetLevel
+  column
+  isAnomaly
+  isFalseAlarm
+  analysisId
+  tags {
+    key
+    value
+  }
+  runId
+  metric
+  ...AlgorithmData
+  ...AnalyzerInfoData
+  ...TimestampData
+  ...ThresholdInfo
+}
+
+fragment IdData on AnalysisResult {
+  id
+  orgId
+  datasetId
+}
+
+fragment AlgorithmData on AnalysisResult {
+  algorithm
+  algorithmMode
+}
+
+fragment AnalyzerInfoData on AnalysisResult {
+  analyzerType
+  analyzerId
+}
+
+fragment TimestampData on AnalysisResult {
+  creationTimestamp
+  datasetTimestamp
+  mostRecentDatasetDatalakeWriteTs
+}
+
+fragment ThresholdInfo on AnalysisResult {
+  threshold_absoluteLower
+  threshold_absoluteUpper
+  threshold_baselineMetricValue
+  threshold_calculatedLower
+  threshold_calculatedUpper
+  threshold_metricValue
+  threshold_factor
+  threshold_minBatchSize
+}

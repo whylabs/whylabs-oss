@@ -1,0 +1,97 @@
+type Masquerade {
+  expiration: String
+  isActiveNow: Boolean!
+}
+
+"""
+User preferences.
+Fields here should probably be nullable, unless we plan on ensuring that they're set for ALL users at all times.
+"""
+type UserPreferences {
+  foo: String
+}
+
+"""
+User preferences for input.
+"""
+input UserPreferencesInput {
+  foo: String
+}
+
+type UserMetadata {
+  masquerade: Masquerade
+}
+
+type User @cacheControl(maxAge: 0) {
+  """
+  The user's real name
+  """
+  name: String
+  """
+  The organization that the user is currently logged into
+  """
+  organization: Organization
+  """
+  A list of all organizations that the user has access to
+  """
+  joinedOrganizations: [OrganizationMemberMetadata!]
+  """
+  User's email address
+  """
+  email: String
+  """
+  Whether user's email is verified within their current login session (i.e. session cookie)
+  """
+  emailVerified: Boolean
+  """
+  Double checks email verification status within Auth0 if not verified in session.
+  This can be different from user's session state (and therefore emailVerified field) if they haven't logged in again yet after verifying their email in Auth0.
+  This field is slower to fetch and has rate limits.
+  """
+  auth0EmailVerified: Boolean
+  picture: String
+  id: String @deprecated(reason: "This field refers to Auth0 ID atm, but this can change. Use explicit Auth0Id/WhyLabsId fields instead")
+  auth0Id: String
+  whyLabsId: String
+  """
+  True, if the user is logged in
+  """
+  isAuthenticated: Boolean!
+  """
+  User's permissions
+  """
+  permissions: [Permission!]
+  """
+  User's role
+  """
+  role: MembershipRole
+  """
+  Additional user properties (e.g. settings)
+  """
+  metadata: UserMetadata
+  """
+  User preferences
+  """
+  preferences: UserPreferences
+}
+
+extend type Query {
+  # Unprotected
+  user: User! @auth(skipPermissionsCheck: true)
+}
+
+type PreferencesManagement {
+  update(newPreferences: UserPreferencesInput!): Boolean
+}
+
+type EmailVerificationManagement {
+  """
+  Resends Auth0 verification email for the user
+  """
+  resendVerificationEmail: Boolean
+}
+
+extend type Mutation {
+  preferences: PreferencesManagement @auth
+  emailVerification: EmailVerificationManagement @auth(skipPermissionsCheck: true)
+}

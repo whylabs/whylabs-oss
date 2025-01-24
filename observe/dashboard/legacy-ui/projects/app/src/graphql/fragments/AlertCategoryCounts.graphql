@@ -1,0 +1,12 @@
+fragment AnomalyCountsCommonFields on AlertCategoryCounts {
+  totals {
+    category
+    count
+  }
+}
+
+fragment AnomalyDataAvailability on Model {
+  dataAvailability {
+    latestTimestamp
+  }
+}

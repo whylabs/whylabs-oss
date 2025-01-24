@@ -1,0 +1,56 @@
+{
+  "data": {
+    "model": {
+      "id": "model-11",
+      "name": "Different data types",
+      "batchFrequency": "P1D",
+      "feature": {
+        "id": "2b2fa409-ab79-495d-bea5-8b678504b490",
+        "sketches": [
+          {
+            "id": "aa1b2c99-b26f-454d-86a6-ac76be381ad4",
+            "createdAt": 1728950400000,
+            "totalCount": 1000,
+            "nullCount": 100,
+            "nullRatio": 0.1
+          },
+          {
+            "id": "431849a9-c7c6-4515-94dd-802856db439b",
+            "createdAt": 1729036800000,
+            "totalCount": 1000,
+            "nullCount": 100,
+            "nullRatio": 0.1
+          },
+          {
+            "id": "740cb1e5-df49-42a5-b823-fb942c99f31a",
+            "createdAt": 1729123200000,
+            "totalCount": 1000,
+            "nullCount": 200,
+            "nullRatio": 0.2
+          },
+          {
+            "id": "d0b6f343-02ef-48bf-8786-fd8c3b1a823a",
+            "createdAt": 1729209600000,
+            "totalCount": 1000,
+            "nullCount": 200,
+            "nullRatio": 0.2
+          },
+          {
+            "id": "9cd9d1bd-61b0-4b53-bf74-6d4a5e5f1f1d",
+            "createdAt": 1729296000000,
+            "totalCount": 1000,
+            "nullCount": 200,
+            "nullRatio": 0.2
+          },
+          {
+            "id": "d64d267e-2869-480e-ad85-ccc6a946e360",
+            "createdAt": 1729382400000,
+            "totalCount": 1000,
+            "nullCount": 200,
+            "nullRatio": 0.2
+          }
+        ]
+      }
+    }
+  }
+}

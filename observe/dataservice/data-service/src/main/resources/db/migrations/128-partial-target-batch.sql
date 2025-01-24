@@ -1,0 +1,1 @@
+alter table whylabs.pg_monitor_schedule add column allow_partial_target_batch boolean default false;

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <JSONLayout compact="true" eventEol="true" properties="true" stacktraceAsString="true" />
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="ai.whylabs.songbird" level="info" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="com.amazonaws.auth.profile.internal" level="error" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Root level="all">
+            <AppenderRef ref="Console" level="warn"/>
+        </Root>
+    </Loggers>
+</Configuration>

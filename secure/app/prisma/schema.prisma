@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+
+  previewFeatures = ["typedSql"]
+  output          = "../src/generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  // internal WhyLabs ID
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  // identity is the unique identifier external to WhyLabs. We assume this to be unique
+  identity   String   @unique
+  email      String?
+  name       String?
+  groups     String[] @default([])
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("users")
+}
+
+model SpanEntry {
+  id                  Int      @id @default(autoincrement())
+  org_id              String
+  resource_id         String
+  trace_id            String
+  span_id             String
+  parent_id           String?
+  span_name           String   @default("UNSET")
+  span_status         String   @default("STATUS_CODE_UNSET")
+  start_timestamp     DateTime
+  end_timestamp       DateTime
+  resource_attributes Json
+  attributes          Json
+  events              Json?
+  links               Json?
+  tags                String[] @default([])
+  start_timebucket    DateTime
+  ingestion_timestamp DateTime @default(now())
+
+  @@index([org_id, resource_id], type: BTree)
+  @@index([start_timestamp], type: Brin)
+  @@index([attributes(ops: JsonbPathOps)], type: Gin)
+  @@map("span_entries")
+}
+
+model JWTSecret {
+  id     Int    @id @default(autoincrement())
+  secret String @unique
+}

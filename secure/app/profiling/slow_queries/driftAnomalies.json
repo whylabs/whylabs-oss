@@ -1,0 +1,42 @@
+{
+  "operationName": "getMultiFeatureDriftAnalysis",
+  "variables": {
+    "datasetId": "model-0",
+    "from": 0,
+    "to": 1656633599999,
+    "featureIds": [
+      "acc_now_delinq",
+      "acc_open_past_24mths",
+      "addr_state",
+      "all_util",
+      "annual_inc",
+      "annual_inc_joint",
+      "application_type",
+      "avg_cur_bal",
+      "bc_open_to_buy",
+      "bc_util",
+      "chargeoff_within_12_mths",
+      "collection_recovery_fee",
+      "collections_12_mths_ex_med",
+      "debt_settlement_flag",
+      "delinq_2yrs",
+      "delinq_amnt",
+      "desc",
+      "disbursement_method",
+      "dti",
+      "dti_joint",
+      "earliest_cr_line",
+      "emp_length",
+      "emp_title",
+      "fico_range_high",
+      "fico_range_low",
+      "funded_amnt",
+      "funded_amnt_inv",
+      "grade",
+      "hardship_flag",
+      "home_ownership"
+    ],
+    "tags": []
+  },
+  "query": "query getMultiFeatureDriftAnalysis($datasetId: String!, $featureIds: [String!]!, $from: Float!, $to: Float, $tags: [SegmentTagFilter!], $adhocRunId: String) {\n  analysisResults(\n    filter: {anomaliesOnly: false, analyzerTypes: [\"drift\"], columns: $featureIds, datasetId: $datasetId, fromTimestamp: $from, toTimestamp: $to, segmentTags: $tags, adhocRunId: $adhocRunId}\n    offset: 0\n    limit: 0\n    sortDirection: DESC\n  ) {\n    ...IdData\n    targetLevel\n    column\n    isAnomaly\n    isFalseAlarm\n    metric\n    ...AlgorithmData\n    ...AnalyzerInfoData\n    ...TimestampData\n    ...DriftData\n  }\n}\n\nfragment IdData on AnalysisResult {\n  id\n  orgId\n  datasetId\n}\n\nfragment AlgorithmData on AnalysisResult {\n  algorithm\n  algorithmMode\n}\n\nfragment AnalyzerInfoData on AnalysisResult {\n  analyzerType\n  analyzerId\n}\n\nfragment TimestampData on AnalysisResult {\n  creationTimestamp\n  datasetTimestamp\n  mostRecentDatasetDatalakeWriteTs\n}\n\nfragment DriftData on AnalysisResult {\n  drift_metricValue\n  drift_minBatchSize\n  drift_threshold\n}\n"
+}

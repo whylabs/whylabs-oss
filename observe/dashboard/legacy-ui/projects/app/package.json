@@ -1,0 +1,193 @@
+{
+  "name": "@whylabs/observatory-app",
+  "private": true,
+  "version": "0.0.1",
+  "config": {
+    "prettier_glob": "**/*.{ts,js,tsx,jsx,json,less,scss,css,html,variables,overrides,*rc,graphql}",
+    "eslint_glob": "{src,test}/**/*.{ts,js,graphql}?(x)"
+  },
+  "proxy": "http://localhost:8080",
+  "scripts": {
+    "build": "GENERATE_SOURCEMAP=false INLINE_RUNTIME_CHUNK=false react-scripts --max_old_space_size=8192 build",
+    "build:container": "yarn build && docker build -t observatory:dev .",
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "test": "TZ=UTC react-scripts test --watchAll=false",
+    "test:watch": "TZ=UTC react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint $npm_package_config_eslint_glob",
+    "lint:fix": "yarn lint --fix",
+    "generate": "yarn run json2ts && graphql-codegen --config gql-codegen-introspection.yml && graphql-codegen --config gql-codegen-types.yml",
+    "generate:remote": "GRAPHQL_SCHEMA_PATH=https://observatory.development.whylabsdev.com/graphql yarn generate",
+    "generate:local": "GRAPHQL_SCHEMA_PATH=http://localhost:8080/graphql yarn generate  --watch",
+    "json2ts": "ts-node -O '{\"module\": \"commonjs\"}' ./scripts/json2ts.ts",
+    "test:coverage": "react-scripts test --coverage --runInBand --watchAll=false",
+    "build:dev": "TSC_COMPILE_ON_ERROR=false DISABLE_ESLINT_PLUGIN=true react-scripts start",
+    "start": "concurrently \"REACT_APP_DASHBOARD_URL=https://observatory.development.whylabsdev.com yarn build:dev\" \"yarn generate:remote --watch\"",
+    "start:barebones": "concurrently \"yarn generate:local\" \"REACT_APP_DASHBOARD_URL=http://localhost:8080 yarn build:dev\"",
+    "find-deadcode": "ts-prune --ignore '/projects/lib|src/generated|src/storybook' | grep -v '(used in module)'"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,ts}",
+      "!src/**/*.d.ts",
+      "!src/index.tsx",
+      "!src/serviceWorker.ts",
+      "!src/**/index.ts",
+      "!src/**/tests/*.ts",
+      "!src/hooks/*.ts",
+      "!src/ui/*.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      "./src/*/*.types.{ts,tsx}",
+      "./src/index.tsx",
+      "./src/serviceWorker.ts"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text-summary",
+      "clover"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 20,
+        "branches": 25,
+        "functions": 30,
+        "lines": 20
+      }
+    },
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/../../node_modules/ts-jest"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
+      "src/(.*)$": "<rootDir>/src/$1",
+      "^@whylabs/observatory-lib/(.*)$": "<rootDir>/../lib/src/$1",
+      "^@whylabs/observatory-lib$": "<rootDir>/../lib/src"
+    }
+  },
+  "dependencies": {
+    "@apollo/client": "^3.3.21",
+    "@emotion/react": "^11.10.5",
+    "@fontsource/baloo-2": "^5.1.0",
+    "@fontsource/inconsolata": "^5.0.18",
+    "@fontsource/inter": "^5.0.2",
+    "@fontsource/vt323": "^4.5.0",
+    "@fontsource/asap": "^5.0.20",
+    "@kenshooui/react-multi-select": "^1.1.6",
+    "@mantine/core": "^6.0.21",
+    "@mantine/dates": "^6.0.21",
+    "@mantine/hooks": "^6.0.21",
+    "@mantine/notifications": "^6.0.21",
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.56",
+    "@material-ui/pickers": "^4.0.0-alpha.12",
+    "@tabler/icons": "^1.119.0",
+    "@visx/axis": "^1.7.0",
+    "@visx/event": "^1.7.0",
+    "@visx/gradient": "^1.6.1",
+    "@visx/grid": "^1.17.1",
+    "@visx/group": "^1.7.0",
+    "@visx/legend": "^1.7.0",
+    "@visx/point": "^1.7.0",
+    "@visx/responsive": "^1.6.1",
+    "@visx/scale": "^1.7.0",
+    "@visx/shape": "^1.7.0",
+    "@visx/stats": "^1.6.1",
+    "@visx/text": "^1.7.0",
+    "@visx/tooltip": "^1.7.2",
+    "@welldone-software/why-did-you-render": "^4.3.0",
+    "@whylabs/observatory-lib": "*",
+    "accounting": "^0.4.1",
+    "axios": "^0.24.0",
+    "camelcase": "^6.3.0",
+    "classnames": "^2.2.6",
+    "d3-array": "^3.1.1",
+    "d3-format": "^1.4.4",
+    "d3-scale": "^3.2.1",
+    "d3-time-format": "^2.2.3",
+    "date-fns": "^2.14.0",
+    "date-fns-tz": "1.3.7",
+    "dayjs": "1.10.4",
+    "fixed-data-table-2": "^1.1.1",
+    "graphql": "^15.1.0",
+    "prismjs": "^1.27.0",
+    "query-string": "^6.13.1",
+    "ramda": "^0.28.0",
+    "react": "^17.0.2",
+    "react-cookie": "^4.0.3",
+    "react-dom": "^17.0.2",
+    "react-error-boundary": "3.0.2",
+    "react-json-view": "^1.21.3",
+    "react-material-ui-carousel": "^1.8.3",
+    "react-router-dom": "^6.11.1",
+    "react-scripts": "^4.0.3",
+    "react-sidebar": "^3.0.2",
+    "react-virtualized-auto-sizer": "^1.0.2",
+    "recharts": "^1.8.5",
+    "recoil": "^0.1.2",
+    "resize-observer-polyfill": "^1.5.1",
+    "source-map-explorer": "^2.4.2",
+    "typescript": "^4.3.4",
+    "use-debounced-effect-hook": "^1.1.62",
+    "use-deep-compare": "^1.1.0",
+    "use-resize-observer": "^9.1.0"
+  },
+  "devDependencies": {
+    "@babel/helper-environment-visitor": "^7.18.9",
+    "@faker-js/faker": "^8.3.1",
+    "@graphql-codegen/introspection": "^1.18.1",
+    "@graphql-codegen/jsdoc": "^1.17.9",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/accounting": "^0.4.1",
+    "@types/classnames": "^2.2.10",
+    "@types/d3-array": "^3.0.2",
+    "@types/d3-format": "^3.0.0",
+    "@types/d3-scale": "^3.2.0",
+    "@types/d3-time-format": "^3.0.0",
+    "@types/date-fns": "^2.6.0",
+    "@types/fixed-data-table-2": "^0.8.3",
+    "@types/jest": "^26.0.6",
+    "@types/node": "^12.0.0",
+    "@types/pendo-io-browser": "^2.17.1",
+    "@types/prismjs": "^1.16.6",
+    "@types/ramda": "^0.28.15",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-sidebar": "^3.0.0",
+    "@types/react-virtualized-auto-sizer": "^1.0.0",
+    "@types/recharts": "^1.8.14",
+    "babel-plugin-add-react-displayname": "^0.0.5",
+    "ts-node": "^10.7.0",
+    "ts-prune": "^0.10.3",
+    "typeconv": "^1.7.0"
+  },
+  "resolutions": {
+    "babel-loader": "8.1.0"
+  },
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ]
+}

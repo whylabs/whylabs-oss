@@ -1,0 +1,4 @@
+PUT http://localhost:8090/bulk/analyzerResults/insert
+Content-Type: application/json
+
+{"targetTable":"ANALYZER_RESULTS","path":"s3://deltalake-20210520203743800800000001/druidSnapshot/analyzer_results_208/","requestedTs":1684772125911,"runId":"c1118254-5b76-4603-b197-ab17dba034ad","mode":"replace","async":true,"jobRunCurrentTime":1684772023702}

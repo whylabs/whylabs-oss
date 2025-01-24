@@ -1,0 +1,232 @@
+{
+  "data": {
+    "model": {
+      "id": "model-16",
+      "name": "Segmented Retail Regression",
+      "batchFrequency": "P1D",
+      "segment": {
+        "feature": {
+          "id": "98f2d8a4-e1da-40bb-8617-f12afff928e4",
+          "sketches": [
+            {
+              "id": "08c4ae41-f490-480c-bd2f-82be8f00ecea",
+              "createdAt": 1728950400000,
+              "showAsDiscrete": false,
+              "numberSummary": {
+                "quantiles": {
+                  "bins": [
+                    0,
+                    0.01,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    0.99,
+                    1
+                  ],
+                  "counts": [
+                    50,
+                    50,
+                    70,
+                    185,
+                    280,
+                    525,
+                    2399,
+                    2638,
+                    2638
+                  ]
+                },
+                "count": 75,
+                "min": 50,
+                "max": 2638,
+                "mean": 592.426667,
+                "stddev": 711.5796
+              }
+            },
+            {
+              "id": "0ede9068-8178-4e1c-8a65-24957fac960d",
+              "createdAt": 1729036800000,
+              "showAsDiscrete": false,
+              "numberSummary": {
+                "quantiles": {
+                  "bins": [
+                    0,
+                    0.01,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    0.99,
+                    1
+                  ],
+                  "counts": [
+                    55,
+                    55,
+                    75,
+                    169,
+                    299,
+                    715,
+                    2399,
+                    2700,
+                    2700
+                  ]
+                },
+                "count": 81,
+                "min": 55,
+                "max": 2700,
+                "mean": 627.222222,
+                "stddev": 753.8897
+              }
+            },
+            {
+              "id": "63e8ec5a-adeb-448a-b4aa-6ae9dff513f7",
+              "createdAt": 1729123200000,
+              "showAsDiscrete": false,
+              "numberSummary": {
+                "quantiles": {
+                  "bins": [
+                    0,
+                    0.01,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    0.99,
+                    1
+                  ],
+                  "counts": [
+                    55,
+                    55,
+                    75,
+                    225,
+                    379,
+                    899,
+                    2638,
+                    2799,
+                    2799
+                  ]
+                },
+                "count": 87,
+                "min": 55,
+                "max": 2799,
+                "mean": 770.091954,
+                "stddev": 830.2125
+              }
+            },
+            {
+              "id": "f05a56a1-69ed-407a-9776-6001ef90b896",
+              "createdAt": 1729209600000,
+              "showAsDiscrete": false,
+              "numberSummary": {
+                "quantiles": {
+                  "bins": [
+                    0,
+                    0.01,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    0.99,
+                    1
+                  ],
+                  "counts": [
+                    50,
+                    50,
+                    70,
+                    185,
+                    319,
+                    715,
+                    2298,
+                    2399,
+                    2399
+                  ]
+                },
+                "count": 73,
+                "min": 50,
+                "max": 2399,
+                "mean": 557.726027,
+                "stddev": 600.8424
+              }
+            },
+            {
+              "id": "cba8225b-23f2-46c2-9c10-66a64490b459",
+              "createdAt": 1729296000000,
+              "showAsDiscrete": false,
+              "numberSummary": {
+                "quantiles": {
+                  "bins": [
+                    0,
+                    0.01,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    0.99,
+                    1
+                  ],
+                  "counts": [
+                    55,
+                    55,
+                    72,
+                    185,
+                    299,
+                    715,
+                    1599,
+                    2799,
+                    2799
+                  ]
+                },
+                "count": 80,
+                "min": 55,
+                "max": 2799,
+                "mean": 531.9,
+                "stddev": 573.0803
+              }
+            },
+            {
+              "id": "c07aec40-7d7c-4a45-9078-fa730692792f",
+              "createdAt": 1729382400000,
+              "showAsDiscrete": false,
+              "numberSummary": {
+                "quantiles": {
+                  "bins": [
+                    0,
+                    0.01,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    0.99,
+                    1
+                  ],
+                  "counts": [
+                    55,
+                    55,
+                    75,
+                    185,
+                    299,
+                    800,
+                    2399,
+                    2700,
+                    2700
+                  ]
+                },
+                "count": 90,
+                "min": 55,
+                "max": 2700,
+                "mean": 598.133333,
+                "stddev": 656.8452
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

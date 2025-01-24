@@ -1,0 +1,32 @@
+{
+  "id": "12345678-1234-5678-1234-567812345678",
+  "orgId": "org-0",
+  "schemaVersion": 1,
+  "datasetId": "model-303",
+  "granularity": "daily",
+  "analyzers": [
+    {
+      "schemaVersion": 1,
+      "id": "fpr-analyzer",
+      "schedule": {
+        "cron": "0 * * * * *"
+      },
+      "baseline": {
+        "type": "TrailingWindow",
+        "size": 14
+      },
+      "target": {
+        "level": "dataset",
+        "metric": "fpr",
+        "maxDelayBatchCount": 14,
+        "rollup": true
+      },
+      "config": {
+        "version": 1,
+        "type": "stddev",
+        "factor": 2,
+        "minBatchSize": 14
+      }
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+# See main.graphql for directive definitions
+
+enum RequestableTokenScope {
+  USER
+  ADMIN
+  ACCOUNT_ADMIN
+}
+
+type AccessTokenMetadata {
+  id: String!
+  """
+  ID of the user that generated the key
+  """
+  userId: String!
+  """
+  Human-readable token alias
+  """
+  name: String!
+  createdAt: Float!
+  """
+  Expiration timestamp. Null if the token never expires.
+  """
+  expiresAt: Float
+  """
+  List of scopes the token was generated for
+  """
+  scopes: [String!]!
+
+  """
+  The actual Access Token value, only returned if the token was just created
+  """
+  secret: String @auth(permissions: [MANAGE_API_TOKENS])
+  """
+  If the token has been revoked, this will be True
+  """
+  isRevoked: Boolean
+}
+
+type AccessTokenManagement {
+  """
+  Creates a new Access Token for accessing WhyLabs API
+  """
+  generate(name: String!, expiresAt: Float, scopes: [RequestableTokenScope!]): AccessTokenMetadata!
+  """
+  Revokes the specified Access Token, removing its access to WhyLabs API
+  """
+  revoke(
+    """
+    ID of the key being revoked
+    """
+    id: String!,
+    """
+    userId of the user that the key belongs to
+    """
+    userId: String!): AccessTokenMetadata!
+}
+
+extend type Mutation {
+  """
+  Operations related to managing WhyLabs API Access Tokens
+  """
+  accessToken: AccessTokenManagement! @auth(permissions: [MANAGE_API_TOKENS])
+}
+
+extend type Query {
+  """
+  List all of the Access Tokens associated with the user's organization
+  """
+  accessTokens(offset: Int = 0, limit: Int = 0): [AccessTokenMetadata!]! @auth(permissions: [VIEW_DATA])
+}

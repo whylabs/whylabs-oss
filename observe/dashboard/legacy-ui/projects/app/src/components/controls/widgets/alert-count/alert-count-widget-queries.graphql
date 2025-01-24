@@ -1,0 +1,9 @@
+query getAnomalyCountsForWidget($datasetId: String!, $tags: [SegmentTagFilter!], $from: Float!, $to: Float, $analyzerIds: [String!]) {
+  anomalyCounts(datasetId: $datasetId, tags: $tags,
+    fromTimestamp: $from, toTimestamp: $to, filter: { analyzerIDs: $analyzerIds }) {
+    totals {
+      category
+      count
+    }
+  }
+}

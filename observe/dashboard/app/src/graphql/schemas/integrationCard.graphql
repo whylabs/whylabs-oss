@@ -1,0 +1,12 @@
+type IntegrationCard {
+  category: String
+  title: String
+  description: String
+  url: String
+  logo: String
+  coming_soon: Boolean
+}
+
+extend type Query {
+  integrationCards: [IntegrationCard!] @auth
+}

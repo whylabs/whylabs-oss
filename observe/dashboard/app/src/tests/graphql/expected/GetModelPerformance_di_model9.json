@@ -1,0 +1,279 @@
+{
+  "data": {
+    "model": {
+      "id": "model-9",
+      "name": "Custom performance metrics",
+      "modelType": "MODEL_OTHER",
+      "batchFrequency": "P1D",
+      "datasetMetrics": [
+        {
+          "name": "custom perf metric min",
+          "values": [
+            {
+              "timestamp": 1692921600000,
+              "value": 0
+            },
+            {
+              "timestamp": 1693008000000,
+              "value": -0.1
+            },
+            {
+              "timestamp": 1693094400000,
+              "value": 1
+            },
+            {
+              "timestamp": 1693180800000,
+              "value": 1.1
+            },
+            {
+              "timestamp": 1693267200000,
+              "value": 0
+            },
+            {
+              "timestamp": 1693353600000,
+              "value": -0.1
+            },
+            {
+              "timestamp": 1693440000000,
+              "value": 1
+            },
+            {
+              "timestamp": 1693526400000,
+              "value": 1.1
+            },
+            {
+              "timestamp": 1693612800000,
+              "value": 0
+            },
+            {
+              "timestamp": 1693699200000,
+              "value": -0.1
+            },
+            {
+              "timestamp": 1693785600000,
+              "value": 1
+            },
+            {
+              "timestamp": 1693872000000,
+              "value": 1.1
+            },
+            {
+              "timestamp": 1693958400000,
+              "value": 0
+            },
+            {
+              "timestamp": 1694044800000,
+              "value": -0.1
+            }
+          ]
+        },
+        {
+          "name": "custom perf metric median",
+          "values": [
+            {
+              "timestamp": 1692921600000,
+              "value": 0
+            },
+            {
+              "timestamp": 1693008000000,
+              "value": -0.1
+            },
+            {
+              "timestamp": 1693094400000,
+              "value": 1
+            },
+            {
+              "timestamp": 1693180800000,
+              "value": 1.1
+            },
+            {
+              "timestamp": 1693267200000,
+              "value": 0
+            },
+            {
+              "timestamp": 1693353600000,
+              "value": -0.1
+            },
+            {
+              "timestamp": 1693440000000,
+              "value": 1
+            },
+            {
+              "timestamp": 1693526400000,
+              "value": 1.1
+            },
+            {
+              "timestamp": 1693612800000,
+              "value": 0
+            },
+            {
+              "timestamp": 1693699200000,
+              "value": -0.1
+            },
+            {
+              "timestamp": 1693785600000,
+              "value": 1
+            },
+            {
+              "timestamp": 1693872000000,
+              "value": 1.1
+            },
+            {
+              "timestamp": 1693958400000,
+              "value": 0
+            },
+            {
+              "timestamp": 1694044800000,
+              "value": -0.1
+            }
+          ]
+        }
+      ],
+      "dataAvailability": {
+        "latestTimestamp": 1694444400000
+      },
+      "batches": [
+        {
+          "timestamp": 1692921600000,
+          "inputCount": 1,
+          "outputCount": 1,
+          "metrics": {
+            "confusion": null,
+            "recallPrecision": null,
+            "fprTpr": null
+          }
+        },
+        {
+          "timestamp": 1693008000000,
+          "inputCount": 1,
+          "outputCount": 1,
+          "metrics": {
+            "confusion": null,
+            "recallPrecision": null,
+            "fprTpr": null
+          }
+        },
+        {
+          "timestamp": 1693094400000,
+          "inputCount": 1,
+          "outputCount": 1,
+          "metrics": {
+            "confusion": null,
+            "recallPrecision": null,
+            "fprTpr": null
+          }
+        },
+        {
+          "timestamp": 1693180800000,
+          "inputCount": 1,
+          "outputCount": 1,
+          "metrics": {
+            "confusion": null,
+            "recallPrecision": null,
+            "fprTpr": null
+          }
+        },
+        {
+          "timestamp": 1693267200000,
+          "inputCount": 1,
+          "outputCount": 1,
+          "metrics": {
+            "confusion": null,
+            "recallPrecision": null,
+            "fprTpr": null
+          }
+        },
+        {
+          "timestamp": 1693353600000,
+          "inputCount": 1,
+          "outputCount": 1,
+          "metrics": {
+            "confusion": null,
+            "recallPrecision": null,
+            "fprTpr": null
+          }
+        },
+        {
+          "timestamp": 1693440000000,
+          "inputCount": 1,
+          "outputCount": 1,
+          "metrics": {
+            "confusion": null,
+            "recallPrecision": null,
+            "fprTpr": null
+          }
+        },
+        {
+          "timestamp": 1693526400000,
+          "inputCount": 1,
+          "outputCount": 1,
+          "metrics": {
+            "confusion": null,
+            "recallPrecision": null,
+            "fprTpr": null
+          }
+        },
+        {
+          "timestamp": 1693612800000,
+          "inputCount": 1,
+          "outputCount": 1,
+          "metrics": {
+            "confusion": null,
+            "recallPrecision": null,
+            "fprTpr": null
+          }
+        },
+        {
+          "timestamp": 1693699200000,
+          "inputCount": 1,
+          "outputCount": 1,
+          "metrics": {
+            "confusion": null,
+            "recallPrecision": null,
+            "fprTpr": null
+          }
+        },
+        {
+          "timestamp": 1693785600000,
+          "inputCount": 1,
+          "outputCount": 1,
+          "metrics": {
+            "confusion": null,
+            "recallPrecision": null,
+            "fprTpr": null
+          }
+        },
+        {
+          "timestamp": 1693872000000,
+          "inputCount": 1,
+          "outputCount": 1,
+          "metrics": {
+            "confusion": null,
+            "recallPrecision": null,
+            "fprTpr": null
+          }
+        },
+        {
+          "timestamp": 1693958400000,
+          "inputCount": 1,
+          "outputCount": 1,
+          "metrics": {
+            "confusion": null,
+            "recallPrecision": null,
+            "fprTpr": null
+          }
+        },
+        {
+          "timestamp": 1694044800000,
+          "inputCount": 1,
+          "outputCount": 1,
+          "metrics": {
+            "confusion": null,
+            "recallPrecision": null,
+            "fprTpr": null
+          }
+        }
+      ]
+    }
+  }
+}

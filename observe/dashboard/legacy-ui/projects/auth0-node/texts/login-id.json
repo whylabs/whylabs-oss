@@ -1,0 +1,21 @@
+{
+  "__doc__": "https://auth0.com/docs/brand-and-customize/text-customization-new-universal-login/prompt-login-id",
+  "login-id": {
+      "alertListTitle": "Alerts",
+      "buttonText": "Log in",
+      "description": " ",
+      "editEmailText": "Edit",
+      "emailPlaceholder": "Email address",
+      "federatedConnectionButtonText": "Continue with ${connectionName}",
+      "footerLinkText": "Sign up",
+      "footerText": "Don't have an account?",
+      "logoAltText": "${companyName}",
+      "pageTitle": "Log in | ${clientName}",
+      "passwordPlaceholder": "Password",
+      "separatorText": "Or",
+      "signupActionLinkText": "${footerLinkText}",
+      "signupActionText": "${footerText}",
+      "title": " ",
+      "usernamePlaceholder": "Username or email address"
+  }
+}

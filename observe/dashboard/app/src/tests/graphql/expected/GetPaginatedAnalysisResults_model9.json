@@ -1,0 +1,120 @@
+{
+  "data": {
+    "paginatedAnalysisResults": [
+      {
+        "id": "a82dd490-52f7-3fc3-9d8f-6b4736122540",
+        "orgId": "org-9snDQm",
+        "datasetId": "model-9",
+        "runId": "4be17be5-db75-4a13-9f18-b56f33ec97bb",
+        "creationTimestamp": 1730972148450,
+        "datasetTimestamp": 1729209600000,
+        "targetLevel": "DATASET",
+        "category": "Performance",
+        "column": "__internal__.datasetMetrics",
+        "comparison_expected": null,
+        "comparison_observed": null,
+        "algorithm": null,
+        "algorithmMode": null,
+        "analysisId": "1083abee-0bf4-3743-b187-409c147b3dc2",
+        "analyzerId": "attractive-powderblue-chough-5944-analyzer",
+        "analyzerConfigVersion": 2,
+        "analyzerType": "diff",
+        "monitorIds": [
+          "attractive-powderblue-chough-5944"
+        ],
+        "isAnomaly": true,
+        "isFalseAlarm": false,
+        "granularity": "DAYS",
+        "metric": "CLASSIFICATION_ACCURACY",
+        "weight": null,
+        "calculationRuntimeNano": 4900827,
+        "columnList_added": null,
+        "columnList_removed": null,
+        "diff_metricValue": 11.7181883537024,
+        "diff_mode": "pct",
+        "diff_threshold": 10,
+        "drift_metricValue": null,
+        "drift_minBatchSize": null,
+        "drift_threshold": null,
+        "mostRecentDatasetDatalakeWriteTs": null,
+        "threshold_absoluteLower": null,
+        "threshold_absoluteUpper": null,
+        "threshold_baselineMetricValue": null,
+        "threshold_calculatedLower": 0.715371428571429,
+        "threshold_calculatedUpper": 0.874342857142857,
+        "threshold_metricValue": 0.888,
+        "threshold_factor": null,
+        "threshold_minBatchSize": null,
+        "failureType": null,
+        "failureExplanation": null,
+        "tags": [
+          {
+            "key": "gender",
+            "value": "female"
+          },
+          {
+            "key": "loc",
+            "value": "north"
+          }
+        ]
+      },
+      {
+        "id": "ee7d531f-39dd-3cab-9870-881db178444f",
+        "orgId": "org-9snDQm",
+        "datasetId": "model-9",
+        "runId": "33310e19-83ed-4d67-8e8e-682077430bfe",
+        "creationTimestamp": 1730972029833,
+        "datasetTimestamp": 1729036800000,
+        "targetLevel": "DATASET",
+        "category": "Performance",
+        "column": "__internal__.datasetMetrics",
+        "comparison_expected": null,
+        "comparison_observed": null,
+        "algorithm": null,
+        "algorithmMode": null,
+        "analysisId": "f3b62a93-ff75-3bcb-b7c0-62ced850a94f",
+        "analyzerId": "attractive-powderblue-chough-5944-analyzer",
+        "analyzerConfigVersion": 2,
+        "analyzerType": "diff",
+        "monitorIds": [
+          "attractive-powderblue-chough-5944"
+        ],
+        "isAnomaly": true,
+        "isFalseAlarm": false,
+        "granularity": "DAYS",
+        "metric": "CLASSIFICATION_ACCURACY",
+        "weight": null,
+        "calculationRuntimeNano": 4233522,
+        "columnList_added": null,
+        "columnList_removed": null,
+        "diff_metricValue": 10.2691218130312,
+        "diff_mode": "pct",
+        "diff_threshold": 10,
+        "drift_metricValue": null,
+        "drift_minBatchSize": null,
+        "drift_threshold": null,
+        "mostRecentDatasetDatalakeWriteTs": null,
+        "threshold_absoluteLower": null,
+        "threshold_absoluteUpper": null,
+        "threshold_baselineMetricValue": null,
+        "threshold_calculatedLower": 0.726171428571429,
+        "threshold_calculatedUpper": 0.887542857142857,
+        "threshold_metricValue": 0.724,
+        "threshold_factor": null,
+        "threshold_minBatchSize": null,
+        "failureType": null,
+        "failureExplanation": null,
+        "tags": [
+          {
+            "key": "gender",
+            "value": "female"
+          },
+          {
+            "key": "loc",
+            "value": "north"
+          }
+        ]
+      }
+    ]
+  }
+}

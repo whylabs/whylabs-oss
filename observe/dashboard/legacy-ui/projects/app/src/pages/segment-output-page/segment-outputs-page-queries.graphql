@@ -1,0 +1,11 @@
+query getSegmentOutputFeatures($model: String!, $tags: [SegmentTagFilter!], $from: Float!, $to: Float, $adHocRunId: String) {
+  model(id: $model) {
+    segment(tags: $tags) {
+      id
+      outputs {
+        ...FeatureDataSideTable
+      }
+    }
+  }
+}
+

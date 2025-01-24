@@ -1,0 +1,95 @@
+jackson:
+  serialization-inclusion: NON_ABSENT # Omit null and Optional.empty(), but include empty collections
+micronaut:
+  server:
+    cors:
+      enabled: true
+    port: 8080
+    maxRequestSize: 100MB
+    multipart:
+      location: /tmp/songbird
+      max-file-size: 100MB
+      max-request-size: 100MB
+      maxFileSize: 100MB
+      maxRequestSize: 100MB
+      enabled: true
+      disk: true
+      mixed: true
+  security:
+#    authentication: cookie
+    intercept-url-map:
+      - pattern: /swagger/**
+        http-method: GET
+        access:
+          - isAnonymous()
+      - pattern: /redoc
+        http-method: GET
+        access:
+          - isAnonymous()
+      - pattern: /swagger-ui
+        http-method: GET
+        access:
+          - isAnonymous()
+      - pattern: /swagger-ui/**
+        http-method: GET
+        access:
+          - isAnonymous()
+      - pattern: /swagger-ui/res/**
+        http-method: GET
+        access:
+          - isAnonymous()
+      - pattern: /rapidoc
+        http-method: GET
+        access:
+          - isAnonymous()
+      - pattern: /health
+        http-method: GET
+        access:
+          - isAnonymous()
+      - pattern: /beans
+        http-method: GET
+        access:
+          - isAuthenticated()
+  endpoints:
+    beans:
+      enabled: true
+      sensitive: true
+    info:
+      enabled: true
+      sensitive: false
+    health:
+      details-visible: ANONYMOUS
+  router:
+    static-resources:
+      swagger:
+        paths: classpath:META-INF/swagger
+        mapping: /swagger/**
+      redoc:
+        paths: classpath:META-INF/swagger/views/redoc
+        mapping: /redoc/**
+      rapidoc:
+        paths: classpath:META-INF/swagger/views/rapidoc
+        mapping: /rapidoc/**
+      swagger-ui:
+        paths: classpath:META-INF/swagger/views/swagger-ui
+        mapping: /swagger-ui/**
+  application:
+    name: songbird
+  metrics:
+    binders.web.enabled: false
+    enabled: true
+    export:
+      datadog:
+        apiKey: ${DATADOG_API_KEY:local-datadog-api-key}
+        enabled: ${DATADOG_METRICS_ENABLED:false}
+        step: PT1M
+  caches:
+    rate-limiter:
+      maximum-size: 1000
+      expire-after-access: 5m
+  http:
+    services:
+      scim:
+        pool:
+          enabled: true
+          max-connections: 10

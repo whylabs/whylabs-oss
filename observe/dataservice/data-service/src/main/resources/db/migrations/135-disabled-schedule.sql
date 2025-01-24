@@ -1,0 +1,1 @@
+alter table whylabs.pg_monitor_schedule add column if not exists disabled boolean;

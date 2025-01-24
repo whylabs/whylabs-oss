@@ -1,0 +1,9 @@
+{
+  "operationName": null,
+  "variables": {
+    "model": "model-0",
+    "from": 1620025200000,
+    "to": 1622617200000
+  },
+  "query": "query getAvailableFeaturesDiscrete($model: String!, $from: Float!, $to: Float, $offset: Int, $limit: Int) {\n  model(id: $model) {\n    id\n    name\n    totalFeatures\n    output {\n      ...DiscreteDataFields\n      alerts(filter: {fromTimestamp: $from, toTimestamp: $to}) {\n        ...AlertSparkData\n        __typename\n      }\n      __typename\n    }\n    features(offset: $offset, limit: $limit) {\n      ...DiscreteDataFields\n      alerts(filter: {fromTimestamp: $from, toTimestamp: $to}) {\n        ...AlertSparkData\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}\n\nfragment DiscreteDataFields on Feature {\n  id\n  name\n  baselineSketch {\n    id\n    showAsDiscrete\n    __typename\n  }\n  __typename\n}\n\nfragment AlertSparkData on DataQualityEvent {\n  id\n  archetype\n  type\n  datasetTimestamp\n  __typename\n}\n"
+}

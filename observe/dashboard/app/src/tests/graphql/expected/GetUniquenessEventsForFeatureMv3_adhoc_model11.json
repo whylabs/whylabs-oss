@@ -1,0 +1,86 @@
+{
+  "data": {
+    "model": {
+      "id": "model-11",
+      "name": "Different data types",
+      "batchFrequency": "P1D",
+      "feature": {
+        "id": "2a40a3ef-6493-45c4-96e5-7bd3476e54b9",
+        "analysisResults": [
+          {
+            "id": "fb320f15-b836-39f0-98a6-cc9964fc8178",
+            "orgId": "org-9snDQm",
+            "creationTimestamp": 1736440465742,
+            "datasetTimestamp": 1729123200000,
+            "threshold_calculatedLower": 0.001,
+            "threshold_calculatedUpper": 0.001,
+            "threshold_absoluteLower": null,
+            "threshold_absoluteUpper": null,
+            "threshold_metricValue": 0.001,
+            "threshold_factor": 1.96,
+            "threshold_minBatchSize": 3,
+            "failureType": null,
+            "analyzerResultType": "StddevCalculationResult",
+            "analysisId": "2ec6c930-bc0e-39a7-a8ea-edccd701c486",
+            "analyzerType": "stddev",
+            "isAnomaly": false
+          },
+          {
+            "id": "7951a63a-b353-3b29-8a53-d0a2e197e9a9",
+            "orgId": "org-9snDQm",
+            "creationTimestamp": 1736440465744,
+            "datasetTimestamp": 1729209600000,
+            "threshold_calculatedLower": 0.001,
+            "threshold_calculatedUpper": 0.001,
+            "threshold_absoluteLower": null,
+            "threshold_absoluteUpper": null,
+            "threshold_metricValue": 0.001,
+            "threshold_factor": 1.96,
+            "threshold_minBatchSize": 4,
+            "failureType": null,
+            "analyzerResultType": "StddevCalculationResult",
+            "analysisId": "dba287ba-0232-34a2-acf0-40bbf8eafb95",
+            "analyzerType": "stddev",
+            "isAnomaly": false
+          },
+          {
+            "id": "5ee00d96-235c-3662-bd25-d68fca1c69f4",
+            "orgId": "org-9snDQm",
+            "creationTimestamp": 1736440465745,
+            "datasetTimestamp": 1729296000000,
+            "threshold_calculatedLower": 0.001,
+            "threshold_calculatedUpper": 0.001,
+            "threshold_absoluteLower": null,
+            "threshold_absoluteUpper": null,
+            "threshold_metricValue": 0.001,
+            "threshold_factor": 1.96,
+            "threshold_minBatchSize": 5,
+            "failureType": null,
+            "analyzerResultType": "StddevCalculationResult",
+            "analysisId": "87a1c103-9e78-357f-a66a-5828eb2f1492",
+            "analyzerType": "stddev",
+            "isAnomaly": false
+          },
+          {
+            "id": "0984c359-670a-325c-92a4-4bf323b4947f",
+            "orgId": "org-9snDQm",
+            "creationTimestamp": 1736440465746,
+            "datasetTimestamp": 1729382400000,
+            "threshold_calculatedLower": 0.001,
+            "threshold_calculatedUpper": 0.001,
+            "threshold_absoluteLower": null,
+            "threshold_absoluteUpper": null,
+            "threshold_metricValue": 0.001,
+            "threshold_factor": 1.96,
+            "threshold_minBatchSize": 6,
+            "failureType": null,
+            "analyzerResultType": "StddevCalculationResult",
+            "analysisId": "424ddcf6-2c64-3a6a-8926-0a65f5f988c1",
+            "analyzerType": "stddev",
+            "isAnomaly": false
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,623 @@
+enum AnalysisMetric {
+  """
+  Fields PROFILE_xxx, INPUT_COUNT, OUTPUT_COUNT, SHAPE_xxx, COLUMN_ROW_COUNT_SUM are not implemented
+  """
+  CLASSIFICATION_ACCURACY
+  CLASSIFICATION_RECALL
+  CLASSIFICATION_FPR
+  CLASSIFICATION_PRECISION
+  CLASSIFICATION_F1
+  CLASSIFICATION_AUROC
+  HISTOGRAM
+  FREQUENT_ITEMS
+  PROFILE_COUNT
+  PROFILE_LAST_INGESTION_TIME
+  PROFILE_FIRST_INGESTION_TIME
+  INPUT_COUNT
+  OUTPUT_COUNT
+  REGRESSION_MSE
+  REGRESSION_MAE
+  REGRESSION_RMSE
+  COUNT
+  MEDIAN
+  MIN
+  MAX
+  MEAN
+  STD_DEV
+  VARIANCE
+  UNIQUE_UPPER
+  UNIQUE_UPPER_RATIO
+  UNIQUE_EST
+  UNIQUE_EST_RATIO
+  UNIQUE_LOWER
+  UNIQUE_LOWER_RATIO
+  COUNT_BOOL
+  COUNT_BOOL_RATIO
+  COUNT_INTEGRAL
+  COUNT_INTEGRAL_RATIO
+  COUNT_FRACTIONAL
+  COUNT_FRACTIONAL_RATIO
+  COUNT_STRING
+  COUNT_STRING_RATIO
+  COUNT_NULL
+  COUNT_NULL_RATIO
+  INFERRED_DATA_TYPE
+  QUANTILE_75
+  QUANTILE_25
+  QUANTILE_90
+  QUANTILE_99
+  QUANTILE_5
+  QUANTILE_95
+  COLUMN_ROW_COUNT_SUM
+  SHAPE_COLUMN_COUNT
+  SHAPE_ROW_COUNT
+  SECONDS_SINCE_LAST_UPLOAD
+  MISSING_DATAPOINT
+  PREDICTION_COUNT
+  UNKNOWN
+  COMPOSED
+}
+
+enum AnomalyCountGroupBy {
+  METRIC
+  CATEGORY
+}
+
+input AnalysisFilter {
+  """
+  If true, only analysis results that are anomalous will be returned
+  """
+  anomaliesOnly: Boolean!
+  """
+  If true, failed analyses will be included even if not marked as anomalies. Defaults to false.
+  """
+  includeFailed: Boolean
+  """
+  If true, unhelpful anomalies will be included. Defaults to true.
+  """
+  includeUnhelpful: Boolean
+  datasetId: String
+  """
+  Segment tags to filter by.
+  NOTE: If this is NULL, then ALL analysis results will be returned, regardless of their tags.
+  If you want to fetch analysis results only for the 'overall' segment, specify an empty array here ([]).
+  Otherwise specify the tags to filter by.
+  """
+  segmentTags: [SegmentTagFilter!]
+  fromTimestamp: Float
+  toTimestamp: Float
+  """
+  Target metrics
+  """
+  metrics: [AnalysisMetric!]
+  """
+  Target columns
+  """
+  columns: [String!]
+  """
+  Target analyzer types
+  Corresponds to AlgorithmType enum in monitor config schema
+  """
+  analyzerTypes: [String!]
+  """
+  Filter by Analyzer IDs
+  E.g. you want output from specific Analyzers
+  """
+  analyzerIDs: [String!]
+  """
+  Filter by Monitor IDs (will only fetch anomalies that triggered the monitor(s)
+  """
+  monitorIDs: [String!]
+  """
+  Filter by specific Analysis IDs
+  E.g. you want specific anomalies where you already know their AnalysisIDs
+  """
+  analysisIDs: [String!]
+  """
+  Filter by run ID for adhoc monitor runs
+  """
+  adhocRunId: String
+  """
+  Filter results to be for either individual or batch profiles
+  """
+  granularityInclusion: GranularityInclusion
+}
+
+enum GranularityInclusion {
+  INDIVIDUAL_ONLY
+  ROLLUP_ONLY
+  BOTH
+}
+
+enum AnalysisTargetLevel {
+  DATASET
+  COLUMN
+  UNKNOWN
+}
+
+"""
+Result of an analyzer run.
+Field definitions can also be found in the monitor code: https://gitlab.com/whylabs/core/whylabs-processing-core/-/blob/mainline/murmuration/src/main/java/ai/whylabs/core/structures/monitor/events/AnalyzerResult.java
+"""
+type AnalysisResult {
+  """
+  UUID/primary key of the analysis result that resulted from a particular monitor run.
+  You will probably want to use 'analysisId', rather than 'id' in most cases.
+  """
+  id: String
+  orgId: String
+  datasetId: String
+  """
+  Segment tags for which the analysis result was generated.
+  Empty tags = overall segment
+  """
+  tags: [SegmentTag!]!
+  """
+  ID of the monitor run that produced this analysis
+  """
+  runId: String
+  """
+  When the analysis was produced by monitor
+  """
+  creationTimestamp: Float
+  """
+  Timestamp of the profile that this analysis refers to
+  """
+  datasetTimestamp: Float
+  """
+  What part of the dataset the analyzer was targeting
+  """
+  targetLevel: AnalysisTargetLevel
+  """
+  Name of the target column, if applicable
+  """
+  column: String
+  """
+  Algorithm used to produce the analysis
+  Currently corresponds to DriftConfig[algorithm]  in monitor config schema
+  """
+  algorithm: String
+  """
+  Mode of the algorithm
+  Currently corresponds to ColumnListChangeConfig[mode] or DiffConfig[mode]  in monitor config schema
+  """
+  algorithmMode: String
+  """
+  UUID defining a particular analyzer running on a specific point in time. Similar to 'id', but stable across monitor backfills.
+  When backfilling/overwriting monitor data, this ID will be stable across multiple job runs (unlike the similar 'id' property)
+  """
+  analysisId: String
+  """
+  Which analyzer produced the analysis
+  """
+  analyzerId: String
+  """
+  Version of the analyzer config that produced this analysis
+  """
+  analyzerConfigVersion: Int
+  """
+  Currently corresponds to AlgorithmType in monitor config schema
+  """
+  analyzerType: String
+  """
+  What type of analyzer result was produced. Determines which fields/columns will be useful to explain the event.
+  """
+  analyzerResultType: String
+  """
+  Names of this analysis result's fields that help explain the anomaly.
+  Each value will be in `keyof AnalysisResult`.
+  """
+  explanationFields: [String!]
+  """
+  IDs of the monitors that were triggered by the anomaly
+  """
+  monitorIds: [String!]
+  """
+  monitorDisplayName
+  """
+  monitorDisplayName: String
+  """
+  Whether the analysis is an anomaly
+  """
+  isAnomaly: Boolean
+  """
+  Granularity at which the analysis was produced
+  """
+  granularity: String
+  """
+  Metric targeted by the analysis
+  """
+  metric: AnalysisMetric
+  """
+  Inferred category of the anomaly, based on its target metric
+  """
+  category: AlertCategory
+  """
+  Weight of the target (importance), as registered in the entity schema
+  """
+  weight: Float
+  """
+  Duration of the calculation
+  """
+  calculationRuntimeNano: Float
+  """
+  For column_list analysis, how many columns were added
+  """
+  columnList_added: Float
+  """
+  For column_list analysis, how many columns were removed
+  """
+  columnList_removed: Float
+  """
+  Sample list of the added columns
+  """
+  columnList_addedSample: [String!]
+  """
+  Sample list of the removed columns
+  """
+  columnList_removedSample: [String!]
+  """
+  Describes how the column list analyzer was configured (e.g. on add/remove, on add, etc)
+  """
+  columnList_mode: String
+  """
+  Expected value when performing an equality check
+  """
+  comparison_expected: String
+  """
+  Observed value when performing an equality check
+  """
+  comparison_observed: String
+  """
+  For diff analysis, what was the metric value
+  """
+  diff_metricValue: Float
+  """
+  Diff mode for diff analyzers (DiffConfig[mode])
+  """
+  diff_mode: String
+  """
+  Threshold for the diff to trigger an anomaly
+  """
+  diff_threshold: Float
+  """
+  For drift analysis, what was the metric value
+  """
+  drift_metricValue: Float
+  """
+  ??? TODO
+  """
+  drift_minBatchSize: Float
+  """
+  For drift analysis, what was the threshold
+  """
+  drift_threshold: Float
+  """
+  When was the data last modified when this analysis was produced
+  """
+  mostRecentDatasetDatalakeWriteTs: Float
+  """
+  Absolute lower threshold
+  """
+  threshold_absoluteLower: Float
+  """
+  Absolute upper threshold
+  """
+  threshold_absoluteUpper: Float
+  """
+  For threshold analysis, what was the baseline metric value
+  """
+  threshold_baselineMetricValue: Float
+  """
+  For threshold analysis, what was the lower threshold that was used for the calculation
+  """
+  threshold_calculatedLower: Float
+  """
+  For threshold analysis, what was the upper threshold that was used for the calculation
+  """
+  threshold_calculatedUpper: Float
+  """
+  For threshold analysis, what was the metric value
+  """
+  threshold_metricValue: Float
+  """
+  When doing stddev, the factor
+  """
+  threshold_factor: Float
+  """
+  Minimum number of batches present for this calculation to run
+  """
+  threshold_minBatchSize: Float
+  """
+  If there was a failure computing the analysis, this captures the failure code
+  """
+  failureType: String
+  """
+  If there was a failure computing the analysis, provides additional context on why the analyzer run failed
+  """
+  failureExplanation: String
+  """
+  Users can mark anomalies as false alarms
+  """
+  isFalseAlarm: Boolean
+  """
+  Frequent string comparison operator
+  """
+  frequentStringComparison_operator: String
+  """
+  Mismatched strings found by frequent string comparison
+  """
+  frequentStringComparison_sample: [String!]
+  """
+  This is a composed analyzer (e.g. conjunction/disjunction) that combines the results of multiple child analyzers
+  """
+  parent: Boolean
+  """
+  For a composed analyzer, identifies the child analyzers in the monitor config
+  """
+  childAnalyzerIds: [String!]
+  """
+  For a composed analyzer, identifies the AnalysisResults of the child analyzers
+  """
+  childAnalysisIds: [String!]
+  """
+  If the analyzer is run on individual profiles, this will contain zero or more traceIds associated with the profile
+  """
+  traceIds: [String!]
+  """
+  If the analyzer is run on individual profiles, this will be true
+  """
+  disableTargetRollup: Boolean
+  """
+  The tags associated with the analyzer, e.g. indicating if it is a constraint
+  """
+  analyzerTags: [String!]
+}
+
+input AnomalyFilter {
+  datasetId: String!
+  fromTimestamp: Float!
+  toTimestamp: Float
+  """
+  Filter by Analyzer IDs
+  E.g. you want output from specific Analyzers
+  """
+  analyzerIDs: [String!]
+  """
+  Filter by Monitor IDs (will only fetch anomalies that triggered the monitor(s)
+  """
+  monitorIDs: [String!]
+  """
+  Filter by run ID for adhoc monitor runs
+  """
+  adhocRunId: String
+}
+
+input AnomalyOptionalFilter {
+  """
+  Filter by Analyzer IDs
+  E.g. you want output from specific Analyzers
+  """
+  analyzerIDs: [String!]
+  """
+  Filter by Monitor IDs (will only fetch anomalies that triggered the monitor(s)
+  """
+  monitorIDs: [String!]
+  """
+  Filter by run ID for adhoc monitor runs
+  """
+  adhocRunId: String
+}
+
+type AnomalyCount {
+  """
+  Anomaly timestamp
+  """
+  timestamp: Float!
+  """
+  Count of anomalies
+  """
+  count: Int! @deprecated(reason: "Use anomalyCount")
+  """
+  Count of anomalies
+  """
+  anomalyCount: Int!
+  """
+  Count of failed analyses
+  """
+  failedCount: Int!
+  """
+  Count of all analysis results
+  """
+  resultCount: Int!
+}
+
+type AnalyzerAnomalyCount {
+  """
+  Analyzer ID
+  """
+  analyzerId: String!
+  """
+  Count of anomalies
+  """
+  anomalyCount: Int!
+  """
+  Count of failed analyses
+  """
+  failedCount: Int!
+  """
+  Count of all analysis results
+  """
+  resultCount: Int!
+}
+
+extend type Query {
+  """
+  Returns analysis results, filtered by the specified filter
+  Note: offset/limit are not supported. Use analysisResultsPaginated instead.
+  """
+  analysisResults(filter: AnalysisFilter!, offset: Int, limit: Int, sortDirection: SortDirection!): [AnalysisResult!]
+    @auth
+  """
+  Returns paginated analysis results.
+  """
+  paginatedAnalysisResults(
+    filter: AnalysisFilter!
+    offset: Int!
+    limit: Int!
+    sortDirection: SortDirection!
+  ): [AnalysisResult!] @auth
+  """
+  Fetch a specific analysis result by analysisId.
+  Note: this should be the 'analysisId' field on analysis results, not the 'id' field.
+  """
+  analysisResult(analysisId: String!): AnalysisResult @auth
+  """
+  Returns the total count of anomalies by time period. Use timePeriod of ALL to get the sum of all anomalies in the time range.
+  """
+  anomalyCount(
+    filter: AnomalyFilter!
+    timePeriod: TimePeriod
+    granularityInclusion: GranularityInclusion
+  ): [AnomalyCount!] @auth
+  """
+  Returns the total count of anomalies by analyzer ID.
+  """
+  anomalyCountByAnalyzer(
+    datasetId: String!
+    fromTimestamp: Float!
+    toTimestamp: Float!
+    analyzerIDs: [String!]!
+    granularityInclusion: GranularityInclusion
+  ): [AnalyzerAnomalyCount!] @auth
+  """
+  Returns the total count of anomalies within the segments of the given dataset and time range
+  """
+  segmentedAnomalyCount(
+    datasetId: String!
+    fromTimestamp: Float!
+    toTimestamp: Float
+    granularityInclusion: GranularityInclusion
+  ): Float @auth
+  """
+  Returns aggregated anomaly counts over time and broken down by category.
+  Much more efficient than fetching anomaly objects directly, because aggregation happens in Druid.
+  """
+  anomalyCounts(
+    datasetId: String!
+    tags: [SegmentTagFilter!]
+    fromTimestamp: Float!
+    toTimestamp: Float
+    groupBy: AnomalyCountGroupBy
+    filter: AnomalyOptionalFilter
+    granularityInclusion: GranularityInclusion
+  ): AlertCategoryCounts @auth
+}
+
+extend interface Dataset {
+  """
+  Returns analysis results, filtered by the specified filter and scoped to the specific dataset.
+  Note: supplied dataset/tags filters are ignored
+  """
+  analysisResults(filter: AnalysisFilter!, sortDirection: SortDirection!): [AnalysisResult!]
+  """
+  Returns analysis results that are anomalous, filtered by the specified filter and scoped to the specific dataset.
+  Note: supplied dataset/tags and anomaliesOnly filters are ignored
+  """
+  anomalies(filter: AnalysisFilter!, sortDirection: SortDirection!): [AnalysisResult!]
+  """
+  Alias for alertCountsV2
+  Returns aggregated anomaly counts over time and broken down by category, for the overall dataset.
+  Much more efficient than fetching anomaly objects directly, because aggregation happens in Druid.
+  """
+  anomalyCounts(
+    fromTimestamp: Float!
+    toTimestamp: Float
+    groupBy: AnomalyCountGroupBy
+    filter: AnomalyOptionalFilter
+    granularityInclusion: GranularityInclusion
+  ): AlertCategoryCounts
+}
+
+extend type Model {
+  """
+  Returns analysis results, filtered by the specified filter and scoped to the specific dataset.
+  Note: supplied dataset/tags filters are ignored
+  """
+  analysisResults(filter: AnalysisFilter!, sortDirection: SortDirection!): [AnalysisResult!]
+  """
+  Returns analysis results that are anomalous, filtered by the specified filter and scoped to the specific dataset.
+  Note: supplied dataset/tags and anomaliesOnly filters are ignored
+  """
+  anomalies(filter: AnalysisFilter!, sortDirection: SortDirection!): [AnalysisResult!]
+  """
+  Alias for alertCountsV2
+  Returns aggregated anomaly counts over time and broken down by category.
+  Much more efficient than fetching anomaly objects directly, because aggregation happens in Druid.
+  """
+  anomalyCounts(
+    fromTimestamp: Float!
+    toTimestamp: Float
+    groupBy: AnomalyCountGroupBy
+    filter: AnomalyOptionalFilter
+    granularityInclusion: GranularityInclusion
+  ): AlertCategoryCounts
+  """
+  Returns aggregated anomaly counts over time and broken down by category, for all segments and the overall dataset.
+  """
+  allAnomalyCounts(
+    fromTimestamp: Float!
+    toTimestamp: Float
+    groupBy: AnomalyCountGroupBy
+    filter: AnomalyOptionalFilter
+    granularityInclusion: GranularityInclusion
+  ): AlertCategoryCounts
+}
+
+extend type Segment {
+  """
+  Returns analysis results, filtered by the specified filter and scoped to the specific dataset.
+  Note: supplied dataset/tags filters are ignored
+  """
+  analysisResults(filter: AnalysisFilter!, sortDirection: SortDirection!): [AnalysisResult!]
+  """
+  Returns analysis results that are anomalous, filtered by the specified filter and scoped to the specific dataset.
+  Note: supplied dataset/tags and anomaliesOnly filters are ignored
+  """
+  anomalies(filter: AnalysisFilter!, sortDirection: SortDirection!): [AnalysisResult!]
+  """
+  Alias for alertCountsV2
+  Returns aggregated anomaly counts over time and broken down by category for the segment.
+  Much more efficient than fetching anomaly objects directly, because aggregation happens in Druid.
+  """
+  anomalyCounts(
+    fromTimestamp: Float!
+    toTimestamp: Float
+    groupBy: AnomalyCountGroupBy
+    filter: AnomalyOptionalFilter
+    granularityInclusion: GranularityInclusion
+  ): AlertCategoryCounts
+}
+
+extend type Feature {
+  """
+  Returns analysis results, filtered by the specified filter and scoped to the specific dataset and feature.
+  Note: supplied dataset/tags and feature filters are ignored
+  """
+  analysisResults(filter: AnalysisFilter!, sortDirection: SortDirection!): [AnalysisResult!]
+  """
+  Returns analysis results that are anomalous, filtered by the specified filter and scoped to the specific dataset and feature.
+  Note: supplied dataset/tags, anomaliesOnly, and feature filters are ignored
+  """
+  anomalies(filter: AnalysisFilter!, sortDirection: SortDirection!): [AnalysisResult!]
+  """
+  Alias for alertCountsV2
+  """
+  anomalyCounts(
+    fromTimestamp: Float!
+    toTimestamp: Float
+    groupBy: AnomalyCountGroupBy
+    filter: AnomalyOptionalFilter
+    granularityInclusion: GranularityInclusion
+  ): AlertCategoryCounts
+}

@@ -1,0 +1,1211 @@
+{
+  "metadata": {
+    "llm": {
+      "columnMetadata": [
+        {
+          "name": "prompt.sentiment.sentiment_score",
+          "description": "Sentiment score between -1 (most negative) and 1 (most positive) calculated using Vader analysis.",
+          "tags": [
+            "sentiment",
+            "security",
+            "negative_sentiment_insight"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.sentiment.sentiment_score.mean",
+              "label": "Prompt sentiment",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.toxicity.toxicity_score",
+          "description": "Toxicity score between 0 (no toxicity) and 1(maximum toxicity) calculated using HuggingFace's toxic comment analyzer.",
+          "tags": [
+            "sentiment",
+            "security",
+            "toxicity_insight"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.toxicity.toxicity_score.mean",
+              "label": "Prompt toxicity",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.flesch_kincaid_grade",
+          "description": "A number equivalent to the US grade level of education required to be able to understand a text.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.flesch_kincaid_grade.mean",
+              "label": "Prompt flesch kincaid grade",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.flesch_reading_ease",
+          "description": "Readability score based on sentence length and word length, with higher scores indicating material that is easier to read.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.flesch_reading_ease.mean",
+              "label": "Prompt flesch reading ease",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.data_leakage",
+          "description": "A distribution of the patterns that have been matched in the text",
+          "tags": [
+            "security",
+            "patterns_insight"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.data_leakage_frequent_items",
+              "label": "Prompt data leakage",
+              "builtinMetric": "frequent_items"
+            },
+            {
+              "name": "prompt.data_leakage_unique_est",
+              "label": "Prompt data leakage",
+              "builtinMetric": "unique_est"
+            }
+          ]
+        },
+        {
+          "name": "prompt.similarity.jailbreak",
+          "description": "Maximum cosine similarity of text embedding compared to provided jailbreaks",
+          "tags": [
+            "security",
+            "jailbreak_insight"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.similarity.jailbreak.quantile_99",
+              "label": "Prompt jailbreak similarity",
+              "builtinMetric": "quantile_99"
+            }
+          ]
+        },
+        {
+          "name": "prompt.similarity.injection",
+          "description": "Score indicating the likelihood of injection in the text, with higher scores indicating higher likelihood",
+          "tags": [
+            "security"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.similarity.injection.quantile_99",
+              "label": "Prompt injection",
+              "builtinMetric": "quantile_99"
+            }
+          ]
+        },
+        {
+          "name": "prompt.similarity.refusal",
+          "description": "Maximum cosine similarity of text embedding compared to provided refusals",
+          "tags": [
+            "security",
+            "refusal_insight"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.similarity.refusal.quantile_99",
+              "label": "Prompt refusal similarity",
+              "builtinMetric": "quantile_99"
+            }
+          ]
+        },
+        {
+          "name": "prompt.difficult_words",
+          "description": "Number of words not considered easy in the dalle-chall readability formula.",
+          "tags": [
+            "quality"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.difficult_words.mean",
+              "label": "Prompt difficult words",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.relevance_to_prompt",
+          "description": "Semantic similarity of response to the prompt measured by cosine similarity of produced embeddings.",
+          "tags": [
+            "relevance",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.relevance_to_prompt.mean",
+              "label": "Prompt relevance to prompt",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.smog_index",
+          "description": "US grade level of education required to be able to understand a text.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.smog_index.mean",
+              "label": "Prompt smog index",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.coleman_liau_index",
+          "description": "US grade level of education required to be able to understand a text.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.coleman_liau_index.mean",
+              "label": "Prompt coleman liau index",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.automated_readability_index",
+          "description": "US grade level of education required to be able to understand a text.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.automated_readability_index.mean",
+              "label": "Prompt automated readability index",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.dale_chall_readability_score",
+          "description": "US grade level of education required to be able to understand a text.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.dale_chall_readability_score.mean",
+              "label": "Prompt dale chall readability score",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.linsear_write_formula",
+          "description": "US grade level of education required to be able to understand a text.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.linsear_write_formula.mean",
+              "label": "Prompt linsear write formula",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.gunning_fog",
+          "description": "US grade level of education required to be able to understand a text.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.gunning_fog.mean",
+              "label": "Prompt gunning fog",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.aggregate_reading_level",
+          "description": "US grade level of education required to be able to understand a text.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.aggregate_reading_level.mean",
+              "label": "Prompt aggregate reading level",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.fernandez_huerta",
+          "description": "US grade level of education required to be able to understand a text.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.fernandez_huerta.mean",
+              "label": "Prompt fernandez huerta",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.szigriszt_pazos",
+          "description": "US grade level of education required to be able to understand a text.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.szigriszt_pazos.mean",
+              "label": "Prompt szigriszt pazos",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.gutierrez_polini",
+          "description": "US grade level of education required to be able to understand a text.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.gutierrez_polini.mean",
+              "label": "Prompt gutierrez polini",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.crawford",
+          "description": "US grade level of education required to be able to understand a text.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.crawford.mean",
+              "label": "Prompt crawford",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.gulpease_index",
+          "description": "Score indicating readability of Italian texts, with higher scores being easier to read.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.gulpease_index.mean",
+              "label": "Prompt gulpease index",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.osman",
+          "description": "Readability score based on sentence length and word length, with higher scores indicating material that is easier to read.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.osman.mean",
+              "label": "Prompt osman",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.syllable_count",
+          "description": "The number of syllables present in the text.",
+          "tags": [
+            "quality"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.syllable_count.mean",
+              "label": "Prompt syllable count",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.lexicon_count",
+          "description": "The number of words present in the text.",
+          "tags": [
+            "quality"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.lexicon_count.mean",
+              "label": "Prompt lexicon count",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.sentence_count",
+          "description": "The number of sentences present in the text.",
+          "tags": [
+            "quality"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.sentence_count.mean",
+              "label": "Prompt sentence count",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.character_count",
+          "description": "The number of characters present in the text.",
+          "tags": [
+            "quality"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.character_count.mean",
+              "label": "Prompt character count",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.letter_count",
+          "description": "The number of letters present in the text.",
+          "tags": [
+            "quality"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.letter_count.mean",
+              "label": "Prompt letter count",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.polysyllable_count",
+          "description": "The number of words with three or  more syllables present in the text.",
+          "tags": [
+            "quality"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.polysyllable_count.mean",
+              "label": "Prompt polysyllable count",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.monosyllable_count",
+          "description": "The number of words with one syllable present in the text.",
+          "tags": [
+            "quality"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.monosyllable_count.mean",
+              "label": "Prompt monosyllable count",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.sentiment.sentiment_score",
+          "description": "Sentiment score between -1 (most negative) and 1 (most positive) calculated using Vader analysis.",
+          "tags": [
+            "sentiment",
+            "security",
+            "negative_sentiment_insight"
+          ],
+          "metrics": [
+            {
+              "name": "response.sentiment.sentiment_score.mean",
+              "label": "Response sentiment",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.toxicity.toxicity_score",
+          "description": "Toxicity score between 0 (no toxicity) and 1(maximum toxicity) calculated using HuggingFace's toxicity model.",
+          "tags": [
+            "sentiment",
+            "security",
+            "toxicity_insight"
+          ],
+          "metrics": [
+            {
+              "name": "response.toxicity.toxicity_score.mean",
+              "label": "Response toxicity",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.flesch_kincaid_grade",
+          "description": "A number equivalent to the US grade level of education required to be able to understand a text.",
+          "tags": [
+            "quality",
+            "performance",
+            "flesch_insight"
+          ],
+          "metrics": [
+            {
+              "name": "response.flesch_kincaid_grade.mean",
+              "label": "Response flesch kincaid grade",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.flesch_reading_ease",
+          "description": "Readability score based on sentence length and word length, with higher scores indicating material that is easier to read.",
+          "tags": [
+            "quality",
+            "performance",
+            "flesch_insight"
+          ],
+          "metrics": [
+            {
+              "name": "response.flesch_reading_ease.mean",
+              "label": "Response flesch reading ease",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.data_leakage",
+          "description": "A distribution of the patterns that have been matched in the text",
+          "tags": [
+            "security",
+            "patterns_insight"
+          ],
+          "metrics": [
+            {
+              "name": "response.data_leakage_frequent_items",
+              "label": "Response data leakage",
+              "builtinMetric": "frequent_items"
+            },
+            {
+              "name": "response.data_leakage_unique_est",
+              "label": "Response data leakage",
+              "builtinMetric": "unique_est"
+            }
+          ]
+        },
+        {
+          "name": "response.jailbreak_similarity",
+          "description": "Maximum cosine similarity of text embedding compared to provided jailbreaks",
+          "tags": [
+            "security"
+          ],
+          "metrics": [
+            {
+              "name": "response.jailbreak_similarity.quantile_99",
+              "label": "Response jailbreak similarity",
+              "builtinMetric": "quantile_99"
+            }
+          ]
+        },
+        {
+          "name": "response.injection",
+          "description": "Score indicating the likelihood of injection in the text, with higher scores indicating higher likelihood",
+          "tags": [
+            "security"
+          ],
+          "metrics": [
+            {
+              "name": "response.injection.quantile_99",
+              "label": "Response injection",
+              "builtinMetric": "quantile_99"
+            }
+          ]
+        },
+        {
+          "name": "response.refusal.similarity",
+          "description": "Maximum cosine similarity of text embedding compared to provided refusals",
+          "tags": [
+            "security",
+            "refusal_insight"
+          ],
+          "metrics": [
+            {
+              "name": "response.refusal.similarity.quantile_99",
+              "label": "Response refusal similarity",
+              "builtinMetric": "quantile_99"
+            }
+          ]
+        },
+        {
+          "name": "response.difficult_words",
+          "description": "Number of words not considered easy in the dalle-chall readability formula.",
+          "tags": [
+            "quality"
+          ],
+          "metrics": [
+            {
+              "name": "response.difficult_words.mean",
+              "label": "Response difficult words",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.relevance_to_prompt",
+          "description": "Semantic similarity of response to the prompt measured by cosine similarity of produced embeddings.",
+          "tags": [
+            "relevance",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "response.relevance_to_prompt.mean",
+              "label": "Response relevance to prompt",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.smog_index",
+          "description": "US grade level of education required to be able to understand a text.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "response.smog_index.mean",
+              "label": "Response smog index",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.coleman_liau_index",
+          "description": "US grade level of education required to be able to understand a text.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "response.coleman_liau_index.mean",
+              "label": "Response coleman liau index",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.automated_readability_index",
+          "description": "US grade level of education required to be able to understand a text.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "response.automated_readability_index.mean",
+              "label": "Response automated readability index",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.dale_chall_readability_score",
+          "description": "US grade level of education required to be able to understand a text.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "response.dale_chall_readability_score.mean",
+              "label": "Response dale chall readability score",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.linsear_write_formula",
+          "description": "US grade level of education required to be able to understand a text.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "response.linsear_write_formula.mean",
+              "label": "Response linsear write formula",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.gunning_fog",
+          "description": "US grade level of education required to be able to understand a text.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "response.gunning_fog.mean",
+              "label": "Response gunning fog",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.aggregate_reading_level",
+          "description": "US grade level of education required to be able to understand a text.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "response.aggregate_reading_level.mean",
+              "label": "Response aggregate reading level",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.fernandez_huerta",
+          "description": "US grade level of education required to be able to understand a text.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "response.fernandez_huerta.mean",
+              "label": "Response fernandez huerta",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.szigriszt_pazos",
+          "description": "US grade level of education required to be able to understand a text.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "response.szigriszt_pazos.mean",
+              "label": "Response szigriszt pazos",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.gutierrez_polini",
+          "description": "US grade level of education required to be able to understand a text.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "response.gutierrez_polini.mean",
+              "label": "Response gutierrez polini",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.crawford",
+          "description": "US grade level of education required to be able to understand a text.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "response.crawford.mean",
+              "label": "Response crawford",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.gulpease_index",
+          "description": "Score indicating readability of Italian texts, with higher scores being easier to read.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "response.gulpease_index.mean",
+              "label": "Response gulpease index",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.osman",
+          "description": "Readability score based on sentence length and word length, with higher scores indicating material that is easier to read.",
+          "tags": [
+            "quality",
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "response.osman.mean",
+              "label": "Response osman",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.syllable_count",
+          "description": "The number of syllables present in the text.",
+          "tags": [
+            "quality"
+          ],
+          "metrics": [
+            {
+              "name": "response.syllable_count.mean",
+              "label": "Response syllable count",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.lexicon_count",
+          "description": "The number of words present in the text.",
+          "tags": [
+            "quality"
+          ],
+          "metrics": [
+            {
+              "name": "response.lexicon_count.mean",
+              "label": "Response lexicon count",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.sentence_count",
+          "description": "The number of sentences present in the text.",
+          "tags": [
+            "quality"
+          ],
+          "metrics": [
+            {
+              "name": "response.sentence_count.mean",
+              "label": "Response sentence count",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.character_count",
+          "description": "The number of characters present in the text.",
+          "tags": [
+            "quality"
+          ],
+          "metrics": [
+            {
+              "name": "response.character_count.mean",
+              "label": "Response character count",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.letter_count",
+          "description": "The number of letters present in the text.",
+          "tags": [
+            "quality"
+          ],
+          "metrics": [
+            {
+              "name": "response.letter_count.mean",
+              "label": "Response letter count",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.polysyllable_count",
+          "description": "The number of words with three or more syllables present in the text.",
+          "tags": [
+            "quality"
+          ],
+          "metrics": [
+            {
+              "name": "response.polysyllable_count.mean",
+              "label": "Response polysyllable count",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.monosyllable_count",
+          "description": "The number of words with one syllable present in the text.",
+          "tags": [
+            "quality"
+          ],
+          "metrics": [
+            {
+              "name": "response.monosyllable_count.mean",
+              "label": "Response monosyllable count",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.bad_actors",
+          "description": "Score between 1 and 100, with higher scores indicating attempts to compromise the application or private information.",
+          "tags": [
+            "security"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.bad_actors.quantile_99",
+              "label": "Prompt bad actors score",
+              "builtinMetric": "quantile_99"
+            }
+          ]
+        },
+        {
+          "name": "response.bad_actors",
+          "description": "Score between 1 and 100, with higher scores indicating attempts to compromise the application or private information.",
+          "tags": [
+            "security"
+          ],
+          "metrics": [
+            {
+              "name": "response.bad_actors.quantile_99",
+              "label": "Response bad actors score",
+              "builtinMetric": "quantile_99"
+            }
+          ]
+        },
+        {
+          "name": "prompt.customer_experience",
+          "description": "Score between 1 and 100, with higher scores indicating more frustration or dissatisfaction.",
+          "tags": [
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.customer_experience.quantile_99",
+              "label": "Prompt customer experience score",
+              "builtinMetric": "quantile_99"
+            }
+          ]
+        },
+        {
+          "name": "response.customer_experience",
+          "description": "Score between 1 and 100, with higher scores indicating negative or unhelpful responses.",
+          "tags": [
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "response.customer_experience.quantile_99",
+              "label": "Response customer experience score",
+              "builtinMetric": "quantile_99"
+            }
+          ]
+        },
+        {
+          "name": "prompt.misuse",
+          "description": "Score between 1 and 100, with higher scores indicating more deviation from the expected or permitted usage.",
+          "tags": [
+            "security"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.misuse.quantile_99",
+              "label": "Prompt misuse score",
+              "builtinMetric": "quantile_99"
+            }
+          ]
+        },
+        {
+          "name": "response.misuse",
+          "description": "Score between 1 and 100, with higher scores indicating more deviation from the expected or permitted usage.",
+          "tags": [
+            "security"
+          ],
+          "metrics": [
+            {
+              "name": "response.misuse.quantile_99",
+              "label": "Response misuse score",
+              "builtinMetric": "quantile_99"
+            }
+          ]
+        },
+        {
+          "name": "response.truthfulness",
+          "description": "Score between 1 and 100, with higher scores indicating a lack of consistency with the prompt and other sources.",
+          "tags": [
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "response.truthfulness.quantile_99",
+              "label": "Response truthfulness score",
+              "builtinMetric": "quantile_99"
+            }
+          ]
+        },
+        {
+          "name": "prompt.pii.credit_card",
+          "description": "",
+          "tags": [
+            "security"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.pii.credit_card.mean",
+              "label": "Prompt PII credit card score",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.pii.credit_card",
+          "description": "",
+          "tags": [
+            "security"
+          ],
+          "metrics": [
+            {
+              "name": "response.pii.credit_card.mean",
+              "label": "Response PII credit card score",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.pii.us_ssn",
+          "description": "",
+          "tags": [
+            "security"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.pii.us_ssn.mean",
+              "label": "Prompt PII SSN",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.pii.us_ssn",
+          "description": "",
+          "tags": [
+            "security"
+          ],
+          "metrics": [
+            {
+              "name": "response.pii.us_ssn.mean",
+              "label": "Response PII SSN",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.pii.us_bank_number",
+          "description": "",
+          "tags": [
+            "security"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.pii.us_bank_number.mean",
+              "label": "Prompt PII bank number",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.pii.us_bank_number",
+          "description": "",
+          "tags": [
+            "security"
+          ],
+          "metrics": [
+            {
+              "name": "response.pii.us_bank_number.mean",
+              "label": "Response PII bank number",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.pii.phone_number",
+          "description": "",
+          "tags": [
+            "security"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.pii.phone_number.mean",
+              "label": "Prompt PII phone number",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.pii.phone_number",
+          "description": "",
+          "tags": [
+            "security"
+          ],
+          "metrics": [
+            {
+              "name": "response.pii.phone_number.mean",
+              "label": "Response PII phone number",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "prompt.pii.email_address",
+          "description": "",
+          "tags": [
+            "security"
+          ],
+          "metrics": [
+            {
+              "name": "prompt.pii.email_address.mean",
+              "label": "Prompt PII email address",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "response.pii.email_address",
+          "description": "Count of email address patterns detected",
+          "tags": [
+            "security"
+          ],
+          "metrics": [
+            {
+              "name": "response.pii.email_address.mean",
+              "label": "Response PII email address",
+              "builtinMetric": "mean"
+            }
+          ]
+        },
+        {
+          "name": "score.misuse",
+          "description": "Combined prompt and response score between 1 and 100, with higher scores indicating more deviation from the expected or permitted usage.",
+          "tags": [
+            "security"
+          ],
+          "metrics": [
+            {
+              "name": "score.misuse.quantile_99",
+              "label": "Combined misuse score",
+              "builtinMetric": "quantile_99"
+            }
+          ]
+        },
+        {
+          "name": "score.bad_actors",
+          "description": "Combined prompt and response score between 1 and 100, with higher scores indicating attempts to compromise the application or private information.",
+          "tags": [
+            "security"
+          ],
+          "metrics": [
+            {
+              "name": "score.bad_actors.quantile_99",
+              "label": "Combined bad actors score",
+              "builtinMetric": "quantile_99"
+            }
+          ]
+        },
+        {
+          "name": "score.truthfulness",
+          "description": "Combined prompt and response score between 1 and 100, with higher scores indicating a lack of consistency with the prompt and other sources.",
+          "tags": [
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "score.truthfulness.quantile_99",
+              "label": "Combined truthfulness score",
+              "builtinMetric": "quantile_99"
+            }
+          ]
+        },
+        {
+          "name": "score.customer_experience",
+          "description": "Combined prompt and response score between 1 and 100, with higher scores indicating a worse customer experience.",
+          "tags": [
+            "performance"
+          ],
+          "metrics": [
+            {
+              "name": "score.customer_experience.quantile_99",
+              "label": "Combined customer experience score",
+              "builtinMetric": "quantile_99"
+            }
+          ]
+        }
+      ],
+      "aliases": {
+        "response.has_patterns": "response.data_leakage",
+        "prompt.has_patterns": "prompt.data_leakage",
+        "prompt.refusal_similarity": "prompt.similarity.refusal",
+        "response.refusal_similarity": "response.similarity.refusal",
+        "prompt.jailbreak_similarity": "prompt.similarity.jailbreak",
+        "prompt.injection": "prompt.similarity.injection",
+        "prompt.sentiment_nltk": "prompt.sentiment.sentiment_score",
+        "response.sentiment_nltk": "response.sentiment.sentiment_score",
+        "prompt.toxicity": "prompt.toxicity.toxicity_score",
+        "response.toxicity": "response.toxicity.toxicity_score"
+      }
+    }
+  }
+}

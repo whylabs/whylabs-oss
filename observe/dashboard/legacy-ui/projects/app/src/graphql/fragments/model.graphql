@@ -1,0 +1,75 @@
+fragment ModelCommonData on Model {
+  id
+  name
+  batchFrequency
+}
+
+fragment ResourceAnomalyCountTimeseries on AlertCategoryCounts {
+  timeseries {
+    ...OverviewTimeSeries
+  }
+}
+
+#
+# Fetches data required for model overview page.
+#
+fragment ModelOverviewInfo on Model {
+  ...ModelCommonData
+  modelType
+  creationTime
+  tracesSummary(fromTimestamp: $from, toTimestamp: $to) {
+    hasTraces
+  }
+  referenceProfiles {
+    id
+  }
+  assetCategory
+  entitySchema {
+    inputCounts {
+      total
+    }
+    outputCounts {
+      total
+    }
+  }
+  resourceTags {
+    key
+    value
+    color
+    backgroundColor
+  }
+  totalSegments
+  ...LatestAlertOnModel
+  anomalyCounts: allAnomalyCounts(fromTimestamp: $from, toTimestamp: $to) {
+    totals {
+      category
+      count
+    }
+    ...ResourceAnomalyCountTimeseries
+  }
+  dataAvailability {
+    latestTimestamp
+  }
+  dataLineage {
+    latestProfileTimestamp
+    oldestProfileTimestamp
+  }
+}
+
+fragment LatestAlertOnModel on Model {
+  latestAnomalyTimestamp
+}
+
+fragment DataAvailability on Model {
+  dataAvailability {
+    oldestTimestamp
+    latestTimestamp
+  }
+}
+
+fragment ModelMetricsName on Model {
+  modelType
+  datasetMetrics {
+    name
+  }
+}

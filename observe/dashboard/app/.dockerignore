@@ -1,0 +1,13 @@
+# Ignore everything by default
+*
+
+# White list specific folders/files
+!dist/
+!src/
+!.yarn
+!.yarnrc.yml
+!yarn.lock
+!package.json
+!.env
+!client/dist/
+!scripts/

@@ -1,0 +1,335 @@
+fragment IdData on AnalysisResult {
+  id
+  orgId
+  datasetId
+}
+
+fragment TimestampData on AnalysisResult {
+  creationTimestamp
+  datasetTimestamp
+  mostRecentDatasetDatalakeWriteTs
+}
+
+fragment DriftData on AnalysisResult {
+  drift_metricValue
+  drift_minBatchSize
+  drift_threshold
+}
+
+fragment AlgorithmData on AnalysisResult {
+  algorithm
+  algorithmMode
+}
+
+fragment AnalyzerInfoData on AnalysisResult {
+  analyzerType
+  analyzerId
+  monitorIds
+  monitorDisplayName
+}
+
+fragment ThresholdInfo on AnalysisResult {
+  diff_mode
+  diff_threshold
+  diff_metricValue
+  threshold_absoluteLower
+  threshold_absoluteUpper
+  threshold_baselineMetricValue
+  threshold_calculatedLower
+  threshold_calculatedUpper
+  threshold_metricValue
+  threshold_factor
+  threshold_minBatchSize
+}
+
+fragment FrequentStringData on AnalysisResult {
+  frequentStringComparison_operator
+  frequentStringComparison_sample
+}
+
+fragment ThresholdAnalysisData on AnalysisResult {
+  ...IdData
+  targetLevel
+  column
+  isAnomaly
+  isFalseAlarm
+  analysisId
+  tags {
+    key
+    value
+  }
+  runId
+  metric
+  ...AlgorithmData
+  ...AnalyzerInfoData
+  ...TimestampData
+  ...ThresholdInfo
+}
+
+fragment DriftAnalysisData on AnalysisResult {
+  ...IdData
+  targetLevel
+  column
+  isAnomaly
+  isFalseAlarm
+  analysisId
+  tags {
+    key
+    value
+  }
+  runId
+  metric
+  ...AlgorithmData
+  ...AnalyzerInfoData
+  ...TimestampData
+  ...DriftData
+  ...FrequentStringData
+}
+
+query getMedianAnalysis(
+  $datasetId: String!
+  $featureId: String!
+  $anomaliesOnly: Boolean!
+  $from: Float!
+  $to: Float
+  $tags: [SegmentTagFilter!]
+  $adhocRunId: String
+) {
+  analysisResults(
+    filter: {
+      anomaliesOnly: $anomaliesOnly
+      columns: [$featureId]
+      metrics: [MEDIAN]
+      datasetId: $datasetId
+      fromTimestamp: $from
+      toTimestamp: $to
+      segmentTags: $tags
+      adhocRunId: $adhocRunId
+      # metrics: [Classification_FPR]
+    }
+    offset: 0
+    limit: 0
+    sortDirection: ASC
+  ) {
+    ...ThresholdAnalysisData
+    comparison_expected
+    comparison_observed
+  }
+}
+
+query getStatisticalValueAnalysis(
+  $datasetId: String!
+  $featureId: String!
+  $anomaliesOnly: Boolean!
+  $from: Float!
+  $to: Float
+  $tags: [SegmentTagFilter!]
+  $adhocRunId: String
+) {
+  analysisResults(
+    filter: {
+      anomaliesOnly: $anomaliesOnly
+      columns: [$featureId]
+      metrics: [MEDIAN, MIN, MAX, MEAN, STD_DEV, QUANTILE_99]
+      datasetId: $datasetId
+      fromTimestamp: $from
+      toTimestamp: $to
+      segmentTags: $tags
+      adhocRunId: $adhocRunId
+    }
+    offset: 0
+    limit: 0
+    sortDirection: ASC
+  ) {
+    ...ThresholdAnalysisData
+    comparison_expected
+    comparison_observed
+  }
+}
+
+query getMultiFeatureDriftAnalysis(
+  $datasetId: String!
+  $featureIds: [String!]!
+  $from: Float!
+  $to: Float
+  $tags: [SegmentTagFilter!]
+  $adhocRunId: String
+) {
+  analysisResults(
+    filter: {
+      anomaliesOnly: false
+      analyzerTypes: ["drift"]
+      columns: $featureIds
+      datasetId: $datasetId
+      fromTimestamp: $from
+      toTimestamp: $to
+      segmentTags: $tags
+      adhocRunId: $adhocRunId
+      # metrics: [Classification_FPR]
+    }
+    offset: 0
+    limit: 0
+    sortDirection: ASC
+  ) {
+    ...IdData
+    targetLevel
+    column
+    isAnomaly
+    isFalseAlarm
+    metric
+    ...AlgorithmData
+    ...AnalyzerInfoData
+    ...TimestampData
+    ...DriftData
+  }
+}
+
+query getNotificationActions {
+  user {
+    organization {
+      notifications {
+        email {
+          general {
+            id
+            enabled
+          }
+        }
+        slack {
+          general {
+            id
+            enabled
+          }
+        }
+        pagerDuty {
+          general {
+            id
+            enabled
+          }
+        }
+      }
+    }
+  }
+}
+
+query getDriftAnalysis(
+  $model: String!
+  $feature: String!
+  $anomaliesOnly: Boolean!
+  $from: Float!
+  $to: Float
+  $tags: [SegmentTagFilter!]
+  $adhocRunId: String
+) {
+  analysisResults(
+    filter: {
+      anomaliesOnly: $anomaliesOnly
+      columns: [$feature]
+      datasetId: $model
+      fromTimestamp: $from
+      toTimestamp: $to
+      segmentTags: $tags
+      metrics: [FREQUENT_ITEMS, HISTOGRAM]
+      adhocRunId: $adhocRunId
+    }
+    offset: 0
+    limit: 0
+    sortDirection: ASC
+  ) {
+    ...DriftAnalysisData
+  }
+}
+
+query getUniqueAnalysis(
+  $datasetId: String!
+  $featureId: String!
+  $anomaliesOnly: Boolean!
+  $from: Float!
+  $to: Float
+  $tags: [SegmentTagFilter!]
+  $adhocRunId: String
+) {
+  analysisResults(
+    filter: {
+      anomaliesOnly: $anomaliesOnly
+      columns: [$featureId]
+      datasetId: $datasetId
+      fromTimestamp: $from
+      toTimestamp: $to
+      segmentTags: $tags
+      metrics: [UNIQUE_EST, UNIQUE_EST_RATIO]
+      adhocRunId: $adhocRunId
+    }
+    offset: 0
+    limit: 0
+    sortDirection: ASC
+  ) {
+    ...ThresholdAnalysisData
+  }
+}
+
+query getMissingAnalysis(
+  $datasetId: String!
+  $featureId: String!
+  $anomaliesOnly: Boolean!
+  $from: Float!
+  $to: Float
+  $tags: [SegmentTagFilter!]
+  $adhocRunId: String
+) {
+  analysisResults(
+    filter: {
+      anomaliesOnly: $anomaliesOnly
+      columns: [$featureId]
+      datasetId: $datasetId
+      fromTimestamp: $from
+      toTimestamp: $to
+      segmentTags: $tags
+      metrics: [COUNT_NULL_RATIO, COUNT_NULL]
+      adhocRunId: $adhocRunId
+    }
+    offset: 0
+    limit: 0
+    sortDirection: ASC
+  ) {
+    ...ThresholdAnalysisData
+  }
+}
+
+query getInferredDataAnalysis(
+  $datasetId: String!
+  $featureId: String!
+  $anomaliesOnly: Boolean!
+  $from: Float!
+  $to: Float
+  $tags: [SegmentTagFilter!]
+  $adhocRunId: String
+) {
+  analysisResults(
+    filter: {
+      anomaliesOnly: $anomaliesOnly
+      columns: [$featureId]
+      datasetId: $datasetId
+      fromTimestamp: $from
+      toTimestamp: $to
+      segmentTags: $tags
+      metrics: INFERRED_DATA_TYPE
+      adhocRunId: $adhocRunId
+    }
+    offset: 0
+    limit: 0
+    sortDirection: ASC
+  ) {
+    ...ThresholdAnalysisData
+    comparison_expected
+    comparison_observed
+  }
+}
+
+query getMonitorAnomalyCount($datasetId: String!, $from: Float!, $to: Float) {
+  model(id: $datasetId) {
+    anomalies(filter: { fromTimestamp: $from, toTimestamp: $to, anomaliesOnly: true }, sortDirection: ASC) {
+      analyzerId
+      isFalseAlarm
+    }
+  }
+}

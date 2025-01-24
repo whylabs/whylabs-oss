@@ -1,0 +1,60 @@
+enum FeedbackCategory {
+  Bug
+  Request
+  General
+}
+
+input Feedback {
+  """
+  Type of feedback being submitted
+  """
+  category: FeedbackCategory!
+
+  """
+  Tags associated with this feedback (Usability, Content, Data accuracy, etc)
+  """
+  tags: [String!]!
+
+  """
+  Target of the feedback (name of the component, page, feature, etc)
+  """
+  component: String!
+
+  """
+  Message to include with the feedback
+  """
+  message: String!
+
+  """
+  Dataset ID, associated with this feedback (optional)
+  """
+  datasetId: String
+
+  """
+  Feature name, associated with this feedback (optional)
+  """
+  featureName: String
+
+  """
+  current URL when feedback was submitted (optional)
+  """
+  url: String
+
+  """
+  ID used to find a log in logRocket and track the user interaction
+  """
+  trackID: String
+}
+
+extend type Mutation {
+  """
+  Submit general feedback for a component/page/feature. Returns true if feedback was submitted successfully.
+  Feedback will go directly to WhyLabs email/Slack.
+  """
+  submitFeedback(feedback: Feedback!, submitAnonymously: Boolean!): Boolean! @auth
+  """
+  Mark an Alert as a false alarm (false positive).
+  The number or ratio of false alarms for a given monitor will then be used to adjust the monitor settings to make it less noisy.
+  """
+  setFalseAlarm(alertId: String!, isFalseAlarm: Boolean = True): Boolean! @auth(permissions: [MANAGE_MONITORS])
+}

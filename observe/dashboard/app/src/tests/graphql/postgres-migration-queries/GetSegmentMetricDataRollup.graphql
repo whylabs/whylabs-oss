@@ -1,0 +1,15 @@
+query getSegmentMetricDataRollup2($from: Float!, $to: Float!, $segmentKey: String!, $queries: [MetricQuery!]!) {
+  dataQueries {
+    getSegmentMetricDataRollup(fromTimestamp: $from, toTimestamp: $to, segmentKey: $segmentKey, queries: $queries) {
+      ...MetricRollup
+    }
+  }
+}
+
+fragment MetricRollup on MetricRollupResult {
+  datasetId
+  metric
+  feature
+  segmentGroup
+  value
+}

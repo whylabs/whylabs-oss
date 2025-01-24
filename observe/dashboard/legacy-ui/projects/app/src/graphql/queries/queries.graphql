@@ -1,0 +1,1651 @@
+query getUser {
+  user {
+    name
+    auth0Id
+    whyLabsId
+    isAuthenticated
+    role
+    permissions
+    email
+    emailVerified
+    metadata {
+      masquerade {
+        isActiveNow
+        expiration
+      }
+    }
+    organization {
+      id
+      name
+      subscriptionTier
+      isAWSMarketplace
+      membershipType
+      anonymousSession {
+        enabled
+        valid
+      }
+    }
+  }
+}
+
+fragment ConfusionMatrixData on BatchMetadata {
+  timestamp
+  metrics {
+    confusion {
+      labels
+      counts
+    }
+  }
+}
+
+fragment FprTprData on BatchMetadata {
+  timestamp
+  metrics {
+    fprTpr {
+      values
+    }
+  }
+}
+
+fragment RecallPrecisionData on BatchMetadata {
+  timestamp
+  metrics {
+    recallPrecision {
+      values
+    }
+  }
+}
+
+fragment BatchCountData on BatchMetadata {
+  timestamp
+  inputCount
+  outputCount
+}
+
+fragment PerformanceMetadata on BatchMetadata {
+  timestamp
+}
+
+fragment AlertBasicData on DataQualityEvent {
+  id
+  datasetTimestamp
+  archetype
+  type
+  datasetId
+  feature
+  metric
+  isFalseAlarm
+  runId
+  tags {
+    key
+    value
+  }
+  explanation {
+    ...thresholdTypeExplanation
+    ...dataTypeExplanation
+  }
+}
+
+fragment AlertSparkData on DataQualityEvent {
+  id
+  archetype
+  type
+  metric
+  isFalseAlarm
+  datasetTimestamp
+}
+
+fragment BaselineSparkData on Feature {
+  schema {
+    isDiscrete
+    inferredType
+  }
+}
+
+fragment FeatureSparklineData on FeatureSketch {
+  ...FeatureSketchFields
+  id
+  booleanCount
+  integerCount
+  fractionCount
+  uniqueCount {
+    estimate
+  }
+  schemaSummary {
+    inference {
+      type
+      ratio
+    }
+    typeCounts {
+      type
+      count
+    }
+  }
+}
+
+fragment TopLevelFeatureFields on FeatureSketch {
+  id
+  featureName
+  booleanCount
+  integerCount
+  fractionCount
+  datasetTimestamp
+  lastUploadTimestamp
+  totalCount
+  nullCount
+  nullRatio
+  showAsDiscrete
+}
+
+fragment EntropySparklineData on DataQualityEvent {
+  id
+  feature
+  datasetTimestamp
+  explanation {
+    ... on ThresholdEventExplanation {
+      observedValue
+    }
+  }
+}
+
+fragment FeatureSketchResult on FilteredFeatureSketches {
+  results {
+    featureName
+    numberSummary {
+      histogram {
+        ...HistogramFields
+      }
+    }
+  }
+}
+
+fragment StaticProfilesSketches on ReferenceProfile {
+  id
+  sketches(filter: { featureName: $featureId }, histogramSplitPoints: $splitpoints) {
+    ...FeatureSketchResult
+  }
+}
+
+fragment BatchProfilesSketches on BatchMetadata {
+  timestamp
+  sketches(filter: { featureName: $featureId }, histogramSplitPoints: $splitpoints) {
+    ...FeatureSketchResult
+  }
+}
+
+query getFeatureUnifiedBins(
+  $modelId: String!
+  $featureId: String!
+  $timestamps: [Float!]
+  $staticProfileIds: [String!]
+  $splitpoints: [Float!]
+) {
+  model(id: $modelId) {
+    batches(timestamps: $timestamps) {
+      ...BatchProfilesSketches
+    }
+
+    referenceProfiles(profileIds: $staticProfileIds) {
+      ...StaticProfilesSketches
+    }
+  }
+}
+
+query getSegmentCount($model: String!) {
+  model(id: $model) {
+    id
+    totalSegments
+  }
+}
+
+query getModelBatchFrequency($model: String!) {
+  model(id: $model) {
+    name
+    batchFrequency
+  }
+}
+
+query getResourceBasicData($resourceId: String!) {
+  model(id: $resourceId) {
+    ...ModelCommonData
+    modelType
+    assetCategory
+  }
+}
+
+query getModelCount {
+  models {
+    ...ModelCommonData
+  }
+}
+
+query getTotalAlertsByTime($from: Float!, $to: Float) {
+  models {
+    name
+    anomalyCounts: allAnomalyCounts(fromTimestamp: $from, toTimestamp: $to) {
+      totals {
+        category
+        count
+      }
+      timeseries {
+        timestamp
+        counts {
+          category
+          count
+        }
+      }
+    }
+  }
+}
+
+query getModelFeatures($modelId: String!) {
+  model(id: $modelId) {
+    id
+    entitySchema {
+      hasInputs
+      inputs {
+        name
+      }
+    }
+  }
+}
+
+query listOrgAvailableResourceTags {
+  user {
+    organization {
+      availableResourceTags {
+        backgroundColor
+        color
+        value
+        key
+      }
+    }
+  }
+}
+
+query getModelOverviewInformation(
+  $from: Float!,
+  $to: Float!,
+  $resourceTags: [CustomTagFilter!],
+  $resourceType: [ModelType!],
+  $onlySecuredLLM: Boolean,
+  $searchTerm: String
+) {
+  models(
+    resourceTags: $resourceTags
+    resourceType: $resourceType
+    onlySecuredLLM: $onlySecuredLLM
+    searchTerm: $searchTerm
+  ) {
+    ...ModelOverviewInfo
+  }
+}
+
+query getAllResourcesForOverviewPage {
+  models {
+    id
+    assetCategory
+    dataLineage {
+      oldestProfileTimestamp
+    }
+    resourceTags {
+      backgroundColor
+      color
+      key
+      value
+    }
+  }
+}
+
+query getLatestTimestamp($modelId: String!) {
+  model(id: $modelId) {
+    dataAvailability {
+      latestTimestamp
+      oldestTimestamp
+    }
+  }
+}
+
+query getSegmentLatestTimestamp($modelId: String!, $tags: [SegmentTagFilter!]) {
+  model(id: $modelId) {
+    batchFrequency
+    segment(tags: $tags) {
+      dataAvailability {
+        latestTimestamp
+        oldestTimestamp
+      }
+    }
+  }
+}
+query getSegmentProfileLineage($modelId: String!, $tags: [SegmentTagFilter!]) {
+  model(id: $modelId) {
+    batchFrequency
+    assetCategory
+    segment(tags: $tags) {
+      dataLineage {
+        latestProfileTimestamp
+        oldestProfileTimestamp
+      }
+    }
+  }
+}
+
+query listOrgResourcesCommonDataWithLineage {
+  models {
+    ...ModelCommonData
+    modelType
+    datasetMetrics {
+      name
+    }
+    dataLineage {
+      latestProfileTimestamp
+      oldestProfileTimestamp
+    }
+  }
+}
+
+query getBatchFrequency($modelId: String!) {
+  model(id: $modelId) {
+    batchFrequency
+  }
+}
+
+fragment DiscreteDataFields on Feature {
+  id
+  name
+  schema {
+    isDiscrete
+  }
+}
+
+fragment FeatureDataSideTable on Feature {
+  ...DiscreteDataFields
+  anomalyCounts(fromTimestamp: $from, toTimestamp: $to, filter: { adhocRunId: $adHocRunId }) {
+    totals {
+      category
+      count
+    }
+  }
+}
+
+query getColumnActiveMonitors(
+  $resourceId: String!
+  $columnId: String!
+  $tags: [SegmentTagFilter!]
+) {
+  columnMonitors(datasetId: $resourceId, columnId: $columnId, tags: $tags)
+}
+
+query getAvailableFilteredFeatures(
+  $model: String!
+  $from: Float!
+  $to: Float
+  $offset: Int
+  $limit: Int
+  $filter: FeatureFilter!
+  $adHocRunId: String
+  $sort: FilteredFeaturesSort
+  $tags: [SegmentTagFilter!]!,
+) {
+  model(id: $model) {
+    ...ModelCommonData
+    segment(tags: $tags) {
+      entitySchema {
+        inputCounts {
+          total
+        }
+      }
+      filteredFeatures(offset: $offset, limit: $limit, filter: $filter, sort: $sort) {
+        totalCount
+        results {
+          ...FeatureDataSideTable
+        }
+      }
+    }
+  }
+}
+
+query getFilteredColumnNames(
+  $model: String!
+  $offset: Int
+  $limit: Int
+  $filter: FeatureFilter!
+  $includeFeatures: Boolean!
+  $includeOutputs: Boolean!
+  $sort: FilteredFeaturesSort
+  $tags: [SegmentTagFilter!]!,
+) {
+  model(id: $model) {
+    segment(tags: $tags) {
+      filteredFeatures(offset: $offset, limit: $limit, filter: $filter, sort: $sort) @include(if: $includeFeatures) {
+        results {
+          name
+        }
+      }
+      filteredOutputs(offset: $offset, limit: $limit, filter: $filter, sort: $sort) @include(if: $includeOutputs) {
+        results {
+          name
+        }
+      }
+    }
+  }
+}
+
+query getAvailableModelFeaturesDiscrete($model: String!) {
+  model(id: $model) {
+    id
+    name
+    entitySchema {
+      inputCounts {
+        total
+        discrete
+        nonDiscrete
+      }
+      outputCounts {
+        total
+        discrete
+        nonDiscrete
+      }
+    }
+  }
+}
+
+query getAvailableFilteredSegmentedFeatures(
+  $model: String!
+  $tags: [SegmentTagFilter!]!
+  $from: Float!
+  $to: Float
+  $offset: Int
+  $limit: Int
+  $filter: FeatureFilter!
+  $adHocRunId: String
+  $sort: FilteredFeaturesSort
+) {
+  model(id: $model) {
+    segment(tags: $tags) {
+      filteredFeatures(offset: $offset, limit: $limit, filter: $filter, sort: $sort) {
+        totalCount
+        results {
+          ...FeatureDataSideTable
+        }
+      }
+    }
+  }
+}
+
+query getAvailableFilteredOutputs(
+  $model: String!
+  $tags: [SegmentTagFilter!]!
+  $from: Float!
+  $to: Float
+  $offset: Int
+  $limit: Int
+  $filter: FeatureFilter!
+  $adHocRunId: String
+  $sort: FilteredFeaturesSort
+) {
+  model(id: $model) {
+    entitySchema {
+      inputCounts {
+        total
+        discrete
+        nonDiscrete
+      }
+      outputCounts {
+        total
+        discrete
+        nonDiscrete
+      }
+    }
+    segment(tags: $tags) {
+      filteredOutputs(offset: $offset, limit: $limit, filter: $filter, sort: $sort) {
+        totalCount
+        results {
+          ...FeatureDataSideTable
+        }
+      }
+    }
+  }
+}
+
+fragment BaselineFields on Feature {
+  name
+  schema {
+    inferredType
+    isDiscrete
+  }
+}
+
+fragment SketchCountFields on FeatureSketch {
+  id
+  datasetTimestamp
+  lastUploadTimestamp
+}
+
+query getFeatureBasicData($model: String!, $feature: String!, $from: Float!, $to: Float) {
+  model(id: $model) {
+    ...ModelCommonData
+    feature(name: $feature) {
+      id
+      ...BaselineFields
+      sketches(from: $from, to: $to) {
+        ...SketchCountFields
+      }
+    }
+  }
+}
+
+query getSegmentedSingleOutputBasicData(
+  $model: String!,
+  $from: Float!,
+  $to: Float,
+  $outputName: String!
+  $tags: [SegmentTagFilter!]!
+) {
+  model(id: $model) {
+    ...ModelCommonData
+    segment(tags: $tags) {
+      output(name: $outputName) {
+        id
+        ...BaselineFields
+        sketches(from: $from, to: $to) {
+          ...SketchCountFields
+        }
+      }
+    }
+  }
+}
+
+query getMetricBasicData($model: String!, $from: Float!, $to: Float, $metricName: String!) {
+  model(id: $model) {
+    ...ModelCommonData
+    datasetMetric(name: $metricName) {
+      ...DatasetMetricFields
+    }
+  }
+}
+
+query getSegmentedFeatureBasicData(
+  $model: String!
+  $feature: String!
+  $tags: [SegmentTagFilter!]!
+  $from: Float!
+  $to: Float
+) {
+  model(id: $model) {
+    ...ModelCommonData
+    segment(tags: $tags) {
+      id
+      feature(name: $feature) {
+        id
+        ...BaselineFields
+        sketches(from: $from, to: $to) {
+          ...SketchCountFields
+        }
+      }
+    }
+  }
+}
+
+query getSegmentedOutputBasicData(
+  $model: String!
+  $tags: [SegmentTagFilter!]!
+  $from: Float!
+  $to: Float
+  $outputName: String!
+) {
+  model(id: $model) {
+    ...ModelCommonData
+    segment(tags: $tags) {
+      id
+      output(name: $outputName) {
+        id
+        ...BaselineFields
+        sketches(from: $from, to: $to) {
+          ...SketchCountFields
+        }
+      }
+    }
+  }
+}
+
+query getSegmentedSingleFeatureBasicData(
+  $model: String!
+  $feature: String!
+  $from: Float!
+  $to: Float
+  $tags: [SegmentTagFilter!]!
+) {
+  model(id: $model) {
+    ...ModelCommonData
+    segment(tags: $tags) {
+      id
+      feature(name: $feature) {
+        id
+        name
+        schema {
+          isDiscrete
+          inferredType
+        }
+        sketches(from: $from, to: $to) {
+          id
+          datasetTimestamp
+          lastUploadTimestamp
+        }
+      }
+    }
+  }
+}
+
+query getOutputForModel($model: String!, $from: Float!, $to: Float, $filter: FeatureSketchFilter) {
+  model(id: $model) {
+    ...ModelCommonData
+    batches(from: $from, to: $to) {
+      timestamp
+      outputCount
+      inputCount
+      sketches(filter: $filter) {
+        results {
+          totalCount
+          featureName
+        }
+      }
+    }
+  }
+}
+
+query getOutputForSegment(
+  $model: String!
+  $tags: [SegmentTagFilter!]!
+  $from: Float!
+  $to: Float
+  $filter: FeatureSketchFilter
+) {
+  model(id: $model) {
+    ...ModelCommonData
+    segment(tags: $tags) {
+      batches(from: $from, to: $to) {
+        timestamp
+        outputCount
+        inputCount
+        sketches(filter: $filter) {
+          results {
+            totalCount
+            featureName
+          }
+        }
+      }
+    }
+  }
+}
+
+fragment FeatureSketchFields on FeatureSketch {
+  datasetTimestamp
+  lastUploadTimestamp
+  totalCount
+  nullCount
+  nullRatio
+  showAsDiscrete
+}
+
+fragment NumberSummaryFields on NumberSummary {
+  count
+  min
+  max
+  mean
+  stddev
+  histogram {
+    ...HistogramFields
+  }
+  ...QuantileFields
+}
+
+fragment QuantileFields on NumberSummary {
+  quantiles {
+    bins
+    counts
+  }
+}
+
+fragment HistogramFields on Histogram {
+  bins
+  counts
+}
+
+fragment FullSketchFields on FeatureSketch {
+  ...TopLevelFeatureFields
+  frequentItems {
+    ...FrequentItemUnitFields
+  }
+  uniqueCount {
+    ...UniqueCountFields
+  }
+  numberSummary {
+    ...NumberSummaryFields
+    ...QuantileFields
+  }
+  schemaSummary {
+    ...SchemaSummaryFields
+  }
+}
+
+fragment FrequentItemUnitFields on FrequentItem {
+  value
+  estimate
+}
+
+fragment UniqueCountFields on UniqueCountSummary {
+  upper
+  estimate
+  lower
+}
+
+fragment UniqueSketchFields on FeatureSketch {
+  id
+  datasetTimestamp
+  lastUploadTimestamp
+  uniqueCount {
+    upper
+    estimate
+    lower
+  }
+  uniqueRatio
+}
+
+query getUniqueSummariesForFeature($model: String!, $feature: String!, $from: Float!, $to: Float) {
+  model(id: $model) {
+    ...ModelCommonData
+    feature(name: $feature) {
+      id
+      sketches(from: $from, to: $to) {
+        ...UniqueSketchFields
+      }
+      schema {
+        isDiscrete
+      }
+    }
+  }
+}
+
+query getUniqueSummariesForOutput($model: String!, $from: Float!, $to: Float, $outputName: String!) {
+  model(id: $model) {
+    ...ModelCommonData
+    output(name: $outputName) {
+      id
+      sketches(from: $from, to: $to) {
+        ...UniqueSketchFields
+      }
+      schema {
+        isDiscrete
+      }
+    }
+  }
+}
+
+query getUniqueSummariesForSegmentedFeature(
+  $model: String!
+  $feature: String!
+  $tags: [SegmentTagFilter!]!
+  $from: Float!
+  $to: Float
+) {
+  model(id: $model) {
+    ...ModelCommonData
+    segment(tags: $tags) {
+      id
+      feature(name: $feature) {
+        id
+        sketches(from: $from, to: $to) {
+          ...UniqueSketchFields
+        }
+        schema {
+          isDiscrete
+        }
+      }
+    }
+  }
+}
+
+query getUniqueSummariesForSegmentedOutput(
+  $model: String!
+  $tags: [SegmentTagFilter!]!
+  $from: Float!
+  $to: Float
+  $outputName: String!
+) {
+  model(id: $model) {
+    ...ModelCommonData
+    segment(tags: $tags) {
+      id
+      output(name: $outputName) {
+        id
+        sketches(from: $from, to: $to) {
+          ...UniqueSketchFields
+        }
+        schema {
+          isDiscrete
+        }
+      }
+    }
+  }
+}
+
+fragment QuantileSummaryFields on FeatureSketch {
+  id
+  datasetTimestamp
+  lastUploadTimestamp
+  showAsDiscrete
+  numberSummary {
+    quantiles {
+      bins
+      counts
+    }
+    count
+    min
+    max
+    mean
+    stddev
+  }
+}
+
+query getQuantileSummariesForMetric($model: String!, $from: Float!, $to: Float, $metricName: String!) {
+  model(id: $model) {
+    ...ModelCommonData
+    datasetMetric(name: $metricName) {
+      ...DatasetMetricFields
+    }
+  }
+}
+
+query getQuantileSummariesForSegmentedFeature(
+  $model: String!
+  $feature: String!
+  $tags: [SegmentTagFilter!]!
+  $from: Float!
+  $to: Float
+) {
+  model(id: $model) {
+    ...ModelCommonData
+    segment(tags: $tags) {
+      feature(name: $feature) {
+        id
+        sketches(from: $from, to: $to) {
+          ...QuantileSummaryFields
+        }
+      }
+    }
+  }
+}
+
+query getQuantileSummariesForSegmentedOutput(
+  $model: String!
+  $tags: [SegmentTagFilter!]!
+  $from: Float!
+  $to: Float
+  $outputName: String!
+) {
+  model(id: $model) {
+    ...ModelCommonData
+    segment(tags: $tags) {
+      output(name: $outputName) {
+        id
+        sketches(from: $from, to: $to) {
+          ...QuantileSummaryFields
+        }
+      }
+    }
+  }
+}
+
+fragment StringLengthFields on FeatureSketch {
+  id
+  datasetTimestamp
+  lastUploadTimestamp
+  stringSummary {
+    frequentItems {
+      ...FrequentItemUnitFields
+    }
+    stringLength {
+      ...NumberSummaryFields
+    }
+  }
+}
+
+query getFrequentStringLengthsForFeature($model: String!, $feature: String!, $from: Float!, $to: Float) {
+  model(id: $model) {
+    ...ModelCommonData
+    feature(name: $feature) {
+      id
+      sketches(from: $from, to: $to) {
+        ...StringLengthFields
+      }
+    }
+  }
+}
+
+fragment FrequentItemsFields on FeatureSketch {
+  id
+  datasetTimestamp
+  lastUploadTimestamp
+  showAsDiscrete
+  frequentItems {
+    value
+    estimate
+  }
+}
+
+query getFrequentItemsForSegmentedFeature(
+  $model: String!
+  $feature: String!
+  $from: Float!
+  $to: Float
+  $tags: [SegmentTagFilter!]!
+) {
+  model(id: $model) {
+    ...ModelCommonData
+    segment(tags: $tags) {
+      id
+      feature(name: $feature) {
+        id
+        sketches(from: $from, to: $to) {
+          ...FrequentItemsFields
+        }
+        schema {
+          isDiscrete
+        }
+      }
+    }
+  }
+}
+
+query getFrequentItemsForSegmentedOutput(
+  $model: String!
+  $from: Float!
+  $to: Float
+  $tags: [SegmentTagFilter!]!
+  $outputName: String!
+) {
+  model(id: $model) {
+    ...ModelCommonData
+    segment(tags: $tags) {
+      id
+      output(name: $outputName) {
+        id
+        sketches(from: $from, to: $to) {
+          ...FrequentItemsFields
+        }
+        schema {
+          isDiscrete
+        }
+      }
+    }
+  }
+}
+
+fragment SchemaFields on FeatureSketch {
+  id
+  datasetTimestamp
+  lastUploadTimestamp
+  schemaSummary {
+    inference {
+      type
+      ratio
+      count
+    }
+    typeCounts {
+      type
+      count
+    }
+  }
+}
+
+fragment SchemaSummaryFields on SchemaSummary {
+  inference {
+    type
+    ratio
+    count
+  }
+  typeCounts {
+    type
+    count
+  }
+}
+
+fragment SchemaEventFields on DataQualityEvent {
+  id
+  datasetTimestamp
+  runId
+  explanation {
+    ... on DataTypeEventExplanation {
+      value
+      previousValue
+    }
+  }
+}
+
+query getSchemasForFeature($model: String!, $feature: String!, $from: Float!, $to: Float) {
+  model(id: $model) {
+    ...ModelCommonData
+    feature(name: $feature) {
+      id
+      sketches(from: $from, to: $to) {
+        ...SchemaFields
+      }
+    }
+  }
+}
+
+query getSchemasForOutput($model: String!, $from: Float!, $to: Float, $outputName: String!) {
+  model(id: $model) {
+    ...ModelCommonData
+    output(name: $outputName) {
+      id
+      sketches(from: $from, to: $to) {
+        ...SchemaFields
+      }
+    }
+  }
+}
+
+query getSchemasForSegmentedFeature(
+  $model: String!
+  $feature: String!
+  $from: Float!
+  $to: Float
+  $tags: [SegmentTagFilter!]!
+) {
+  model(id: $model) {
+    ...ModelCommonData
+    segment(tags: $tags) {
+      id
+      feature(name: $feature) {
+        id
+        sketches(from: $from, to: $to) {
+          ...SchemaFields
+        }
+      }
+    }
+  }
+}
+
+query getSchemasForSegmentedOutput(
+  $model: String!
+  $tags: [SegmentTagFilter!]!
+  $from: Float!
+  $to: Float
+  $outputName: String!
+) {
+  model(id: $model) {
+    ...ModelCommonData
+    segment(tags: $tags) {
+      id
+      output(name: $outputName) {
+        id
+        sketches(from: $from, to: $to) {
+          ...SchemaFields
+        }
+      }
+    }
+  }
+}
+
+query getMissingValuesForFeature($model: String!, $feature: String!, $from: Float!, $to: Float) {
+  model(id: $model) {
+    ...ModelCommonData
+    feature(name: $feature) {
+      id
+      sketches(from: $from, to: $to) {
+        id
+        datasetTimestamp
+        lastUploadTimestamp
+        totalCount
+        nullCount
+        nullRatio
+      }
+    }
+  }
+}
+
+query getMissingValuesForOutputFeature($model: String!, $from: Float!, $to: Float, $outputName: String!) {
+  model(id: $model) {
+    ...ModelCommonData
+    output(name: $outputName) {
+      id
+      name
+      sketches(from: $from, to: $to) {
+        id
+        datasetTimestamp
+        lastUploadTimestamp
+        totalCount
+        nullCount
+        nullRatio
+      }
+    }
+  }
+}
+
+fragment NullFractionEventFields on DataQualityEvent {
+  id
+  creationTimestamp
+  datasetTimestamp
+  runId
+  tags {
+    key
+    value
+  }
+  explanation {
+    ... on ThresholdEventExplanation {
+      maxThreshold {
+        value
+        source
+      }
+      minThreshold {
+        value
+        source
+      }
+      observedValue
+    }
+  }
+}
+
+query getMissingValuesForSegmentedFeature(
+  $model: String!
+  $feature: String!
+  $tags: [SegmentTagFilter!]!
+  $from: Float!
+  $to: Float
+) {
+  model(id: $model) {
+    ...ModelCommonData
+    segment(tags: $tags) {
+      id
+      feature(name: $feature) {
+        id
+        sketches(from: $from, to: $to) {
+          id
+          datasetTimestamp
+          lastUploadTimestamp
+          totalCount
+          nullCount
+          nullRatio
+        }
+      }
+    }
+  }
+}
+
+query getMissingValuesForSegmentOutputFeature(
+  $model: String!
+  $from: Float!
+  $to: Float
+  $tags: [SegmentTagFilter!]!
+  $outputName: String!
+) {
+  model(id: $model) {
+    ...ModelCommonData
+    segment(tags: $tags) {
+      id
+      output(name: $outputName) {
+        id
+        name
+        sketches(from: $from, to: $to) {
+          id
+          datasetTimestamp
+          lastUploadTimestamp
+          totalCount
+          nullCount
+          nullRatio
+        }
+      }
+    }
+  }
+}
+
+fragment dataTypeExplanation on DataTypeEventExplanation {
+  value
+  previousValue
+}
+
+fragment thresholdTypeExplanation on ThresholdEventExplanation {
+  observedValue
+  minThreshold {
+    value
+    source
+  }
+  maxThreshold {
+    value
+    source
+  }
+}
+
+query getSegmentAlertCount($model: String, $from: Float!, $to: Float, $tags: [SegmentTagFilter!]!, $adHocRunId: String) {
+  model(id: $model) {
+    segment(tags: $tags) {
+      anomalyCounts(fromTimestamp: $from, toTimestamp: $to, filter: { adhocRunId: $adHocRunId }) {
+        totals {
+          category
+          count
+        }
+      }
+    }
+  }
+}
+
+mutation updateWholeMonitorConfig($datasetId: String!, $config: String!) {
+  monitorSettings {
+    updateMonitorConfig(datasetId: $datasetId, config: $config)
+  }
+}
+
+mutation setFalseAlarm($alertId: String!, $isFalseAlarm: Boolean) {
+  setFalseAlarm(alertId: $alertId, isFalseAlarm: $isFalseAlarm)
+}
+
+mutation adHocMonitor(
+  $model: String!
+  $features: [String!]!
+  $segments: [[SegmentTagFilter!]!]
+  $monitorConfig: String
+  $to: Float
+  $from: Float
+) {
+  adHocMonitor {
+    run(datasetId: $model, features: $features, monitorConfig: $monitorConfig, segments: $segments, toTimestamp: $to, fromTimestamp: $from) {
+      runId
+      numEvents
+      columns
+    }
+  }
+}
+query adhocRunStatus($runId: String!, $numEvents: Int!) {
+  adhocRunStatus(runId: $runId, numEvents: $numEvents)
+}
+
+mutation runBackfillAnalyzers($datasetId: String!, $toTimestamp: Float!, $fromTimestamp: Float!, $analyzerIds: [String!]) {
+  backfillAnalyzers {
+    triggerBackfill(datasetId: $datasetId, toTimestamp: $toTimestamp, fromTimestamp: $fromTimestamp, analyzerIds: $analyzerIds) {
+      runId
+    }
+  }
+}
+
+mutation cancelRequestedBackfillJob($runId: String!) {
+  backfillAnalyzers {
+    cancelJob(runId: $runId)
+  }
+}
+
+query getOrgBackfillJobs($datasetId: String, $onlyActive: Boolean, $runId: String) {
+  queryBackfillJobs(datasetId: $datasetId, onlyActive: $onlyActive, runId: $runId) {
+    runId
+    duration {
+      fromTimestamp
+      toTimestamp
+    }
+    status
+    monitorsList
+    progress
+    columns
+    segments
+    datasetId
+  }
+}
+
+fragment AnalysisData on AnalysisResult {
+  id
+  orgId
+  datasetId
+  runId
+  creationTimestamp
+  datasetTimestamp
+  targetLevel
+  category
+  column
+  comparison_expected
+  comparison_observed
+  algorithm
+  algorithmMode
+  analysisId
+  analyzerId
+  analyzerConfigVersion
+  analyzerType
+  monitorIds
+  monitorDisplayName
+  isAnomaly
+  isFalseAlarm
+  granularity
+  metric
+  weight
+  calculationRuntimeNano
+  comparison_expected
+  comparison_observed
+  columnList_added
+  columnList_removed
+  diff_metricValue
+  diff_mode
+  diff_threshold
+  drift_metricValue
+  drift_minBatchSize
+  drift_threshold
+  frequentStringComparison_operator
+  frequentStringComparison_sample
+  mostRecentDatasetDatalakeWriteTs
+  threshold_absoluteLower
+  threshold_absoluteUpper
+  threshold_baselineMetricValue
+  threshold_calculatedLower
+  threshold_calculatedUpper
+  threshold_metricValue
+  threshold_factor
+  threshold_minBatchSize
+  failureType
+  failureExplanation
+  tags {
+    key
+    value
+  }
+  traceIds
+  analyzerTags
+  disableTargetRollup
+}
+
+query getAnalysisResults(
+  $anomaliesOnly: Boolean!
+  $datasetId: String!
+  $from: Float!
+  $to: Float
+  $metrics: [AnalysisMetric!]
+  $analyzerTypes: [String!]
+  $columns: [String!]
+  $tags: [SegmentTagFilter!]
+  $adhocRunId: String
+) {
+  analysisResults(
+    filter: {
+      anomaliesOnly: $anomaliesOnly
+      analyzerTypes: $analyzerTypes
+      metrics: $metrics
+      datasetId: $datasetId
+      columns: $columns
+      fromTimestamp: $from
+      toTimestamp: $to
+      segmentTags: $tags
+      adhocRunId: $adhocRunId
+    }
+    offset: 0
+    limit: 0
+    sortDirection: ASC
+  ) {
+    ...AnalysisData
+  }
+}
+
+query getPaginatedAnalysisResults(
+  $anomaliesOnly: Boolean!
+  $includeFailed: Boolean = true
+  $includeUnhelpful: Boolean = true
+  $datasetId: String!
+  $from: Float!
+  $to: Float
+  $metrics: [AnalysisMetric!]
+  $analyzerTypes: [String!]
+  $columns: [String!]
+  $tags: [SegmentTagFilter!]
+  $analyzerIDs: [String!]
+  $monitorIDs: [String!]
+  $analysisIDs: [String!]
+  $limit: Int!
+  $offset: Int!
+  $sortDirection: SortDirection!
+) {
+  paginatedAnalysisResults(
+    filter: {
+      anomaliesOnly: $anomaliesOnly
+      includeFailed: $includeFailed
+      includeUnhelpful: $includeUnhelpful
+      analyzerTypes: $analyzerTypes
+      metrics: $metrics
+      datasetId: $datasetId
+      columns: $columns
+      fromTimestamp: $from
+      toTimestamp: $to
+      segmentTags: $tags
+      analyzerIDs: $analyzerIDs
+      monitorIDs: $monitorIDs
+      analysisIDs: $analysisIDs
+    }
+    offset: $offset
+    limit: $limit
+    sortDirection: $sortDirection
+  ) {
+    ...AnalysisData
+  }
+}
+
+query getAnomalyCount($datasetId: String!, $from: Float!, $to: Float, $analyzerIDs: [String!], $monitorIDs: [String!]) {
+  anomalyCount(
+    filter: {
+      datasetId: $datasetId
+      fromTimestamp: $from
+      toTimestamp: $to
+      monitorIDs: $monitorIDs
+      analyzerIDs: $analyzerIDs
+    }
+    timePeriod: P1D
+  ) {
+    timestamp
+    anomalyCount
+    resultCount
+  }
+}
+
+query getAnomalyCountByAnalyzer($datasetId: String!, $from: Float!, $to: Float!, $analyzerIDs: [String!]!) {
+  anomalyCountByAnalyzer(
+    datasetId: $datasetId
+    fromTimestamp: $from
+    toTimestamp: $to
+    analyzerIDs: $analyzerIDs
+  ) {
+    analyzerId
+    anomalyCount
+    failedCount
+    resultCount
+  }
+}
+
+fragment AnalyzerRunData on AnalyzerRunResult {
+  datasetId
+  runCompleted
+  anomalyCount
+  columnCount
+  failureTypes
+  analyzerId
+  monitorIds
+  runId
+}
+
+query getAnalyzerRuns(
+  $datasetId: String!
+  $from: Float!
+  $to: Float
+  $analyzerId: String
+  $monitorId: String
+  $limit: Int!
+  $offset: Int!
+  $sortDirection: SortDirection
+) {
+  analyzerRuns(
+    filter: {
+      datasetId: $datasetId
+      fromTimestamp: $from
+      toTimestamp: $to
+      analyzerId: $analyzerId
+      monitorId: $monitorId
+    }
+    offset: $offset
+    limit: $limit
+    sortDirection: $sortDirection
+  ) {
+    ...AnalyzerRunData
+  }
+}
+
+query getAnalyzerRunCount($datasetId: String!, $from: Float!, $to: Float, $analyzerId: String, $monitorId: String) {
+  runCount(
+    filter: {
+      datasetId: $datasetId
+      fromTimestamp: $from
+      toTimestamp: $to
+      analyzerId: $analyzerId
+      monitorId: $monitorId
+    }
+  ) {
+    count
+  }
+}
+
+fragment MetricResult on MetricResult {
+  datasetId
+  metric
+  feature
+  segment {
+    key
+    value
+  }
+  points {
+    ...MetricResultPoint
+  }
+}
+
+fragment MetricResultPoint on FloatDataPoint {
+  timestamp
+  value
+}
+
+query getMetricData(
+  $from: Float!
+  $to: Float!
+  $queries: [MetricQuery!]!
+  $granularity: TimePeriod
+  $segmentTags: [SegmentTagFilter!]
+) {
+  dataQueries {
+    getMetricData(
+      fromTimestamp: $from
+      toTimestamp: $to
+      queries: $queries
+      granularity: $granularity
+      segment: $segmentTags
+    ) {
+      ...MetricResult
+    }
+  }
+}
+
+query getMetricDataRollup($from: Float!, $to: Float!, $queries: [MetricQuery!]!) {
+  dataQueries {
+    getMetricData(fromTimestamp: $from, toTimestamp: $to, queries: $queries, granularity: ALL) {
+      ...MetricResult
+    }
+  }
+}
+
+query getBatchDateRange($modelId: String!, $timestamps: [Float!]!) {
+  model(id: $modelId) {
+    batchDateRanges(timestamps: $timestamps) {
+      fromTimestamp
+      toTimestamp
+    }
+  }
+}
+
+fragment MetricSchema on MetricSchema {
+  name
+  label
+  dataType
+  showAsPercent
+  unitInterval
+  source
+  metricKind
+  metricDirection
+  bounds {
+    upper
+    lower
+  }
+  queryDefinition {
+    targetLevel
+    column
+    metric
+  }
+  tags
+}
+
+query getAvailableMetrics($modelType: ModelType, $datasetId: String, $metricTags: [String!]) {
+  dataQueries {
+    availableMetrics(modelType: $modelType, datasetId: $datasetId, metricTags: $metricTags) {
+      ...MetricSchema
+    }
+  }
+}
+
+fragment FeatureWeights on Feature {
+  name
+  weight {
+    value
+    rank
+  }
+}
+
+query getFeatureWeights(
+  $id: String!
+  $by: FeatureSortBy!
+  $direction: SortDirection!
+  $limit: Int = 30
+  $filter: FeatureFilter!
+) {
+  model(id: $id) {
+    name
+    weightMetadata {
+      hasWeights
+    }
+    filteredFeatures(limit: $limit, sort: { by: $by, direction: $direction }, filter: $filter) {
+      results {
+        ...FeatureWeights
+      }
+    }
+  }
+}
+
+query getFeatureWeightsCardInfo($id: String!, $filter: FeatureFilter!) {
+  model(id: $id) {
+    name
+    weightMetadata {
+      hasWeights
+      lastUpdatedAt
+    }
+    filteredFeatures(limit: 5, sort: { by: AbsoluteWeight, direction: DESC }, filter: $filter) {
+      results {
+        ...FeatureWeights
+      }
+    }
+  }
+}
+
+query getSegmentKeys($modelId: String!, $tags: [SegmentTagFilter!]) {
+  searchSegmentKeys(datasetId: $modelId, tags: $tags)
+}
+
+query getSegmentValueForKey($modelId: String!, $key: String!, $tags: [SegmentTagFilter!]) {
+  searchSegmentValues(datasetId: $modelId, key: $key, tags: $tags)
+}
+
+query getIntegrationCards {
+  integrationCards {
+    category
+    coming_soon
+    description
+    logo
+    title
+    url
+  }
+}

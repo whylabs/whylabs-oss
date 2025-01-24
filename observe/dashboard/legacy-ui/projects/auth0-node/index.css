@@ -1,0 +1,400 @@
+body {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+}
+p {
+  margin: 0;
+}
+/* Util classes */
+.wrapper-padding {
+  padding: 22px;
+}
+
+.container {
+  max-width: 1100px;
+  min-width: 800px;
+  width: 100%;
+  margin: auto;
+}
+/* Util classes END */
+
+/* Typography classes */
+.auth-title {
+  font-family: 'Baloo 2';
+  font-size: 38px;
+  line-height: 130%;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #002b43;
+}
+.auth-subtitle {
+  font-family: 'Baloo 2';
+  font-size: 21px;
+  line-height: 130%;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #002b43;
+}
+.text-primary {
+  font-family: Asap;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.label {
+  font-family: 'Baloo 2';
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: #9ba0a4;
+}
+
+.helper-text {
+  font-family: Asap, sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 400;
+}
+.link {
+  font-family: Asap, sans-serif;
+  color: #369bac;
+  text-decoration: underline;
+  cursor: pointer;
+}
+/* Typography classes END */
+
+/* COMPONENT STYLES */
+
+/* Background component */
+.background {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+.background_left-pattern {
+  position: absolute;
+  bottom: -190px;
+  left: -130px;
+  z-index: -1;
+}
+.background_right-pattern {
+  position: absolute;
+  top: -300px;
+  right: -100px;
+  z-index: -1;
+}
+.background__illustration {
+  position: absolute;
+  right: 0px;
+  bottom: -370px;
+  z-index: -1;
+}
+/* Background component END */
+
+/* Logo component */
+.logo {
+  /*  */
+}
+/* Logo component END */
+
+/* Quoteblock component  */
+.quoteblock {
+  padding: 38px;
+  box-shadow: 0px 4px 60px #ece5f2;
+  background: #fff;
+  border-radius: 39px;
+  margin-left: auto;
+  margin-top: 90px;
+  max-width: 500px;
+}
+.quoteblock__text {
+  line-height: 160%;
+  font-style: italic;
+}
+.quoteblock__author {
+  margin-top: 34px;
+  display: flex;
+}
+.quoteblock__author-container {
+  margin-left: 30px;
+}
+/* Quoteblock component END */
+
+/* Footer component  */
+.footer {
+  margin-top: auto;
+}
+/* Footer component END */
+
+/* Tablet component  */
+.tablet-down {
+  background: #fff;
+  display: none;
+  height: 100%;
+}
+
+.tablet-header {
+  padding: 40px 30px;
+}
+
+.tablet-main-header {
+  max-width: 650px;
+  margin-top: 100px;
+  margin: 0 30px;
+}
+
+.tablet-main-header__title {
+  font-family: 'Baloo 2';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 130%;
+  color: #002b43;
+  margin: 10 0px;
+}
+
+.tablet-main-header__text {
+  font-family: Asap;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 150%;
+  color: #55636b;
+  margin: 10 0px;
+}
+
+.tablet-main-content {
+  position: relative;
+  min-height: 540px;
+  width: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: auto;
+}
+
+.tablet-form {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* TODO: Position correctly */
+}
+
+.tablet-main-dog {
+  position: absolute;
+  right: -61px;
+  top: -170px;
+  pointer-events: none;
+}
+
+.tablet-footer {
+  background: rgba(0, 43, 67, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 45px;
+}
+
+.tablet-footer-content {
+  width: 735px;
+}
+
+.tablet-warning {
+  display: flex;
+  align-items: center;
+}
+
+.tablet-warning__icon {
+  margin-right: 20px;
+}
+
+.tablet-warning__title {
+  color: #ff9800;
+  font-family: Asap;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 130%;
+  letter-spacing: 0.01em;
+}
+
+.tablet-warning__text {
+  font-family: Asap;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #55636b;
+  margin-left: 77px;
+}
+/* Tablet component END */
+
+/* Auth0 Widget component */
+.auth0-widget {
+  margin-bottom: 30px;
+}
+/* Auth0 Widget component END */
+
+/* COMPONENT STYLES END */
+
+/* Signup page */
+.signup-page {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 10;
+}
+.signup-page__content {
+  padding-top: 10px;
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(auto, 412px) 1fr;
+}
+.signup-page__left-panel {
+  /*  */
+}
+.signup-page__title {
+  margin-bottom: 30px;
+}
+.signup-page__subtitle {
+  margin-bottom: 30px;
+}
+.signup-page__right-panel {
+  /*  */
+}
+/* Signup page END */
+
+/* Default page */
+.default-page {
+  min-height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.default-page__container {
+  /*
+    69px header component height
+   */
+  height: calc(100% - 69px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* Default page END */
+
+/* Login page */
+.login-page {
+  min-height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.login-page__title {
+  margin-bottom: 30px;
+}
+.login-page__container {
+  /*
+    69px header component height
+   */
+  height: calc(100% - 69px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* Login page END */
+
+/* Forgot password page */
+.forgot-password-page {
+  height: 100%;
+}
+.forgot-password-page__title {
+  margin-bottom: 51px;
+}
+.forgot-password-page__container {
+  /*
+    69px header component height
+   */
+  height: calc(100% - 69px);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* Forgot password page END */
+
+/* Media queries */
+@media only screen and (max-width: 999px) {
+  /* Util classes */
+  .mobile-wrapper-padding {
+    padding: 8px;
+  }
+
+  .mobile-container {
+    max-width: 1100px;
+    min-width: 200px;
+    width: 100%;
+    margin: auto;
+  }
+  .desktop-only {
+    display: none !important;
+  }
+  .tablet-down {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .mobile-title {
+    font-family: 'Baloo 2';
+    font-size: 26px;
+    line-height: 130%;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #002b43;
+  }
+  .mobile-subtitle {
+    font-family: 'Baloo 2';
+    font-size: 18px;
+    line-height: 130%;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #002b43;
+  }
+  .mobile-text-primary {
+    font-family: Asap;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+  }
+  .mobile-label {
+    font-family: 'Baloo 2';
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: #9ba0a4;
+  }
+}
+/* Media queries END*/
+
+/* TODO: SHOULD BE REMOVED */
+.lock {
+  width: 260px;
+  height: 360px;
+  background: #b3b3b3;
+  margin: 0 auto;
+}

@@ -1,0 +1,286 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "Card": {
+      "additionalProperties": false,
+      "properties": {
+        "config": {
+          "$ref": "#/definitions/CardLayout",
+          "description": "Information about the layout of the card"
+        },
+        "graphParams": {
+          "$ref": "#/definitions/GraphParams",
+          "description": "Parameters about the graph type"
+        },
+        "gridArea": {
+          "description": "Which \"megacolumn\" of the dashboard this card should be placed into.",
+          "maximum": 3,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "heroProperties": {
+          "$ref": "#/definitions/HeroTextProperties",
+          "description": "The main content of the card, usually the result of a query or calculation."
+        },
+        "queryId": {
+          "description": "A query ID value used to determine what information to pull to get values to the card.\nLater iterations will involve the ability to specify exactly what values to query.",
+          "type": "string"
+        },
+        "subGrid": {
+          "$ref": "#/definitions/SubGrid"
+        },
+        "title": {
+          "$ref": "#/definitions/InfoText",
+          "description": "The title of the card"
+        }
+      },
+      "required": ["title", "queryId"],
+      "type": "object"
+    },
+    "GraphParams": {
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "description": "Graph type e.g. lineChart, stackedBarTimeSeries, timeSeries",
+          "enum": ["lineChart", "stackedBarTimeSeries", "timeSeries"],
+          "type": "string"
+        },
+        "curvesType": {
+          "description": "Param used to specify the curve type of timeSeries graph",
+          "enum": [
+            "curveBasis",
+            "curveBasisClosed",
+            "curveBasisOpen",
+            "curveStep",
+            "curveStepAfter",
+            "curveStepBefore",
+            "curveBundle",
+            "curveLinear",
+            "curveLinearClosed",
+            "curveCardinal",
+            "curveCardinalClosed",
+            "curveCardinalOpen",
+            "curveCatmullRom",
+            "curveCatmullRomClosed",
+            "curveCatmullRomOpen",
+            "curveMonotoneX",
+            "curveMonotoneY",
+            "curveNatural"
+          ],
+          "type": "string"
+        },
+        "showDots": {
+          "description": "Param used to show/hide the dots on line graphs",
+          "enum": ["lineChart", "stackedBarTimeSeries", "timeSeries"],
+          "type": "string"
+        }
+      },
+      "required": ["type"],
+      "type": "object"
+    },
+    "CardLayout": {
+      "additionalProperties": false,
+      "properties": {
+        "colorInfo": {
+          "$ref": "#/definitions/ColorInfo"
+        },
+        "dimensions": {
+          "$ref": "#/definitions/Dimensions"
+        },
+        "dynamicColorId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ColorInfo": {
+      "additionalProperties": false,
+      "properties": {
+        "backgroundColor": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "hasBorder": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Dimensions": {
+      "additionalProperties": false,
+      "properties": {
+        "columnSpan": {
+          "description": "The number of columns that this grid object should span.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "rowSpan": {
+          "description": "The number of rows that this grid object should span.",
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "DynamicColor": {
+      "additionalProperties": false,
+      "properties": {
+        "decreasing": {
+          "description": "By default, the values in a threshold color are assumed to be increasing.\nFor instance, if the thresholds are 0.3, 0.5, 0.8, then values of -Infinity <= x < 0.3 will use\nthe first color info, 0.3 <= x < 0.5 the second, etc.\n\nIf this value is true, then the opposite logic will be used.",
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        },
+        "thresholdInfo": {
+          "items": {
+            "$ref": "#/definitions/ThresholdColorInfo"
+          },
+          "type": "array"
+        }
+      },
+      "required": ["thresholdInfo", "id"],
+      "type": "object"
+    },
+    "Grid": {
+      "additionalProperties": false,
+      "description": "Describes a grid of card objects. This can take up a page, a tab, or\nany area where multiple cards are expected to be displayed.",
+      "properties": {
+        "contents": {
+          "description": "The set of full cards and locations.",
+          "items": {
+            "$ref": "#/definitions/Card"
+          },
+          "type": "array"
+        },
+        "dynamicColors": {
+          "description": "The set of all dynamic color arrays used in the cards",
+          "items": {
+            "$ref": "#/definitions/DynamicColor"
+          },
+          "type": "array"
+        }
+      },
+      "required": ["contents"],
+      "type": "object"
+    },
+    "HeroTextProperties": {
+      "additionalProperties": false,
+      "description": "Information for the \"hero\" or headline text for a component. These are intended\nto be mostly numeric, but we should allow flexibility.",
+      "properties": {
+        "emptyText": {
+          "description": "Text to be displayed when there is no current value.",
+          "type": "string"
+        },
+        "subHeaderAttributes": {
+          "$ref": "#/definitions/ValueAttributes",
+          "description": "Often used to show the raw value of a hero value expressed in a percentage"
+        },
+        "valueAttributes": {
+          "$ref": "#/definitions/ValueAttributes"
+        }
+      },
+      "type": "object"
+    },
+    "InfoText": {
+      "additionalProperties": false,
+      "description": "Describes text imparting information about the contents of a card or mini card.\nThis is not designed to be used for the \"value\" displays, but for the titles.",
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "tooltip": {
+          "type": "string"
+        }
+      },
+      "required": ["text"],
+      "type": "object"
+    },
+    "MiniCard": {
+      "additionalProperties": false,
+      "properties": {
+        "config": {
+          "$ref": "#/definitions/MiniCardLayout"
+        },
+        "fieldId": {
+          "description": "A field ID value used to determine what information to pull from the main card's query information.\nLater iterations will involve the ability to specify exactly what values to query.",
+          "type": "string"
+        },
+        "heroProperties": {
+          "$ref": "#/definitions/HeroTextProperties"
+        },
+        "title": {
+          "$ref": "#/definitions/InfoText"
+        }
+      },
+      "required": ["title", "fieldId"],
+      "type": "object"
+    },
+    "MiniCardLayout": {
+      "additionalProperties": false,
+      "properties": {
+        "colorInfo": {
+          "$ref": "#/definitions/ColorInfo"
+        },
+        "dynamicColorId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SubGrid": {
+      "additionalProperties": false,
+      "description": "Describes a sub grid that is intended to be contained within a Card.",
+      "properties": {
+        "contents": {
+          "items": {
+            "$ref": "#/definitions/MiniCard"
+          },
+          "type": "array"
+        }
+      },
+      "required": ["contents"],
+      "type": "object"
+    },
+    "ThresholdColorInfo": {
+      "additionalProperties": false,
+      "properties": {
+        "colorInfo": {
+          "$ref": "#/definitions/ColorInfo"
+        },
+        "threshold": {
+          "description": "The number at which this color info should STOP being used, exclusive. Whether this indicates going\nup or down is defined in the DynamicColor.",
+          "type": "number"
+        }
+      },
+      "required": ["threshold", "colorInfo"],
+      "type": "object"
+    },
+    "ValueAttributes": {
+      "additionalProperties": false,
+      "properties": {
+        "dateFormat": {
+          "description": "Only applicable to date types. Otherwise ignored.",
+          "type": "string"
+        },
+        "minStringLength": {
+          "description": "Only applicable to string types. Otherwise ignored.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "precision": {
+          "description": "Only applicable to number and percentage types. Otherwise ignored.",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "valueType": {
+          "enum": ["date", "number", "percentage", "string"],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

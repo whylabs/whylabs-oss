@@ -1,0 +1,214 @@
+# -- Number of replicas for the service.
+replicaCount: 3
+
+# -- (string) The Java Lib Version; used within a pod annotation for DataDog.
+javaLibVersion: v1.18.3
+
+image:
+  # -- Image repository for the `songbird` container.
+  repository: ""
+  # -- Image pull policy for the `songbird` container.
+  pullPolicy: IfNotPresent
+  # -- (string) Image tag for the `songbird` container, this will default to `.Chart.AppVersion` if not set.
+  tag: "latest"
+
+imagePullSecrets:
+  # -- (list) Image pull secrets for the `songbird` container. Defaults to `whylabs-{{ .Release.Name }}-registry-credentials`.
+  - name: ""
+
+# -- (string) Override the name of the chart.
+nameOverride: ""
+
+# -- (string) Override the full name of the chart.
+fullnameOverride: ""
+
+# -- Labels to add to all chart resources.
+commonLabels: {}
+
+# -- [Environment variables](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) for the `songbird` container.
+env:
+  "API_KEY_TABLE": ""
+  "AWS_MARKETPLACE_PRODUCT_CODE": ""
+  "AWS_MARKETPLACE_SUBSCRIPTION_DLQ_URL": ""
+  "AWS_MARKETPLACE_SUBSCRIPTION_QUEUE_URL": ""
+  "AZURE_EVENT_HUB_NAME": ""
+  "AZURE_SECRET_NAME": ""
+  "BASE_URL": ""
+  "CLOUDFRONT_LOG_DOMAIN": ""
+  "CLOUDFRONT_LOG_KEYPAIR_ID": ""
+  "CLOUDFRONT_LOG_SM_ID": ""
+  "CLOUDWATCH_NAMESPACE": ""
+  "DATA_SERVICE_API_ENDPOINT": ""
+  "DATA_TABLE": ""
+  "DATADOG_METRICS_ENABLED": ""
+  "DD_LOGS_INJECTION": ""
+  "DD_TRACE_SAMPLE_RATE": ""
+  "DEFAULT_JAVA_OPTS": ""
+  "DIAGNOSER_SERVICE_API_ENDPOINT": ""
+  "DRUID_INGESTION_KINESIS_DATA_STREAM": ""
+  "ELASTICSEARCH_ACCESS_ROLE": ""
+  "ELASTICSEARCH_ENDPOINT": ""
+  "GCP_PROJECT_ID": ""
+  "GCP_PUBSUB_TOPIC_NAME": ""
+  "GCP_SECRET_ID": ""
+  "GLOBAL_ACTIONS_TABLE": ""
+  "JAVA_OPTS": ""
+  "LDCLIENT_SECRET_ID": ""
+  "MERGER_SQS_QUEUE_NAME": ""
+  "METADATA_TABLE": ""
+  "MONITOR_CONFIG_DLQ_ARN": ""
+  "MONITOR_CONFIG_QUEUE_ARN": ""
+  "NOTIFICATION_QUEUE_ARN": ""
+  "OBSERVATORY_ENDPOINT": ""
+  "SCIM_SERVICE_API_ENDPOINT": ""
+  "SERVICE_OPTS": ""
+  "STAGE": ""
+  "STORAGE_BUCKET": ""
+  "STORAGE_BUCKET_UNTRUSTED_PREFIX": ""
+  "TEST_NOTIFICATION_DLQ_ARN": ""
+  "TEST_NOTIFICATION_QUEUE_ARN": ""
+  "USER_MEMBERSHIP_NOTIFICATION_DLQ_ARN": ""
+  "USER_MEMBERSHIP_NOTIFICATION_QUEUE_ARN": ""
+
+envFrom: {}
+
+serviceAccount:
+  # -- If `true`, create a new `ServiceAccount`.
+  create: true
+  # -- (string) If this is set and `serviceAccount.create` is `true` this will be used for the created `ServiceAccount` name, if set and `serviceAccount.create` is `false` then this will define an existing `ServiceAccount` to use.
+  name: ""
+  # -- Labels to add to the service account.
+  labels: {}
+  # -- Annotations to add to the service account.
+  annotations:
+    eks.amazonaws.com/role-arn: ""
+  # -- Set this to `false` to [opt out of API credential automounting](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#opt-out-of-api-credential-automounting) for the `ServiceAccount`.
+  automount: true
+
+service:
+  # -- Service annotations.
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: ""
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: ""
+    service.beta.kubernetes.io/aws-load-balancer-ssl-negotiation-policy: ""
+    service.beta.kubernetes.io/aws-load-balancer-type: ""
+    service.beta.kubernetes.io/aws-load-balancer-scheme: ""
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: ""
+    service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ""
+    service.beta.kubernetes.io/aws-load-balancer-additional-resource-tags: ""
+    service.beta.kubernetes.io/aws-load-balancer-connection-draining-enabled: ""
+    service.beta.kubernetes.io/aws-load-balancer-connection-draining-timeout: ""
+  # -- Service Type, i.e. ClusterIp, LoadBalancer, etc.
+  type: LoadBalancer
+  # -- The port on which the application container is listening.
+  targetPort: 8080
+  # -- Service LoadBalancer configuration.
+  loadBalancer:
+    # -- ARN of the ACM certificate to use for the LoadBalancer.
+    tls:
+      arn: ""
+      policy: "ELBSecurityPolicy-TLS-1-2-2017-01"
+    type: "external"
+    scheme: "internet-facing"
+
+servicePrivate:
+  # -- If `true`, create a private service.
+  enabled: false
+  # -- Private Service annotations.
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: ""
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: ""
+    service.beta.kubernetes.io/aws-load-balancer-ssl-negotiation-policy: ""
+    service.beta.kubernetes.io/aws-load-balancer-type: ""
+    service.beta.kubernetes.io/aws-load-balancer-scheme: ""
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: ""
+    service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: "ip"
+    service.beta.kubernetes.io/aws-load-balancer-connection-draining-enabled: ""
+    service.beta.kubernetes.io/aws-load-balancer-connection-draining-timeout: ""
+  # -- Service Type, i.e. ClusterIp, LoadBalancer, etc.
+  type: LoadBalancer
+  # -- The port on which the application container is listening.
+  targetPort: 8080
+  loadBalancer:
+    # -- ARN of the ACM certificate to use for the LoadBalancer.
+    tls:
+      arn: ""
+      policy: "ELBSecurityPolicy-TLS-1-2-2017-01"
+    type: "external"
+    scheme: "internal"
+
+# -- Annotations to add to the `Pod`.
+podAnnotations: {}
+
+# -- Labels to add to the `Pod`.
+podLabels: {}
+
+# -- [Pod security context](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#podsecuritycontext-v1-core), this supports full customisation.
+podSecurityContext: {}
+
+# -- [Security context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container) for the `songbird` container.
+securityContext: {}
+  # readOnlyRootFilesystem: true
+
+# -- [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) configuration for the `songbird` container.
+ingress:
+  enabled: false
+  # className: ""
+  # annotations: {}
+  # hosts:
+  #   - host: chart-example.local
+  #     paths:
+  #       - path: /
+  #         pathType: ImplementationSpecific
+  # tls: []
+
+# -- [Resources](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) for the `songbird` container.
+resources:
+  requests:
+    cpu: "2"
+    memory: 4000Mi
+  limits:
+    memory: 4000Mi
+
+# -- [Liveness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) configuration for the `songbird` container.
+livenessProbe:
+  httpGet:
+    path: /health
+    port: http
+  failureThreshold: 10
+  initialDelaySeconds: 90
+  periodSeconds: 10
+
+# -- [Readiness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) configuration for the `songbird` container.
+readinessProbe:
+  httpGet:
+    path: /health
+    port: http
+  failureThreshold: 20
+  initialDelaySeconds: 90
+  periodSeconds: 10
+
+# -- [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) configuration for the `songbird` container.
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 70
+  # targetMemoryUtilizationPercentage: 70
+
+# -- Extra [volumes](https://kubernetes.io/docs/concepts/storage/volumes/) for the `Pod`.
+extraVolumes: []
+
+# -- Extra [volume mounts](https://kubernetes.io/docs/concepts/storage/volumes/) for the `songbird` container.
+extraVolumeMounts: []
+
+# -- Node labels to match for `Pod` [scheduling](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/).
+nodeSelector: {}
+
+# -- Node taints which will be tolerated for `Pod` [scheduling](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/).
+tolerations: []
+
+# -- Affinity settings for `Pod` [scheduling](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/). If an explicit label selector is not provided for pod affinity or pod anti-affinity one will be created from the pod selector labels.
+affinity: {}
+
+schedulerName: ""

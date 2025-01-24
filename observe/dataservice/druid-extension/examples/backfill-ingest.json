@@ -1,0 +1,131 @@
+{
+  "type": "index_parallel",
+  "spec": {
+    "ioConfig": {
+      "type": "index_parallel",
+      "inputSource": {
+        "type": "local",
+        "filter": "*.bin",
+        "baseDir": "/var/folders/nz/8hrcks3s1f5906vs993sgy4r0000gn/T/profiles8619019563819870849/"
+      },
+      "inputFormat": {
+        "type": "whylogs"
+      }
+    },
+    "tuningConfig": {
+      "type": "index_parallel",
+      "partitionsSpec": {
+        "type": "dynamic"
+      }
+    },
+    "dataSchema": {
+      "dataSource": "whylogs",
+      "metricsSpec": [
+        {
+          "type": "HLLSketchMerge",
+          "name": "uniqueCount",
+          "fieldName": "uniqueCount"
+        },
+        {
+          "type": "kllFloatsSketch",
+          "name": "histogram",
+          "fieldName": "histogram"
+        },
+        {
+          "type": "frequentItemsMerge",
+          "name": "frequentItems",
+          "fieldName": "frequentItems"
+        },
+        {
+          "type": "longSum",
+          "name": "schema.count.BOOLEAN",
+          "fieldName": "schema.count.BOOLEAN"
+        },
+        {
+          "type": "doubleMin",
+          "name": "number.min",
+          "fieldName": "number.min"
+        },
+        {
+          "type": "longSum",
+          "name": "schema.count.NULL",
+          "fieldName": "schema.count.NULL"
+        },
+        {
+          "type": "longSum",
+          "name": "schema.count.FRACTIONAL",
+          "fieldName": "schema.count.FRACTIONAL"
+        },
+        {
+          "type": "doubleSum",
+          "name": "number.variance.m2",
+          "fieldName": "number.variance.m2"
+        },
+        {
+          "type": "doubleMax",
+          "name": "number.max",
+          "fieldName": "number.max"
+        },
+        {
+          "type": "longSum",
+          "name": "counters.nullCount",
+          "fieldName": "counters.nullCount"
+        },
+        {
+          "type": "longSum",
+          "name": "counters.count",
+          "fieldName": "counters.count"
+        },
+        {
+          "type": "longSum",
+          "name": "counters.trueCount",
+          "fieldName": "counters.trueCount"
+        },
+        {
+          "type": "longSum",
+          "name": "schema.count.STRING",
+          "fieldName": "schema.count.STRING"
+        },
+        {
+          "type": "longSum",
+          "name": "schema.count.UNKNOWN",
+          "fieldName": "schema.count.UNKNOWN"
+        },
+        {
+          "type": "longSum",
+          "name": "schema.count.INTEGRAL",
+          "fieldName": "schema.count.INTEGRAL"
+        },
+        {
+          "type": "doubleSum",
+          "name": "number.variance.mean",
+          "fieldName": "number.variance.mean"
+        },
+        {
+          "type": "longSum",
+          "name": "number.count",
+          "fieldName": "number.count"
+        }
+      ],
+      "granularitySpec": {
+        "type": "uniform",
+        "queryGranularity": "NONE",
+        "rollup": true,
+        "segmentGranularity": "DAY"
+      },
+      "timestampSpec": {
+        "column": "time",
+        "format": "iso"
+      },
+      "dimensionsSpec": {
+        "dimensions": [
+          "columnName",
+          "orgId",
+          "datasetId",
+          "tags"
+        ]
+      }
+    }
+  }
+}
+

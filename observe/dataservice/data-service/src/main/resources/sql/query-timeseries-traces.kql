@@ -1,0 +1,37 @@
+declare query_parameters(orgId:string,
+                         resourceId:string,
+                         startTime:datetime,
+                         endTime:datetime,
+                         granularity:timespan);
+
+
+// Traces are made up of spans. To accurately identify and summarize a trace, we need all the spans in the trace to
+// answer questions on violation tags, start/end time, etc. A query start/end time will cut off spans from a trace,
+// so we need to expand the span-search window to ensure we capture all spans in a trace for metrics
+//
+// It’s up to 2 days both ways because timestamps on spans are set by the user, we’ve seen spans up to a day before
+// or after the starting span start time.
+
+traces
+| where ResourceId == resourceId
+| where OrgId == orgId
+| where StartTime >= startTime - 2d
+| where StartTime < endTime + 2d
+| summarize agg_data=PLACEHOLDER_MERGE_OPERATION,
+            StartTime=min(StartTime)
+            by OrgId, ResourceId, TraceId
+| where StartTime >= startTime
+| where StartTime < endTime
+| summarize value=todouble(PLACEHOLDER_POSTAGG_OPERATION)
+            by bin(StartTime, granularity)
+| union (
+    range x from 1 to 1 step 1
+    | mv-expand StartTime=range(startTime, endTime, granularity) to typeof(datetime)
+    | extend value=todouble(1/0)
+    | project StartTime, value
+    )
+| summarize value=max(value) by StartTime
+| extend timestamp=tolong((StartTime - datetime(1970-01-01T00:00:00Z)) / 1ms)
+| project timestamp, value
+| order by timestamp asc
+

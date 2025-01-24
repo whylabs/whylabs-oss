@@ -1,0 +1,6 @@
+query getCustomDashboardsByUsedOnMetadata($usedOn: String!) {
+  customDashboards(usedOn: $usedOn) {
+    id
+    displayName
+  }
+}

@@ -1,0 +1,1 @@
+CREATE INDEX IF NOT EXISTS async_request_runid_idx ON whylabs.adhoc_async_requests(run_id);

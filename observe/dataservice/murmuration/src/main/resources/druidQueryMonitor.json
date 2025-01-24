@@ -1,0 +1,165 @@
+{
+  "dimensions": [
+    "columnName",
+    "orgid",
+    "datasetid",
+    "segmentText"
+  ],
+  "aggregations": [
+    {
+      "type": "frequentItemsMerge",
+      "name": "frequentItems",
+      "fieldName": "frequentItems"
+    },
+    {
+      "type": "kllFloatsSketch",
+      "name": "histogram",
+      "fieldName": "histogram"
+    },
+    {
+      "name": "hll",
+      "type": "HLLSketchMerge",
+      "fieldName": "uniqueCount",
+      "lgK": 12,
+      "tgtHllType": "HLL_4",
+      "round": false
+    },
+    {
+      "name": "totalCount",
+      "type": "longSum",
+      "fieldName": "counters.count"
+    },
+    {
+      "name": "schemaCountUnknown",
+      "fieldName": "schema.count.UNKNOWN",
+      "type": "longSum"
+    },
+    {
+      "name": "schemaCountFractional",
+      "fieldName": "schema.count.FRACTIONAL",
+      "type": "longSum"
+    },
+    {
+      "name": "schemaCountIntegral",
+      "fieldName": "schema.count.INTEGRAL",
+      "type": "longSum"
+    },
+    {
+      "name": "schemaCountBoolean",
+      "fieldName": "schema.count.BOOLEAN",
+      "type": "longSum"
+    },
+    {
+      "name": "schemaCountString",
+      "fieldName": "schema.count.STRING",
+      "type": "longSum"
+    },
+    {
+      "name": "nullCount",
+      "fieldName": "schema.count.NULL",
+      "type": "longSum"
+    }
+  ],
+  "postAggregations": [
+    {
+      "type": "HLLSketchEstimate",
+      "name": "unique",
+      "field": {
+        "type": "fieldAccess",
+        "name": "hll",
+        "fieldName": "hll"
+      },
+      "round": true
+    },
+    {
+      "type": "discrete",
+      "name": "discrete",
+      "cardinality": {
+        "type": "fieldAccess",
+        "name": "hll",
+        "fieldName": "hll"
+      },
+      "numRecords": {
+        "type": "fieldAccess",
+        "name": "totalCount",
+        "fieldName": "totalCount"
+      },
+      "inferredType": {
+        "type": "inferredType",
+        "name": "inferredType",
+        "typeCountUnknown": { "type": "fieldAccess", "name": "schemaCountUnknown", "fieldName": "schemaCountUnknown" },
+        "typeCountFractional": { "type": "fieldAccess", "name": "schemaCountFractional", "fieldName": "schemaCountFractional" },
+        "typeCountIntegral": { "type": "fieldAccess", "name": "schemaCountIntegral", "fieldName": "schemaCountIntegral" },
+        "typeCountBoolean": { "type": "fieldAccess", "name": "schemaCountBoolean", "fieldName": "schemaCountBoolean" },
+        "typeCountString": { "type": "fieldAccess", "name": "schemaCountString", "fieldName": "schemaCountString" },
+        "nullCount": { "type": "fieldAccess", "name": "nullCount", "fieldName": "nullCount" }
+      }
+    },
+    {
+      "comment": "This looks suspicious but is actually correct. There is a 'InferredTypePostAggregator', plus 'DiscretePostAggregator' takes 'InferredTypePostAggregator' as a parameter.",
+      "type": "inferredType",
+      "name": "inferredType",
+      "typeCountUnknown": { "type": "fieldAccess", "name": "schemaCountUnknown", "fieldName": "schemaCountUnknown" },
+      "typeCountFractional": { "type": "fieldAccess", "name": "schemaCountFractional", "fieldName": "schemaCountFractional" },
+      "typeCountIntegral": { "type": "fieldAccess", "name": "schemaCountIntegral", "fieldName": "schemaCountIntegral" },
+      "typeCountBoolean": { "type": "fieldAccess", "name": "schemaCountBoolean", "fieldName": "schemaCountBoolean" },
+      "typeCountString": { "type": "fieldAccess", "name": "schemaCountString", "fieldName": "schemaCountString" },
+      "nullCount": { "type": "fieldAccess", "name": "nullCount", "fieldName": "nullCount" }
+    },
+    {
+      "type": "derived.metrics",
+      "name": "classification_recall",
+      "field": {"type": "fieldAccess", "name": "modelMetrics", "fieldName": "modelMetrics"},
+      "metricType": "recall"
+    },
+    {
+      "type": "derived.metrics",
+      "name": "classification_fpr",
+      "field": {"type": "fieldAccess", "name": "modelMetrics", "fieldName": "modelMetrics"},
+      "metricType": "fpr"
+    },
+    {
+      "type": "derived.metrics",
+      "name": "classification_precision",
+      "field": {"type": "fieldAccess", "name": "modelMetrics", "fieldName": "modelMetrics"},
+      "metricType": "precision"
+    },
+    {
+      "type": "derived.metrics",
+      "name": "classification_accuracy",
+      "field": {"type": "fieldAccess", "name": "modelMetrics", "fieldName": "modelMetrics"},
+      "metricType": "accuracy"
+    },
+    {
+      "type": "derived.metrics",
+      "name": "classification_f1",
+      "field": {"type": "fieldAccess", "name": "modelMetrics", "fieldName": "modelMetrics"},
+      "metricType": "f1"
+    },
+    {
+      "type": "derived.metrics",
+      "name": "regression_mse",
+      "field": {"type": "fieldAccess", "name": "modelMetrics", "fieldName": "modelMetrics"},
+      "metricType": "mean_squared_error"
+    },
+    {
+      "type": "derived.metrics",
+      "name": "regression_mae",
+      "field": {"type": "fieldAccess", "name": "modelMetrics", "fieldName": "modelMetrics"},
+      "metricType": "mean_absolute_error"
+    },
+    {
+      "type": "derived.metrics",
+      "name": "regression_rmse",
+      "field": {"type": "fieldAccess", "name": "modelMetrics", "fieldName": "modelMetrics"},
+      "metricType": "root_mean_squared_error"
+    },
+    {
+      "type": "derived.metrics",
+      "name": "classification_auroc",
+      "field": {"type": "fieldAccess", "name": "modelMetrics", "fieldName": "modelMetrics"},
+      "metricType": "auroc"
+    }
+
+  ]
+}

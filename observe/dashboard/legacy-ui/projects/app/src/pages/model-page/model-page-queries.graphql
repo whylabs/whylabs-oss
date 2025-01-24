@@ -1,0 +1,563 @@
+query getAllModels {
+  models {
+    ...ModelCommonData
+    ...LatestAlertOnModel
+    ...ModelMetricsName
+  }
+}
+
+fragment MetricValueFields on MetricValue {
+  timestamp
+  value
+}
+
+fragment DatasetMetricFields on Metric {
+  name
+  values(fromTimestamp: $from, toTimestamp: $to) {
+    ...MetricValueFields
+  }
+}
+
+fragment ModelPerformance on Model {
+  datasetMetrics {
+    name
+    metadata {
+      source
+      showAsPercent
+      queryDefinition {
+        metric
+        column
+      }
+    }
+    values(fromTimestamp: $from, toTimestamp: $to) {
+      timestamp
+      value
+    }
+  }
+  dataAvailability {
+    latestTimestamp
+  }
+  batches(from: $from, to: $to) {
+    timestamp
+    inputCount
+    outputCount
+    metrics {
+      calibration {
+        values
+      }
+      confusion {
+        labels
+        counts
+      }
+      recallPrecision {
+        values
+      }
+      fprTpr {
+        values
+      }
+    }
+  }
+}
+fragment SegmentPerformance on Segment {
+  tags {
+    key
+    value
+  }
+  datasetMetrics {
+    name
+    metadata {
+      source
+      queryDefinition {
+        metric
+        column
+      }
+      showAsPercent
+    }
+    values(fromTimestamp: $from, toTimestamp: $to) {
+      timestamp
+      value
+    }
+  }
+  dataAvailability {
+    latestTimestamp
+  }
+  batches(from: $from, to: $to) {
+    timestamp
+    inputCount
+    outputCount
+    metrics {
+      calibration {
+        values
+      }
+      confusion {
+        labels
+        counts
+      }
+      recallPrecision {
+        values
+      }
+      fprTpr {
+        values
+      }
+    }
+  }
+}
+
+query getModelPerformance($datasetId: String!, $from: Float!, $to: Float) {
+  model(id: $datasetId) {
+    id
+    name
+    modelType
+    batchFrequency
+    ...ModelPerformance
+  }
+}
+
+query getModelPerformanceCardDataAvailability(
+  $datasetId: String!
+  $from: Float!
+  $to: Float!
+  $granularity: TimePeriod
+) {
+  model(id: $datasetId) {
+    dataAvailability {
+      latestTimestamp
+    }
+    timeseries: datasetMetrics(granularity: $granularity) {
+      ...DatasetMetricFields
+    }
+    modelType
+  }
+}
+
+query getModelPerformanceRollup(
+  $datasetId: String!
+  $dailyFrom: Float!
+  $dailyTo: Float!
+  $weeklyFrom: Float!
+  $weeklyTo: Float!
+) {
+  model(id: $datasetId) {
+    rollup: datasetMetrics(granularity: ALL) {
+      name
+      oneDay: values(fromTimestamp: $dailyFrom, toTimestamp: $dailyTo) {
+        ...MetricValueFields
+      }
+      oneWeek: values(fromTimestamp: $weeklyFrom, toTimestamp: $weeklyTo) {
+        ...MetricValueFields
+      }
+    }
+  }
+}
+
+fragment FeatureTableInfo on Feature {
+  name
+  id
+  anomalyCounts(fromTimestamp: $from, toTimestamp: $to, groupBy: METRIC) {
+    totals {
+      category
+      count
+    }
+    timeseries {
+      timestamp
+      counts {
+        category
+        count
+        metric
+      }
+    }
+  }
+  sketches(from: $from, to: $to) {
+    datasetTimestamp
+    lastUploadTimestamp
+    schemaSummary {
+      inference {
+        count
+      }
+      typeCounts {
+        type
+        count
+      }
+    }
+    totalCount
+    nullRatio
+    uniqueCount {
+      estimate
+    }
+  }
+  schema {
+    isDiscrete
+    inferredType
+  }
+}
+
+query outputTable(
+  $datasetId: String!
+  $offset: Int!
+  $limit: Int!
+  $from: Float!
+  $to: Float
+  $sort: FilteredFeaturesSort
+  $text: String
+  $includeDiscrete: Boolean
+  $includeNonDiscrete: Boolean
+  $anomalyCategories: [AlertCategory!]
+) {
+  model(id: $datasetId) {
+    batchFrequency
+    weightMetadata {
+      hasWeights
+    }
+    filteredOutputs(
+      offset: $offset
+      limit: $limit
+      sort: $sort
+      filter: {
+        fromTimestamp: $from
+        toTimestamp: $to
+        substring: $text
+        anomalyCategories: $anomalyCategories
+        includeDiscrete: $includeDiscrete
+        includeNonDiscrete: $includeNonDiscrete
+      }
+    ) {
+      totalCount
+      results {
+        ...FeatureTableInfo
+      }
+    }
+  }
+}
+
+query getOutputNames($datasetId: String!) {
+  model(id: $datasetId) {
+    outputs {
+      name
+    }
+  }
+}
+
+query getDataExistenceInformation($datasetId: String!) {
+  model(id: $datasetId) {
+    datasetMetrics {
+      name
+    }
+    totalSegments
+    entitySchema {
+      hasInputs
+      hasOutputs
+      hasColumns
+    }
+  }
+}
+
+query getModelAvailablePerformanceMetrics($datasetId: String!) {
+  model(id: $datasetId) {
+    datasetMetrics {
+      name
+    }
+  }
+}
+
+query featureTable(
+  $datasetId: String!
+  $offset: Int!
+  $limit: Int!
+  $from: Float!
+  $to: Float
+  $text: String
+  $includeDiscrete: Boolean
+  $includeNonDiscrete: Boolean
+  $anomalyCategories: [AlertCategory!]
+  $sort: FilteredFeaturesSort
+) {
+  model(id: $datasetId) {
+    batchFrequency
+    weightMetadata {
+      hasWeights
+    }
+    filteredFeatures(
+      sort: $sort
+      offset: $offset
+      limit: $limit
+      filter: {
+        fromTimestamp: $from
+        toTimestamp: $to
+        substring: $text
+        anomalyCategories: $anomalyCategories
+        includeDiscrete: $includeDiscrete
+        includeNonDiscrete: $includeNonDiscrete
+      }
+    ) {
+      totalCount
+      results {
+        ...FeatureTableInfo
+        weight {
+          value
+        }
+      }
+    }
+  }
+}
+
+fragment BatchProfile on BatchMetadata {
+  timestamp
+}
+fragment ReferenceProfile on ReferenceProfile {
+  id
+  alias
+  datasetId
+  uploadTimestamp
+  datasetTimestamp
+}
+
+query getModelProfiles($modelId: String!, $from: Float, $to: Float) {
+  model(id: $modelId) {
+    batchFrequency
+    id
+    modelType
+    name
+
+    batches(from: $from, to: $to) {
+      ...BatchProfile
+    }
+
+    referenceProfiles(from: $from, to: $to) {
+      ...ReferenceProfile
+    }
+  }
+}
+
+# 🚨 ATTENTION 🚨
+# getModelProfilesForMonitorConfig query should never query anything other than batches timestamp.
+# Reason: We do not have time constraint(fromTimestamp toTimestamp) on batches, querying anything more might have huge impact on backend.
+query getModelProfilesForMonitorConfig($modelId: String!) {
+  model(id: $modelId) {
+    batches {
+      timestamp
+    }
+  }
+}
+
+fragment MetricRollup on MetricRollupResult {
+  datasetId
+  metric
+  feature
+  segmentGroup
+  value
+}
+
+query getSegmentMetricDataRollup($from: Float!, $to: Float!, $segmentKey: String!, $queries: [MetricQuery!]!) {
+  dataQueries {
+    getSegmentMetricDataRollup(fromTimestamp: $from, toTimestamp: $to, segmentKey: $segmentKey, queries: $queries) {
+      ...MetricRollup
+    }
+  }
+}
+
+query searchSegmentKeys($datasetId: String!, $tags: [SegmentTagFilter!], $searchString: String, $limitSpec: LimitSpec) {
+  searchSegmentKeys(datasetId: $datasetId, tags: $tags, searchString: $searchString, limitSpec: $limitSpec)
+}
+
+query getModelDataAvailability($modelId: String!) {
+  model(id: $modelId) {
+    dataAvailability {
+      hasData
+    }
+  }
+}
+
+query getSingleModelProfile(
+  $modelId: String!
+  $datasetTimestamp: Float!
+  $offset: Int
+  $limit: Int
+  $filter: FeatureSketchFilter!
+) {
+  model(id: $modelId) {
+    batch(datasetTimestamp: $datasetTimestamp) {
+      sketches(offset: $offset, limit: $limit, filter: $filter) {
+        results {
+          ...FullSketchFields
+        }
+      }
+    }
+  }
+}
+
+fragment ProfilesSketchFields on FilteredFeatureSketches {
+  totalCount
+  results {
+    ...FullSketchFields
+  }
+}
+
+query getModelSelectedProfiles(
+  $modelId: String!
+  $timestamps: [Float!]!
+  $staticProfileIds: [String!]
+  $offset: Int
+  $limit: Int
+  $filter: FeatureSketchFilter!
+  $retrievalTokens: [String!]!
+  $allowIndividualProfiles: Boolean = false
+) {
+  model(id: $modelId) {
+    batches(timestamps: $timestamps) {
+      timestamp
+      sketches(offset: $offset, limit: $limit, filter: $filter) {
+        ...ProfilesSketchFields
+      }
+    }
+
+    referenceProfiles(profileIds: $staticProfileIds) {
+      id
+      sketches(offset: $offset, limit: $limit, filter: $filter) {
+        ...ProfilesSketchFields
+      }
+    }
+
+    individualProfiles(retrievalTokens: $retrievalTokens) @include(if: $allowIndividualProfiles) {
+      retrievalToken
+      sketches(offset: $offset, limit: $limit, filter: $filter) {
+        ...ProfilesSketchFields
+      }
+    }
+
+    datasetMetrics {
+      name
+    }
+
+    outputs {
+      name
+    }
+  }
+}
+
+query getModelColumnsCounts($modelId: String!) {
+  model(id: $modelId) {
+    entitySchema {
+      inputCounts {
+        discrete
+        nonDiscrete
+      }
+      outputCounts {
+        discrete
+        nonDiscrete
+      }
+    }
+  }
+}
+
+query getFeaturesAndOutputs($modelId: String!, $from: Float!, $to: Float) {
+  model(id: $modelId) {
+    outputs {
+      sketches(from: $from, to: $to) {
+        featureName
+        totalCount
+      }
+    }
+
+    features {
+      sketches(from: $from, to: $to) {
+        featureName
+        totalCount
+      }
+    }
+  }
+}
+query getFilteredFeaturesWithName(
+  $modelId: String!
+  $from: Float!
+  $to: Float!
+  $offset: Int!
+  $limit: Int!
+  $featureFilter: FeatureFilter!
+) {
+  model(id: $modelId, startTime: $from, endTime: $to) {
+    filteredFeatures(offset: $offset, limit: $limit, filter: $featureFilter) {
+      results {
+        name
+      }
+    }
+    filteredOutputs(offset: $offset, limit: $limit, filter: $featureFilter) {
+      results {
+        name
+      }
+    }
+  }
+}
+
+query getAllFilteredFeaturesOutputMetricNames(
+  $modelId: String!
+  $from: Float!
+  $to: Float!
+  $featuresOffset: Int = 0
+  $outputsOffset: Int = 0
+  $limit: Int!
+  $featureFilter: FeatureFilter!
+) {
+  model(id: $modelId, startTime: $from, endTime: $to) {
+    filteredFeatures(offset: $featuresOffset, limit: $limit, filter: $featureFilter) {
+      results {
+        name
+      }
+    }
+    filteredOutputs(offset: $outputsOffset, limit: $limit, filter: $featureFilter) {
+      results {
+        name
+      }
+    }
+    datasetMetrics {
+      name
+    }
+  }
+}
+
+query getAnomaliesForSpecificProfile($modelId: String!, $filter: AnalysisFilter!, $sort: SortDirection!) {
+  model(id: $modelId) {
+    anomalies(filter: $filter, sortDirection: $sort) {
+      datasetId
+      datasetTimestamp
+      metric
+      analyzerType
+      threshold_absoluteLower
+      threshold_absoluteUpper
+      threshold_calculatedLower
+      threshold_calculatedUpper
+      threshold_metricValue
+      diff_metricValue
+      diff_threshold
+      drift_metricValue
+      drift_threshold
+      column
+      tags {
+        key
+        value
+      }
+    }
+  }
+}
+
+query getModelsFeatureNames($modelId: String!) {
+  model(id: $modelId) {
+    name
+    features {
+      id
+      name
+    }
+  }
+}
+
+# 🚨 ATTENTION 🚨
+# getModelReferenceProfilesForMonitorConfig query should never query anything else except referenceProfiles.
+# Reason: We do not have time constraint(fromTimestamp toTimestamp) on referenceProfiles, so adding anything else may affect preformance.
+query getModelReferenceProfilesForMonitorConfig($modelId: String!) {
+  model(id: $modelId) {
+    referenceProfiles {
+      uploadTimestamp
+      alias
+      id
+    }
+  }
+}

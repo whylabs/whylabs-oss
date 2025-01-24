@@ -1,0 +1,11 @@
+# Ignore everything by default
+*
+
+# White list specific folders/files
+!dist/
+!email-templates/
+!package.json
+!.env
+!.yarn
+!.yarnrc.yml
+!yarn.lock

@@ -1,0 +1,18 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "Development Postgres",
+      "Group": "Servers",
+      "Port": 5432,
+      "Username": "walter",
+      "Host": "db_postgres",
+      "SSLMode": "prefer",
+      "MaintenanceDB": "postgres",
+      "ConnectionParameters": {
+        "sslmode": "prefer",
+        "connect_timeout": 10,
+        "passfile": "/pgpass"
+      }
+    }
+  }
+}

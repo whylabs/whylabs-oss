@@ -1,0 +1,1381 @@
+{
+  "data": {
+    "model": {
+      "id": "model-15",
+      "name": "Monthly segmented multiclass",
+      "batchFrequency": "P1M",
+      "totalSegments": 12,
+      "segments": [
+        {
+          "id": "6abff5a3-e3e6-4508-9604-8d06c944c181",
+          "tags": [
+            {
+              "key": "age",
+              "value": "old"
+            },
+            {
+              "key": "gender",
+              "value": "female"
+            },
+            {
+              "key": "loc",
+              "value": "east"
+            }
+          ],
+          "alerts": [],
+          "batches": [
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1704067200000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1706745600000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1709251200000
+            },
+            {
+              "inputCount": 500,
+              "outputCount": 500,
+              "timestamp": 1714521600000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1717200000000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1719792000000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1722470400000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1725148800000
+            }
+          ],
+          "uniqueAlerts": [],
+          "mv3TotalAlerts": {
+            "totals": [
+              {
+                "category": "Performance",
+                "count": 5
+              }
+            ],
+            "timeseries": [
+              {
+                "timestamp": 1704067200000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1706745600000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1714521600000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1717200000000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1719792000000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              }
+            ]
+          },
+          "dataTypeAlerts": [],
+          "missingValueAlerts": []
+        },
+        {
+          "id": "322afb24-fa60-4523-908c-12985386d34a",
+          "tags": [
+            {
+              "key": "age",
+              "value": "old"
+            },
+            {
+              "key": "gender",
+              "value": "female"
+            },
+            {
+              "key": "loc",
+              "value": "north"
+            }
+          ],
+          "alerts": [],
+          "batches": [
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1704067200000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1706745600000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1709251200000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1711929600000
+            },
+            {
+              "inputCount": 500,
+              "outputCount": 500,
+              "timestamp": 1714521600000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1717200000000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1719792000000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1722470400000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1725148800000
+            }
+          ],
+          "uniqueAlerts": [],
+          "mv3TotalAlerts": {
+            "totals": [],
+            "timeseries": []
+          },
+          "dataTypeAlerts": [],
+          "missingValueAlerts": []
+        },
+        {
+          "id": "bc3500dc-9bed-4815-9b45-7219ec458de7",
+          "tags": [
+            {
+              "key": "age",
+              "value": "old"
+            },
+            {
+              "key": "gender",
+              "value": "female"
+            },
+            {
+              "key": "loc",
+              "value": "south"
+            }
+          ],
+          "alerts": [],
+          "batches": [
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1704067200000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1706745600000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1709251200000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1711929600000
+            },
+            {
+              "inputCount": 500,
+              "outputCount": 500,
+              "timestamp": 1714521600000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1717200000000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1719792000000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1722470400000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1725148800000
+            }
+          ],
+          "uniqueAlerts": [],
+          "mv3TotalAlerts": {
+            "totals": [
+              {
+                "category": "Performance",
+                "count": 5
+              }
+            ],
+            "timeseries": [
+              {
+                "timestamp": 1704067200000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1706745600000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1714521600000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1717200000000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1719792000000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              }
+            ]
+          },
+          "dataTypeAlerts": [],
+          "missingValueAlerts": []
+        },
+        {
+          "id": "fa2e88ef-16df-49a1-806d-051d88211379",
+          "tags": [
+            {
+              "key": "age",
+              "value": "old"
+            },
+            {
+              "key": "gender",
+              "value": "female"
+            },
+            {
+              "key": "loc",
+              "value": "west"
+            }
+          ],
+          "alerts": [],
+          "batches": [
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1704067200000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1706745600000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1709251200000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1711929600000
+            },
+            {
+              "inputCount": 500,
+              "outputCount": 500,
+              "timestamp": 1714521600000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1717200000000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1719792000000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1722470400000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1725148800000
+            }
+          ],
+          "uniqueAlerts": [],
+          "mv3TotalAlerts": {
+            "totals": [
+              {
+                "category": "Performance",
+                "count": 5
+              }
+            ],
+            "timeseries": [
+              {
+                "timestamp": 1704067200000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1706745600000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1714521600000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1717200000000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1719792000000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              }
+            ]
+          },
+          "dataTypeAlerts": [],
+          "missingValueAlerts": []
+        },
+        {
+          "id": "9461390e-171b-4c7f-b284-8877029d5739",
+          "tags": [
+            {
+              "key": "age",
+              "value": "old"
+            },
+            {
+              "key": "gender",
+              "value": "male"
+            },
+            {
+              "key": "loc",
+              "value": "east"
+            }
+          ],
+          "alerts": [],
+          "batches": [
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1704067200000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1706745600000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1709251200000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1711929600000
+            },
+            {
+              "inputCount": 500,
+              "outputCount": 500,
+              "timestamp": 1714521600000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1717200000000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1719792000000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1722470400000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1725148800000
+            }
+          ],
+          "uniqueAlerts": [],
+          "mv3TotalAlerts": {
+            "totals": [
+              {
+                "category": "Performance",
+                "count": 5
+              }
+            ],
+            "timeseries": [
+              {
+                "timestamp": 1704067200000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1706745600000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1714521600000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1717200000000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1719792000000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              }
+            ]
+          },
+          "dataTypeAlerts": [],
+          "missingValueAlerts": []
+        },
+        {
+          "id": "3a4e46a9-46c7-46d8-95a1-bbe5e79a1da4",
+          "tags": [
+            {
+              "key": "age",
+              "value": "old"
+            },
+            {
+              "key": "gender",
+              "value": "male"
+            },
+            {
+              "key": "loc",
+              "value": "north"
+            }
+          ],
+          "alerts": [],
+          "batches": [
+            {
+              "inputCount": 300,
+              "outputCount": 300,
+              "timestamp": 1704067200000
+            },
+            {
+              "inputCount": 300,
+              "outputCount": 300,
+              "timestamp": 1706745600000
+            },
+            {
+              "inputCount": 300,
+              "outputCount": 300,
+              "timestamp": 1709251200000
+            },
+            {
+              "inputCount": 300,
+              "outputCount": 300,
+              "timestamp": 1711929600000
+            },
+            {
+              "inputCount": 600,
+              "outputCount": 600,
+              "timestamp": 1714521600000
+            },
+            {
+              "inputCount": 300,
+              "outputCount": 300,
+              "timestamp": 1717200000000
+            },
+            {
+              "inputCount": 300,
+              "outputCount": 300,
+              "timestamp": 1719792000000
+            },
+            {
+              "inputCount": 300,
+              "outputCount": 300,
+              "timestamp": 1722470400000
+            },
+            {
+              "inputCount": 300,
+              "outputCount": 300,
+              "timestamp": 1725148800000
+            }
+          ],
+          "uniqueAlerts": [],
+          "mv3TotalAlerts": {
+            "totals": [
+              {
+                "category": "Performance",
+                "count": 5
+              }
+            ],
+            "timeseries": [
+              {
+                "timestamp": 1704067200000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1706745600000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1714521600000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1717200000000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1719792000000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              }
+            ]
+          },
+          "dataTypeAlerts": [],
+          "missingValueAlerts": []
+        },
+        {
+          "id": "bb88ec8d-2b4d-47cc-8b59-2279e61b0a2a",
+          "tags": [
+            {
+              "key": "age",
+              "value": "old"
+            },
+            {
+              "key": "gender",
+              "value": "male"
+            },
+            {
+              "key": "loc",
+              "value": "south"
+            }
+          ],
+          "alerts": [],
+          "batches": [
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1704067200000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1706745600000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1709251200000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1711929600000
+            },
+            {
+              "inputCount": 500,
+              "outputCount": 500,
+              "timestamp": 1714521600000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1717200000000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1719792000000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1722470400000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1725148800000
+            }
+          ],
+          "uniqueAlerts": [],
+          "mv3TotalAlerts": {
+            "totals": [
+              {
+                "category": "Performance",
+                "count": 5
+              }
+            ],
+            "timeseries": [
+              {
+                "timestamp": 1704067200000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1706745600000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1714521600000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1717200000000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1719792000000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              }
+            ]
+          },
+          "dataTypeAlerts": [],
+          "missingValueAlerts": []
+        },
+        {
+          "id": "32968ae9-edc6-4ceb-a5ea-794b28609f3b",
+          "tags": [
+            {
+              "key": "age",
+              "value": "old"
+            },
+            {
+              "key": "gender",
+              "value": "male"
+            },
+            {
+              "key": "loc",
+              "value": "west"
+            }
+          ],
+          "alerts": [],
+          "batches": [
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1704067200000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1706745600000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1709251200000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1711929600000
+            },
+            {
+              "inputCount": 500,
+              "outputCount": 500,
+              "timestamp": 1714521600000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1717200000000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1719792000000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1722470400000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1725148800000
+            }
+          ],
+          "uniqueAlerts": [],
+          "mv3TotalAlerts": {
+            "totals": [
+              {
+                "category": "Performance",
+                "count": 5
+              }
+            ],
+            "timeseries": [
+              {
+                "timestamp": 1704067200000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1706745600000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1714521600000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1717200000000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1719792000000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              }
+            ]
+          },
+          "dataTypeAlerts": [],
+          "missingValueAlerts": []
+        },
+        {
+          "id": "9baad08e-99f2-4fd7-a686-889a95349081",
+          "tags": [
+            {
+              "key": "age",
+              "value": "young"
+            },
+            {
+              "key": "gender",
+              "value": "female"
+            },
+            {
+              "key": "loc",
+              "value": "east"
+            }
+          ],
+          "alerts": [],
+          "batches": [
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1704067200000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1706745600000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1709251200000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1711929600000
+            },
+            {
+              "inputCount": 500,
+              "outputCount": 500,
+              "timestamp": 1714521600000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1717200000000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1719792000000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1722470400000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1725148800000
+            }
+          ],
+          "uniqueAlerts": [],
+          "mv3TotalAlerts": {
+            "totals": [],
+            "timeseries": []
+          },
+          "dataTypeAlerts": [],
+          "missingValueAlerts": []
+        },
+        {
+          "id": "a8452ee6-47c6-4da2-88a2-d6e9aff5114a",
+          "tags": [
+            {
+              "key": "age",
+              "value": "young"
+            },
+            {
+              "key": "gender",
+              "value": "female"
+            },
+            {
+              "key": "loc",
+              "value": "north"
+            }
+          ],
+          "alerts": [],
+          "batches": [
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1704067200000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1706745600000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1709251200000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1711929600000
+            },
+            {
+              "inputCount": 500,
+              "outputCount": 500,
+              "timestamp": 1714521600000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1717200000000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1719792000000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1722470400000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1725148800000
+            }
+          ],
+          "uniqueAlerts": [],
+          "mv3TotalAlerts": {
+            "totals": [
+              {
+                "category": "Performance",
+                "count": 5
+              }
+            ],
+            "timeseries": [
+              {
+                "timestamp": 1704067200000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1706745600000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1714521600000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1717200000000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1719792000000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              }
+            ]
+          },
+          "dataTypeAlerts": [],
+          "missingValueAlerts": []
+        },
+        {
+          "id": "638808c6-2e48-42fd-974e-eb8e41dafce5",
+          "tags": [
+            {
+              "key": "age",
+              "value": "young"
+            },
+            {
+              "key": "gender",
+              "value": "female"
+            },
+            {
+              "key": "loc",
+              "value": "south"
+            }
+          ],
+          "alerts": [],
+          "batches": [
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1704067200000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1706745600000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1709251200000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1711929600000
+            },
+            {
+              "inputCount": 500,
+              "outputCount": 500,
+              "timestamp": 1714521600000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1717200000000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1719792000000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1722470400000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1725148800000
+            }
+          ],
+          "uniqueAlerts": [],
+          "mv3TotalAlerts": {
+            "totals": [
+              {
+                "category": "Performance",
+                "count": 5
+              }
+            ],
+            "timeseries": [
+              {
+                "timestamp": 1704067200000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1706745600000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1714521600000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1717200000000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1719792000000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              }
+            ]
+          },
+          "dataTypeAlerts": [],
+          "missingValueAlerts": []
+        },
+        {
+          "id": "3ed6e7bd-9617-4fc4-8875-a3222e612a99",
+          "tags": [
+            {
+              "key": "age",
+              "value": "young"
+            },
+            {
+              "key": "gender",
+              "value": "female"
+            },
+            {
+              "key": "loc",
+              "value": "west"
+            }
+          ],
+          "alerts": [],
+          "batches": [
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1704067200000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1706745600000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1709251200000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1711929600000
+            },
+            {
+              "inputCount": 500,
+              "outputCount": 500,
+              "timestamp": 1714521600000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1717200000000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1719792000000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1722470400000
+            },
+            {
+              "inputCount": 250,
+              "outputCount": 250,
+              "timestamp": 1725148800000
+            }
+          ],
+          "uniqueAlerts": [],
+          "mv3TotalAlerts": {
+            "totals": [
+              {
+                "category": "Performance",
+                "count": 5
+              }
+            ],
+            "timeseries": [
+              {
+                "timestamp": 1704067200000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1706745600000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1714521600000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1717200000000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              },
+              {
+                "timestamp": 1719792000000,
+                "counts": [
+                  {
+                    "category": "Performance",
+                    "count": 1
+                  }
+                ]
+              }
+            ]
+          },
+          "dataTypeAlerts": [],
+          "missingValueAlerts": []
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "data": {
+    "model": {
+      "id": "model-14",
+      "name": "Empty project",
+      "batchFrequency": "P1D",
+      "segment": null
+    }
+  }
+}

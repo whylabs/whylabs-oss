@@ -1,0 +1,68 @@
+{
+  "entries": [
+    {
+      "segment": "All data",
+      "columnName": "installment",
+      "metric": "mean",
+      "rowColumns": [
+        {
+          "purpose=car": 233.23405241894062
+        },
+        {
+          "purpose=credit_card": 421.75070946920823
+        },
+        {
+          "purpose=house": 690.5697575813149
+        }
+      ]
+    },
+    {
+      "segment": "All data",
+      "columnName": "installment",
+      "metric": "quantile_25",
+      "rowColumns": [
+        {
+          "purpose=car": 52.749559803646086
+        },
+        {
+          "purpose=credit_card": 91.54710120945117
+        },
+        {
+          "purpose=house": 127.06568987038824
+        }
+      ]
+    },
+    {
+      "segment": "All data",
+      "columnName": "installment",
+      "metric": "median",
+      "rowColumns": [
+        {
+          "purpose=car": 173.16969782116627
+        },
+        {
+          "purpose=credit_card": 320.145455019491
+        },
+        {
+          "purpose=house": 401.2589388586896
+        }
+      ]
+    },
+    {
+      "segment": "All data",
+      "columnName": "installment",
+      "metric": "quantile_99",
+      "rowColumns": [
+        {
+          "purpose=car": 1027.3971363805492
+        },
+        {
+          "purpose=credit_card": 2417.3511373192528
+        },
+        {
+          "purpose=house": 4289.476059440729
+        }
+      ]
+    }
+  ]
+}

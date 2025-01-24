@@ -1,0 +1,8 @@
+query batchDateRanges($modelId: String!, $timestamps: [Float!]!) {
+  model(id: $modelId) {
+    batchDateRanges(timestamps:$timestamps) {
+      fromTimestamp
+      toTimestamp
+    }
+  }
+}

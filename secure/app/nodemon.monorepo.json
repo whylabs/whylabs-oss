@@ -1,0 +1,6 @@
+{
+  "ignore": ["**/*.test.ts", "**/*.spec.ts", "node_modules", "client"],
+  "watch": ["src"],
+  "exec": "yarn monorepo:service",
+  "ext": "ts"
+}

@@ -1,0 +1,57 @@
+.public_fixedDataTable_main, .public_fixedDataTable_header, .public_fixedDataTable_hasBottomBorder, .public_fixedDataTableRow_fixedColumnsDivider, .public_fixedDataTableCell_main  {
+  border-color: #DBE5E7;
+  background: white;
+}
+
+.public_fixedDataTable_header, .public_fixedDataTable_scrollbarSpacer, .public_fixedDataTable_header .public_fixedDataTableCell_main {
+  background-image: none;
+  background-color: #ffffff !important;
+}
+
+.public_fixedDataTableRow_highlighted,
+.public_fixedDataTableRow_highlighted .public_fixedDataTableCell_main {
+  background-color: white;
+}
+
+.public_fixedDataTableCell_main {
+  overflow: hidden;
+  background-color: white;
+}
+
+.public_fixedDataTableCell_cellContent {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.public_fixedDataTableRow_highlighted,
+.public_fixedDataTableRow_main {
+  background-color: #ffffff;
+}
+
+.public_fixedDataTableRow_highlighted:hover {
+  background-color: #ebf2f3;
+}
+
+.public_fixedDataTableRow_highlighted:hover .public_fixedDataTableCell_main {
+  background-color: #ebf2f3;
+}
+
+.public_fixedDataTableRow_main:hover .public_fixedDataTableCell_main {
+  background-color: #ebf2f3;
+}
+
+.fixedDataTableCellLayout_wrap1 {
+  background-color: #fff;
+}
+
+.public_fixedDataTableRow_highlighted:hover:not(.public_fixedDataTable_header) .fixedDataTableCellLayout_wrap1  {
+  background-color: #ebf2f3;
+}
+
+.public_fixedDataTableRow_main:hover:not(.public_fixedDataTable_header) .fixedDataTableCellLayout_wrap1 {
+  background-color: #ebf2f3;
+}
+
+.public_fixedDataTableRow_main:hover:not(.public_fixedDataTable_header) {
+  background-color: #ebf2f3;
+}

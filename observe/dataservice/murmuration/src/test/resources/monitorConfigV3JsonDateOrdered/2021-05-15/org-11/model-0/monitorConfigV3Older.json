@@ -1,0 +1,87 @@
+{
+  "id": "demo-document",
+  "orgId": "org-11",
+  "datasetId": "model-0",
+  "schemaVersion": 1,
+  "granularity": "daily",
+  "entitySchema": {
+    "columns": {
+      "annual_inc": {
+        "discreteness": "discrete",
+        "classifier": "input",
+        "dataType": "fractional"
+      },
+      "prediction": {
+        "discreteness": "discrete",
+        "classifier": "output",
+        "dataType": "integral"
+      }
+    }
+  },
+  "analyzers": [
+    {
+      "id": "drift_analyzer",
+      "schedule": {
+        "type": "cron",
+        "cron": "0 * * * *"
+      },
+      "disabled": false,
+      "target": {
+        "level": "column",
+        "allowedFields": [
+          "*"
+        ],
+        "segments": [
+          {
+            "tags": []
+          }
+        ],
+        "batchOffset": 1,
+        "maxDelayBatchCount": 14
+      },
+      "config": {
+        "version": 1,
+        "metric": "median",
+        "type": "stddev",
+        "factor": 5,
+        "minBatchSize": 7,
+        "baseline": {
+          "type": "TrailingWindow",
+          "size": 14
+        }
+      }
+    }
+  ],
+  "monitors": [
+    {
+      "id": "drift-monior-1",
+      "analyzerIds": [
+        "drift_analyzer"
+      ],
+      "schedule": {
+        "type": "cron",
+        "cron": "0 0 * * * *"
+      },
+      "disabled": false,
+      "severity": 2,
+      "mode": {
+        "type": "EVERY_ANOMALY",
+        "filter": {
+          "excludeFields": [
+            "unimportant"
+          ]
+        }
+      },
+      "actions": [
+        {
+          "type": "email",
+          "target": "demo@whylabs.ai"
+        },
+        {
+          "type": "slack",
+          "target": "https://demo.com"
+        }
+      ]
+    }
+  ]
+}

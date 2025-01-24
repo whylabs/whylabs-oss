@@ -1,0 +1,2248 @@
+## Notes: Use IntelliJ to run the following queries.
+
+######################
+# ANALYSIS ENDPOINTS #
+######################
+
+### Evaluate a target matrix to see what it covers
+POST http://localhost:8090/analysis/targetMatrixEvaluator
+Content-Type: application/json
+
+{"orgId":"org-0","datasetId":"model-0","targetMatrix": {"type": "column", "include": ["group:continuous"], "segments": []}, "disableTargetRollup": false}
+
+### Preview delete analyzer results
+POST http://localhost:8090/analysis/deleteAnalysisRequests/preview
+Content-Type: application/json
+
+{"orgId":"org-0","datasetId":"model-0","delete_gte":1667605813000}
+
+### Backfill
+POST http://localhost:8090/analysisAsync/triggerBackfill
+Content-Type: application/json
+
+{"orgId":"org-0","datasetId":"model-0", "interval": "2020-01-04T23:50:13Z/2022-05-08T05:10:13Z"}
+
+### Query async backfills
+POST http://localhost:8090/analysisAsync/query
+Content-Type: application/json
+
+{"orgId":"org-0","datasetId":"model-0", "onlyActive":  false}
+
+### Count active async backfills
+GET http://localhost:8090/analysisAsync/countActive/org-0
+Content-Type: application/json
+
+
+### Delete analyzer results
+POST http://localhost:8090/analysis/deleteAnalysisRequests
+Content-Type: application/json
+
+{"orgId":"org-0","datasetId":"model-0","delete_lt":1623256104000}
+
+### Cancel analyzer result deletion request
+PUT  http://localhost:8090/analysis/deleteAnalysisRequests/cancel/138
+Content-Type: application/json
+
+### List analysis deletion requests
+GET  http://localhost:8090/analysis/deleteAnalysisRequests/org-123/model-123/
+
+### Get Analysis by ID ###
+GET http://localhost:8090/analysis/af60864f-d636-318d-b19a-c2ac064e845f
+
+### Mark analysis as unhelpful
+PUT http://localhost:8090/analysis/markUnhelpful/true/af60864f-d636-318d-b19a-c2ac064e845f
+
+### Get recent anomalies
+GET http://localhost:8090/analysis/anomalies/recent/org-0/model-0/
+
+### Query analyzer results for a specific set of segments and columns
+POST http://localhost:8090/analysis/getAnalyzerResults
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetIds": ["model-0"],
+  "segments": [
+    "",
+    "purpose=credit_card&verification_status=Source Verified"
+  ],
+  "analyzerTypes": [
+    "stddev",
+    "drift"
+  ],
+  "columnNames": [
+    "out_prncp_inv",
+    "acc_now_delinq",
+    "annual_inc",
+    "mo_sin_old_rev_tl_op"
+  ],
+  "onlyAnomalies": false,
+  "interval": "2022-11-04T23:50:13Z/2032-05-08T05:10:13Z",
+  "order": "asc",
+  "limit": 10,
+  "offset": 0
+}
+
+### Query analyzer results for the latest anomaly within some datasets
+POST http://localhost:8090/analysis/getLatestAnomalyQuery
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetIds": ["model-0", "model-1", "model-fake"],
+  "segments": [
+    "",
+    "purpose=credit_card&verification_status=Source Verified"
+  ],
+  "analyzerIds": ["average-mintcream-wren-7458-analyzer"],
+  "interval": "2022-11-04T23:50:13Z/2032-05-08T05:10:13Z"
+}
+### GetAnomalyCounts
+
+POST http://localhost:8090/analysis/getAnomalyCounts
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetIds": ["model-0"],
+  "analyzerIds": ["average-mintcream-wren-7458-analyzer"],
+  "granularity": "daily",
+  "columnNames": [
+    "out_prncp_inv",
+    "acc_now_delinq",
+    "annual_inc",
+    "mo_sin_old_rev_tl_op"
+  ],
+  "monitorIds": ["average-mintcream-wren-7458", "irrelevant-id-to-show-that-this-is-a-disjunction"],
+  "interval": "2022-11-04T23:50:13Z/2032-05-08T05:10:13Z"
+}
+
+### GetAlertCountsOverTime
+POST http://localhost:8090/analysis/getAlertCountsOverTime
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetIds": ["model-0"],
+  "granularity": "daily",
+  "segments": [
+    "",
+    "purpose=credit_card&verification_status=Source Verified"
+  ],
+  "interval": "2022-11-04T23:50:13Z/2032-05-08T05:10:13Z"
+}
+
+### GetAlertCountsOverTime with filters
+POST http://localhost:8090/analysis/getAlertCountsOverTime
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetIds": ["model-0"],
+  "granularity": "daily",
+  "segments": [
+    "",
+    "purpose=credit_card&verification_status=Source Verified"
+  ],
+  "columnNames": [
+    "out_prncp_inv",
+    "acc_now_delinq",
+    "annual_inc",
+    "mo_sin_old_rev_tl_op"
+  ],
+  "analyzerIds": [
+    "count_bool",
+    "unique_est_ratio"
+  ],
+  "monitorIds": [
+    "directional-diff-monitor",
+    "bad-mintcream-raven-5948"
+  ],
+  "interval": "2022-11-04T23:50:13Z/2032-05-08T05:10:13Z"
+}
+
+### Analysis results for segments are sensitive to tag order
+POST http://localhost:8090/analysis/getAnalyzerResults
+Content-Type: application/json
+
+{
+  "orgId": "org-3e8cGT",
+  "datasetIds": [
+    "model-4"
+  ],
+  "columnNames": [
+    "str"
+  ],
+  "metrics": [],
+  "analyzerTypes": [
+    "drift"
+  ],
+  "segments": [
+    "key2=one&key1=3"
+  ],
+  "order": "asc",
+  "interval": "2022-12-15T00:00:00Z/2022-12-24T00:00:00Z",
+  "onlyAnomalies": false,
+  "includeFailures": false
+}
+
+### Query analyzer results by monitor ids
+#select * from whylabs.analysis
+#where org_id='org-4TKBKn' and dataset_id='model-27'
+#and column_name='total_traffic'
+#and monitor_ids && cast('{seasonal-analyzer-monitor}' as text[])
+#order by creation_timestamp desc
+#limit 10
+# dataservice-main-k8s.datastack.prod.whylabs:80
+
+POST http://localhost:8090/analysis/getAnalyzerResults
+Content-Type: application/json
+
+{
+  "orgId": "org-4TKBKn",
+  "datasetIds": ["model-27"],
+  "analyzerIds": ["seasonal-analyzer-monitor-analyzer"],
+  "analysisIds": ["319f5348-a5f2-3a48-bac7-2a06347ed0bd"],
+  "interval": "2023-01-01T00:01:00Z/P12M",
+  "limit": 10,
+  "offset": 0
+}
+
+#####################
+# Analyzer Runs     #
+#####################
+
+### Count analyzer runs filtered by monitor ids
+
+POST http://localhost:8090/analysis/runs/count
+Content-Type: application/json
+
+{
+  "orgId": "org-3e8cGT",
+  "datasetIds": ["model-10"],
+  "interval": "2023-01-10T00:00:00Z/2023-01-18T00:00:00Z"
+}
+
+### List analyzer runs
+POST http://localhost:8090/analysis/runs/list
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetIds": ["model-0"],
+  "monitorIds": ["gorgeous-mintcream-koala-7199", "irrelevant-id-to-show-that-this-is-a-disjunction"],
+  "interval": "1970-07-12T22:46:53Z/8205-01-28T21:10:13Z",
+  "limit": 22,
+  "offset": 0,
+  "order": "desc"
+}
+
+
+
+### Count analyzer runs (PG monitor)
+
+POST http://localhost:8090/analysis/runs/count
+Content-Type: application/json
+
+{
+  "orgId": "org-3e8cGT",
+  "datasetIds": ["model-10"],
+  "interval": "2024-08-10T00:00:00Z/2024-12-18T00:00:00Z",
+  "readPgMonitor": true
+}
+
+### List analyzer runs  (PG monitor)
+POST http://localhost:8090/analysis/runs/list
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetIds": ["model-0"],
+  "interval": "2024-08-10T00:00:00Z/2024-12-18T00:00:00Z",
+  "limit": 22,
+  "offset": 0,
+  "order": "desc",
+  "readPgMonitor": true
+}
+### Calculate the start/end time boundaries for a datapoint
+POST http://localhost:8090/analysis/calculator/targetBucketBoundary
+Content-Type: application/json
+
+{
+  "ts": 1673551063000,
+  "granularity": "monthly"
+}
+
+#####################
+# Profile Endpoints #
+#####################
+
+### Time boundary query without segments
+POST http://localhost:8090/profiles/timeBoundary
+Content-Type: application/json
+
+{"orgId":"org-3e8cGT","datasetIds":["model-10"]}
+
+### Time boundary query with segments
+POST http://localhost:8090/profiles/timeBoundary
+Content-Type: application/json
+
+{
+  "orgId": "org-azrWhK",
+  "datasetIds": [
+    "model-1"
+  ],
+  "segment": [
+
+    {
+      "key": "purpose",
+      "value": "other"
+    }
+  ]
+}
+
+### Time boundary query with segments
+POST http://localhost:8090/profiles/timeBoundary
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetIds": [
+    "model-77",
+    "model-1"
+  ],
+  "segment": [
+    {
+      "key": "purpose",
+      "value": "credit_card"
+    }
+  ]
+}
+
+### Time boundary query with granularity
+POST http://localhost:8090/profiles/timeBoundary
+Content-Type: application/json
+
+{
+"orgId": "org-0",
+"datasetIds": [
+"model-2137"
+],
+"granularity": "monthly"
+}
+
+### Timeseries (which batches have data present?)
+POST http://localhost:8090/profiles/timeSeries
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetIds": ["model-0"],
+  "interval": "2024-06-11/2024-06-14",
+  "granularity": "hourly"
+}
+
+### Mark a profile as not ingested
+
+DELETE http://localhost:8090/profiles/audit
+Content-Type: application/json
+
+{
+  "file": "s3://development-songbird-20201028054020481800000001/daily-log-untrusted/2023-09-07/org-0-model-2240-2023-09-07T215543.309-GkfWbBVPdWMQrLLEPvXxvQOOo8qoq5iB.bin"
+
+}
+
+### ingest a standard profile
+POST http://localhost:8090/profiles/index
+Content-Type: application/json
+
+{
+  "file": "s3://development-songbird-20201028054020481800000001/daily-log-untrusted/2023-09-07/org-0-model-2240-2023-09-07T215543.309-GkfWbBVPdWMQrLLEPvXxvQOOo8qoq5iB.bin"
+}
+
+### list segment traces
+POST http://localhost:8090/profiles/traces/segment/list
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-2236",
+  "interval": "2023-08-30/2023-09-05",
+  "segment": [{ "key": "col1", "value": "segment1"}]
+}
+
+### list segment traces filtered by segment
+POST http://localhost:8090/profiles/traces/segment/list
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+  "segment": [{"key": "purpose", "value": "major_purchase"}],
+  "interval": "1970-07-12T22:46:53Z/2024-07-12T22:46:53Z"
+}
+
+### Use retrieval token
+PUT http://localhost:8090/profiles/profileRollup/
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+  "columnNames": ["acc_now_delinq"],
+  "granularity": "daily",
+  "retrievalToken": "eyJ0cmFjZUlkIjoidGVzdCIsImludGVydmFsIjoiMTY4MDEyMzg3MzUzMS0xNjgwMTIzODczNTMyIiwic2VnbWVudFRhZ3MiOlt7ImtleSI6InB1cnBvc2UiLCJ2YWx1ZSI6Im1ham9yX3B1cmNoYXNlIn1dLCJ2ZXJzaW9uIjowfQ=="
+}
+
+
+### ingest a reference profile
+POST http://localhost:8090/profiles/index
+Content-Type: application/json
+
+{
+  "file": "s3://development-songbird-20201028054020481800000001/reference-profiles/2022-12-19/org-3e8cGT-model-10-22FO7utd2yzdrcFGqh5kF4rmkNjD0FT3.bin"
+}
+
+### Delete Profiles Preview
+POST http://localhost:8090/profiles/deleteProfileRequests/preview
+Content-Type: application/json
+
+{"orgId":"org-0","datasetId":"model-2306"}
+
+### Delete Profiles
+POST http://localhost:8090/profiles/deleteProfileRequests
+Content-Type: application/json
+
+{"orgId":"org-0","datasetId":"model-2306"}
+
+### Cancel delete profile request
+PUT  http://localhost:8090/profiles/deleteProfileRequests/cancel/943
+Content-Type: application/json
+
+### List profile deletion requests
+GET  http://localhost:8090/profiles/deleteProfileRequests/org-0/model-2306/
+
+### Fetch classification summary
+### segment is optional.
+### granularity defaults to 'daily', but may also be "weekly", "hourly", "monthly"
+POST http://localhost:8090/profiles/classificationSummary
+Content-Type: application/json
+
+{
+  "orgId": "org-S5tUX6",
+  "datasetId": "demo-model-ecommerce",
+  "interval": "2023-01-01T00:00:00.000Z/2023-02-01T00:00:00.000Z",
+  "granularity": "all"
+}
+
+### Fetch classification single-value model metrics -
+### segment is optional.
+### granularity defaults to 'daily', but may also be "weekly", "hourly", "monthly"
+POST http://localhost:8090/profiles/classificationMetrics
+Content-Type: application/json
+
+{  "orgId": "org-S5tUX6",
+  "datasetId": "demo-model-ecommerce",
+  "granularity":"daily",
+  "interval": "2023-01-01T00:00:00.000Z/2023-02-01T00:00:00.000Z",
+  "segment":[]
+}
+
+### max input and max output counts
+POST http://localhost:8090/profiles/maxioSegmented
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+  "interval": "2022-12-25T00:00:00.000Z/2023-01-01T23:59:59.999Z",
+  "outputColumns": ["pred_credit_risk (output)"],
+  "granularity": "daily",
+  "segments": [
+    {
+      "key": "purpose",
+      "value": "credit_card"
+    },
+    {
+      "key": "verification_status",
+      "value": "Source Verified"
+    }
+  ]
+}
+
+### get segments for a model,
+GET http://localhost:8090/profiles/segments/org-0/model-0
+
+### get segments for a model
+POST http://localhost:8090/profiles/segments
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0"
+}
+
+### get segments containing purpose=a long sentence
+POST http://localhost:8090/profiles/segments
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+  "filter": [
+    {
+      "key":"purpose",
+      "value": " and also pay off some credit card debt.  I will be debt free except for my payment to you.  I don't care what the interest rate is"
+    }
+  ]
+}
+
+### get segments containing purpose=car
+POST http://localhost:8090/profiles/segments
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+  "filter": [
+    {
+      "key":"purpose",
+      "value": "car"
+    }
+  ]
+}
+
+### Fetch classification model metrics ROC, precision curves
+### segment is optional.
+### granularity defaults to 'daily', but may also be "weekly", "hourly", "monthly"
+POST http://localhost:8090/profiles/classificationSummary
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-2158",
+  "interval": "2022-07-01T00:00:00.000Z/P10D",
+  "order": "desc"
+}
+
+### Fetch classification single-value model metrics -
+### segment is optional.
+### granularity defaults to 'daily', but may also be "weekly", "hourly", "monthly"
+POST http://localhost:8090/profiles/classificationSummary
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-2158",
+  "interval": "2022-07-01T00:00:00.000Z/P30D",
+  "granularity": "daily",
+  "segment": [
+    {
+      "key": "customer_state",
+      "value": "SP"
+    }
+  ]
+}
+
+
+
+
+
+### Christine bug https://app.clickup.com/t/863ga6tr8
+PUT http://localhost:8090/profiles/profileRollup/
+Content-Type: application/json
+
+{
+  "orgId": "org-3e8cGT",
+  "datasetId": "model-2",
+  "interval": "2022-12-19T00:00:00Z/P365D",
+  "columnNames": ["int"],
+  "segment": [],
+  "granularity": "daily"
+}
+
+### Individual profile granularity query
+PUT http://localhost:8090/profiles/profileRollup/
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+  "granularity": "individual",
+  "traceId": "blah",
+  "interval": "2023-08-13T00:00:00Z/P1D",
+  "columnNames": ["acc_now_delinq"],
+  "segment": []
+}
+
+
+####
+
+POST http://localhost:8090/profiles/getReferenceProfileSketches/
+accept: application/json
+Content-Type: application/json
+
+{
+  "orgId": "org-HVB9AM",
+  "datasetId": "model-60",
+  "referenceProfileId": "my_reference_profile7",
+  "segment": [
+    {
+      "key":"category",
+      "value": "Baby Care"
+    }
+  ],
+  "fractions": [
+    0,
+    0.01,
+    0.05,
+    0.25,
+    0.5,
+    0.75,
+    0.95,
+    0.99,
+    1
+  ]
+}
+
+###
+
+
+
+### Roll up specific features with numBins and quantiles
+PUT http://localhost:8090/profiles/profileRollup/
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-2121",
+  "interval": "2023-01-28T00:00:00Z/2023-01-29T00:00:00Z",
+  "splitPoints": [77.1,147.2,217.29999999999998,287.4,357.5,427.59999999999997,497.69999999999993,567.8,637.9,708.0,778.0999999999999,848.1999999999999,918.3,988.3999999999999,1058.5,1128.6,1198.6999999999998,1268.8,1338.8999999999999,1409.0,1479.1,1549.1999999999998,1619.3,1689.3999999999999,1759.4999999999998,1829.6,1899.6999999999998,1969.7999999999997,2039.8999999999999]
+}
+
+### Roll up user profiles with segment
+PUT http://localhost:8090/profiles/profileRollup/
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+  "granularity": "all",
+  "columnNames": [
+    "annual_inc_joint",
+    "disbursement_method"],
+  "interval": "2023-01-14T00:00:00Z/2023-01-24T00:00:00Z",
+  "segment": [
+    {
+      "key":"purpose",
+      "value": "other"
+    },
+    {
+      "key":"verification_status",
+      "value": "Verified"
+    }
+  ]
+}
+
+
+### fetch reference profile metrics
+POST http://localhost:8090/profiles/getReferenceProfileSketches/
+Content-Type: application/json
+
+{
+  "orgId": "org-3e8cGT",
+  "datasetId": "model-10",
+  "referenceProfileId": "ref-gUZOGdkM99L36Cmi",
+  "columnNames": ["alldiffstr", "alldiffint"],
+  "fractions": [0, 0.01, 0.05],
+  "numBins": 12
+}
+
+### fetch reference profile metrics
+POST http://localhost:8090/profiles/getReferenceProfileSketches/
+Content-Type: application/json
+
+{
+  "orgId": "org-3e8cGT",
+  "datasetId": "model-10",
+  "referenceProfileId": "ref-gUZOGdkM99L36Cmi",
+  "numBins": 30
+}
+
+
+###  test for missing dataset metrics report
+POST http://localhost:8090/profiles/numericMetricsForSegmentKey/
+Content-Type: application/json
+
+{
+  "orgId": "org-3e8cGT",
+  "interval": "2022-01-01T00:00:00.000Z/2022-12-31T23:59:59.999Z",
+  "segmentKey": "loc",
+  "datasetColumnSelectors": [
+    {
+      "datasetId": "model-15",
+      "metric": "prediction_count"
+    }
+  ]
+}
+
+### numeric count metrics for tracing
+POST http://localhost:8090/profiles/numericMetricsForSegmentKey/
+Content-Type: application/json
+
+{
+  "orgId": "org-3e8cGT",
+  "interval": "2022-11-20T00:00:00.000Z/2022-12-19T23:59:59.999Z",
+  "segmentKey": "age",
+  "datasetColumnSelectors": [
+    {
+      "datasetId": "model-11",
+      "columnNames": [
+        "age", "gender"
+      ],
+      "metric": "count"
+    }
+  ]
+}
+
+
+### numeric classification metrics for tracing
+POST http://localhost:8090/profiles/numericMetricsForSegmentKey/
+Content-Type: application/json
+
+{
+  "orgId": "org-3e8cGT",
+  "interval": "2022-11-20T00:00:00.000Z/2022-12-19T23:59:59.999Z",
+  "segmentKey": "age",
+  "datasetColumnSelectors": [
+    {
+      "datasetId": "model-11",
+      "metric": "classification_accuracy"
+    }
+  ]
+}
+
+
+### numeric metrics for tracing
+POST http://localhost:8090/profiles/numericMetricsForSegmentKey/
+Content-Type: application/json
+
+{
+  "orgId": "org-5Hsdjx",
+  "interval": "2022-11-20T00:00:00.000Z/2022-12-19T23:59:59.999Z",
+  "segmentKey": "rating",
+  "datasetColumnSelectors": [
+    {
+      "datasetId": "model-60",
+      "metric": "classification_accuracy"
+    }
+  ]
+}
+
+### Get numeric metrics for time range
+POST http://localhost:8090/profiles/numericMetricsForTimeRange/
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "interval": "2023-01-14T00:00:00Z/2023-01-24T00:00:00Z",
+  "granularity": "daily",
+  "datasetColumnSelectors": [
+    {
+      "datasetId": "model-0",
+      "columnNames": [
+        "annual_inc_joint",
+        "disbursement_method"],
+      "metric": "quantile_95"
+    }
+  ]
+}
+
+### Get numeric classificaton metrics for time range
+POST http://localhost:8090/profiles/numericMetricsForTimeRange/
+Content-Type: application/json
+
+{
+  "orgId": "org-S5tUX6",
+  "interval": "2023-01-01T00:00:00.000Z/P1D",
+  "granularity": "daily",
+  "datasetColumnSelectors": [
+    {
+      "datasetId": "demo-model-ecommerce",
+      "metric": "classification_auroc"
+    }
+  ]
+}
+
+### Get numeric regression metrics for time range
+POST http://localhost:8090/profiles/numericMetricsForTimeRange/
+Content-Type: application/json
+
+{
+  "orgId": "org-5Hsdjx",
+  "interval": "2022-12-02T00:00:00Z/2022-12-10T00:00:00Z",
+  "granularity": "daily",
+  "datasetColumnSelectors": [
+    {
+      "datasetId": "model-61",
+      "metric": "prediction_count"
+    }
+  ]
+}
+
+### GetAnomalyCounts without segment filter
+POST http://localhost:8090/analysis/getAnomalyCounts
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetIds": ["model-0"],
+  "analyzerIds": ["tame-beige-sardine-3501-analyzer"],
+  "granularity": "daily",
+  "interval": "2022-01-22T00:00:00Z/2025-01-24T00:00:00Z"
+}
+
+### GetAnomalyCounts include only "" unsegmented
+POST http://localhost:8090/analysis/getAnomalyCounts
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetIds": ["model-0"],
+  "analyzerIds": ["tame-beige-sardine-3501-analyzer"],
+  "segments": [""],
+  "granularity": "daily", "interval": "2022-01-22T00:00:00Z/2025-01-24T00:00:00Z"
+}
+
+### GetAnomalyCounts all segments except overall "" unsegmented
+POST http://localhost:8090/analysis/getAnomalyCounts
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetIds": ["model-0"],
+  "analyzerIds": ["tame-beige-sardine-3501-analyzer"],
+  "excludeSegments": [""],
+  "granularity": "daily",
+  "interval": "2022-01-22T00:00:00Z/2025-01-24T00:00:00Z"
+}
+
+### GetAnomalyCounts adhoc
+POST http://localhost:8090/analysis/getAnomalyCounts
+Content-Type: application/json
+
+{
+  "orgId": "org-wdJxxX",
+  "runIds": ["07c48602-6405-4d53-a66c-cf7c57eac000"],
+  "datasetIds": ["model-1"],
+  "adhoc": true,
+  "granularity": "daily",
+  "interval":"2022-01-01T00:00:00.000Z/2022-12-31T23:59:59.999Z"
+}
+
+### debug https://app.clickup.com/t/85zruxhru
+### Get Anayzer Results
+POST http://localhost:8090/analysis/getAnalyzerResults
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetIds": ["model-0"],
+  "onlyAnomalies": false,
+  "interval":"2022-01-01T00:00:00.000Z/2022-12-31T23:59:59.999Z",
+  "order": "asc",
+  "limit": 10,
+  "offset": 0
+}
+
+### Get Anayzer Results adhoc
+POST http://localhost:8090/analysis/getAnalyzerResults
+Content-Type: application/json
+
+{
+  "orgId": "org-wdJxxX",
+  "runIds": ["07c48602-6405-4d53-a66c-cf7c57eac000"],
+  "datasetIds": ["model-1"],
+  "onlyAnomalies": true,
+  "adhoc": true,
+  "interval":"2022-01-01T00:00:00.000Z/2022-12-31T23:59:59.999Z",
+  "order": "asc",
+  "limit": 10,
+  "offset": -10
+}
+
+### Christine bug https://app.clickup.com/t/8669zp6zf
+
+POST http://localhost:8090/profiles/getReferenceProfileSketches/
+accept: application/json
+Content-Type: application/json
+
+{
+  "orgId": "org-3e8cGT",
+  "datasetId": "model-10",
+  "columnNames": [
+    "date"
+  ],
+  "referenceProfileId": "ref-gUZOGdkM99L36Cmi"
+}
+
+
+### debug regression metrics
+POST http://localhost:8090/profiles/regressionMetrics
+Content-Type: application/json
+
+{"orgId":"org-3e8cGT",
+  "granularity":"daily",
+  "datasetId":"model-2",
+  "interval":"2022-01-01T00:00:00.000Z/2022-12-31T23:59:59.999Z"}
+
+
+### test maxio
+POST http://localhost:8090/profiles/maxio
+Content-Type: application/json
+
+{"orgId":"org-0","granularity":"daily","datasetId":"model-0","interval":"2022-12-13T00:00:00.000Z/P1D","outputColumns":["output_prediction","output_target"]}
+
+### test maxio with single segment filter
+POST http://localhost:8090/profiles/maxio
+Content-Type: application/json
+
+{"orgId":"org-3e8cGT","granularity":"daily","datasetId":"model-4","interval":"2022-12-13T00:00:00.000Z/P1D","outputColumns":["output_prediction","output_target"]}
+
+
+### test maxio segmented (multiple segments queried at same time)
+POST http://localhost:8090/profiles/maxioSegmented
+Content-Type: application/json
+
+{"orgId":"org-0","granularity":"daily","datasetId":"model-0","interval":"2022-12-13T00:00:00.000Z/P1D","segments":[[{"key":"purpose","value":"car"}], [{"key":"purpose","value":"major_purchase"}, {"key":"verification_status","value":"Verified"}]],"outputColumns":["output_prediction","output_target"]}
+
+### test maxio segmented (Christine org)
+POST http://localhost:8090/profiles/maxioSegmented
+Content-Type: application/json
+
+{"orgId":"org-3e8cGT","granularity":"daily","datasetId":"model-4","interval":"2022-12-13T00:00:00.000Z/P14D","segments":[[{"key":"key1","value":"3"}, {"key":"key2","value":"one"}], [{"key":"key1","value":"3"}]],"outputColumns":["output_int"]}
+
+### testing numericMetricsForTimeRange with segments
+POST http://localhost:8090/profiles/numericMetricsForTimeRange/
+Content-Type: application/json
+
+{"orgId":"org-0","interval":"2023-09-07T05:00:00.000Z/2023-09-15T04:59:59.999Z","datasetColumnSelectors":[{"datasetId":"model-2236","columnNames":["image.Brightness.stddev"],"metric":"COUNT_fRACTIONAL"}],"segment":[]}
+
+
+### GetAnomalyCounts - https://app.clickup.com/t/866a1qntj
+POST http://localhost:8090/analysis/getAnomalyCounts
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetIds": ["model-0"],
+  "analyzerIds": ["average-mintcream-wren-7458-analyzer"],
+  "granularity": "daily",
+  "columnNames": [
+    "out_prncp_inv",
+    "acc_now_delinq",
+    "annual_inc",
+    "mo_sin_old_rev_tl_op"
+  ],
+  "monitorIds": ["average-mintcream-wren-7458", "irrelevant-id-to-show-that-this-is-a-disjunction"],
+  "interval":"2020-01-01T00:00:00.000Z/2023-12-31T23:59:59.999Z"
+}
+
+
+### GetAnomalyCounts - https://app.clickup.com/t/866a1qntj
+POST http://localhost:8090/analysis/getAnomalyCounts
+Content-Type: application/json
+
+{
+  "orgId": "org-5Hsdjx",
+  "datasetIds": ["model-32"],
+  "analyzerIds": ["frequent-items-drift-analyzer"],
+  "granularity": "daily",
+  "columnNames": [
+    "seasonalvalue", "acc_now_delinq","annual_inc", "mo_sin_old_rev_tl_op"
+  ],
+  "monitorIds": ["frequent-items-drift-monitor","irrelevant-id-to-show-that-this-is-a-disjunction"],
+  "interval":"2020-01-01T00:00:00.000Z/2023-12-31T23:59:59.999Z"
+}
+
+### GetAlertCountsOverTime with filters - all segments, including overall
+POST http://localhost:8090/analysis/getAlertCountsOverTime
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetIds": ["model-0"],
+  "granularity": "daily",
+  "segments": [],
+  "columnNames": [
+    "all_util"
+  ],
+  "interval":"2020-01-01T00:00:00.000Z/2023-12-31T23:59:59.999Z"
+}
+
+### GetAlertCountsOverTime segmented
+POST http://localhost:8090/analysis/getAlertCountsOverTimeSegmented
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetIds": ["model-0"],
+  "granularity": "daily",
+  "segments": ["purpose=credit_card&verification_status=Verified", "purpose=car&verification_status=Source Verified", "purpose=car&verification_status=Source Verified"],
+  "interval":"2020-01-01T00:00:00.000Z/2023-12-31T23:59:59.999Z"
+}
+
+### GetAlertCountsOverTime with filters - overall segment only
+POST http://localhost:8090/analysis/getAlertCountsOverTime
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetIds": ["model-0"],
+  "granularity": "daily",
+  "segments": [""],
+  "columnNames": [
+    "all_util"
+  ],
+  "interval":"2020-01-01T00:00:00.000Z/2023-12-31T23:59:59.999Z"
+}
+
+### GetAlertCountsOverTime with filters - overall segment and specific segment
+POST http://localhost:8090/analysis/getAlertCountsOverTime
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetIds": ["model-0"],
+  "granularity": "daily",
+  "segments": ["", "purpose=credit_card&verification_status=Source Verified"],
+  "columnNames": [
+    "all_util"
+  ],
+  "interval":"2020-01-01T00:00:00.000Z/2023-12-31T23:59:59.999Z"
+}
+
+### test for Only getting a subset of expected analysis results
+POST http://localhost:8090/analysis/getAnomalyCounts
+Content-Type: application/json
+
+{"orgId":"org-3e8cGT","datasetIds":["model-10"],"granularity":"daily","start":1670803200000,"end":1671494399999,"interval":"2022-12-12T00:00:00.000Z/2022-12-19T23:59:59.999Z"}
+
+### monitor config diff patch
+GET http://localhost:8090/monitorConfig/patch/org-0/model-0/690/690
+
+### Get latest monitor config
+GET http://localhost:8090/monitorConfig/getLatest/org-0/model-2328
+
+### monitor config diff patch
+GET http://localhost:8090/monitorConfig/patch/org-0/model-0/690/691
+
+### monitor config diff patch
+GET http://localhost:8090/monitorConfig/patch/org-0/model-0/690/61
+
+
+### monitor config dif patch via post
+POST http://localhost:8090/monitorConfig/patch
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+  "version1": 690,
+  "version2": 691
+}
+
+### monitor config diff patch - leave second version unspecified to use latest
+POST http://localhost:8090/monitorConfig/patch
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+  "version1": 61
+}
+
+
+### get the list of segments represented with non-null metrics over the given time period.
+POST http://localhost:8090/profiles/metricSegments/
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+  "columnName": "all_util",
+  "metricPath": "distribution/kll",
+  "interval": "2023-01-20T00:00:00.000Z/P4M"
+}
+
+### All tag keys and values
+POST http://localhost:8090/profiles/tagList/
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0"
+}
+
+### All tag keys and values (paginated)
+POST http://localhost:8090/profiles/tagList/
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+  "limit": 1,
+  "offset": 0
+}
+
+### Copy data from one org/dataset to another
+POST http://localhost:8090/profiles/copy/false
+Content-Type: application/json
+
+{
+  "sourceOrgId": "org-0",
+  "sourceDatasetId": "model-0",
+  "targetOrgId": "org-11",
+  "targetDatasetId": "model-60",
+  "interval": "2023-05-06T23:50:13Z/2023-05-08T05:10:13Z"
+}
+
+### Copy reference profiles from one org/dataset to another
+POST http://localhost:8090/profiles/copy/false
+Content-Type: application/json
+
+{
+  "sourceOrgId": "org-HVB9AM",
+  "sourceDatasetId": "model-9",
+  "targetOrgId": "org-11",
+  "targetDatasetId": "model-79",
+  "profileId": "*"
+}
+
+### Copy reference profiles from one org/dataset to another
+POST http://localhost:8090/profiles/copy/false
+Content-Type: application/json
+
+{
+  "sourceOrgId": "org-HVB9AM",
+  "sourceDatasetId": "model-9",
+  "targetOrgId": "org-11",
+  "targetDatasetId": "model-79",
+  "profileId": "ref-bh5c77HZ6VaGvGI4"
+}
+
+### debug https://app.clickup.com/t/85zt7ndgp
+PUT http://localhost:8090/profiles/profileRollup/
+Content-Type: application/json
+
+{
+  "orgId": "org-HVB9AM",
+  "datasetId": "model-72",
+  "columnNames": ["prompt"],
+  "interval": "2022-01-22T00:00:00Z/2025-01-24T00:00:00Z"
+}
+
+### Duplicate Key Bug https://app.clickup.com/t/#85zt8v5u1
+POST http://localhost:8090/profiles/getReferenceProfileSketches/
+accept: application/json
+Content-Type: application/json
+
+{
+  "columnNames": [
+    "prompt"
+  ],
+  "datasetId": "model-1",
+  "fractions": [
+    0
+  ],
+  "numBins": 0,
+  "orgId": "org-VpLZZt",
+  "referenceProfileId": "ref-SsESpOksRQFnI0pu",
+  "segment": [],
+  "splitPoints": [
+    0
+  ]
+}
+
+
+### Make sure we can query when there are duplicate ref IDs within an org
+POST http://localhost:8090/profiles/getReferenceProfileSketches/
+accept: application/json
+Content-Type: application/json
+
+{
+  "columnNames": [
+    "prompt"
+  ],
+  "datasetId": "model-79",
+  "fractions": [
+    0
+  ],
+  "numBins": 0,
+  "orgId": "org-8969",
+  "referenceProfileId": "ref-DkOwtttwo5IqffJ6",
+  "segment": [],
+  "splitPoints": [
+    0
+  ]
+}
+
+
+### infer entity schema for single profile - NO INGESTION!
+POST http://localhost:8090/profiles/schema
+Content-Type: application/json
+
+{
+  "file": "s3://songbird-20201223060057342600000001/daily-log-untrusted/2023-06-04/org-1945-model-133-2023-06-04T020000-ZmC8YvoPmue706dr37Y0Ed49uu4RuKwi.bin"
+}
+
+### published inferred entity schema for single profile - sends entity schema to kinesis stream
+POST http://localhost:8090/profiles/schema/publish
+Content-Type: application/json
+
+{
+  "file": "s3://development-songbird-20201028054020481800000001/daily-log-untrusted/2023-03-29/org-0-model-2213-2023-03-29T183725.084-pFEzrlxeh8UG82F9XkbpYnhgF6vqmUVA.bin"
+
+}
+
+### Write entity schema
+PUT http://localhost:8090/entity/schema/org-0/model-0/overwrite
+Content-Type: application/json
+
+
+{
+  "metadata": {
+    "author": "system",
+    "version": 1,
+    "updatedTimestamp": 1671466888503
+  },
+  "columns": {
+    "alldiffstr": {
+      "discreteness": "discrete",
+      "dataType": "string",
+      "classifier": "input"
+    },
+    "testNewCol": {
+      "discreteness": "discrete",
+      "dataType": "unknown",
+      "classifier": "output"
+    }
+  }
+}
+
+### Append new entity schema
+PUT http://localhost:8090/entity/schema/org-0/model-0/append
+Content-Type: application/json
+
+
+{
+  "metadata": {
+    "author": "system",
+    "version": 1,
+    "updatedTimestamp": 1671466888503
+  },
+  "columns": {
+    "appendedNewCol4": {
+      "discreteness": "discrete",
+      "dataType": "string",
+      "classifier": "input"
+    }
+  }
+}
+
+
+### Get entity schema
+POST http://localhost:8090/entity/schema/retrieve
+Content-Type: application/json
+
+{
+  "orgId": "org-5Hsdjx",
+  "datasetId": "model-98",
+  "includeHidden": false
+}
+
+### Hide a column
+PUT http://localhost:8090/entity/schema/column/hide
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+  "columnName": "testNewCol"
+}
+
+### UnHide a column
+PUT http://localhost:8090/entity/schema/column/unhide
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+  "columnName": "testNewCol"
+}
+
+
+####################
+### Debug Events ###
+####################
+
+### Save debug event
+
+POST http://localhost:8090/debugEvent/save
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+  "datasetTimestamp": 1667605813000,
+  "content": "{\"datawarehouse_pk\": 552346}",
+  "segmentTags": [
+    {
+      "key": "purpose",
+      "value": "car"
+    },
+    {
+      "key": "verification_status",
+      "value": "Not Verified"
+    }
+  ],
+  "tags": ["llm_type"],
+  "traceId": "9b90120d-77a1-4b41-84f8-4258e54b5aae"
+}
+
+### Write organization
+POST http://localhost:8090/org/save
+Content-Type: application/json
+
+{"orgId":"org-0","dataRetentionDays":365,"enableGranularDataStorage": true}
+
+### Read org
+GET http://localhost:8090/org/get/org-0
+Content-Type: application/json
+
+### Check granular data storage enabled setting
+GET http://localhost:8090/org/setting/granularDataStorageEnabled/org-0
+Content-Type: application/json
+
+
+### Dump org config to S3
+POST http://localhost:8090/org/dumpToS3
+Content-Type: application/json
+
+{}
+
+### debug https://app.clickup.com/t/863hbjbta
+#POST http://localhost:8090/profiles/numericMetricsForTimeRange/
+#POST http://dataservice-main-k8s.datastack.dev.whylabs:80/profiles/numericMetricsForTimeRange/
+
+POST http://localhost:8090/profiles/numericMetricsForTimeRange/
+Content-Type: application/json
+
+{
+  "orgId": "org-HVB9AM",
+  "interval": "2023-06-08T01:00:00.000Z/2023-06-08T09:00:00.000Z",
+  "granularity": "hourly",
+  "segment": [ ],
+  "datasetColumnSelectors": [
+    { "datasetId": "model-79", "columnNames": ["prompt.refusal_similarity"], "metric": "quantile_99" },
+    { "datasetId": "model-79", "columnNames": ["response.jailbreak_similarity"], "metric": "quantile_99" },
+    { "datasetId": "model-79", "columnNames": ["response.refusal_similarity"], "metric": "quantile_99" },
+    { "datasetId": "model-79", "columnNames": ["prompt.jailbreak_similarity"], "metric": "quantile_99" }
+  ]
+}
+
+### debug https://app.clickup.com/t/863hbjbta
+#POST http://localhost:8090/profiles/numericMetricsForTimeRange/
+#POST http://dataservice-main-k8s.datastack.dev.whylabs:80/profiles/numericMetricsForTimeRange/
+
+POST http://localhost:8090/profiles/numericMetricsForTimeRange/
+Content-Type: application/json
+
+{
+  "orgId": "org-HVB9AM",
+  "interval": "2023-06-08T01:00:00.000Z/PT8H",
+  "granularity": "hourly",
+  "segment": [ ],
+  "datasetColumnSelectors": [
+    { "datasetId": "model-79", "columnNames": ["response.jailbreak_similarity"], "metric": "quantile_99" },
+    { "datasetId": "model-81", "columnNames": ["response.jailbreak_similarity"], "metric": "quantile_95" }
+  ]
+}
+
+### debug https://app.clickup.com/t/863hbjbta
+#POST http://localhost:8090/profiles/numericMetricsForTimeRange/
+#POST http://dataservice-main-k8s.datastack.dev.whylabs:80/profiles/numericMetricsForTimeRange/
+
+POST http://localhost:8090/profiles/numericMetricsForTimeRange/
+Content-Type: application/json
+
+{
+  "orgId": "org-5Hsdjx",
+  "interval": "2022-12-05T01:00:00.000Z/P1D",
+  "granularity": "daily",
+  "segment": [ ],
+  "datasetColumnSelectors": [
+    { "datasetId": "model-60", "columnNames": ["market_price"], "metric": "quantile_99" },
+    { "datasetId": "model-60", "columnNames": ["sales_last_week"], "metric": "quantile_99" },
+    { "datasetId": "model-60", "columnNames": ["rating"], "metric": "quantile_99" }
+  ]
+}
+
+### debug https://app.clickup.com/t/863hbjbta
+#POST http://localhost:8090/profiles/numericMetricsForTimeRange/
+#POST http://dataservice-main-k8s.datastack.dev.whylabs:80/profiles/numericMetricsForTimeRange/
+
+POST http://localhost:8090/profiles/numericMetricsForTimeRange/
+Content-Type: application/json
+
+{
+  "orgId": "org-5Hsdjx",
+  "interval": "2022-01-01T00:00:00.000Z/2023-12-31T23:59:59.999Z",
+  "granularity": "all",
+  "segment": [ ],
+  "datasetColumnSelectors": [
+    { "datasetId": "model-60", "metric": "classification_accuracy" },
+    { "datasetId": "model-60", "metric": "prediction_count" }
+  ]
+}
+
+### Mark a profile as not ingested
+
+DELETE http://localhost:8090/profiles/audit
+Content-Type: application/json
+
+{
+  "file": "s3://development-songbird-20201028054020481800000001/daily-log-untrusted/2023-03-29/org-0-model-0-2023-03-29T210433.531-3hteIKR1TdPWb9OrQqDCABrbWOGqNGK4.bin"
+
+}
+
+### ingest a standard profile with segment tags
+POST http://localhost:8090/profiles/index
+Content-Type: application/json
+
+{
+  "file": "s3://development-songbird-20201028054020481800000001/daily-log-untrusted/2023-03-29/org-0-model-0-2023-03-29T210433.531-3hteIKR1TdPWb9OrQqDCABrbWOGqNGK4.bin"
+}
+
+### Query bin file by segment
+POST http://localhost:8090/profiles/audit/list
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+  "interval": "2023-07-01T00:00:00.000Z/P365D"
+}
+
+
+### Fetch classification single-value model metrics -
+### debugging FE failure to display
+POST http://localhost:8090/profiles/classificationMetrics
+Content-Type: application/json
+
+{  "orgId": "org-0",
+  "datasetId": "model-2120",
+  "granularity":"daily",
+  "interval": "2023-07-01T00:00:00.000Z/2023-08-30T00:00:00.000Z",
+  "segment":[]}
+
+
+### Fetch classification summary
+### debugging FE failure to display
+POST http://localhost:8090/profiles/classificationSummary
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-2120",
+  "interval": "2023-07-01T00:00:00.000Z/2023-08-30T00:00:00.000Z",
+  "granularity": "daily"
+}
+
+### daily numericMetricsForTimeRange
+POST http://localhost:8090/profiles/numericMetricByProfile/
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-2235",
+  "interval": "2023-08-01T03:00:00.000Z/2023-08-31T03:00:00.000Z",
+  "columnName": "image.ImagePixelWidth",
+  "segment": [ ],
+  "metric": "mean"
+}
+
+
+### segmented numericMetricsForTimeRange
+POST http://localhost:8090/profiles/numericMetricByProfile/
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+  "interval": "2023-09-01T03:00:00.000Z/2023-09-02T03:00:00.000Z",
+  "columnName": "annual_inc_joint",
+  "segment": [ {"key": "purpose", "value": "car"}],
+  "metric": "count"
+}
+
+
+### test per-profile retrieval token
+PUT http://localhost:8090/profiles/profileRollup/
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+  "columnNames": ["annual_inc_joint"],
+  "granularity": "individual",
+  "retrievalToken":"eyJwcm9maWxlSWQiOi0yNjIxMjY1NDAzMTg1MzU1MjM1LCJpbnRlcnZhbCI6IjE2OTM2MTI4MDAwMDAtMTY5MzYxMjgwMDAwMSIsInNlZ21lbnRUYWdzIjpbeyJrZXkiOiJwdXJwb3NlIiwidmFsdWUiOiJjYXIifSx7ImtleSI6InZlcmlmaWNhdGlvbl9zdGF0dXMiLCJ2YWx1ZSI6Ik5vdCBWZXJpZmllZCJ9XSwidmVyc2lvbiI6MH0="
+
+
+}
+
+
+
+### infer entity schema for LLMprofile - NO INGESTION!
+POST http://localhost:8090/profiles/schema
+Content-Type: application/json
+
+{
+  "file": "s3://development-songbird-20201028054020481800000001/daily-log-untrusted/2023-09-05/org-5Hsdjx-model-91-2023-09-05T210810.869-parD3k1ZvFxt7PfBvfXZLCiwzxMHG0Sa.bin"
+}
+
+
+#####POST http://localhost:8090/profiles/numericMetricsForSegmentKey/
+POST http://dataservice-main-k8s.datastack.dev.whylabs/profiles/numericMetricsForSegmentKey/
+accept: application/json
+Content-Type: application/json
+
+{
+  "orgId": "org-3e8cGT",
+  "interval": "2022-11-20T00:00:00.000Z/2022-12-19T23:59:59.999Z",
+  "segmentKey": "age",
+  "datasetColumnSelectors": [
+    {
+      "datasetId": "model-11",
+      "metric": "classification_accuracy"
+    }
+  ]
+}
+
+###
+### Fetch classification single-value model metrics -
+### debugging FE failure to display
+POST http://dataservice-main-k8s.datastack.dev.whylabs/profiles/classificationMetrics
+Content-Type: application/json
+
+{  "orgId": "org-3e8cGT",
+  "datasetId": "model-11",
+  "granularity":"daily",
+  "interval": "2022-11-20T00:00:00.000Z/2022-12-19T23:59:59.999Z",
+  "segment":[]
+}
+
+
+### ingest prpfile to debug type inference
+POST http://localhost:8090/profiles/schema/
+Content-Type: application/json
+
+{
+  "file": "s3://songbird-20201223060057342600000001/daily-log-untrusted/2023-04-18/org-hURArx-model-25-2023-04-17T000000-pgefuUzLUOWRUziXb1IeC7dHg0KgJZVG.bin"
+}
+
+### ingest prpfile to debug type inference
+POST http://localhost:8090/profiles/index/
+Content-Type: application/json
+
+{
+  "file": "s3://songbird-20201223060057342600000001/daily-log-untrusted/2023-05-06/org-hURArx-model-25-2023-05-04T000000-WXpgDFCRf20WXwzypynAukcCEUKq6WJ5.bin"
+}
+
+### ingest prpfile to debug type inference
+POST http://localhost:8090/profiles/index/
+Content-Type: application/json
+
+{
+  "file": "s3://songbird-20201223060057342600000001/daily-log-untrusted/2023-04-18/org-hURArx-model-25-2023-04-17T000000-pgefuUzLUOWRUziXb1IeC7dHg0KgJZVG.bin"
+}
+
+
+###
++---------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+|ingest_timestamp                 |s3_path                                                                                                                                           |
++---------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+|2023-05-12 09:25:17.569000 +00:00|s3://songbird-20201223060057342600000001/daily-log-untrusted/2023-05-06/org-hURArx-model-25-2023-05-04T000000-WXpgDFCRf20WXwzypynAukcCEUKq6WJ5.bin|
+|2023-05-12 09:25:17.607000 +00:00|s3://songbird-20201223060057342600000001/daily-log-untrusted/2023-05-08/org-hURArx-model-25-2023-05-04T000000-rYQGBBHqKgegvsV1E1DLZJpWIuLBUAXZ.bin|
+|2023-05-12 09:25:17.687000 +00:00|s3://songbird-20201223060057342600000001/daily-log-untrusted/2023-04-18/org-hURArx-model-25-2023-04-17T000000-Gqlx1VSbP8ed3nbMp01n1LdAMSPAgdlc.bin|
+|2023-05-12 09:25:17.687000 +00:00|s3://songbird-20201223060057342600000001/daily-log-untrusted/2023-04-18/org-hURArx-model-25-2023-04-17T000000-pgefuUzLUOWRUziXb1IeC7dHg0KgJZVG.bin|
+|2023-05-12 09:25:17.687000 +00:00|s3://songbird-20201223060057342600000001/daily-log-untrusted/2023-04-18/org-hURArx-model-25-2023-04-17T000000-Vj0902WHdDDafqlixqP9SPOBhl5Xy2rn.bin|
+|2023-05-12 09:25:17.687000 +00:00|s3://songbird-20201223060057342600000001/daily-log-untrusted/2023-04-18/org-hURArx-model-25-2023-04-17T000000-w7JMUZPWFJnD0G46vpWe2ekQvHTzAPf8.bin|
+|2023-05-12 09:25:17.687000 +00:00|s3://songbird-20201223060057342600000001/daily-log-untrusted/2023-04-18/org-hURArx-model-25-2023-04-17T000000-0KkE5liZWZny1gx5MX2Xy13e24el43zZ.bin|
+|2023-05-12 09:25:17.687000 +00:00|s3://songbird-20201223060057342600000001/daily-log-untrusted/2023-04-18/org-hURArx-model-25-2023-04-17T000000-mazgBn2wR4JBtX73PE9I74WEl4CHcWt9.bin|
+|2023-05-12 09:25:17.687000 +00:00|s3://songbird-20201223060057342600000001/daily-log-untrusted/2023-04-18/org-hURArx-model-25-2023-04-17T000000-zRMTAxnP7qg9eH5LTSIgAsgrq8iBuO1g.bin|
+|2023-05-12 09:25:17.687000 +00:00|s3://songbird-20201223060057342600000001/daily-log-untrusted/2023-04-18/org-hURArx-model-25-2023-04-17T000000-rpVQax4DtmAOmod7yq8kgZGZsZ6jzLES.bin|
++---------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+
+### testing for 500 responses from prod?
+#POST http://dataservice-main-k8s.datastack.dev.whylabs/profiles/maxioSegmented
+POST http://localhost:8090/profiles/maxioSegmented
+Content-Type: application/json
+
+{
+  "orgId": "org-3e8cGT",
+  "granularity": "daily",
+  "datasetId": "model-8",
+  "interval": "2022-12-13T00:00:00.000Z/2022-12-19T23:59:59.999Z",
+  "segments": [
+    [
+      {
+        "key": "gender",
+        "value": "female"
+      },
+      {
+        "key": "loc",
+        "value": "south"
+      }
+    ]
+  ],
+  "outputColumns": [
+    "output_prediction",
+    "output_target"
+  ],
+  "order": "asc",
+  "disableCache": true
+}
+
+
+
+### debug 500 errors in numericMetricsForSegmentKey tests
+POST http://localhost:8090/profiles/numericMetricsForSegmentKey/
+accept: application/json
+Content-Type: application/json
+
+{
+  "orgId": "org-3e8cGT",
+  "interval": "2022-01-01T00:00:00.000Z/2022-12-31T23:59:59.999Z",
+  "segmentKey": "loc",
+  "datasetColumnSelectors": [
+    {
+      "datasetId": "model-15",
+      "metric": "prediction_count"
+    }
+  ]
+}
+
+###
+### debug 500 errors in numericMetricsForSegmentKey tests
+POST http://dataservice-main-k8s.datastack.dev.whylabs/profiles/numericMetricsForSegmentKey/
+accept: application/json
+Content-Type: application/json
+
+{
+  "orgId": "org-3e8cGT",
+  "interval": "2022-01-01T00:00:00.000Z/2022-12-31T23:59:59.999Z",
+  "segmentKey": "loc",
+  "datasetColumnSelectors": [
+    {
+      "datasetId": "model-15",
+      "metric": "prediction_count"
+    }
+  ]
+}
+
+
+### download segmented metrics
+POST http://localhost:8090/profiles/numericMetricByProfile/download
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-2235",
+  "interval": "2023-08-01T03:00:00.000Z/2023-08-31T03:00:00.000Z",
+  "columnName": "image.ImagePixelWidth",
+  "segment": [ ],
+  "metric": "mean"
+}
+
+
+### testing numeric metrics from referene profiles
+POST http://localhost:8090/profiles/numericMetricByReference/
+Content-Type: application/json
+
+{
+  "orgId": "org-JR37ks",
+  "datasetId": "model-35",
+  "referenceId": "ref-xtdZTKi2fEDuAZsf",
+  "columnName": "image.Brightness.mean",
+  "metric": "mean"
+}
+
+
+### ingest Zipped profile
+POST http://localhost:8090/profiles/index
+Content-Type: application/json
+
+{
+  "file": "s3://development-songbird-20201028054020481800000001/reference-profiles/2024-01-10/org-0-model-2250-ASLDe4P1XGpy2PL9gZz8XRteVlpJBoVb.bin"
+}
+
+### ingest Zipped profile
+POST http://localhost:8090/profiles/index
+Content-Type: application/json
+
+{
+  "file": "file:/Volumes/Workspace/whylabs-processing-core/data-service/src/test/resources/profiles/org-0-model-2250.zip"
+}
+
+
+### ingest a reference profile
+POST http://localhost:8090/profiles/index
+Content-Type: application/json
+
+{
+  "file": "s3://development-songbird-20201028054020481800000001/reference-profiles/2022-12-19/org-3e8cGT-model-10-22FO7utd2yzdrcFGqh5kF4rmkNjD0FT3.bin"
+}
+
+
+### ingest bad profile from DnB
+POST http://localhost:8090/profiles/index
+Content-Type: application/json
+
+{
+  "file": "file:/Users/chris/work/profiles/org-XgMnWA-model-34-2024-01-08T000000-JJI33GcKZsrDNelcZxXASUObUCJid2VA.bin"
+}
+
+### get segments for a model,
+GET http://localhost:8090/profiles/segments/org-0/model-2250
+
+### get segments containing purpose=car
+POST http://localhost:8090/profiles/segments
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-2250",
+  "scope": "REFERENCE_PROFILE"
+}
+
+### ingest bad profile from test data
+POST http://localhost:8090/profiles/index
+Content-Type: application/json
+
+{
+  "file": "file:/Volumes/Workspace/whylabs-processing-core/data-service/src/test/resources/profiles/org-0-model-0-2023-01-25T220419.69-kUdbPsqADi1HTRNQDM65aWCkfi6sdHEc.bin"
+}
+
+
+### ingest bad profile from test data
+POST http://localhost:8090/profiles/index
+Content-Type: application/json
+
+{
+  "file": "file:/Volumes/Workspace/whylabs-processing-core/data-service/src/test/resources/profiles/org-0-model-0-2023-01-25T220419.69-kUdbPsqADi1HTRNQDM65aWCkfi6sdHEc.bin"
+}
+
+
+
+### ingest Zipped profile
+POST http://localhost:8090/profiles/index
+Content-Type: application/json
+
+{
+  "file": "s3://development-songbird-20201028054020481800000001/reference-profiles/2024-01-10/org-0-model-2250-ASLDe4P1XGpy2PL9gZz8XRteVlpJBoVb.bin"
+}
+
+
+### ingest a reference profile
+POST http://localhost:8090/profiles/index
+Content-Type: application/json
+
+{
+  "file": "s3://development-songbird-20201028054020481800000001/reference-profiles/2022-12-19/org-3e8cGT-model-10-22FO7utd2yzdrcFGqh5kF4rmkNjD0FT3.bin"
+}
+
+
+### ingest bad profile from DnB
+POST http://localhost:8090/profiles/index
+Content-Type: application/json
+
+{
+  "file": "file:/Users/chris/work/profiles/org-XgMnWA-model-34-2024-01-08T000000-JJI33GcKZsrDNelcZxXASUObUCJid2VA.bin"
+}
+
+### get segments for a model,
+GET http://localhost:8090/profiles/segments/org-0/model-2250
+
+### get segments containing purpose=car
+POST http://localhost:8090/profiles/segments
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-2250",
+  "scope": "REFERENCE_PROFILE"
+}
+
+### ingest bad profile from test data
+POST http://localhost:8090/profiles/index
+Content-Type: application/json
+
+{
+  "file": "file:/Volumes/Workspace/whylabs-processing-core/data-service/src/test/resources/profiles/org-0-model-0-2023-01-25T220419.69-kUdbPsqADi1HTRNQDM65aWCkfi6sdHEc.bin"
+}
+
+### testing custom dashboard insert
+POST http://localhost:8090/customDashboard/save/
+
+### testing numeric metrics from referene profiles
+POST http://localhost:8090/profiles/activeColumns/
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+  "interval": "2023-08-01T03:00:00.000Z/2023-08-31T03:00:00.000Z"
+
+}
+
+### reference profile columns
+##  https://app.clickup.com/t/86ayg65b2
+POST http://localhost:8090/profiles/activeColumns/
+Content-Type: application/json
+
+{
+  "orgId": "org-5Hsdjx",
+  "datasetId": "model-10",
+  "refProfileId":"ref-xopdoVDxyW0r9lIz"
+}
+
+
+### batch profile columns
+##  https://app.clickup.com/t/86ayg65b2
+POST http://localhost:8090/profiles/activeColumns/
+Content-Type: application/json
+
+{
+  "orgId": "org-5Hsdjx",
+  "datasetId": "model-10",
+  "interval": "2023-02-12/2023-09-08",
+  "segment": [
+    {
+      "key": "key1",
+      "value": "3"
+    },
+    {
+      "key": "key2",
+      "value": "two"
+    }
+  ]
+}
+
+### batch profile columns
+##  https://app.clickup.com/t/86ayg65b2
+POST http://localhost:8090/profiles/activeColumns/
+Content-Type: application/json
+
+{
+  "orgId": "org-5Hsdjx",
+  "datasetId": "model-10",
+  "interval": "2023-02-12/2023-09-08"
+}
+
+
+
+### testing custom dashboard insert
+POST http://localhost:8090/customDashboard/org-0/save/
+Content-Type: application/json
+
+{
+  "author": "matheus@whylabs.ai",
+  "displayName": "new test creation",
+  "schema": "{\"test\":\"foo\"}"
+}
+
+### testing custom dashboard update
+POST http://localhost:8090/customDashboard/org-0/save/
+Content-Type: application/json
+
+{
+  "id": "dashboard-1",
+  "displayName": "new test updating",
+  "schema": "{\"test\":\"bar\"}",
+  "isFavorite": true
+}
+
+### testing custom dashboard get by id
+GET http://localhost:8090/customDashboard/org-0/get/dashboard-1
+
+### testing custom dashboard listing
+GET http://localhost:8090/customDashboard/org-0/list
+
+### testing dashboard clone
+POST http://localhost:8090/customDashboard/org-0/clone
+Content-Type: application/json
+
+{
+  "id": "dashboard-1",
+  "author": "copycat@whylabs.ai"
+}
+
+### testing dashboard mark as deleted
+DELETE http://localhost:8090/customDashboard/org-0/delete/dashboard-1
+
+
+### NPE Christine
+POST http://localhost:8090/metrics/timeseries/org-0
+Content-Type: application/json
+
+{
+  "rollupGranularity": "all",
+  "interval": "2024-01-26T00:00:00.000Z/2024-02-25T00:00:00.000Z",
+  "timeseries": [
+    {
+      "queryId": "q0",
+      "resourceId": "model-2273",
+      "columnName": "url",
+      "segment": [],
+      "metric": "count_null"
+    }
+  ]
+}
+
+### Get traces
+##POST http://dataservice-main-k8s.datastack.dev.whylabs:80/profiles/numericMetricsForTimeRange/
+#POST http://dataservice-main-k8s.datastack.dev.whylabs:80/profiles/traces/list
+POST http://localhost:8090/profiles/traces/list
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-2273",
+  "interval": "2024-03-07T00:00:00Z/2024-03-15T00:00:00Z",
+  "limit": 30,
+  "offset": 0
+}
+
+### Get traces with trace filter
+POST http://localhost:8090/traces/list
+Content-Type: application/json
+
+{
+  "orgId": "org-QmqEak",
+  "resourceId": "demo-llm-secure",
+  "interval": "2024-04-23T00:00:00Z/P7D"
+}
+
+### Fetch classification single-value model metrics -
+### segment is optional.
+### granularity defaults to 'daily', but may also be "weekly", "hourly", "monthly"
+POST http://localhost:8090/profiles/classificationMetrics
+Content-Type: application/json
+
+{  "orgId": "org-L46LM4",
+  "datasetId": "model-8",
+  "granularity":"daily",
+  "interval": "2024-03-17/2024-04-07",
+  "segment": [
+    {
+      "key": "geo_country_code",
+      "value": "AD"
+    },
+    {
+      "key": "messaging_candidates_user_cohort",
+      "value": "casual"
+    }
+  ]
+}
+
+
+### Fetch classification single-value model metrics -
+### segment is optional.
+### granularity defaults to 'daily', but may also be "weekly", "hourly", "monthly"
+POST http://localhost:8090/profiles/classificationMetrics
+Content-Type: application/json
+
+{  "orgId": "org-L46LM4",
+  "datasetId": "model-8",
+  "granularity":"daily",
+  "interval": "2024-03-17/2024-04-07"
+}
+
+
+### runNow profile delete requests
+POST  http://localhost:8090/profiles/deleteProfileRequests/runNow
+
+
+### christine prediction_count mismatch
+### https://app.clickup.com/t/86b08ck1v
+POST http://localhost:8090/profiles/numericMetricsForTimeRange/
+accept: application/json
+Content-Type: application/json
+
+{
+  "orgId": "org-3e8cGT",
+  "interval": "2022-12-13T00:00:00.000Z/2022-12-19T23:59:59.999Z",
+  "granularity": "all",
+  "segment": [],
+  "datasetColumnSelectors": [
+    {
+      "datasetId": "model-2",
+      "metric": "prediction_count"
+    }
+  ]
+}
+
+
+### christine timeseries wrong answer
+### https://app.clickup.com/t/86b08ck1v
+POST http://localhost:8090/metrics/timeseries/org-3e8cGT
+accept: application/json
+Content-Type: application/json
+
+{
+  "interval": "2022-12-13T00:00:00.000Z/2022-12-19T23:59:59.999Z",
+  "rollupGranularity": "all",
+  "timeseries": [
+    {
+      "queryId": "q1",
+      "metric": "prediction_count",
+      "resourceId": "model-2",
+      "segment": []
+    }
+  ]
+}
+
+### testing regression_count
+POST http://localhost:8090/metrics/timeseries/org-3e8cGT
+accept: application/json
+Content-Type: application/json
+
+{
+  "interval": "2022-12-13T00:00:00.000Z/2022-12-19T23:59:59.999Z",
+  "rollupGranularity": "all",
+
+  "timeseries": [
+    {
+      "queryId": "q1",
+      "metric": "regression_count",
+      "resourceId": "model-2",
+      "segment": []
+    }
+  ]
+}
+
+### Purge all deleted datasets
+POST http://localhost:8090/asyncDeletion/run
+accept: application/json
+Content-Type: application/json
+
+{
+  "dryRun": false,
+  "s3Path": "s3://p-drew-deltalake-20210628165226659900000001/AWSDynamoDB/01715621030143-92bb9fc2/data/"
+}
+
+### Purge a single dataset
+POST http://localhost:8090/asyncDeletion/runSingle/org-ZdvZNe/model-3
+accept: application/json
+Content-Type: application/json
+
+{}
+
+### Backfill org and dataset tables from an s3 snapshot of the songbird metadata table
+POST http://localhost:8090/dataset/backfill
+accept: application/json
+Content-Type: application/json
+
+{
+  "dryRun": false,
+  "s3Path": "s3://p-drew-deltalake-20210628165226659900000001/AWSDynamoDB/01715621030143-92bb9fc2/data/"
+}
+
+###
+
+# curl -X 'POST'
+#  'http://dataservice-main-k8s.datastack.dev.whylabs/profiles/activeColumns/'
+#  -H 'accept: application/json'
+#  -H 'Content-Type: application/json'
+#  -d '{
+#  "datasetId": "model-10",
+#  "orgId": "org-5Hsdjx",
+#  "segment": [],
+#  "interval": "2023-06-01T00:00:00.000Z/2023-07-01T00:00:00.000Z",
+#  "granularity": "daily"
+#}'
+POST http://localhost:8090/profiles/activeColumns/
+accept: application/json
+Content-Type: application/json
+
+{
+  "datasetId": "model-10",
+  "orgId": "org-5Hsdjx",
+  "segment": [],
+  "interval": "2023-06-14T00:00:00.000Z/P7D",
+  "granularity": "all"
+}
+
+###
+# curl -X 'POST'
+#  'http://dataservice-main-k8s.datastack.prod.whylabs/profiles/activeColumns/'
+#  -H 'accept: application/json'
+#  -H 'Content-Type: application/json'
+#  -d '{
+#  "datasetId": "model-25",
+#  "orgId": "org-hURArx",
+#  "segment": [
+#    {
+#      "key": "currency_code",
+#      "value": "AUD"
+#    },
+#    {
+#      "key": "event_sub_type",
+#      "value": "APPOINTMENTS"
+#    }
+#  ],
+#  "interval": "2024-08-09T00:00:00.000Z/P1D",
+#  "granularity": "daily"
+#}'
+POST http://localhost:8090/profiles/activeColumns/
+accept: application/json
+Content-Type: application/json
+
+{
+  "datasetId": "model-25",
+  "orgId": "org-hURArx",
+  "segment": [
+    {
+      "key": "currency_code",
+      "value": "AUD"
+    },
+    {
+      "key": "event_sub_type",
+      "value": "APPOINTMENTS"
+    }
+  ],
+  "interval": "2024-08-09T00:00:00.000Z/P1D",
+  "granularity": "daily"
+}
+
+###
+
+POST http://localhost:8090/analysis/deleteAnalysisRequests/runNow
+accept: application/json
+Content-Type: application/json
+
+{}
+
+
+
+### infer schema from postgres
+POST http://localhost:8090/profiles/schema/infer
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+    "interval": "2023-09-01T03:00:00.000Z/2023-09-02T03:00:00.000Z"
+
+}
+
+
+### data evaluation for reference-profiles
+# rowSegmentGroup can either be a key or a full segment like "category=Baby Care"
+POST http://localhost:8090/metrics/dataEvaluation/org-0
+Content-Type: application/json
+
+{
+  "referenceProfiles": [
+    "my-ref-profile",
+    "another-ref-profile"
+  ],
+  "rowSegmentGroup": "category",
+  "queries": [
+    {
+      "queryId": "1",
+      "metric": "mean",
+      "resourceId": "model-2347",
+      "columnName": "rating"
+    },
+    {
+      "queryId": "2",
+      "metric": "median",
+      "resourceId": "model-2347",
+      "columnName": "rating"
+    }
+  ]
+}
+
+### data evaluation for segments
+# rowSegmentGroup can either be a key or a full segment like "category=Baby Care"
+POST http://localhost:8090/metrics/dataEvaluation/org-0
+Content-Type: application/json
+
+{
+  "interval": "2024-10-07/2024-10-08",
+  "rowSegmentGroup": null,
+  "columnSegments": [
+    "purpose=car",
+    "purpose=credit_card",
+    "purpose=wedding",
+  ],
+  "queries": [
+    {
+      "queryId": "1",
+      "metric": "median",
+      "resourceId": "model-0",
+      "columnName": "installment"
+    },
+    {
+      "queryId": "2",
+      "metric": "mean",
+      "resourceId": "model-0",
+      "columnName": "installment"
+    }
+  ]
+}
+
+
+
+
+### data evaluation for segments
+# rowSegmentGroup can either be a key or a full segment like "category=Baby Care"
+POST http://localhost:8090/notification/acknowledge
+Content-Type: application/json
+
+{
+    "orgId": "org-0",
+    "datasetId": "model-2330",
+    "monitorId": "rich-turquoise-squirrel-4305",
+    "runId": "ea891d2e-45a3-4703-b4b4-cf25475cb452",
+    "sentTimestamp": "2024-11-08T15:47:08.879107"
+}
+
+### [Deep] Clone demo data, as in re-upload it with a future timestamp
+POST http://localhost:8090/profiles/copyDemoData
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-2307",
+  "interval": "2024-10-01T01:00:00Z/2024-11-01T01:00:00Z",
+  "offsetDays": 29
+}
+
+### Enable data looping for a demo dataset so it stays in relevent in recent data lineage
+POST http://localhost:8090/dataset/dataLooping/enable/org-0/model-2299
+Content-Type: application/json
+
+{
+
+}
+
+### Trigger a data looping run (normally scheduled, but endpoint makes it easier to test)
+POST http://localhost:8090/dataset/dataLooping/trigger
+Content-Type: application/json
+
+{
+
+}

@@ -1,0 +1,46 @@
+{
+  "orgId": "org-staggered",
+  "datasetId": "model-77",
+  "granularity": "daily",
+  "metadata": {
+    "schemaVersion": 1,
+    "author": "system",
+    "updatedTimestamp": 1681770522008,
+    "version": 41
+  },
+  "analyzers": [
+    {
+      "id": "missing-datapoint-column-analyzer",
+      "schedule": {
+        "type": "fixed",
+        "cadence": "daily"
+      },
+      "disabled": false,
+      "targetMatrix": {"type": "column", "include": "*", "segments": []},
+      "config": {
+        "metric": "count",
+        "type": "fixed",
+        "upper": 0
+      }
+    },
+    {
+      "id": "missing-datapoint-dataset-analyzer",
+      "schedule": {
+        "type": "fixed",
+        "cadence": "daily"
+      },
+      "disabled": false,
+      "targetMatrix": {
+        "type": "dataset",
+        "segments": []
+      },
+      "config": {
+        "metric": "missingDatapoint",
+        "type": "fixed",
+        "upper": 0
+      }
+    }
+  ],
+  "monitors": [
+  ]
+}

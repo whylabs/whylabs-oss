@@ -1,0 +1,3 @@
+mutation setFalseAlarm($alertId: String!, $isFalseAlarm: Boolean) {
+    setFalseAlarm(alertId: $alertId, isFalseAlarm: $isFalseAlarm)
+}

@@ -1,0 +1,64 @@
+{
+  "orgId": "org-0",
+  "allowPartialTargetBatches": false,
+  "metadata": {
+    "author": "user-d2a53e1c-9df1-4f5b-a610-cbee38016606",
+    "version": 1,
+    "schemaVersion": 1,
+    "updatedTimestamp": 1730208005606
+  },
+  "monitors": [
+    {
+      "id": "gleaming-midnightblue-dragonfly-1742",
+      "mode": {
+        "type": "DIGEST",
+        "datasetTimestampOffset": "P45D"
+      },
+      "actions": [],
+      "metadata": {
+        "author": "user-d2a53e1c-9df1-4f5b-a610-cbee38016606",
+        "version": 1,
+        "schemaVersion": 1,
+        "updatedTimestamp": 1730208005606
+      },
+      "schedule": {
+        "type": "immediate"
+      },
+      "severity": 3,
+      "analyzerIds": [
+        "gleaming-midnightblue-dragonfly-1742-analyzer"
+      ],
+      "displayName": "Non-discrete positive number monitor-71758"
+    }
+  ],
+  "analyzers": [
+    {
+      "id": "gleaming-midnightblue-dragonfly-1742-analyzer",
+      "config": {
+        "type": "fixed",
+        "lower": 0,
+        "metric": "min"
+      },
+      "metadata": {
+        "author": "user-d2a53e1c-9df1-4f5b-a610-cbee38016606",
+        "version": 1,
+        "schemaVersion": 1,
+        "updatedTimestamp": 1730208005606
+      },
+      "schedule": {
+        "type": "fixed",
+        "cadence": "monthly"
+      },
+      "targetMatrix": {
+        "type": "column",
+        "exclude": [],
+        "include": [
+          "group:continuous"
+        ],
+        "segments": []
+      }
+    }
+  ],
+  "datasetId": "model-2370",
+  "granularity": "monthly"
+}

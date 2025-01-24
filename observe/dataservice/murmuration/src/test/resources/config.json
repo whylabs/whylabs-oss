@@ -1,0 +1,3 @@
+{"id":1,"orgId":"org-0","dataRetentionDays":2000,"enableGranularDataStorage":false,"ingestionGranularity":"hourly"}
+{"id":2,"orgId":"org-1","dataRetentionDays":2000,"enableGranularDataStorage":false,"ingestionGranularity":"PT15M"}
+{"id":2,"orgId":"org-2","dataRetentionDays":2000,"enableGranularDataStorage":true,"ingestionGranularity":"hourly"}

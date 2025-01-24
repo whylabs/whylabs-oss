@@ -1,0 +1,87 @@
+query getMonitorConfig($modelId: String!) {
+  monitorConfig(datasetId: $modelId)
+}
+
+query getAnomaliesForMonitorList(
+  $datasetId: String!
+  $monitorIDs: [String!]!
+  $fromTimestamp: Float!
+  $toTimestamp: Float!
+  $adhocRunId: String
+) {
+  analysisResults(
+    filter: {
+      anomaliesOnly: true
+      datasetId: $datasetId
+      monitorIDs: $monitorIDs
+      fromTimestamp: $fromTimestamp
+      toTimestamp: $toTimestamp
+      adhocRunId: $adhocRunId
+    }
+    sortDirection: ASC
+  ) {
+    analysisId
+    monitorIds
+    datasetTimestamp
+  }
+}
+
+mutation patchMonitorConfig($modelId: String!, $config: String!) {
+  monitorSettings {
+    patchMonitorConfig(datasetId: $modelId, config: $config)
+  }
+}
+
+mutation updateMonitor($modelId: String!, $config: String!, $monitorId: String!) {
+  monitorSettings {
+    updateMonitor(datasetId: $modelId, config: $config, monitorId: $monitorId)
+  }
+}
+
+mutation updateAnalyzer($modelId: String!, $config: String!, $analyzerId: String!) {
+  monitorSettings {
+    updateAnalyzer(datasetId: $modelId, config: $config, analyzerId: $analyzerId)
+  }
+}
+
+mutation deleteMonitor($datasetId: String!, $monitorId: String!) {
+  monitorSettings {
+    deleteMonitor(datasetId: $datasetId, monitorId: $monitorId)
+  }
+}
+
+mutation deleteAnalyzer($datasetId: String!, $analyzerId: String!) {
+  monitorSettings {
+    deleteAnalyzer(datasetId: $datasetId, analyzerId: $analyzerId)
+  }
+}
+
+query getNotificationIds {
+  user {
+    organization {
+      notifications {
+        slack {
+          general {
+            id
+          }
+        }
+        email {
+          general {
+            id
+          }
+        }
+      }
+    }
+  }
+}
+
+query getSemengtsList($modelId: String!) {
+  model(id: $modelId) {
+    segments {
+      tags {
+        key
+        value
+      }
+    }
+  }
+}

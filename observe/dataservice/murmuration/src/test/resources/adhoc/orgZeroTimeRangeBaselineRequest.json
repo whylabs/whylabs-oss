@@ -1,0 +1,285 @@
+{
+  "inlineResults": false,
+  "ignoreBackfillGracePeriodLimit": false,
+  "segmentTags": [],
+  "columnNames": [
+    "customer_city",
+    "customer_geolocation_lat",
+    "customer_geolocation_lng",
+    "customer_id",
+    "customer_state",
+    "customer_unique_id",
+    "customer_zip_code_prefix",
+    "freight_value",
+    "order_approved_at",
+    "order_delivered_carrier_date",
+    "order_delivered_customer_date",
+    "order_estimated_delivery_date",
+    "order_id",
+    "order_item_number",
+    "order_purchase_timestamp",
+    "order_status",
+    "price",
+    "product_category_name",
+    "product_description_length",
+    "product_height_cm",
+    "product_id",
+    "product_length_cm",
+    "product_name_length",
+    "product_photos_qty",
+    "product_weight_g",
+    "product_width_cm",
+    "seller_city",
+    "seller_geolocation_lat",
+    "seller_geolocation_lng",
+    "seller_id"
+  ],
+  "start": "2022-10-02T23:59:59.999Z",
+  "end": "2022-11-01T23:59:59.999Z",
+  "monitorConfig": {
+    "id": "86a03a63-d094-462b-b989-9896071bd280",
+    "schemaVersion": 1,
+    "orgId": "org-0",
+    "datasetId": "model-2120",
+    "granularity": "daily",
+    "metadata": {
+      "schemaVersion": 1,
+      "author": "system",
+      "updatedTimestamp": 1666294993931,
+      "version": 101
+    },
+    "analyzers": [
+      {
+        "id": "continuous-distribution-58f73412",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "disabled": false,
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "group:continuous"
+          ]
+        },
+        "backfillGracePeriodDuration": "P30D",
+        "config": {
+          "metric": "histogram",
+          "type": "drift",
+          "algorithm": "hellinger",
+          "threshold": 0.7,
+          "minBatchSize": 1,
+          "baseline": {
+            "type": "TimeRange",
+            "range": {"start":  "2022-02-25T00:00Z", "end":  "2022-03-25T00:00Z"}
+          }
+        }
+      }
+    ],
+    "monitors": [
+
+    ],
+    "entitySchema": {
+      "metadata": {
+        "author": "system",
+        "version": 4,
+        "updatedTimestamp": 1661993675257
+      },
+      "columns": {
+        "order_delivered_customer_date": {
+          "discreteness": "discrete",
+          "dataType": "unknown",
+          "classifier": "input"
+        },
+        "product_name_length": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "product_weight_g": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "seller_zip_code_prefix": {
+          "discreteness": "continuous",
+          "dataType": "integral",
+          "classifier": "input"
+        },
+        "delivery_status (output)": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "output"
+        },
+        "order_approved_at": {
+          "discreteness": "discrete",
+          "dataType": "unknown",
+          "classifier": "input"
+        },
+        "order_item_number": {
+          "discreteness": "continuous",
+          "dataType": "integral",
+          "classifier": "input"
+        },
+        "order_status": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "customer_geolocation_lat": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "product_category_name": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "order_purchase_timestamp": {
+          "discreteness": "discrete",
+          "dataType": "unknown",
+          "classifier": "input"
+        },
+        "price": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "product_id": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "customer_geolocation_lng": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "seller_id": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "customer_city": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "delivery_confidence (output)": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "output"
+        },
+        "delivery_prediction (output)": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "output"
+        },
+        "upload_date": {
+          "discreteness": "discrete",
+          "dataType": "unknown",
+          "classifier": "input"
+        },
+        "customer_state": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "customer_unique_id": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "product_description_length": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "seller_geolocation_lng": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "product_photos_qty": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "product_width_cm": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "seller_geolocation_lat": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "product_length_cm": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "seller_city": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "product_height_cm": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "order_estimated_delivery_date": {
+          "discreteness": "discrete",
+          "dataType": "unknown",
+          "classifier": "input"
+        },
+        "seller_state": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "customer_id": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "freight_value": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "order_delivered_carrier_date": {
+          "discreteness": "discrete",
+          "dataType": "unknown",
+          "classifier": "input"
+        },
+        "order_id": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "shipping_limit_date": {
+          "discreteness": "discrete",
+          "dataType": "unknown",
+          "classifier": "input"
+        },
+        "customer_zip_code_prefix": {
+          "discreteness": "continuous",
+          "dataType": "integral",
+          "classifier": "input"
+        }
+      }
+    },
+    "weightConfig": {
+      "metadata": {
+        "author": "system",
+        "version": 0,
+        "updatedTimestamp": 1667259317679
+      },
+      "segmentWeights": []
+    }
+  }
+}

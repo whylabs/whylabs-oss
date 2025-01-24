@@ -1,0 +1,1 @@
+alter table whylabs.adhoc_async_requests add column backfill_interval text;

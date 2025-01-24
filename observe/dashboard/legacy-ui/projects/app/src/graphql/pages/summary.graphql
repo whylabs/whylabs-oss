@@ -1,0 +1,231 @@
+query getAnomalyData($modelId: String!, $dailyFrom: Float!, $dailyTo: Float!, $weeklyFrom: Float!, $weeklyTo: Float!) {
+  daily: model(id: $modelId) {
+    ...AnomalyDataAvailability
+    anomalyCounts: allAnomalyCounts(fromTimestamp: $dailyFrom, toTimestamp: $dailyTo) {
+      ...AnomalyCountsCommonFields
+    }
+  }
+  monitorConfig(datasetId: $modelId)
+  weekly: model(id: $modelId) {
+    ...AnomalyDataAvailability
+    anomalyCounts: allAnomalyCounts(fromTimestamp: $weeklyFrom, toTimestamp: $weeklyTo) {
+      ...AnomalyCountsCommonFields
+    }
+  }
+}
+
+fragment AnomaliesHealthData on AnalysisResult {
+  metric
+  datasetTimestamp
+  monitorIds
+}
+
+query getIntegrationHealthInfo($modelId: String!, $from: Float!, $to: Float!, $dataHealthFrom: Float!, $dataHealthTo: Float!) {
+  model(id: $modelId) {
+    batches(from: $from, to: $to) {
+      timestamp
+    }
+    anomaliesInRange: anomalies(filter: {anomaliesOnly: true, includeUnhelpful: false, metrics: [SECONDS_SINCE_LAST_UPLOAD, MISSING_DATAPOINT], fromTimestamp: $from, toTimestamp: $to}, sortDirection: ASC) {
+      analysisId,
+    }
+    dataHealthAnomalies: anomalies(filter: {anomaliesOnly: true, includeUnhelpful: false, metrics: [SECONDS_SINCE_LAST_UPLOAD, MISSING_DATAPOINT], fromTimestamp: $dataHealthFrom, toTimestamp: $dataHealthTo}, sortDirection: ASC) {
+      ...AnomaliesHealthData
+    }
+    dataAvailability {
+      latestTimestamp
+    }
+  }
+}
+
+query getMonitorCoverage($modelId: String!) {
+  model(id: $modelId) {
+    monitoredCategories
+  }
+}
+
+query getLLMMetricsList(
+  $modelId: String!,
+  $granularity: TimePeriod,
+  $tags: [String!])
+{
+  model(id: $modelId) {
+    customMetrics(granularity: $granularity, tags: $tags) {
+      metadata {
+        queryDefinition {
+          column
+        }
+        tags
+      }
+    }
+  }
+}
+
+fragment ColumnAndMetricAnalysis on AnalysisResult {
+  metric
+  column
+}
+
+query getAnomaliesByColumns(
+  $model: String!,
+  $metrics: [String!]!,
+  $dailyFrom: Float!
+  $dailyTo: Float!
+  $weeklyFrom: Float!
+  $weeklyTo: Float!
+) {
+  daily: analysisResults(
+    filter: {
+      anomaliesOnly: true,
+      includeUnhelpful: false,
+      columns: $metrics,
+      datasetId: $model,
+      fromTimestamp: $dailyFrom,
+      toTimestamp: $dailyTo,
+      includeFailed: false,
+    }, offset: 0, limit: 0, sortDirection: ASC) {
+    ...ColumnAndMetricAnalysis
+  }
+  weekly: analysisResults(
+    filter: {
+      anomaliesOnly: true,
+      includeUnhelpful: false,
+      columns: $metrics,
+      datasetId: $model,
+      fromTimestamp: $weeklyFrom,
+      toTimestamp: $weeklyTo,
+      includeFailed: false,
+    }, offset: 0, limit: 0, sortDirection: ASC) {
+    ...ColumnAndMetricAnalysis
+  }
+}
+
+query getInputOutputHealthData(
+  $modelId: String!
+  $dailyFrom: Float!
+  $dailyTo: Float!
+  $weeklyFrom: Float!
+  $weeklyTo: Float!
+) {
+  daily: model(id: $modelId) {
+    ...InputOutputHealthDataDaily
+  }
+  weekly: model(id: $modelId) {
+    ...InputOutputHealthDataWeekly
+  }
+}
+
+fragment InputOutputHealthDataDaily on Model {
+  anomalyCounts(fromTimestamp: $dailyFrom, toTimestamp: $dailyTo) {
+    totals {
+      category
+      count
+    }
+  }
+  outputs {
+    anomalyCounts(fromTimestamp: $dailyFrom, toTimestamp: $dailyTo) {
+      totals {
+        category
+        count
+      }
+    }
+  }
+  entitySchema {
+    inputCounts {
+      total
+    }
+    outputCounts {
+      total
+    }
+  }
+  batches(from: $dailyFrom, to: $dailyTo) {
+    inputCount
+    outputCount
+  }
+  dataAvailability {
+    latestTimestamp
+  }
+}
+
+fragment InputOutputHealthDataWeekly on Model {
+  anomalyCounts(fromTimestamp: $weeklyFrom, toTimestamp: $weeklyTo) {
+    totals {
+      category
+      count
+    }
+  }
+  outputs {
+    anomalyCounts(fromTimestamp: $weeklyFrom, toTimestamp: $weeklyTo) {
+      totals {
+        category
+        count
+      }
+    }
+  }
+  entitySchema {
+    inputCounts {
+      total
+    }
+    outputCounts {
+      total
+    }
+  }
+  batches(from: $weeklyFrom, to: $weeklyTo) {
+    inputCount
+    outputCount
+  }
+  dataAvailability {
+    latestTimestamp
+  }
+}
+
+query getSegmentsDiscreteFeaturesAlerts(
+  $modelId: String!
+  $dailyFrom: Float!
+  $dailyTo: Float
+  $weeklyFrom: Float!
+  $weeklyTo: Float
+) {
+  model(id: $modelId) {
+    totalSegments
+    segments(sort: {by: AnomalyCount, direction: DESC}, limit: 3, filter: { fromTimestamp: $dailyFrom, toTimestamp: $dailyTo }) {
+      tags {
+        key
+        value
+      }
+      anomalyCounts(fromTimestamp: $dailyFrom, toTimestamp: $dailyTo) {
+        totals {
+          count
+        }
+      }
+    }
+  }
+
+  dailyAnomalyCount: segmentedAnomalyCount(datasetId: $modelId, fromTimestamp: $dailyFrom, toTimestamp: $dailyTo)
+
+  weeklyAnomalyCount: segmentedAnomalyCount(datasetId: $modelId, fromTimestamp: $weeklyFrom, toTimestamp: $weeklyTo)
+}
+
+query getLlmSecureSummaryCard(
+  $modelId: String
+  $globalRangeFrom: Float!
+  $globalRangeTo: Float!
+  $shortRangeFrom: Float!
+  $shortRangeTo: Float!
+  $midRangeFrom: Float!
+  $midRangeTo: Float!
+) {
+  model(id: $modelId) {
+    tracesInRange: tracesSummary(fromTimestamp: $globalRangeFrom, toTimestamp: $globalRangeTo) {
+      totalCount
+      latestTraceTimestamp
+    }
+    currentIssuesData: tracesSummary(fromTimestamp: $shortRangeFrom, toTimestamp: $shortRangeTo) {
+      blockedInteractionsCount
+      violationsCount
+    }
+    comparedIssuesData: tracesSummary(fromTimestamp: $midRangeFrom, toTimestamp: $midRangeTo) {
+      blockedInteractionsCount
+      violationsCount
+    }
+  }
+}

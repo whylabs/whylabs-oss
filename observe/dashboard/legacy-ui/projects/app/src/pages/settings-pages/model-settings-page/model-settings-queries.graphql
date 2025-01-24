@@ -1,0 +1,47 @@
+query getAllModelsForSettingsPage {
+  models {
+    name
+    id
+    type: modelType
+    timePeriod: batchFrequency
+  }
+}
+
+mutation createBulkSettingsPage(
+  $modelName: String!
+  $quantityNum: Int!
+  $modelType: ModelType!
+  $timePeriod: TimePeriod
+) {
+  models {
+    createBulk(name: $modelName, type: $modelType, quantity: $quantityNum, timePeriod: $timePeriod) {
+      id
+      name
+    }
+  }
+}
+
+mutation deleteModelForSettingsPage($id: String!) {
+  models {
+    delete(id: $id) {
+      id
+      name
+    }
+  }
+}
+
+mutation updateModel($model: ModelUpdateParams!) {
+  models {
+    update(model: $model) {
+      name
+    }
+  }
+}
+
+mutation bulkUpdateModels($models: [ModelUpdateParams!]!) {
+  models {
+    bulkUpdate(models: $models) {
+      name
+    }
+  }
+}

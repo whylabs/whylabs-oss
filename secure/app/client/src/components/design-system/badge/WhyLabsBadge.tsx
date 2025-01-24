@@ -1,0 +1,68 @@
+import { Badge, BadgeProps, createStyles } from '@mantine/core';
+import { useResizeObserver } from '@mantine/hooks';
+
+import WhyLabsTooltip from '../tooltip/WhyLabsTooltip';
+
+interface StylesProps {
+  maxWidth: number | undefined;
+  color: string | undefined;
+  backgroundColor: string | undefined;
+}
+
+const useStyles = createStyles((_, { maxWidth, color, backgroundColor }: StylesProps) => ({
+  leftSection: {
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    marginLeft: -6,
+  },
+  rightSection: {
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    marginRight: -6,
+  },
+  overflowDiv: { overflow: 'hidden', textOverflow: 'ellipsis' },
+  root: {
+    width: 'fit-content',
+    maxWidth,
+    color,
+    backgroundColor,
+    fontWeight: 500,
+  },
+  inner: {
+    textTransform: 'initial',
+  },
+}));
+
+const BADGE_OFFSET = 42; // value of default paddings, margins and the close button, i.e. everything else than the text.
+export type WhyLabsBadgeProps = Pick<
+  BadgeProps,
+  'children' | 'className' | 'fullWidth' | 'leftSection' | 'radius' | 'rightSection' | 'size' | 'variant'
+> & { maxWidth?: number; customColor?: string; customBackground?: string };
+
+const WhyLabsBadge = ({
+  children,
+  maxWidth,
+  customColor,
+  customBackground,
+  radius = 'sm',
+  variant = 'filled',
+  size = 'md',
+  ...rest
+}: WhyLabsBadgeProps): JSX.Element => {
+  const { classes } = useStyles({ maxWidth, color: customColor, backgroundColor: customBackground });
+  const [badgeRef, rect] = useResizeObserver();
+  const showTooltip = maxWidth && rect.width >= maxWidth - BADGE_OFFSET;
+  return (
+    <WhyLabsTooltip label={showTooltip ? children : ''}>
+      <Badge classNames={classes} data-testid="WhyLabsBadge" {...rest} radius={radius} size={size} variant={variant}>
+        <div ref={badgeRef}>
+          <div className={classes.overflowDiv}>{children}</div>
+        </div>
+      </Badge>
+    </WhyLabsTooltip>
+  );
+};
+
+export default WhyLabsBadge;

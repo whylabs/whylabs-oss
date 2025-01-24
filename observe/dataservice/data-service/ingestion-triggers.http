@@ -1,0 +1,133 @@
+## These are the prod grade ingestion triggers
+
+### Trigger Deltalake analyzer result Backfill
+PUT http://localhost:8090/bulk/analyzerResults/insert
+Content-Type: application/json
+
+{"targetTable":"ANALYZER_RESULTS","path":"s3://development-deltalake-20210520193724829400000001/druidSnapshot/events-v3/analyzer_results_pg_snapshot/ae991330-8b5b-4117-97f6-7730b540f550/","requestedTs":1702383796185,"runId":"dfd16eac-fdbd-42d2-8b3e-f922b40ea370","mode":"insert","async":false,"jobRunCurrentTime":1702382400000}
+
+### Analyzer Results [replace]
+PUT http://localhost:8090/bulk/analyzerResults/replace
+Content-Type: application/json
+
+{"targetTable":"ANALYZER_RESULTS","path":"s3://development-deltalake-20210520193724829400000001/drew/analyzer_results_full_0627/","requestedTs":168161343301,"runId":"991c7829-02c7-4e72-8892-9bf37df78585","mode":"replace","async":true,"jobRunCurrentTime":1686160762208}
+
+### Profiles
+PUT http://localhost:8090/bulk/profiles/insert
+Content-Type: application/json
+
+{
+  "path": "s3://development-deltalake-20210520193724829400000001/bulk_profile_snapshot120/",
+  "requestedTs": 0,
+  "runId": "abcde89",
+  "async": true,
+  "dedupeKey": "24eb35ec-e8a4-4daf-a040-f0c0a47c408a"
+}
+
+
+### Profile tiny sample
+PUT http://localhost:8090/bulk/profiles/insert
+Content-Type: application/json
+
+{
+  "path": "s3://development-deltalake-20210520193724829400000001/drew/v1_profiles_004_sample/",
+  "requestedTs": 0,
+  "runId": "ab89",
+  "async": true,
+  "dedupeKey": "7fb5b730-315a-4f2d-920c-b3a4f4fd1232"
+}
+
+### Profile tiny sample [Replace]
+PUT http://localhost:8090/bulk/profiles/replace
+Content-Type: application/json
+
+{"type":"PROFILES",
+  "path":"s3://development-deltalake-20210520193724829400000001/drew/v1_profiles_0133_sample/",
+  "requestedTs":16778552261567,
+  "runId":"dacee52b-451b-745a-ab11-a6583e37aa38",
+  "mode":"replace",
+  "async":true,
+  "jobRunCurrentTime":135223561357,
+  "cutoverTimestamp":1680017900000,
+  "columns":["org_id","dataset_id","column_name","metric_path","segment_text","tags","dataset_timestamp","variance_0","variance_1","variance_2","d_sum","d_min","d_max","unmergeable_d","n_sum","n_min","n_max","upload_audit","dataset_type","mergeable_segment","kll","hll","frequent_items","classification_profile","regression_profile", "last_upload_ts", "original_filename", "reference_profile_id", "ingestion_origin", "datalake_write_ts"]
+}
+
+### Profile tiny sample
+PUT http://localhost:8090/bulk/profiles/replace
+Content-Type: application/json
+
+{"type":"PROFILES",
+  "path":"s3://development-deltalake-20210520193724829400000001/drew/v1_profiles_0130/",
+  "requestedTs":16778552261567,
+  "runId":"dbcee64b-482a-324b-bb13-c4583e36ee38",
+  "mode":"replace",
+  "async":true,
+  "dryRun": false,
+  "initialLoad": true,
+  "jobRunCurrentTime":123415351156,
+  "cutoverTimestamp":1679329895000,
+  "columns":["org_id","dataset_id","column_name","metric_path","segment_text","tags","dataset_timestamp","variance_0","variance_1","variance_2","d_sum","d_min","d_max","unmergeable_d","n_sum","n_min","n_max","upload_audit","dataset_type","mergeable_segment","kll","hll","frequent_items","classification_profile","regression_profile", "last_upload_ts", "original_filename", "reference_profile_id", "ingestion_origin", "datalake_write_ts"]
+}
+
+
+### Profile GET Script S3 Fuse
+
+PUT http://localhost:8090/bulk/profiles/replace
+Content-Type: application/json
+
+{"type":"PROFILES",
+  "path":"s3://development-deltalake-20210520193724829400000001/drew/v1_profiles_0133/",
+  "requestedTs":16778552261567,
+  "runId":"dbcee63b-482a-323b-bb22-c2553e36ee38",
+  "mode":"replace",
+  "s3Fuse": true,
+  "async":true,
+  "dryRun": true,
+  "initialLoad": true,
+  "targetTable": "PROFILE_OVERALL",
+  "jobRunCurrentTime":123253651156,
+  "cutoverTimestamp":1680017900000,
+  "columns":["org_id","dataset_id","column_name","metric_path","segment_text","tags","dataset_timestamp","variance_0","variance_1","variance_2","d_sum","d_min","d_max","unmergeable_d","n_sum","n_min","n_max","upload_audit","dataset_type","mergeable_segment","kll","hll","frequent_items","classification_profile","regression_profile", "last_upload_ts", "original_filename", "reference_profile_id", "ingestion_origin", "datalake_write_ts"]
+}
+
+### Analyzer Runs
+PUT http://localhost:8090/bulk/analyzerRuns/insert
+Content-Type: application/json
+
+{"targetTable":"ANALYZER_RUNS","path":"s3://development-deltalake-20210520193724829400000001/druidSnapshot/events-v3/postgres_snapshot_monitor_runs/beb40856-dcf3-46d8-8738-0773e97544ad/","requestedTs":1697731618493,"runId":"5e888531-dcfd-4ce7-a82c-efb1d83741f2","mode":"insert","async":false,"jobRunCurrentTime":1697716800000}
+
+### Analyzer Runs [Replace]
+PUT http://localhost:8090/bulk/analyzerRuns/replace
+Content-Type: application/json
+
+{
+  "path": "s3://development-deltalake-20210520193724829400000001/drew/analyzer_runs_01/",
+  "requestedTs": 0,
+  "runId": "runs02",
+  "async": true,
+  "mode": "INSERT"
+}
+### Profile overall table
+PUT http://localhost:8090/bulk/profiles/replace
+Content-Type: application/json
+
+{"targetTable":"PROFILE_OVERALL","path":"s3://development-deltalake-20210520193724829400000001/drew/v1_profiles_0234/overall/","requestedTs":1683569502938,"runId":"d84dff23-998f-402e-9b7f-f35cdce38f40","mode":"replace","async":true,"jobRunCurrentTime":1683569457255,"cutoverTimestamp":1683494132000,"columns":["org_id","dataset_id","column_name","metric_path","segment_text","dataset_tags","dataset_timestamp","variance_0","variance_1","variance_2","d_sum","d_min","d_max","unmergeable_d","n_sum","n_min","n_max","upload_audit","dataset_type","mergeable_segment","kll","hll","frequent_items","classification_profile","regression_profile","last_upload_ts","original_filename","reference_profile_id","ingestion_origin","datalake_write_ts"]}
+
+
+### Profile Audit Table
+PUT http://localhost:8090/bulk/profiles/replace
+Content-Type: application/json
+
+{"targetTable":"PROFILE_AUDIT","path":"s3://development-deltalake-20210520193724829400000001/drew/v1_profiles_0234/audit_table/","requestedTs":1683569502938,"runId":"d84dff23-998f-402e-9b7f-f35cdce38f40","mode":"replace","async":true,"jobRunCurrentTime":1683569457255,"cutoverTimestamp":1683494132000,"columns":["org_id","dataset_id","column_name","metric_path","segment_text","dataset_tags","dataset_timestamp","variance_0","variance_1","variance_2","d_sum","d_min","d_max","unmergeable_d","n_sum","n_min","n_max","upload_audit","dataset_type","mergeable_segment","kll","hll","frequent_items","classification_profile","regression_profile","last_upload_ts","original_filename","reference_profile_id","ingestion_origin","datalake_write_ts"]}
+
+### Ref Profile table
+PUT http://localhost:8090/bulk/profiles/replace
+Content-Type: application/json
+
+{"targetTable":"PROFILE_REFERENCE_PROFILE","path":"s3://development-deltalake-20210520193724829400000001/drew/v1_profiles_0234/ref_profiles/","requestedTs":1683569502938,"runId":"d84dff23-998f-402e-9b7f-f35cdce38f40","mode":"replace","async":true,"jobRunCurrentTime":1683569457255,"cutoverTimestamp":1683494132000,"columns":["org_id","dataset_id","column_name","metric_path","segment_text","dataset_tags","dataset_timestamp","variance_0","variance_1","variance_2","d_sum","d_min","d_max","unmergeable_d","n_sum","n_min","n_max","upload_audit","dataset_type","mergeable_segment","kll","hll","frequent_items","classification_profile","regression_profile","last_upload_ts","original_filename","reference_profile_id","ingestion_origin","datalake_write_ts"]}
+### Segmented Hypertable
+PUT http://localhost:8090/bulk/profiles/replace
+Content-Type: application/json
+
+{"targetTable":"PROFILE_SEGMENTED","path":"s3://development-deltalake-20210520193724829400000001/drew/v1_profiles_0237/segmented/","requestedTs":1683662339290,"runId":"0ccdf40a-11aa-4d64-96c6-d19233b6f9bd","mode":"replace","async":true,"jobRunCurrentTime":1683662301364,"cutoverTimestamp":1683661201000,"columns":["org_id","dataset_id","column_name","metric_path","segment_text","dataset_tags","dataset_timestamp","variance_0","variance_1","variance_2","d_sum","d_min","d_max","unmergeable_d","n_sum","n_min","n_max","upload_audit","dataset_type","mergeable_segment","kll","hll","frequent_items","classification_profile","regression_profile","last_upload_ts","original_filename","reference_profile_id","ingestion_origin","datalake_write_ts"]}
+

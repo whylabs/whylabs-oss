@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.example
+testFramework: junit
+sourceLanguage: java
+buildTool: gradle_kotlin
+features: [annotation-api, app-name, data, data-jdbc, gradle, hamcrest, http-client, jackson-databind, java, java-application, jdbc-hikari, jib, junit, log4j2, lombok, management, micrometer, micrometer-annotation, micrometer-datadog, micrometer-jmx, micronaut-build, netty-server, openapi, postgres, readme, shade, swagger-ui, test-resources, tracing-opentelemetry-annotations, tracing-opentelemetry-exporter-zipkin, tracing-opentelemetry-http, tracing-opentelemetry-zipkin, yaml]

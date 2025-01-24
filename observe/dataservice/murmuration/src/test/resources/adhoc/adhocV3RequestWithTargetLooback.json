@@ -1,0 +1,90 @@
+{
+  "datasourceNamespace": "development-whylabs",
+  "start": "2021-03-01T00:00:00.000Z",
+  "end": "2022-05-14T00:00:00.000Z",
+  "inlineResults": true,
+  "ignoreBackfillGracePeriodLimit": false,
+  "segmentTags":[[{"key":"purpose", "value":"car"}, {"key":"verification_status", "value":"Not Verified"}]],
+  "columnNames": [
+    "addr_state", "applicartion_type", "loan_status", "verification_status_joint", "grade", "sub_grade"
+  ],
+  "monitorConfig": {
+    "orgId": "org-0",
+    "datasetId": "model-0",
+    "granularity": "daily",
+    "entitySchema": {
+      "columns": {}
+    },
+    "analyzers": [
+      {
+        "id": "pleasant-orangered-elk-4381-analyzer",
+        "targetSize": 8,
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "addr_state",
+            "grade",
+            "sub_grade",
+            "verification_status_joint"
+          ],
+          "exclude": [],
+          "segments": [
+            {
+              "tags": [
+                {
+                  "key": "purpose",
+                  "value": "car"
+                },
+                {
+                  "key": "verification_status",
+                  "value": "Not Verified"
+                }
+              ]
+            }
+          ]
+        },
+        "config": {
+          "metric": "frequent_items",
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          },
+          "type": "drift",
+          "algorithm": "hellinger",
+          "threshold": ".2"
+        }
+      },
+      {
+        "id": "non-segmented-analyzer",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "loan_status",
+            "applicartion_type",
+            "grade"
+          ],
+          "exclude": []
+        },
+        "config": {
+          "metric": "frequent_items",
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          },
+          "type": "drift",
+          "algorithm": "hellinger",
+          "threshold": ".003"
+        }
+      }
+    ]
+
+  }
+}

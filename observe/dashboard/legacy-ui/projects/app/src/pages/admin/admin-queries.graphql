@@ -1,0 +1,181 @@
+query ListAllOrgs($search: String) {
+  admin {
+    organizations(search: $search) {
+      id
+      name
+      emailDomains
+      subscriptionTier
+    }
+  }
+}
+
+query ListUsersForOrg($orgId: String!) {
+  admin {
+    organization(orgId: $orgId) {
+      id
+      members {
+        userId
+        orgId
+        email
+        role
+      }
+    }
+  }
+}
+
+query ListMembershipsForUser($email: String!) {
+  admin {
+    memberships(email: $email) {
+      userId
+      orgId
+      role
+      email
+    }
+  }
+}
+
+mutation RemoveAllMemberships($email: String!) {
+  admin {
+    memberships {
+      clear(email: $email)
+    }
+  }
+}
+
+query ListModelsForOrg($orgId: String!, $search: String) {
+  admin {
+    models(orgId: $orgId, search: $search) {
+      id
+      name
+      modelType
+    }
+  }
+}
+
+query CheckEmailVerified($email: String!) {
+  admin {
+    checkAuth0Verified(email: $email)
+  }
+}
+
+mutation ImpersonateUser($userId: String!, $durationMinutes: Int!) {
+  impersonation {
+    impersonate(userId: $userId, durationMinutes: $durationMinutes)
+  }
+}
+
+mutation ClearImpersonation {
+  clearImpersonation
+}
+
+mutation NewModel($orgId: String!, $name: String!, $modelType: ModelType!) {
+  admin {
+    models {
+      create(orgId: $orgId, name: $name, type: $modelType) {
+        id
+      }
+    }
+  }
+}
+
+mutation NewOrg($name: String!, $emailDomains: [String!]) {
+  admin {
+    organizations {
+      create(name: $name, emailDomains: $emailDomains) {
+        id
+        name
+      }
+    }
+  }
+}
+
+mutation AddMember($orgId: String!, $email: String!, $role: MembershipRole!) {
+  admin {
+    memberships {
+      add(email: $email, role: $role, orgId: $orgId) {
+        userId
+      }
+    }
+  }
+}
+
+mutation InternalUpdateMember($orgId: String!, $email: String!, $role: MembershipRole!) {
+  admin {
+    memberships {
+      update(email: $email, role: $role, orgId: $orgId) {
+        userId
+      }
+    }
+  }
+}
+
+mutation RemoveMember($orgId: String!, $email: String!) {
+  admin {
+    memberships {
+      remove(orgId: $orgId, email: $email) {
+        userId
+      }
+    }
+  }
+}
+
+mutation SetMemberDefaultOrg($orgId: String!, $email: String!) {
+  admin {
+    memberships {
+      setDefaultOrg(orgId: $orgId, email: $email)
+    }
+  }
+}
+
+query ListEmailDomainsForOrg($orgId: String!) {
+  admin {
+    organization(orgId: $orgId) {
+      id
+      emailDomains
+    }
+  }
+}
+
+mutation UpdateEmailDomains($orgId: String!, $emailDomains: [String!]!) {
+  admin {
+    organization(orgId: $orgId) {
+      updateEmailDomains(emailDomains: $emailDomains) {
+        emailDomains
+      }
+    }
+  }
+}
+
+mutation UpdateSubscriptionTier($orgId: String!, $subscriptionTier: SubscriptionTier!) {
+  admin {
+    organization(orgId: $orgId) {
+      updateSubscriptionTier(subscriptionTier: $subscriptionTier) {
+        subscriptionTier
+      }
+    }
+  }
+}
+
+query GetMaintenanceBannerForAdmin {
+  maintenanceBanner {
+    message
+    updatedAt
+    updatedBy
+  }
+}
+
+mutation UpdateMaintenanceBar($message: String!) {
+  admin {
+    global {
+      updateMaintenanceBanner(message: $message)
+    }
+  }
+}
+
+mutation ClearMaintenanceBar {
+  admin {
+    global {
+      clearMaintenanceBanner
+    }
+  }
+}

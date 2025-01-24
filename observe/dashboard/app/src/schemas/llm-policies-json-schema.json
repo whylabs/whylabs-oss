@@ -1,0 +1,428 @@
+{
+  "title": "LLM Policies schema",
+  "description": "The main document that dictates the UI for LLM policies, including the cards, content and configurations. This document is managed by WhyLabs internally.",
+  "allOf": [
+    {
+      "$ref": "#/definitions/PoliciesJsonSchema"
+    }
+  ],
+  "definitions": {
+    "PoliciesJsonSchema": {
+      "type": "object",
+      "properties": {
+        "policies": {
+          "title": "Policies",
+          "description": "List of policy cards displayed on UI",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PolicyRuleSet"
+          }
+        },
+        "configSelections": {
+          "title": "Configselections",
+          "description": "Object with the default PolicyRuleSet card configurations",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigSelections"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "configSelections",
+        "policies"
+      ]
+    },
+    "PolicyRuleSet": {
+      "title": "Policyruleset",
+      "description": "Policy rule set card displayed on UI, with content and controls for LLM policy configurations management.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "description": "The ID of the policy rule, used to get the actual configuration for the resource",
+          "allOf": [
+            {
+              "$ref": "#/definitions/PolicyRuleID"
+            }
+          ]
+        },
+        "title": {
+          "title": "Title",
+          "description": "The title of policy rule set card displayed on UI",
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "description": "The rule set type, can be prompt, response or both.",
+          "enum": [
+            "prompt",
+            "response",
+            "prompt-and-response"
+          ],
+          "type": "string"
+        },
+        "icon": {
+          "title": "icon",
+          "description": "The rule set icon, the string should be mapped in dashbird-ui to get the tabler icon component. e.g. 'alien'",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "description": "The policy rule's card description displayed on UI",
+          "type": "string"
+        },
+        "latencyMilliseconds": {
+          "title": "Latencymilliseconds",
+          "description": "The average of latency in milliseconds displayed on UI",
+          "type": "number"
+        },
+        "config": {
+          "title": "config",
+          "description": "The policy rule's card UI controls",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/SegmentedControl"
+              },
+              {
+                "$ref": "#/definitions/CheckboxGroup"
+              }
+            ]
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "type",
+        "icon",
+        "description",
+        "config"
+      ]
+    },
+    "SegmentedControl": {
+      "title": "Segmentedcontrol",
+      "description": "Segmented control UI component definition",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "description": "Configuration ID used to get resource's actual config value",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "description": "The control title displayed on UI",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "description": "The control description displayed on UI. Might contain string parameters '{s}' to be replaced by UI",
+          "type": "string"
+        },
+        "tooltip": {
+          "title": "Tooltip",
+          "description": "The control tooltip (optional) displayed after the title on UI",
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "enum": [
+            "segmented-control"
+          ],
+          "type": "string"
+        },
+        "options": {
+          "title": "Options",
+          "description": "Segmented control options",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SegmentedControlItem"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "description",
+        "type",
+        "options"
+      ]
+    },
+    "CheckboxGroup": {
+      "title": "Checkboxgroup",
+      "description": "Checkbox group UI component definition",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "description": "Configuration ID used to get resource's actual config value",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "description": "The control title displayed on UI",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "description": "The control description displayed on UI. Might contain string parameters '{s}' to be replaced by UI",
+          "type": "string"
+        },
+        "tooltip": {
+          "title": "Tooltip",
+          "description": "The control tooltip (optional) displayed after the title on UI",
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "enum": [
+            "checkbox-group"
+          ],
+          "type": "string"
+        },
+        "options": {
+          "title": "Options",
+          "description": "Checkbox group options",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CheckboxGroupItem"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "description",
+        "type",
+        "options"
+      ]
+    },
+    "PolicyRuleID": {
+      "title": "Policyruleid",
+      "description": "Enum of available policy rules",
+      "enum": [
+        "bad-actors",
+        "misuse",
+        "cost",
+        "customer-experience",
+        "truthfulness"
+      ],
+      "type": "string"
+    },
+    "SegmentedControlItem": {
+      "title": "Segmentedcontrolitem",
+      "description": "Segmented control item definition",
+      "type": "object",
+      "properties": {
+        "label": {
+          "title": "Label",
+          "description": "The text displayed on the item",
+          "type": "string"
+        },
+        "value": {
+          "title": "value",
+          "description": "The item value, used to save the resource configurations",
+          "type": "string"
+        },
+        "icon": {
+          "title": "icon",
+          "description": "The item (optional) icon, the string should be mapped in dashbird-ui to get the tabler icon component. e.g. 'alien'",
+          "type": "string"
+        },
+        "color": {
+          "title": "color",
+          "description": "The item color, currently need to be a valid Mantine's color",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "label",
+        "value"
+      ]
+    },
+    "CheckboxGroupItem": {
+      "title": "Checkboxgroupitem",
+      "description": "Checkbox item definition",
+      "type": "object",
+      "properties": {
+        "label": {
+          "title": "Label",
+          "description": "The text displayed on the item",
+          "type": "string"
+        },
+        "value": {
+          "title": "value",
+          "description": "The item value, used to save the resource configurations",
+          "type": "string"
+        },
+        "tooltip": {
+          "title": "Tooltip",
+          "description": "The control tooltip (optional) displayed after the title on UI",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "label",
+        "value"
+      ]
+    },
+    "ConfigSelections": {
+      "title": "Configselections",
+      "description": "The list of policy rule set configurations for the UI card controls",
+      "type": "object",
+      "properties": {
+        "lastUpdatedTimestamp": {
+          "title": "LastUpdatedTimestamp",
+          "description": "The timestamp of last update",
+          "type": "integer"
+        },
+        "policyVersion": {
+          "title": "PolicyVersion",
+          "description": "The current policy config version",
+          "type": "integer"
+        },
+        "lastUpdatedAuthor": {
+          "title": "LastUpdatedAuthor",
+          "description": "The author of last update",
+          "type": "string"
+        },
+        "policies": {
+          "title": "Policies",
+          "description": "List of policy rule sets with selected configurations",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PolicyConfigSelection"
+          }
+        },
+        "callbackSettings": {
+          "title": "Callbacksettings",
+          "description": "YAML with callback settings",
+          "type": "string"
+        },
+        "advancedSettings": {
+          "title": "Advancedsettings",
+          "description": "YAML with advanced settings",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "policies"
+      ]
+    },
+    "SegmentedControlSelectionValue": {
+      "title": "Segmentedcontrolselectionvalue",
+      "description": "Define the object expected to persist the policy rule set control's configuration",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "description": "The policy rule set control's ID",
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "enum": [
+            "segmented-control"
+          ],
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "description": "The policy rule set control's value",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type",
+        "value"
+      ]
+    },
+    "CheckboxGroupSelectionValue": {
+      "title": "Checkboxgroupselectionvalue",
+      "description": "Define the object expected to persist the policy rule set control's configuration",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "description": "The policy rule set control's ID",
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "enum": [
+            "checkbox-group"
+          ],
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "description": "The policy rule set control's value",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type",
+        "value"
+      ]
+    },
+    "PolicyConfigSelection": {
+      "title": "Policyconfigselection",
+      "description": "Configuration for the policy rule set card",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "description": "The ID of the policy rule",
+          "allOf": [
+            {
+              "$ref": "#/definitions/PolicyRuleID"
+            }
+          ]
+        },
+        "enabled": {
+          "title": "enabled",
+          "description": "Define if the policy rule set is enabled",
+          "type": "boolean"
+        },
+        "params": {
+          "title": "params",
+          "description": "Set of values persisted for the policy card configuration controls",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/SegmentedControlSelectionValue"
+              },
+              {
+                "$ref": "#/definitions/CheckboxGroupSelectionValue"
+              }
+            ]
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "enabled",
+        "params"
+      ]
+    }
+  }
+}

@@ -1,0 +1,70 @@
+### ingest a single profile
+DELETE http://localhost:8090/profiles/audit
+Content-Type: application/json
+
+{
+  "file": "s3://development-songbird-20201028054020481800000001/daily-log-untrusted/2022-12-09/org-5Hsdjx-model-60-2022-12-08T191706.306-hIEsA4Jk0OOAKyjh2ISBGvhhsjGIyM8b.bin"
+
+}
+
+### ingest a single profile
+POST http://localhost:8090/profiles/index
+Content-Type: application/json
+
+{
+  "file": "s3://development-songbird-20201028054020481800000001/daily-log-untrusted/2022-12-09/org-5Hsdjx-model-60-2022-12-08T191706.306-hIEsA4Jk0OOAKyjh2ISBGvhhsjGIyM8b.bin"
+
+}
+
+### Promote recent data to historical hypertable
+POST http://localhost:8090/profiles/forcePromote/false
+Content-Type: application/json
+
+######## SEGMENTED #############
+
+### ingest a single profile
+DELETE http://localhost:8090/profiles/audit
+Content-Type: application/json
+
+{
+  "file": "s3://development-songbird-20201028054020481800000001/daily-log-untrusted/2022-12-09/org-0-model-0-2022-12-09T220402.553-3ki1JWS68u4TOeT3Ebj8y35Eor0ZuX4r.bin"
+
+}
+
+### ingest a single profile
+POST http://localhost:8090/profiles/index
+Content-Type: application/json
+
+{
+  "file": "s3://development-songbird-20201028054020481800000001/daily-log-untrusted/2022-12-09/org-0-model-0-2022-12-09T220402.553-3ki1JWS68u4TOeT3Ebj8y35Eor0ZuX4r.bin"
+
+}
+
+### Promote recent data to historical hypertable
+POST http://localhost:8090/profiles/forcePromote/true
+Content-Type: application/json
+
+{}
+
+#### Second segment
+
+
+### ingest a single profile
+DELETE http://localhost:8090/profiles/audit
+Content-Type: application/json
+
+{
+  "file": "s3://development-songbird-20201028054020481800000001/daily-log-untrusted/2022-12-09/org-0-model-0-2022-12-09T220402.553-JywQmLKgmkBUPMXyufV41kB76x6fD1Tp.bin"
+
+}
+
+### ingest a single profile
+POST http://localhost:8090/profiles/index
+Content-Type: application/json
+
+{
+  "file": "s3://development-songbird-20201028054020481800000001/daily-log-untrusted/2022-12-09/org-0-model-0-2022-12-09T220402.553-JywQmLKgmkBUPMXyufV41kB76x6fD1Tp.bin"
+
+}
+
+

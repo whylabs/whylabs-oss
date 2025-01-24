@@ -1,0 +1,37 @@
+input ModelUpdateParams {
+  id: String!
+  name: String!
+  type: ModelType
+  timePeriod: TimePeriod
+}
+
+type ModelManagement {
+  """
+  Creates a new Model, under the user's organization
+  """
+  create(name: String!, type: ModelType!, timePeriod: TimePeriod): Model!
+
+  """
+  Creates n amount of models
+  """
+  createBulk(name: String!, type: ModelType!, quantity: Int!, timePeriod: TimePeriod): [Model!]!
+
+  """
+  Updates an existing Model
+  """
+  update(model: ModelUpdateParams!): Model!
+
+  """
+  Updates a list of models
+  """
+  bulkUpdate(models: [ModelUpdateParams!]!): [Model!]!
+
+  """
+  Soft-deletes an existing Model, making it unreachable (can't list or get), but preserving its metadata
+  """
+  delete(id: String!): Model!
+}
+
+extend type Mutation {
+  models: ModelManagement @auth(permissions: [MANAGE_DATASETS])
+}

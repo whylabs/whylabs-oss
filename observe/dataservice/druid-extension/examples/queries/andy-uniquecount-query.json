@@ -1,0 +1,19 @@
+{
+  "queryType": "timeseries",
+  "dataSource": "whylogs",
+  "intervals": [ "2021-03-01T00:00:00.000/2021-04-03T00:00:00.000" ],
+  "granularity": "day",
+  "filter" : {
+    "type" : "selector",
+    "dimension" : "columnName",
+    "value" : "acc_now_delinq"
+  },
+  "aggregations": [
+    { "type": "HLLSketchMerge", "name": "uniqueCount", "fieldName": "uniqueCount" }
+  ],
+  "postAggregations" : [{
+    "type"   : "HLLSketchEstimateWithBounds",
+    "name"   : "estimate",
+    "field" : { "type" : "fieldAccess", "name" : "uniqueCount", "fieldName" : "uniqueCount" }
+  }]
+}

@@ -1,0 +1,1 @@
+alter table whylabs.monitor_config_latest add column if not exists updated_ts timestamptz;

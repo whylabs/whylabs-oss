@@ -1,0 +1,15 @@
+{
+  "queries": [
+    {
+      "queryId": "1",
+      "resourceId": "model-2120",
+      "metric": "classification_fpr"
+    },
+    {
+      "queryId": "2",
+      "resourceId": "model-2120",
+      "metric": "classification_accuracy"
+    }
+  ],
+  "interval": "2024-11-02/2024-11-04"
+}

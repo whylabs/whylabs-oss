@@ -1,0 +1,63 @@
+{
+  "data": {
+    "model": {
+      "id": "model-4",
+      "name": "Segmented dataset",
+      "batchFrequency": "P1D",
+      "totalFeatures": 4,
+      "filteredFeatures": {
+        "totalCount": 4,
+        "results": [
+          {
+            "id": "97da3fbc-35b3-4e71-a472-59a530fa5cb9",
+            "name": "float",
+            "baselineSketch": {
+              "id": "cf38ceb3-8d0b-4b8d-850c-3272ece064aa",
+              "showAsDiscrete": false
+            },
+            "alerts": [],
+            "anomalyCounts": {
+              "totals": []
+            }
+          },
+          {
+            "id": "fc5a4cbb-a341-475f-8e87-bad138703b2f",
+            "name": "key1",
+            "baselineSketch": {
+              "id": "9984b1d6-476f-46d4-b74b-1f977d4f98dc",
+              "showAsDiscrete": true
+            },
+            "alerts": [],
+            "anomalyCounts": {
+              "totals": []
+            }
+          },
+          {
+            "id": "925e9040-aa1f-4970-9a6d-a1f0f3b9e292",
+            "name": "key2",
+            "baselineSketch": {
+              "id": "02434542-c95f-40c8-8707-d2632fdd2e32",
+              "showAsDiscrete": true
+            },
+            "alerts": [],
+            "anomalyCounts": {
+              "totals": []
+            }
+          },
+          {
+            "id": "d9cb5a26-2853-4941-a2c4-00c76e3538a7",
+            "name": "str",
+            "baselineSketch": {
+              "id": "f2b8aca7-ab94-40e1-b3fe-a004aaecba2e",
+              "showAsDiscrete": true
+            },
+            "alerts": [],
+            "anomalyCounts": {
+              "totals": []
+            }
+          }
+        ]
+      }
+    }
+  }
+}

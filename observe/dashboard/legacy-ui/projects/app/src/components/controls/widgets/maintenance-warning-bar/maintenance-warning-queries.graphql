@@ -1,0 +1,6 @@
+query getMaintenanceBanner {
+  maintenanceBanner {
+    message
+    updatedAt
+  }
+}

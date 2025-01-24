@@ -1,0 +1,13 @@
+{
+    "Servers": {
+        "1": {
+            "Name": "WhyLabs",
+            "Group": "WhyLabs",
+            "Port": 5432,
+            "Username": "root",
+            "Host": "postgres",
+            "SSLMode": "prefer",
+            "MaintenanceDB": "postgres"
+        }
+    }
+}

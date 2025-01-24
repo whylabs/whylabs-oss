@@ -1,0 +1,5 @@
+ai.whylabs.druid.whylogs.WhylogsExtensionsModule
+ai.whylabs.druid.whylogs.kll.KllDoublesSketchModule
+ai.whylabs.druid.whylogs.modelmetrics.ModelMetricModule
+ai.whylabs.druid.whylogs.variance.VarianceModule
+

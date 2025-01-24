@@ -1,0 +1,10 @@
+--- old.json	2023-06-06 10:20:37
++++ /Volumes/Workspace/dashboard-service/node_modules/concurrently/package.json	2023-06-06 10:20:39
+@@ -19,6 +19,7 @@
+       "require": "./index.js",
+       "default": "./index.js"
+     },
++    "./dist/src/defaults": "./dist/src/defaults.js",
+     "./package.json": "./package.json"
+   },
+   "repository": {

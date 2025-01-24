@@ -1,0 +1,36 @@
+{
+  "data": {
+    "model": {
+      "batchFrequency": "P1D",
+      "feature": {
+        "name": "str",
+        "sketches": [
+          {
+            "createdAt": 1728950400000,
+            "totalCount": 4000
+          },
+          {
+            "createdAt": 1729036800000,
+            "totalCount": 4000
+          },
+          {
+            "createdAt": 1729123200000,
+            "totalCount": 4000
+          },
+          {
+            "createdAt": 1729209600000,
+            "totalCount": 4000
+          },
+          {
+            "createdAt": 1729296000000,
+            "totalCount": 4000
+          },
+          {
+            "createdAt": 1729382400000,
+            "totalCount": 4000
+          }
+        ]
+      }
+    }
+  }
+}

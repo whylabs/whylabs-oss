@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.example
+testFramework: junit
+sourceLanguage: kotlin
+buildTool: gradle
+features: [annotation-api, app-name, gradle, http-client, junit, kotlin, kotlin-application, logback, management, micrometer, micrometer-cloudwatch, netty-server, openapi, readme, shade, yaml]

@@ -1,0 +1,7 @@
+name: whylabs-processing-core
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.9.7
+  - pip=21.3.1

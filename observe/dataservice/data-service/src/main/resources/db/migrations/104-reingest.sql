@@ -1,0 +1,1 @@
+alter table whylabs.profile_deletions add column reingest_after_deletion bool default false;

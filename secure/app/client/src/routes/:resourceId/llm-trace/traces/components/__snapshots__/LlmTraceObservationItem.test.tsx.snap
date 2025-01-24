@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LlmTraceObservationItem /> should match the snapshot 1`] = `
+<div>
+  <div
+    class="mantine-fmz4u2"
+  >
+    <div
+      class="mantine-1on54vc"
+    >
+      <div
+        class="mantine-18ga9fd"
+      >
+        <div
+          class="mantine-Badge-root mantine-1fp7ovo"
+          data-testid="WhyLabsBadge"
+        >
+          <span
+            class="mantine-Badge-inner mantine-1lac88t"
+          >
+            <div>
+              <div
+                class="mantine-67qo6t"
+              >
+                SPAN
+              </div>
+            </div>
+          </span>
+        </div>
+      </div>
+      <p
+        class="mantine-b0q0kq"
+      >
+        The name
+      </p>
+    </div>
+    <p
+      class="mantine-e794qc"
+    >
+      A description
+    </p>
+  </div>
+</div>
+`;

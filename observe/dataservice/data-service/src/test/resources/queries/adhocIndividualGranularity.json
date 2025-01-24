@@ -1,0 +1,127 @@
+{
+  "inlineResults": true,
+  "segmentTags": [],
+  "columnNames": [
+    "image.Saturation.stddev"
+  ],
+  "start": "2023-09-01T00:00:00.000Z",
+  "end": "2023-09-20T23:59:59.999Z",
+  "monitorConfig": {
+    "orgId": "org-0",
+    "datasetId": "model-2240",
+    "granularity": "hourly",
+    "metadata": {
+      "schemaVersion": 1,
+      "author": "system",
+      "updatedTimestamp": 1681770522008,
+      "version": 41
+    },
+    "analyzers": [
+      {
+        "config": {
+          "metric": "count_fractional",
+          "type": "fixed",
+          "lower": 3,
+          "upper": 3
+        },
+        "id": "fixed_threshold_analyzer",
+        "disableTargetRollup": true,
+        "schedule": {
+          "type": "fixed",
+          "cadence": "hourly"
+        },
+        "targetMatrix": {
+          "include": [
+            "*"
+          ],
+          "segments": [],
+          "type": "column"
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1671468653697,
+          "version": 1
+        }
+      }
+    ],
+    "entitySchema": {
+      "metadata": {
+        "author": "system",
+        "version": 1,
+        "updatedTimestamp": 1671466888503
+      },
+      "columns": {
+        "alldiffstr": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "date": {
+          "discreteness": "discrete",
+          "dataType": "unknown",
+          "classifier": "input"
+        },
+        "alldifffloat": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "strthenint": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "alldiffint": {
+          "discreteness": "continuous",
+          "dataType": "integral",
+          "classifier": "input"
+        },
+        "string": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "alldiffdate": {
+          "discreteness": "discrete",
+          "dataType": "unknown",
+          "classifier": "input"
+        },
+        "int-doublingnull": {
+          "discreteness": "discrete",
+          "dataType": "integral",
+          "classifier": "input"
+        },
+        "nan": {
+          "discreteness": "discrete",
+          "dataType": "null",
+          "classifier": "input"
+        },
+        "float": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "int-doublingunique": {
+          "discreteness": "discrete",
+          "dataType": "integral",
+          "classifier": "input"
+        },
+        "int": {
+          "discreteness": "discrete",
+          "dataType": "integral",
+          "classifier": "input"
+        }
+      },
+      "metrics": null
+    },
+    "weightConfig": {
+      "metadata": {
+        "author": "system",
+        "version": 0,
+        "updatedTimestamp": 1683839163843
+      },
+      "segmentWeights": []
+    }
+  }
+}

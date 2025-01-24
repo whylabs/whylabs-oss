@@ -1,0 +1,200 @@
+{
+  "data": {
+    "model": {
+      "segments": [
+        {
+          "tags": [
+            {
+              "key": "age",
+              "value": "old"
+            },
+            {
+              "key": "gender",
+              "value": "female"
+            },
+            {
+              "key": "loc",
+              "value": "east"
+            }
+          ]
+        },
+        {
+          "tags": [
+            {
+              "key": "age",
+              "value": "old"
+            },
+            {
+              "key": "gender",
+              "value": "female"
+            },
+            {
+              "key": "loc",
+              "value": "north"
+            }
+          ]
+        },
+        {
+          "tags": [
+            {
+              "key": "age",
+              "value": "old"
+            },
+            {
+              "key": "gender",
+              "value": "female"
+            },
+            {
+              "key": "loc",
+              "value": "south"
+            }
+          ]
+        },
+        {
+          "tags": [
+            {
+              "key": "age",
+              "value": "old"
+            },
+            {
+              "key": "gender",
+              "value": "female"
+            },
+            {
+              "key": "loc",
+              "value": "west"
+            }
+          ]
+        },
+        {
+          "tags": [
+            {
+              "key": "age",
+              "value": "old"
+            },
+            {
+              "key": "gender",
+              "value": "male"
+            },
+            {
+              "key": "loc",
+              "value": "east"
+            }
+          ]
+        },
+        {
+          "tags": [
+            {
+              "key": "age",
+              "value": "old"
+            },
+            {
+              "key": "gender",
+              "value": "male"
+            },
+            {
+              "key": "loc",
+              "value": "north"
+            }
+          ]
+        },
+        {
+          "tags": [
+            {
+              "key": "age",
+              "value": "old"
+            },
+            {
+              "key": "gender",
+              "value": "male"
+            },
+            {
+              "key": "loc",
+              "value": "south"
+            }
+          ]
+        },
+        {
+          "tags": [
+            {
+              "key": "age",
+              "value": "old"
+            },
+            {
+              "key": "gender",
+              "value": "male"
+            },
+            {
+              "key": "loc",
+              "value": "west"
+            }
+          ]
+        },
+        {
+          "tags": [
+            {
+              "key": "age",
+              "value": "young"
+            },
+            {
+              "key": "gender",
+              "value": "female"
+            },
+            {
+              "key": "loc",
+              "value": "east"
+            }
+          ]
+        },
+        {
+          "tags": [
+            {
+              "key": "age",
+              "value": "young"
+            },
+            {
+              "key": "gender",
+              "value": "female"
+            },
+            {
+              "key": "loc",
+              "value": "north"
+            }
+          ]
+        },
+        {
+          "tags": [
+            {
+              "key": "age",
+              "value": "young"
+            },
+            {
+              "key": "gender",
+              "value": "female"
+            },
+            {
+              "key": "loc",
+              "value": "south"
+            }
+          ]
+        },
+        {
+          "tags": [
+            {
+              "key": "age",
+              "value": "young"
+            },
+            {
+              "key": "gender",
+              "value": "female"
+            },
+            {
+              "key": "loc",
+              "value": "west"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

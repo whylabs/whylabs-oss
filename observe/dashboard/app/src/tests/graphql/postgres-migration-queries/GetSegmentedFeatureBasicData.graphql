@@ -1,0 +1,39 @@
+query getSegmentedFeatureBasicData($model: String!, $feature: String!, $tags: [SegmentTagFilter!]!, $from: Float!, $to: Float) {
+  model(id: $model) {
+    ...ModelCommonData
+    segment(tags: $tags) {
+      id
+      feature(name: $feature) {
+        id
+        ...BaselineFields
+        sketches(from: $from, to: $to) {
+          ...SketchCountFields
+        }
+      }
+    }
+  }
+}
+
+fragment ModelCommonData on Model {
+  id
+  name
+  batchFrequency
+}
+
+fragment BaselineFields on Feature {
+  name
+  baselineSketch {
+    id
+    schemaSummary {
+      inference {
+        type
+      }
+    }
+    showAsDiscrete
+  }
+}
+
+fragment SketchCountFields on FeatureSketch {
+  id
+  createdAt
+}

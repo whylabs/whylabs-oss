@@ -1,0 +1,16 @@
+# THIS FILE COMES FROM whylabs-processing-core/data-service PACKAGE
+# DO NOT UPDATE THIS FILE IN data-service-node-client
+# AS IT WILL BE OVERWRITTEN DURING THE PUBLISHING PAGE
+image: "node:10-alpine"
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  script:
+    - echo '@whylabs:registry=https://gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/'>.npmrc
+    - echo '//gitlab.com/api/v4/packages/npm/:_authToken=${CI_JOB_TOKEN}'>>.npmrc
+    - echo '//gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}'>>.npmrc
+    - yarn install
+    - yarn build
+    - npm publish

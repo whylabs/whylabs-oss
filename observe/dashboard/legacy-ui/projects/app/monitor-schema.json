@@ -1,0 +1,2561 @@
+{
+  "title": "Document",
+  "description": "The main document that dictates how the monitor should be run. This document is managed by WhyLabs internally.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "title": "Id",
+      "description": "A unique ID for the document",
+      "type": "string",
+      "format": "uuid"
+    },
+    "schemaVersion": {
+      "title": "SchemaVersion",
+      "description": "The schema version of the document",
+      "default": 1,
+      "enum": [
+        1
+      ],
+      "type": "integer"
+    },
+    "metadata": {
+      "title": "Metadata",
+      "description": "WhyLabs-managed metadata. This is to track various metadata for auditing.",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Metadata"
+        }
+      ]
+    },
+    "orgId": {
+      "title": "OrgId",
+      "description": "Organization ID for the document",
+      "maxLength": 100,
+      "type": "string"
+    },
+    "datasetId": {
+      "title": "DatasetId",
+      "description": "The unique ID of an dataset. This is specific to WhyLabs. If the dataset ID does not exist, user will get a validation exception when saving the config with WhyLabs API",
+      "maxLength": 100,
+      "pattern": "[a-zA-Z0-9\\-_\\.]+",
+      "type": "string"
+    },
+    "granularity": {
+      "description": "Granularity of the entity",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Granularity"
+        }
+      ]
+    },
+    "allowPartialTargetBatches": {
+      "title": "AllowPartialTargetBatches",
+      "description": "The standard\n        flow waits for a target batch as defined by the dataset granularity\n        setting to conclude before running analysis. For example, on monthly datasets datapoints in the\n        current month would be analyzed at midnight on the last day of the month anticipating additional\n        data may be profiled. With allowPartialTargetBatches enabled a target batch may be analyzed as\n        soon as the data is present and dataReadinessDuration/batchCooldownPeriod (if configured)\n        conditions have been met. This can be ideal for data pipelines that upload a single profile per\n        dataset granularity to reduce the waiting time for analysis.",
+      "type": "boolean"
+    },
+    "entitySchema": {
+      "title": "Entityschema",
+      "description": "Schema configuration for the entity",
+      "allOf": [
+        {
+          "$ref": "#/definitions/EntitySchema"
+        }
+      ]
+    },
+    "weightConfig": {
+      "title": "Weightconfig",
+      "description": "Weight configuration for the entity",
+      "allOf": [
+        {
+          "$ref": "#/definitions/EntityWeights"
+        }
+      ]
+    },
+    "analyzers": {
+      "title": "Analyzers",
+      "description": "List of analyzers",
+      "maxItems": 1000,
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Analyzer"
+      }
+    },
+    "monitors": {
+      "title": "Monitors",
+      "description": "List of monitors",
+      "maxItems": 1000,
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Monitor"
+      }
+    }
+  },
+  "required": [
+    "orgId",
+    "datasetId",
+    "granularity",
+    "analyzers",
+    "monitors"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "Metadata": {
+      "title": "Metadata",
+      "description": "Metadata for a top-level objects such as monitors, analyzers, and schema.\n\nThis object is managed by WhyLabs. Any user-provided values will be ignored on WhyLabs side.",
+      "type": "object",
+      "properties": {
+        "version": {
+          "title": "Version",
+          "description": "A monotonically increasing numer that indicates the version of the object.",
+          "type": "integer"
+        },
+        "schemaVersion": {
+          "title": "Schemaversion",
+          "description": "The version of the schema. Currently the accepted value is 1.",
+          "minimum": 1,
+          "maximum": 1,
+          "type": "integer"
+        },
+        "updatedTimestamp": {
+          "title": "Updatedtimestamp",
+          "description": "Last updated timestamp",
+          "exclusiveMinimum": 0,
+          "type": "integer"
+        },
+        "author": {
+          "title": "Author",
+          "description": "The author of the change. It can be an API Key ID, a user ID, or a WhyLabs system ID.",
+          "maxLength": 100,
+          "pattern": "[0-9a-zA-Z-_.+]+",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "description": "A description of the object",
+          "maxLength": 1000,
+          "type": "string"
+        }
+      },
+      "required": [
+        "version",
+        "updatedTimestamp",
+        "author"
+      ],
+      "additionalProperties": false
+    },
+    "Granularity": {
+      "title": "Granularity",
+      "description": "Supported granularity.",
+      "enum": [
+        "hourly",
+        "daily",
+        "weekly",
+        "monthly"
+      ],
+      "type": "string"
+    },
+    "ColumnDiscreteness": {
+      "title": "ColumnDiscreteness",
+      "description": "Classifying the type.",
+      "enum": [
+        "discrete",
+        "continuous"
+      ],
+      "type": "string"
+    },
+    "ColumnDataType": {
+      "title": "ColumnDataType",
+      "description": "Options for configuring data type for a column.",
+      "enum": [
+        "integral",
+        "fractional",
+        "bool",
+        "string",
+        "unknown",
+        "null"
+      ],
+      "type": "string"
+    },
+    "ColumnSchema": {
+      "title": "ColumnSchema",
+      "description": "Schema configuration for a column.\n\nShould be generated by WhyLabs originally but can be overridden by users.",
+      "type": "object",
+      "properties": {
+        "discreteness": {
+          "description": "Whether a column should be discrete or continuous. WhyLabs will detect this by default butusers can override this value. Changing this columns will change the default grouping (discrete columns vs. continuous columns.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ColumnDiscreteness"
+            }
+          ]
+        },
+        "dataType": {
+          "description": "The data type of the columns. Setting this field affects the default grouping (i.e integral columns) and the frontend behavior (what default metrics to offer. It does NOT affect what is collected in whylogs (an integral field can still have a frequentItems sketch if it opts in)",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ColumnDataType"
+            }
+          ]
+        },
+        "classifier": {
+          "title": "Classifier",
+          "description": "We can classify these columns into various grouping. Currently we only support 'input' and 'output'",
+          "default": "input",
+          "maxLength": 20,
+          "type": "string"
+        }
+      },
+      "required": [
+        "discreteness",
+        "dataType"
+      ],
+      "additionalProperties": false
+    },
+    "EntitySchema": {
+      "title": "EntitySchema",
+      "description": "Schema definition of an entity.",
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "title": "Metadata",
+          "description": "WhyLabs-managed metadata. This is to track various metadata for auditing.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/Metadata"
+            }
+          ]
+        },
+        "columns": {
+          "title": "Columns",
+          "description": "Schema configuration for the entity",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/ColumnSchema"
+          }
+        }
+      },
+      "required": [
+        "columns"
+      ],
+      "additionalProperties": false
+    },
+    "WeightConfig": {
+      "title": "WeightConfig",
+      "description": "Object that specifies column weights.\n\n- By default, the weight of a column is None (unspecified)\n- If the weight is unspecified, the column is EXCLUDED when you perform a filter/sort by weight\n- For sorting, unweighted column take the LEAST PRECEDENCE, meaning that weight column have higher priorities\n- They are not hierarchical: if a segment weight config is specified and a column does not have a weight in that\nconfig, we will not use any hierarchy to resolve the value. It will be None\n- Order of unweighted column is undefined.",
+      "type": "object",
+      "properties": {
+        "weights": {
+          "title": "Weights",
+          "description": "Weights of the features",
+          "type": "object",
+          "additionalProperties": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "weights"
+      ],
+      "additionalProperties": false
+    },
+    "SegmentTag": {
+      "title": "SegmentTag",
+      "description": "A single tag key value pair for a segment.",
+      "type": "object",
+      "properties": {
+        "key": {
+          "title": "Key",
+          "maxLength": 1000,
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "maxLength": 1000,
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "Segment": {
+      "title": "Segment",
+      "description": "A segment is a list of tags.\n\nWe normalize these in the backend.",
+      "type": "object",
+      "properties": {
+        "tags": {
+          "title": "Tags",
+          "description": "List of tags that define the specific segment",
+          "maxItems": 10,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SegmentTag"
+          }
+        }
+      },
+      "required": [
+        "tags"
+      ],
+      "additionalProperties": false
+    },
+    "SegmentWeightConfig": {
+      "title": "SegmentWeightConfig",
+      "description": "Object that specifies column weights for a segment.",
+      "type": "object",
+      "properties": {
+        "weights": {
+          "title": "Weights",
+          "description": "Weights of the features",
+          "type": "object",
+          "additionalProperties": {
+            "type": "number"
+          }
+        },
+        "segment": {
+          "title": "Segment",
+          "description": "Set this value if the weights are for a specific segment. Note that an empty segment (no tags)is treated to be the overall segment in this case.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/Segment"
+            }
+          ]
+        }
+      },
+      "required": [
+        "weights"
+      ],
+      "additionalProperties": false
+    },
+    "EntityWeights": {
+      "title": "EntityWeights",
+      "description": "Entity weight configurations.",
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "title": "Metadata",
+          "description": "WhyLabs-managed metadata. This is to track various metadata for auditing.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/Metadata"
+            }
+          ]
+        },
+        "defaultWeights": {
+          "title": "DefaultWeights",
+          "description": "Optional. Default weights for ALL the segments that don't have an explicit weight specification.Note that if you specify the segment in this WeightConfig object, it is ignored.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/WeightConfig"
+            }
+          ]
+        },
+        "segmentWeights": {
+          "title": "SegmentWeights",
+          "description": "Optional. Segment-specific weights. Use this if you want to override the defaultWeights. Note thatthere might be a case where a segment fields are weighted without specifying the default weights",
+          "maxItems": 1000,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SegmentWeightConfig"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "TimeRange": {
+      "title": "TimeRange",
+      "description": "Support for a specific time range.",
+      "type": "object",
+      "properties": {
+        "start": {
+          "title": "Start",
+          "description": "Inclusive. Start time of a time range.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "end": {
+          "title": "End",
+          "description": "Exclusive. End time of a time range.",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "start",
+        "end"
+      ],
+      "additionalProperties": false
+    },
+    "CronSchedule": {
+      "title": "CronSchedule",
+      "description": "Support for scheduling.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "title": "Type",
+          "enum": [
+            "cron"
+          ],
+          "type": "string"
+        },
+        "cron": {
+          "title": "Cron",
+          "description": "Cron expression",
+          "pattern": "(@(annually|yearly|monthly|weekly|daily|hourly))|((((\\d+,)+\\d+|(\\d+(\\/|-)\\d+)|\\d+|\\*) ?){5,7})",
+          "type": "string"
+        },
+        "exclusionRanges": {
+          "title": "ExclusionRanges",
+          "description": "The ranges of dates during which this Analyzer is NOT run.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TimeRange"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "cron"
+      ],
+      "additionalProperties": false
+    },
+    "FixedCadenceSchedule": {
+      "title": "FixedCadenceSchedule",
+      "description": "Support for scheduling based on a predefined cadence.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "title": "Type",
+          "enum": [
+            "fixed"
+          ],
+          "type": "string"
+        },
+        "cadence": {
+          "title": "Cadence",
+          "description": "Frequency to run the analyzer or monitor, based on UTC time. The monitor will run at the start of the cadence with some SLA depending on the customer tiers.",
+          "enum": [
+            "hourly",
+            "daily",
+            "weekly",
+            "monthly"
+          ],
+          "type": "string"
+        },
+        "exclusionRanges": {
+          "title": "ExclusionRanges",
+          "description": "Ranges of dates during which this Analyzer is NOT run.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TimeRange"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "cadence"
+      ],
+      "additionalProperties": false
+    },
+    "ColumnGroups": {
+      "title": "ColumnGroups",
+      "description": "Standard column groupings.",
+      "enum": [
+        "group:continuous",
+        "group:discrete",
+        "group:input",
+        "group:output"
+      ],
+      "type": "string"
+    },
+    "ColumnMatrix": {
+      "title": "ColumnMatrix",
+      "description": "Define the matrix of columns and segments to fan out for monitoring.",
+      "type": "object",
+      "properties": {
+        "segments": {
+          "title": "Segments",
+          "description": "List of targeted segments. If not set, default to the overall segment",
+          "maxItems": 1000,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Segment"
+          }
+        },
+        "excludeSegments": {
+          "title": "Excludesegments",
+          "description": "List of segments to be excluded",
+          "maxItems": 1000,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Segment"
+          }
+        },
+        "type": {
+          "title": "Type",
+          "enum": [
+            "column"
+          ],
+          "type": "string"
+        },
+        "include": {
+          "title": "Include",
+          "description": "List of allowed fields/features/columns. Could be a grouping as well.",
+          "maxItems": 1000,
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/ColumnGroups"
+              },
+              {
+                "type": "string",
+                "maxLength": 1000
+              }
+            ]
+          }
+        },
+        "exclude": {
+          "title": "Exclude",
+          "description": "List of blocked fields/features/columns. Could be a grouping as well. This setting is evaluated AFTER the 'include' field and thus should be used with caution.",
+          "maxItems": 1000,
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/ColumnGroups"
+              },
+              {
+                "type": "string",
+                "maxLength": 1000
+              }
+            ]
+          }
+        },
+        "profileId": {
+          "title": "ProfileId",
+          "description": "The unique profile ID for the reference profile",
+          "maxLength": 100,
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "DatasetMatrix": {
+      "title": "DatasetMatrix",
+      "description": "Define the matrix of fields and segments to fan out for monitoring.\n\n.",
+      "type": "object",
+      "properties": {
+        "segments": {
+          "title": "Segments",
+          "description": "List of targeted segments. If not set, default to the overall segment",
+          "maxItems": 1000,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Segment"
+          }
+        },
+        "excludeSegments": {
+          "title": "Excludesegments",
+          "description": "List of segments to be excluded",
+          "maxItems": 1000,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Segment"
+          }
+        },
+        "type": {
+          "title": "Type",
+          "description": "Must be 'dataset' level",
+          "default": "dataset",
+          "enum": [
+            "dataset"
+          ],
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ConjunctionConfig": {
+      "title": "ConjunctionConfig",
+      "description": "Conjunction (ANDs) composite analyzer joining multiple analyzers.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "title": "Type",
+          "enum": [
+            "conjunction"
+          ],
+          "type": "string"
+        },
+        "analyzerIds": {
+          "title": "AnalyzerIds",
+          "description": "The corresponding analyzer IDs for the conjunction.",
+          "pattern": "^[A-Za-z0-9_\\-]+$",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "analyzerIds"
+      ],
+      "additionalProperties": false
+    },
+    "DisjunctionConfig": {
+      "title": "DisjunctionConfig",
+      "description": "Disjunction (ORs) composite analyzer joining multiple analyzers.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "title": "Type",
+          "enum": [
+            "disjunction"
+          ],
+          "type": "string"
+        },
+        "analyzerIds": {
+          "title": "AnalyzerIds",
+          "description": "The corresponding analyzer IDs for the conjunction.",
+          "pattern": "^[A-Za-z0-9_\\-]+$",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "analyzerIds"
+      ],
+      "additionalProperties": false
+    },
+    "DatasetMetric": {
+      "title": "DatasetMetric",
+      "description": "Metrics that are applicable at the dataset level.",
+      "enum": [
+        "column_row_count_sum",
+        "shape_column_count",
+        "shape_row_count",
+        "input.count",
+        "output.count",
+        "classification.f1",
+        "classification.precision",
+        "classification.recall",
+        "classification.accuracy",
+        "classification.fpr",
+        "classification.auroc",
+        "regression.mse",
+        "regression.mae",
+        "regression.rmse",
+        "missingDatapoint",
+        "secondsSinceLastUpload"
+      ],
+      "type": "string"
+    },
+    "SimpleColumnMetric": {
+      "title": "SimpleColumnMetric",
+      "description": "Simple column metrics that are basically just a single number.",
+      "enum": [
+        "count",
+        "median",
+        "max",
+        "min",
+        "mean",
+        "stddev",
+        "variance",
+        "unique_upper",
+        "unique_upper_ratio",
+        "unique_est",
+        "unique_est_ratio",
+        "unique_lower",
+        "unique_lower_ratio",
+        "count_bool",
+        "count_bool_ratio",
+        "count_integral",
+        "count_integral_ratio",
+        "count_fractional",
+        "count_fractional_ratio",
+        "count_string",
+        "count_string_ratio",
+        "count_null",
+        "count_null_ratio",
+        "inferred_data_type",
+        "quantile_5",
+        "quantile_75",
+        "quantile_25",
+        "quantile_90",
+        "quantile_95",
+        "quantile_99"
+      ],
+      "type": "string"
+    },
+    "DiffMode": {
+      "title": "DiffMode",
+      "description": "Whether to use the absolute difference or the percentage to calculate the difference.",
+      "enum": [
+        "abs",
+        "pct"
+      ],
+      "type": "string"
+    },
+    "ThresholdType": {
+      "title": "ThresholdType",
+      "description": "Threshold Type declaring the upper and lower bound.\n\nBy default an anomaly will be generated when the target is above or below the baseline\nby the specified threshold.\n\nIf its only desirable to alert when the target is above the\nbaseline and not the other way around, specify upper for your ThresholdType.",
+      "enum": [
+        "lower",
+        "upper"
+      ]
+    },
+    "TrailingWindowBaseline": {
+      "title": "TrailingWindowBaseline",
+      "description": "A dynamic trailing window.\n\nThis is useful if you don't have a static baseline to monitor against. This is the default mode for most\nmonitors.",
+      "type": "object",
+      "properties": {
+        "datasetId": {
+          "title": "DatasetId",
+          "description": "The unique ID of an dataset. This is specific to WhyLabs. If the dataset ID does not exist, user will get a validation exception when saving the config with WhyLabs API",
+          "maxLength": 100,
+          "pattern": "[a-zA-Z0-9\\-_\\.]+",
+          "type": "string"
+        },
+        "inheritSegment": {
+          "title": "InheritSegment",
+          "description": "Default to false. Whether to use the segment from the target to filter down the baseline",
+          "type": "boolean"
+        },
+        "type": {
+          "title": "Type",
+          "enum": [
+            "TrailingWindow"
+          ],
+          "type": "string"
+        },
+        "size": {
+          "title": "Size",
+          "description": "Window size",
+          "exclusiveMinimum": 3,
+          "maximum": 90,
+          "type": "integer"
+        },
+        "offset": {
+          "title": "Offset",
+          "description": "Offset from the current batch for the range of the trailing window. Default to 1 (the previous batch). This means that if set this to 0, the baseline will include the current batch's value, orif we set it o 7, then the window is off by 7.",
+          "type": "integer"
+        },
+        "exclusionSchedule": {
+          "title": "ExclusionSchedule",
+          "description": "Using cron, set a schedule of buckets to exclude from baseline. EG: '0 0 * * 6,0' would exclude weekends from the baseline thus only considering weekdays",
+          "allOf": [
+            {
+              "$ref": "#/definitions/CronSchedule"
+            }
+          ]
+        },
+        "exclusionRanges": {
+          "title": "ExclusionRanges",
+          "description": "The list of exclusion ranges",
+          "maxItems": 100,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TimeRange"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "size"
+      ],
+      "additionalProperties": false
+    },
+    "ReferenceProfileId": {
+      "title": "ReferenceProfileId",
+      "description": "A baseline based on a static reference profile.\n\nA typical use case is to use a \"gold\" dataset and upload its profile to WhyLabs. This can be a training dataset\nas well for an ML model.",
+      "type": "object",
+      "properties": {
+        "datasetId": {
+          "title": "DatasetId",
+          "description": "The unique ID of an dataset. This is specific to WhyLabs. If the dataset ID does not exist, user will get a validation exception when saving the config with WhyLabs API",
+          "maxLength": 100,
+          "pattern": "[a-zA-Z0-9\\-_\\.]+",
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "enum": [
+            "Reference"
+          ],
+          "type": "string"
+        },
+        "profileId": {
+          "title": "ProfileId",
+          "description": "The unique profile ID for the reference profile",
+          "maxLength": 100,
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "profileId"
+      ],
+      "additionalProperties": false
+    },
+    "TimeRangeBaseline": {
+      "title": "TimeRangeBaseline",
+      "description": "A static time range.\n\nInstead of using a single profile or a trailing window, user can lock in a \"good\" period.",
+      "type": "object",
+      "properties": {
+        "datasetId": {
+          "title": "DatasetId",
+          "description": "The unique ID of an dataset. This is specific to WhyLabs. If the dataset ID does not exist, user will get a validation exception when saving the config with WhyLabs API",
+          "maxLength": 100,
+          "pattern": "[a-zA-Z0-9\\-_\\.]+",
+          "type": "string"
+        },
+        "inheritSegment": {
+          "title": "InheritSegment",
+          "description": "Default to false. Whether to use the segment from the target to filter down the baseline",
+          "type": "boolean"
+        },
+        "type": {
+          "title": "Type",
+          "enum": [
+            "TimeRange"
+          ],
+          "type": "string"
+        },
+        "range": {
+          "title": "Range",
+          "description": "The range to set the time range with",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TimeRange"
+            }
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "range"
+      ],
+      "additionalProperties": false
+    },
+    "SingleBatchBaseline": {
+      "title": "SingleBatchBaseline",
+      "description": "Using current batch.\n\nThis is used when you want to use one batch to monitor another batch in a different metric entity.",
+      "type": "object",
+      "properties": {
+        "datasetId": {
+          "title": "DatasetId",
+          "description": "The unique ID of an dataset. This is specific to WhyLabs. If the dataset ID does not exist, user will get a validation exception when saving the config with WhyLabs API",
+          "maxLength": 100,
+          "pattern": "[a-zA-Z0-9\\-_\\.]+",
+          "type": "string"
+        },
+        "inheritSegment": {
+          "title": "InheritSegment",
+          "description": "Default to false. Whether to use the segment from the target to filter down the baseline",
+          "type": "boolean"
+        },
+        "type": {
+          "title": "Type",
+          "enum": [
+            "CurrentBatch"
+          ],
+          "type": "string"
+        },
+        "offset": {
+          "title": "Offset",
+          "description": "Offset from the current batch for the baseline. Default to 0 - (the current batch). This means that if this field set this to 0, the baseline be the current batch's value. The dataset fieldis required to be set for this baseline config.Typical use case is to use another entity to monitor against the current entity",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "datasetId",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "DiffConfig": {
+      "title": "DiffConfig",
+      "description": "Detecting the differences between two numerical metrics.",
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "title": "SchemaVersion",
+          "description": "The schema version of an algorithm. Typically this value is not required.",
+          "type": "integer"
+        },
+        "params": {
+          "title": "Params",
+          "description": "Extra parameters for the algorithm",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "metric": {
+          "title": "Metric",
+          "description": "The target metric. This field cannot be change once the analyzer is created.",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/DatasetMetric"
+            },
+            {
+              "$ref": "#/definitions/SimpleColumnMetric"
+            },
+            {
+              "type": "string",
+              "maxLength": 100
+            }
+          ]
+        },
+        "type": {
+          "title": "Type",
+          "enum": [
+            "diff"
+          ],
+          "type": "string"
+        },
+        "mode": {
+          "$ref": "#/definitions/DiffMode"
+        },
+        "thresholdType": {
+          "$ref": "#/definitions/ThresholdType"
+        },
+        "threshold": {
+          "title": "Threshold",
+          "description": "The minimum threshold that will trigger an anomaly. The monitor detect the difference betweenthe target's metric and the baseline metric. Both of these metrics MUST be in rolled up form",
+          "type": "number"
+        },
+        "baseline": {
+          "title": "Baseline",
+          "description": "A baseline for running the analyzer.",
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "TrailingWindow": "#/definitions/TrailingWindowBaseline",
+              "Reference": "#/definitions/ReferenceProfileId",
+              "TimeRange": "#/definitions/TimeRangeBaseline",
+              "CurrentBatch": "#/definitions/SingleBatchBaseline"
+            }
+          },
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TrailingWindowBaseline"
+            },
+            {
+              "$ref": "#/definitions/ReferenceProfileId"
+            },
+            {
+              "$ref": "#/definitions/TimeRangeBaseline"
+            },
+            {
+              "$ref": "#/definitions/SingleBatchBaseline"
+            }
+          ]
+        }
+      },
+      "required": [
+        "metric",
+        "type",
+        "mode",
+        "threshold",
+        "baseline"
+      ],
+      "additionalProperties": false
+    },
+    "ComparisonOperator": {
+      "title": "ComparisonOperator",
+      "description": "Operators for performing a comparison.",
+      "enum": [
+        "eq",
+        "gt",
+        "lt",
+        "ge",
+        "le"
+      ],
+      "type": "string"
+    },
+    "ExpectedValue": {
+      "title": "ExpectedValue",
+      "description": "Expected value: one of these fields must be set.",
+      "type": "object",
+      "properties": {
+        "str": {
+          "title": "Str",
+          "maxLength": 100,
+          "type": "string"
+        },
+        "int": {
+          "title": "Int",
+          "type": "integer"
+        },
+        "float": {
+          "title": "Float",
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ComparisonConfig": {
+      "title": "ComparisonConfig",
+      "description": "Compare whether the target against either an expect value or against the  baseline.\n\nThis is useful to detect data type change, for instance.",
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "title": "SchemaVersion",
+          "description": "The schema version of an algorithm. Typically this value is not required.",
+          "type": "integer"
+        },
+        "params": {
+          "title": "Params",
+          "description": "Extra parameters for the algorithm",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "metric": {
+          "title": "Metric",
+          "description": "The target metric. This field cannot be change once the analyzer is created.",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/DatasetMetric"
+            },
+            {
+              "$ref": "#/definitions/SimpleColumnMetric"
+            },
+            {
+              "type": "string",
+              "maxLength": 100
+            }
+          ]
+        },
+        "type": {
+          "title": "Type",
+          "enum": [
+            "comparison"
+          ],
+          "type": "string"
+        },
+        "operator": {
+          "description": "The operator for the comparison. The right hand side is the target batch's metric. The left handside is the expected value or a baseline's metric.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComparisonOperator"
+            }
+          ]
+        },
+        "expected": {
+          "title": "Expected",
+          "description": "The expected value of the equality. If the value is not set we will extract the corresponding metric from the baseline and perform the comparison",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ExpectedValue"
+            }
+          ]
+        },
+        "baseline": {
+          "title": "Baseline",
+          "description": "A baseline for running the analyzer.",
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "TrailingWindow": "#/definitions/TrailingWindowBaseline",
+              "Reference": "#/definitions/ReferenceProfileId",
+              "TimeRange": "#/definitions/TimeRangeBaseline",
+              "CurrentBatch": "#/definitions/SingleBatchBaseline"
+            }
+          },
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TrailingWindowBaseline"
+            },
+            {
+              "$ref": "#/definitions/ReferenceProfileId"
+            },
+            {
+              "$ref": "#/definitions/TimeRangeBaseline"
+            },
+            {
+              "$ref": "#/definitions/SingleBatchBaseline"
+            }
+          ]
+        }
+      },
+      "required": [
+        "metric",
+        "type",
+        "operator"
+      ],
+      "additionalProperties": false
+    },
+    "ListComparisonOperator": {
+      "title": "ListComparisonOperator",
+      "description": "Operators for performing a comparison.",
+      "enum": [
+        "in",
+        "not_in"
+      ],
+      "type": "string"
+    },
+    "ListComparisonConfig": {
+      "title": "ListComparisonConfig",
+      "description": "Compare a target list of values against a baseline list of values.",
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "title": "SchemaVersion",
+          "description": "The schema version of an algorithm. Typically this value is not required.",
+          "type": "integer"
+        },
+        "params": {
+          "title": "Params",
+          "description": "Extra parameters for the algorithm",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "metric": {
+          "title": "Metric",
+          "description": "The target metric. This field cannot be change once the analyzer is created.",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/DatasetMetric"
+            },
+            {
+              "$ref": "#/definitions/SimpleColumnMetric"
+            },
+            {
+              "type": "string",
+              "maxLength": 100
+            }
+          ]
+        },
+        "type": {
+          "title": "Type",
+          "enum": [
+            "list_comparison"
+          ],
+          "type": "string"
+        },
+        "operator": {
+          "description": "The operator for the comparison. The right hand side is the target batch's metric. The left handside is the expected value or a baseline's metric.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ListComparisonOperator"
+            }
+          ]
+        },
+        "expected": {
+          "title": "Expected",
+          "description": "The expected values of the equality. If the value is not set we will extract the corresponding metric from the baseline and perform the comparison",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ExpectedValue"
+          }
+        },
+        "baseline": {
+          "title": "Baseline",
+          "description": "A baseline for running the analyzer.",
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "TrailingWindow": "#/definitions/TrailingWindowBaseline",
+              "Reference": "#/definitions/ReferenceProfileId",
+              "TimeRange": "#/definitions/TimeRangeBaseline",
+              "CurrentBatch": "#/definitions/SingleBatchBaseline"
+            }
+          },
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TrailingWindowBaseline"
+            },
+            {
+              "$ref": "#/definitions/ReferenceProfileId"
+            },
+            {
+              "$ref": "#/definitions/TimeRangeBaseline"
+            },
+            {
+              "$ref": "#/definitions/SingleBatchBaseline"
+            }
+          ]
+        }
+      },
+      "required": [
+        "metric",
+        "type",
+        "operator"
+      ],
+      "additionalProperties": false
+    },
+    "FrequentStringComparisonOperator": {
+      "title": "FrequentStringComparisonOperator",
+      "description": "Operators for performing a comparison.",
+      "enum": [
+        "eq",
+        "target_includes_all_baseline",
+        "baseline_includes_all_target"
+      ],
+      "type": "string"
+    },
+    "FrequentStringComparisonConfig": {
+      "title": "FrequentStringComparisonConfig",
+      "description": "Compare whether target against a list of values.",
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "title": "SchemaVersion",
+          "description": "The schema version of an algorithm. Typically this value is not required.",
+          "type": "integer"
+        },
+        "params": {
+          "title": "Params",
+          "description": "Extra parameters for the algorithm",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "metric": {
+          "title": "Metric",
+          "enum": [
+            "frequent_items"
+          ],
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "enum": [
+            "frequent_string_comparison"
+          ],
+          "type": "string"
+        },
+        "operator": {
+          "description": "The operator for the comparison.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FrequentStringComparisonOperator"
+            }
+          ]
+        },
+        "baseline": {
+          "title": "Baseline",
+          "description": "A baseline for running the analyzer.",
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "TrailingWindow": "#/definitions/TrailingWindowBaseline",
+              "Reference": "#/definitions/ReferenceProfileId",
+              "TimeRange": "#/definitions/TimeRangeBaseline",
+              "CurrentBatch": "#/definitions/SingleBatchBaseline"
+            }
+          },
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TrailingWindowBaseline"
+            },
+            {
+              "$ref": "#/definitions/ReferenceProfileId"
+            },
+            {
+              "$ref": "#/definitions/TimeRangeBaseline"
+            },
+            {
+              "$ref": "#/definitions/SingleBatchBaseline"
+            }
+          ]
+        }
+      },
+      "required": [
+        "metric",
+        "type",
+        "operator",
+        "baseline"
+      ],
+      "additionalProperties": false
+    },
+    "ColumnListChangeConfig": {
+      "title": "ColumnListChangeConfig",
+      "description": "Compare whether the target is equal to a value or not.\n\nThis is useful to detect data type change, for instance.",
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "title": "SchemaVersion",
+          "description": "The schema version of an algorithm. Typically this value is not required.",
+          "type": "integer"
+        },
+        "params": {
+          "title": "Params",
+          "description": "Extra parameters for the algorithm",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "metric": {
+          "title": "Metric",
+          "enum": [
+            "column_list"
+          ],
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "enum": [
+            "column_list"
+          ],
+          "type": "string"
+        },
+        "mode": {
+          "title": "Mode",
+          "default": "ON_ADD_AND_REMOVE",
+          "enum": [
+            "ON_ADD_AND_REMOVE",
+            "ON_ADD",
+            "ON_REMOVE"
+          ],
+          "type": "string"
+        },
+        "exclude": {
+          "title": "Exclude",
+          "description": "Ignore these column names. User can specify a list of regex",
+          "maxItems": 1000,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "baseline": {
+          "title": "Baseline",
+          "description": "A baseline for running the analyzer.",
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "TrailingWindow": "#/definitions/TrailingWindowBaseline",
+              "Reference": "#/definitions/ReferenceProfileId",
+              "TimeRange": "#/definitions/TimeRangeBaseline",
+              "CurrentBatch": "#/definitions/SingleBatchBaseline"
+            }
+          },
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TrailingWindowBaseline"
+            },
+            {
+              "$ref": "#/definitions/ReferenceProfileId"
+            },
+            {
+              "$ref": "#/definitions/TimeRangeBaseline"
+            },
+            {
+              "$ref": "#/definitions/SingleBatchBaseline"
+            }
+          ]
+        }
+      },
+      "required": [
+        "metric",
+        "type",
+        "baseline"
+      ],
+      "additionalProperties": false
+    },
+    "FixedThresholdsConfig": {
+      "title": "FixedThresholdsConfig",
+      "description": "Fixed threshold analysis.\n\nIf user fails to set both upper bound and lower bound, this algorithm becomes a no-op.\nWhyLabs might enforce the present of either fields in the future.",
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "title": "SchemaVersion",
+          "description": "The schema version of an algorithm. Typically this value is not required.",
+          "type": "integer"
+        },
+        "params": {
+          "title": "Params",
+          "description": "Extra parameters for the algorithm",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "metric": {
+          "title": "Metric",
+          "description": "The target metric. This field cannot be change once the analyzer is created.",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/DatasetMetric"
+            },
+            {
+              "$ref": "#/definitions/SimpleColumnMetric"
+            },
+            {
+              "type": "string",
+              "maxLength": 100
+            }
+          ]
+        },
+        "type": {
+          "title": "Type",
+          "enum": [
+            "fixed"
+          ],
+          "type": "string"
+        },
+        "upper": {
+          "title": "Upper",
+          "description": "Upper bound of the static threshold",
+          "type": "number"
+        },
+        "lower": {
+          "title": "Lower",
+          "description": "Lower bound of the static threshold",
+          "type": "number"
+        },
+        "nConsecutive": {
+          "title": "Nconsecutive",
+          "description": "Alert if n consecutive datapoints exceed the thresholds",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "metric",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "LimitType": {
+      "title": "LimitType",
+      "description": "Declaring how fixed upper and lower bounds should be interpreted in an analyzer.\n\nSome analyzers (like Stddev) allow configuration of optional static bounds,\nin addition to the  calculated bounds over a baseline. By default\n`\"LimitType\"=\"or\"` applies static bounds in disjunction with the the\ncalculated bounds. In other words, the analyzer will generate an alert if\nthe target value exceeds the calculated bounds, OR if the target value\nexceeds the static bounds.\n\nThe static bounds may also be applied in conjunction with the calculated\nbounds by setting `\"LimitType\"=\"and\"`.  In that case, the analyzer will\ngenerated an alert if the target values exceeds the calculated bounds AND\nexceeds the static bounds.\n\n`\"LimitType\"=\"and\"` is useful when the magnitude of a metric is very small,\nlike `unique-ratio` or `null-ratio` when the denominator is large. For those\nmetrics, small changes in the underlying values can result is wide swings of\nthe calculated bound. Constraining alerts to a static threshold in addition\nto the calculated threshold can avoid spurious alerts.",
+      "enum": [
+        "or",
+        "and"
+      ]
+    },
+    "StddevConfig": {
+      "title": "StddevConfig",
+      "description": "Calculates upper bounds and lower bounds based on stddev from a series of metrics.\n\nAn alert will be sent if the target values falls outside the upper- and lower-bounds calculated\nas :math:`mean(baseline) \u00b1 stddev(baseline) * factor`\n\nThis calculation will fall back to Poisson distribution if there is only 1 value in the baseline.\nFor 2 values, we use the formula sqrt((x_i - avg(x))^2 / n - 1)\n:math:`sqrt((x_i - avg(x))^2 / n - 1)`",
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "title": "SchemaVersion",
+          "description": "The schema version of an algorithm. Typically this value is not required.",
+          "type": "integer"
+        },
+        "params": {
+          "title": "Params",
+          "description": "Extra parameters for the algorithm",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "metric": {
+          "title": "Metric",
+          "description": "The target metric. This field cannot be change once the analyzer is created.",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/DatasetMetric"
+            },
+            {
+              "$ref": "#/definitions/SimpleColumnMetric"
+            },
+            {
+              "type": "string",
+              "maxLength": 100
+            }
+          ]
+        },
+        "maxUpperThreshold": {
+          "title": "Maxupperthreshold",
+          "description": "Capping the threshold by this value. This value only becomes effective if the calculated upper threshold from the calculation is greater than this value.",
+          "type": "number"
+        },
+        "minLowerThreshold": {
+          "title": "Minlowerthreshold",
+          "description": "Capping the minimum threshold by this value. This value only becomes effective if the calculated lower threshold from the calculation is lesser than this value",
+          "type": "number"
+        },
+        "thresholdType": {
+          "description": "indicates use of single-direction threshold. A value of 'upper' will alert only when target value exceeds upper threshold.A value of 'lower' will alert only when target value is less than `minLowerThreshold`.The default value is unset, which will trigger an alert for both upper and lower thresholds",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ThresholdType"
+            }
+          ]
+        },
+        "type": {
+          "title": "Type",
+          "enum": [
+            "stddev"
+          ],
+          "type": "string"
+        },
+        "factor": {
+          "title": "Factor",
+          "description": "The multiplier used with stddev to build the calculated upper and lower bounds.",
+          "default": 3.0,
+          "type": "number"
+        },
+        "minBatchSize": {
+          "title": "MinBatchSize",
+          "description": "Minimum number of batches that is required",
+          "default": 1,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "baseline": {
+          "title": "Baseline",
+          "description": "A baseline from which mean and stddev are derived.",
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "TrailingWindow": "#/definitions/TrailingWindowBaseline",
+              "TimeRange": "#/definitions/TimeRangeBaseline",
+              "Reference": "#/definitions/ReferenceProfileId"
+            }
+          },
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TrailingWindowBaseline"
+            },
+            {
+              "$ref": "#/definitions/TimeRangeBaseline"
+            },
+            {
+              "$ref": "#/definitions/ReferenceProfileId"
+            }
+          ]
+        },
+        "limitType": {
+          "description": "\n        Indicates whether optional `maxUpperThreshold` and `minLowerThreshold`\n        limits should be applied in addition to the calculated bounds from\n        stddev, or as alternatives to the calculated bounds. For example, when\n        `maxUpperThreshold` is non-null, `limitType=\"or\"` (default) will alert\n        if the target value exceeds the calculated stddev limit OR exceeds\n        `maxUpperThreshold`. In contrast, `limitType=\"and\"` will alert only if\n        the target exceeds the calculated stddev limit AND exceeds\n        `maxUpperThreshold`.\n        ",
+          "default": "or",
+          "allOf": [
+            {
+              "$ref": "#/definitions/LimitType"
+            }
+          ]
+        }
+      },
+      "required": [
+        "metric",
+        "type",
+        "baseline"
+      ],
+      "additionalProperties": false
+    },
+    "DriftConfig": {
+      "title": "DriftConfig",
+      "description": "An analyzer using stddev for a window of time range.\n\nThis analysis will detect whether the data drifts or not. By default, we use hellinger distance with a threshold\nof 0.7.",
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "title": "SchemaVersion",
+          "description": "The schema version of an algorithm. Typically this value is not required.",
+          "type": "integer"
+        },
+        "params": {
+          "title": "Params",
+          "description": "Extra parameters for the algorithm",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "metric": {
+          "title": "Metric",
+          "enum": [
+            "histogram",
+            "frequent_items"
+          ],
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "enum": [
+            "drift"
+          ],
+          "type": "string"
+        },
+        "algorithm": {
+          "title": "Algorithm",
+          "description": "The algorithm to use when calculating drift.",
+          "default": "hellinger",
+          "enum": [
+            "hellinger",
+            "jensenshannon",
+            "kl_divergence",
+            "psi"
+          ],
+          "type": "string"
+        },
+        "threshold": {
+          "title": "Threshold",
+          "description": "The threshold for the distance algorithm. Depending on the algorithm, this thresholdis used for greater than or less than comparison.",
+          "default": 0.7,
+          "type": "number"
+        },
+        "minBatchSize": {
+          "title": "MinBatchSize",
+          "description": "Minimum number of batches that is required",
+          "default": 1,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "baseline": {
+          "title": "Baseline",
+          "description": "A baseline for running the analyzer.",
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "TrailingWindow": "#/definitions/TrailingWindowBaseline",
+              "Reference": "#/definitions/ReferenceProfileId",
+              "TimeRange": "#/definitions/TimeRangeBaseline",
+              "CurrentBatch": "#/definitions/SingleBatchBaseline"
+            }
+          },
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TrailingWindowBaseline"
+            },
+            {
+              "$ref": "#/definitions/ReferenceProfileId"
+            },
+            {
+              "$ref": "#/definitions/TimeRangeBaseline"
+            },
+            {
+              "$ref": "#/definitions/SingleBatchBaseline"
+            }
+          ]
+        }
+      },
+      "required": [
+        "metric",
+        "type",
+        "baseline"
+      ],
+      "additionalProperties": false
+    },
+    "AlgorithmType": {
+      "title": "AlgorithmType",
+      "description": "Specify the algorithm type.",
+      "enum": [
+        "expected",
+        "column_list",
+        "comparison",
+        "conjunction",
+        "disjunction",
+        "list_comparison",
+        "frequent_string_comparison",
+        "diff",
+        "drift",
+        "stddev",
+        "seasonal",
+        "fixed",
+        "monotonic",
+        "experimental"
+      ],
+      "type": "string"
+    },
+    "ExperimentalConfig": {
+      "title": "ExperimentalConfig",
+      "description": "Experimental algorithm that is not standardized by the above ones yet.",
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "title": "SchemaVersion",
+          "description": "The schema version of an algorithm. Typically this value is not required.",
+          "type": "integer"
+        },
+        "params": {
+          "title": "Params",
+          "description": "Extra parameters for the algorithm",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "metric": {
+          "title": "Metric",
+          "description": "The target metric. This field cannot be change once the analyzer is created.",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/DatasetMetric"
+            },
+            {
+              "$ref": "#/definitions/SimpleColumnMetric"
+            },
+            {
+              "type": "string",
+              "maxLength": 100
+            }
+          ]
+        },
+        "type": {
+          "title": "Type",
+          "enum": [
+            "experimental"
+          ],
+          "type": "string"
+        },
+        "implementation": {
+          "title": "Implementation",
+          "description": "The implementation of an experimental config",
+          "maxLength": 100,
+          "type": "string"
+        },
+        "baseline": {
+          "title": "Baseline",
+          "description": "A baseline for running the analyzer.",
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "TrailingWindow": "#/definitions/TrailingWindowBaseline",
+              "Reference": "#/definitions/ReferenceProfileId",
+              "TimeRange": "#/definitions/TimeRangeBaseline",
+              "CurrentBatch": "#/definitions/SingleBatchBaseline"
+            }
+          },
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TrailingWindowBaseline"
+            },
+            {
+              "$ref": "#/definitions/ReferenceProfileId"
+            },
+            {
+              "$ref": "#/definitions/TimeRangeBaseline"
+            },
+            {
+              "$ref": "#/definitions/SingleBatchBaseline"
+            }
+          ]
+        },
+        "stub": {
+          "description": "Stub field to flow algoirthm type into the schema. Do not use.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/AlgorithmType"
+            }
+          ]
+        }
+      },
+      "required": [
+        "metric",
+        "type",
+        "implementation",
+        "baseline"
+      ],
+      "additionalProperties": false
+    },
+    "SeasonalConfig": {
+      "title": "SeasonalConfig",
+      "description": "An analyzer using stddev for a window of time range.\n\nThis will fall back to Poisson distribution if there is only 1 value in the baseline.\n\nThis only works with TrailingWindow baseline (TODO: add backend validation)",
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "title": "SchemaVersion",
+          "description": "The schema version of an algorithm. Typically this value is not required.",
+          "type": "integer"
+        },
+        "params": {
+          "title": "Params",
+          "description": "Extra parameters for the algorithm",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "metric": {
+          "title": "Metric",
+          "description": "The target metric. This field cannot be change once the analyzer is created.",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/DatasetMetric"
+            },
+            {
+              "$ref": "#/definitions/SimpleColumnMetric"
+            },
+            {
+              "type": "string",
+              "maxLength": 100
+            }
+          ]
+        },
+        "maxUpperThreshold": {
+          "title": "Maxupperthreshold",
+          "description": "Capping the threshold by this value. This value only becomes effective if the calculated upper threshold from the calculation is greater than this value.",
+          "type": "number"
+        },
+        "minLowerThreshold": {
+          "title": "Minlowerthreshold",
+          "description": "Capping the minimum threshold by this value. This value only becomes effective if the calculated lower threshold from the calculation is lesser than this value",
+          "type": "number"
+        },
+        "thresholdType": {
+          "description": "indicates use of single-direction threshold. A value of 'upper' will alert only when target value exceeds upper threshold.A value of 'lower' will alert only when target value is less than `minLowerThreshold`.The default value is unset, which will trigger an alert for both upper and lower thresholds",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ThresholdType"
+            }
+          ]
+        },
+        "type": {
+          "title": "Type",
+          "enum": [
+            "seasonal"
+          ],
+          "type": "string"
+        },
+        "algorithm": {
+          "title": "Algorithm",
+          "description": "The algorithm implementation for seasonal analysis",
+          "default": "arima",
+          "enum": [
+            "arima"
+          ],
+          "type": "string"
+        },
+        "minBatchSize": {
+          "title": "MinBatchSize",
+          "description": "Minimum number of batches that is required",
+          "default": 30,
+          "type": "integer"
+        },
+        "alpha": {
+          "title": "Alpha",
+          "description": "significance level for the confidence interval produced around predictions. If 0.05 then the algorithm will calculate a 95% confidence interval around predictions",
+          "default": 0.05,
+          "type": "number"
+        },
+        "baseline": {
+          "$ref": "#/definitions/TrailingWindowBaseline"
+        },
+        "stddevTimeRanges": {
+          "title": "StddevTimeRanges",
+          "description": "Ranges of time where we will apply standard deviation for confidence intervals rather than the confidence interval from the algorithm. This is to prevent data from specialevents from making the bands very wide for timeseries-based predictions.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TimeRange"
+          }
+        },
+        "stddevMaxBatchSize": {
+          "title": "Stddevmaxbatchsize",
+          "description": "Maxinum number of data points to consider for calculating stddev. These are the data pointspreceeding the target batch.",
+          "type": "integer"
+        },
+        "stddevFactor": {
+          "title": "Stddevfactor",
+          "description": "The multiplier factor for calculating upper bounds and lower bounds from the prediction.",
+          "default": 1.0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "metric",
+        "type",
+        "baseline"
+      ],
+      "additionalProperties": false
+    },
+    "MonotonicConfig": {
+      "title": "MonotonicConfig",
+      "description": "Monotonic analysis.\n\nCalculate how many monotonically increasing or decreasing datapoints exist across time buckets.\nMonotonic analysis is performed without a baseline using targetSize to specify the size of the\nwindow for consideration. A minimum targetSize of 2 is required.",
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "title": "SchemaVersion",
+          "description": "The schema version of an algorithm. Typically this value is not required.",
+          "type": "integer"
+        },
+        "params": {
+          "title": "Params",
+          "description": "Extra parameters for the algorithm",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "metric": {
+          "title": "Metric",
+          "description": "The target metric. This field cannot be change once the analyzer is created.",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/DatasetMetric"
+            },
+            {
+              "$ref": "#/definitions/SimpleColumnMetric"
+            },
+            {
+              "type": "string",
+              "maxLength": 100
+            }
+          ]
+        },
+        "type": {
+          "title": "Type",
+          "enum": [
+            "monotonic"
+          ],
+          "type": "string"
+        },
+        "numBuckets": {
+          "title": "NumBuckets",
+          "description": "Threshold for how many buckets following the specified direction for an anomaly to be generated.",
+          "default": 1,
+          "type": "integer"
+        },
+        "direction": {
+          "title": "Direction",
+          "default": "INCREASING",
+          "enum": [
+            "INCREASING",
+            "DECREASING"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "metric",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "Analyzer": {
+      "title": "Analyzer",
+      "description": "Configuration for running an analysis.\n\nAn analysis targets a metric (note that a metric could be a complex object) for one or multiple fields in\none or multiple segments. The output is a list of 'anomalies' that might show issues with data.",
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "title": "Metadata",
+          "description": "WhyLabs-managed metadata. This is to track various metadata for auditing.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/Metadata"
+            }
+          ]
+        },
+        "id": {
+          "title": "Id",
+          "description": "A unique, human readable ID for an analyzer. Can only contain alpha numeric characters, underscores and dashes",
+          "maxLength": 128,
+          "minLength": 10,
+          "pattern": "[0-9a-zA-Z\\-_]+",
+          "type": "string"
+        },
+        "displayName": {
+          "title": "Displayname",
+          "description": "A display name for the analyzer if view through WhyLabs UI. Can only contain dashes, underscores,spaces, and alphanumeric characters",
+          "maxLength": 256,
+          "minLength": 10,
+          "pattern": "[0-9a-zA-Z \\-_]+",
+          "id": "DisplayName",
+          "type": "string"
+        },
+        "tags": {
+          "title": "Tags",
+          "description": "A list of tags that are associated with the analyzer.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 256,
+            "pattern": "[0-9a-zA-Z\\-_]"
+          }
+        },
+        "targetSize": {
+          "title": "Targetsize",
+          "description": "By default analyzers compare a baseline to a single target bucket who's size aligns with the dataset granularity. For example a daily dataset will use targets with a size of one day. Some datasets with a lot of fluctuation can lead to noisy monitors. One approach to making analyzers less noisy in such a scenario is to increase the targetSize to average across more than a single bucket.",
+          "id": "DisplayName",
+          "type": "integer"
+        },
+        "schedule": {
+          "title": "Schedule",
+          "description": "A schedule for running the analyzer. If not set, the analyzer's considered disabled",
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "cron": "#/definitions/CronSchedule",
+              "fixed": "#/definitions/FixedCadenceSchedule"
+            }
+          },
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CronSchedule"
+            },
+            {
+              "$ref": "#/definitions/FixedCadenceSchedule"
+            }
+          ]
+        },
+        "disabled": {
+          "title": "Disabled",
+          "description": "Whether the analyzer is disabled. This allows user to keep the configurationaround without having to delete the analyzer config",
+          "type": "boolean"
+        },
+        "disableTargetRollup": {
+          "title": "Disabletargetrollup",
+          "description": "For customers with individual profile storage enabled on their account (contact us), this allows a user to monitor individual profiles without rolling them up. When enabled, analysis will be timestamped 1:1 with the profile's dataset timestamp rather than being truncated to the dataset granularity. ",
+          "type": "boolean"
+        },
+        "targetMatrix": {
+          "title": "Targetmatrix",
+          "description": "A matrix for possible locations of the target",
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "column": "#/definitions/ColumnMatrix",
+              "dataset": "#/definitions/DatasetMatrix"
+            }
+          },
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ColumnMatrix"
+            },
+            {
+              "$ref": "#/definitions/DatasetMatrix"
+            }
+          ]
+        },
+        "dataReadinessDuration": {
+          "title": "DataReadinessDuration",
+          "description": "ISO 8610 duration format. The duration determines how fast data is ready for the monitor. For example, if your pipeline takes 2 days to deliver profiles to WhyLabs, the value should beP2D. Note that this value will be used to evaluate missing data as well",
+          "pattern": "^P(?!$)(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HM])(\\d+H)?(\\d+M)?)?$",
+          "example": "PT1H, P1D",
+          "type": "string"
+        },
+        "batchCoolDownPeriod": {
+          "title": "BatchCoolDownPeriod",
+          "description": "ISO 8610 duration format. Specifies the duration that the monitor will wait from the last timea profile arrives Any batch involved in the calculation must have received the last profile by the duration.",
+          "pattern": "^P(?!$)(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HM])(\\d+H)?(\\d+M)?)?$",
+          "example": "PT1H, P1D",
+          "type": "string"
+        },
+        "backfillGracePeriodDuration": {
+          "title": "BackfillGracePeriodDuration",
+          "description": "ISO 8610 duration format. How far back an analyzer will attempt to backfill late data. Note that we will only backfill batches not previously analyzed. If the batch was already analyzed, even with partial data, the backfill will ignore the new data unless you trigger an explicit backfill request. We support 48 hours for hourly data, 30 days for daily data, and 6 months for monthly data.",
+          "pattern": "^P(?!$)(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HM])(\\d+H)?(\\d+M)?)?$",
+          "example": "PT1H, P1D",
+          "type": "string"
+        },
+        "config": {
+          "title": "Config",
+          "description": "The configuration map of the analyzer",
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "conjunction": "#/definitions/ConjunctionConfig",
+              "disjunction": "#/definitions/DisjunctionConfig",
+              "diff": "#/definitions/DiffConfig",
+              "comparison": "#/definitions/ComparisonConfig",
+              "list_comparison": "#/definitions/ListComparisonConfig",
+              "frequent_string_comparison": "#/definitions/FrequentStringComparisonConfig",
+              "column_list": "#/definitions/ColumnListChangeConfig",
+              "fixed": "#/definitions/FixedThresholdsConfig",
+              "stddev": "#/definitions/StddevConfig",
+              "drift": "#/definitions/DriftConfig",
+              "experimental": "#/definitions/ExperimentalConfig",
+              "seasonal": "#/definitions/SeasonalConfig",
+              "monotonic": "#/definitions/MonotonicConfig"
+            }
+          },
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConjunctionConfig"
+            },
+            {
+              "$ref": "#/definitions/DisjunctionConfig"
+            },
+            {
+              "$ref": "#/definitions/DiffConfig"
+            },
+            {
+              "$ref": "#/definitions/ComparisonConfig"
+            },
+            {
+              "$ref": "#/definitions/ListComparisonConfig"
+            },
+            {
+              "$ref": "#/definitions/FrequentStringComparisonConfig"
+            },
+            {
+              "$ref": "#/definitions/ColumnListChangeConfig"
+            },
+            {
+              "$ref": "#/definitions/FixedThresholdsConfig"
+            },
+            {
+              "$ref": "#/definitions/StddevConfig"
+            },
+            {
+              "$ref": "#/definitions/DriftConfig"
+            },
+            {
+              "$ref": "#/definitions/ExperimentalConfig"
+            },
+            {
+              "$ref": "#/definitions/SeasonalConfig"
+            },
+            {
+              "$ref": "#/definitions/MonotonicConfig"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "config"
+      ],
+      "additionalProperties": false
+    },
+    "ImmediateSchedule": {
+      "title": "ImmediateSchedule",
+      "description": "Schedule the monitor to run immediately.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "title": "Type",
+          "enum": [
+            "immediate"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "AnomalyFilter": {
+      "title": "AnomalyFilter",
+      "description": "Filter the anomalies based on certain criteria. If the alerts are filtered down to 0, the monitor won't fire.",
+      "type": "object",
+      "properties": {
+        "includeColumns": {
+          "title": "IncludeColumns",
+          "description": "If set, we only include anomalies from these columns",
+          "maxItems": 1000,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "excludeColumns": {
+          "title": "ExcludeColumns",
+          "description": "If set, we will exclude anomalies from these columns. This is applied AFTER the includeColumns",
+          "maxItems": 1000,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "minWeight": {
+          "title": "MinWeight",
+          "description": "We will include only features with weights greater than or equal to this value. NOT SUPPORTED YET",
+          "type": "number"
+        },
+        "maxWeight": {
+          "title": "MaxWeight",
+          "description": "We will include only features with weights less thanor equal to this value. NOT SUPPORTED YET",
+          "type": "number"
+        },
+        "minRankByWeight": {
+          "title": "MinRankByWeight",
+          "description": "Include only features ranked greater than or equal tothis value by weight. If features have the same weight, we order them alphabetically. NOT SUPPORTED YET",
+          "type": "integer"
+        },
+        "maxRankByWeight": {
+          "title": "MaxRankByWeight",
+          "description": "Include only features ranked less than or equal tothis value by weight. If features have the same weight, we order them alphabetically. NOT SUPPORTED YET",
+          "type": "integer"
+        },
+        "minTotalWeight": {
+          "title": "MinTotalWeight",
+          "description": "Only fire the monitor if the total weights of the alerts (based on feature weights) is greater than or equal to this value. NOT SUPPORTED YET",
+          "type": "number"
+        },
+        "maxTotalWeight": {
+          "title": "MaxTotalWeight",
+          "description": "Only fire the monitor if the total weights of the alerts (based on feature weights) is less than or equal to this value. NOT SUPPORTED YET",
+          "type": "number"
+        },
+        "minAlertCount": {
+          "title": "MinAlertCount",
+          "description": "If the total alert count is less than this value, the monitor won't fire.",
+          "type": "integer"
+        },
+        "maxAlertCount": {
+          "title": "MaxAlertCount",
+          "description": "If the total alert count is greater than this value, the monitor won't fire.",
+          "type": "integer"
+        },
+        "includeMetrics": {
+          "title": "IncludeMetrics",
+          "description": "Metrics to filter by. NOT SUPPORTED YET",
+          "maxItems": 100,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 50
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "EveryAnomalyMode": {
+      "title": "EveryAnomalyMode",
+      "description": "Config mode that indicates the monitor will send out individual messages per anomaly.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "title": "Type",
+          "enum": [
+            "EVERY_ANOMALY"
+          ],
+          "type": "string"
+        },
+        "filter": {
+          "title": "Filter",
+          "description": "Filter for anomalies",
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnomalyFilter"
+            }
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "DigestModeGrouping": {
+      "title": "DigestModeGrouping",
+      "description": "Enable the ability to group digest by various fields.",
+      "enum": [
+        "byColumn",
+        "byDataset",
+        "byAnalyzer",
+        "byDay",
+        "byHour"
+      ],
+      "type": "string"
+    },
+    "DigestMode": {
+      "title": "DigestMode",
+      "description": "Config mode that indicates the monitor will send out a digest message.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "title": "Type",
+          "enum": [
+            "DIGEST"
+          ],
+          "type": "string"
+        },
+        "filter": {
+          "title": "Filter",
+          "description": "Filter for anomalies",
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnomalyFilter"
+            }
+          ]
+        },
+        "creationTimeOffset": {
+          "title": "CreationTimeOffset",
+          "description": "Optional for Immediate digest, required for Scheduled digest. The earliest creation timestamp that we will filter by to build the digest. ISO 8601 format for timedelta.",
+          "maxLength": 20,
+          "type": "string"
+        },
+        "datasetTimestampOffset": {
+          "title": "DatasetTimestampOffset",
+          "description": "Optional for Immediate digest, required for Scheduled digest. The earliest dataset timestamp that we will filter by in the digest",
+          "maxLength": 20,
+          "type": "string"
+        },
+        "groupBy": {
+          "description": "Default is None.If this is set, we will group alerts by these groupings and emit multiple messages per group.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DigestModeGrouping"
+          },
+          "maxItems": 10
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "GlobalAction": {
+      "title": "GlobalAction",
+      "description": "Actions that are configured at the team/organization level.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "title": "Type",
+          "enum": [
+            "global"
+          ],
+          "type": "string"
+        },
+        "target": {
+          "title": "Target",
+          "description": "The unique action ID in the platform",
+          "maxLength": 100,
+          "pattern": "[a-zA-Z0-9\\-_]+",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "target"
+      ],
+      "additionalProperties": false
+    },
+    "SendEmail": {
+      "title": "SendEmail",
+      "description": "Action to send an email.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "title": "Type",
+          "enum": [
+            "email"
+          ],
+          "type": "string"
+        },
+        "target": {
+          "title": "Target",
+          "description": "Destination email",
+          "maxLength": 1000,
+          "format": "email",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "target"
+      ],
+      "additionalProperties": false
+    },
+    "SlackWebhook": {
+      "title": "SlackWebhook",
+      "description": "Action to send a Slack webhook.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "title": "Type",
+          "enum": [
+            "slack"
+          ],
+          "type": "string"
+        },
+        "target": {
+          "title": "Target",
+          "description": "The Slack webhook",
+          "minLength": 1,
+          "maxLength": 2083,
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "target"
+      ],
+      "additionalProperties": false
+    },
+    "RawWebhook": {
+      "title": "RawWebhook",
+      "description": "Action to send a Slack webhook.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "title": "Type",
+          "enum": [
+            "raw"
+          ],
+          "type": "string"
+        },
+        "target": {
+          "title": "Target",
+          "description": "Sending raw unformatted message in JSON format to a webhook",
+          "minLength": 1,
+          "maxLength": 2083,
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "target"
+      ],
+      "additionalProperties": false
+    },
+    "Monitor": {
+      "title": "Monitor",
+      "description": "Customer specified monitor configs.",
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "title": "Metadata",
+          "description": "Meta. This is to track various metadata for auditing.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/Metadata"
+            }
+          ]
+        },
+        "id": {
+          "title": "Id",
+          "description": "A human-readable alias for a monitor. Must be readable",
+          "maxLength": 128,
+          "minLength": 10,
+          "pattern": "[0-9a-zA-Z\\-_]+",
+          "type": "string"
+        },
+        "displayName": {
+          "title": "Displayname",
+          "description": "A display name for the monitor if view through WhyLabs UI. Can only contain dashes, underscores,spaces, and alphanumeric characters",
+          "maxLength": 256,
+          "minLength": 10,
+          "pattern": "[0-9a-zA-Z \\-_]+",
+          "id": "DisplayName",
+          "type": "string"
+        },
+        "tags": {
+          "title": "Tags",
+          "description": "A list of tags that are associated with the monitor.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 256,
+            "pattern": "[0-9a-zA-Z\\-_]"
+          }
+        },
+        "analyzerIds": {
+          "title": "AnalyzerIds",
+          "description": "The corresponding analyzer ID. Even though it's plural, we only support one analyzer at the moment",
+          "maxItems": 100,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_\\-]+$"
+          }
+        },
+        "schedule": {
+          "title": "Schedule",
+          "description": "Schedule of the monitor. We only support hourly monitor at the finest granularity",
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "fixed": "#/definitions/FixedCadenceSchedule",
+              "cron": "#/definitions/CronSchedule",
+              "immediate": "#/definitions/ImmediateSchedule"
+            }
+          },
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FixedCadenceSchedule"
+            },
+            {
+              "$ref": "#/definitions/CronSchedule"
+            },
+            {
+              "$ref": "#/definitions/ImmediateSchedule"
+            }
+          ]
+        },
+        "disabled": {
+          "title": "Disabled",
+          "description": "Whether the monitor is enabled or not",
+          "type": "boolean"
+        },
+        "severity": {
+          "title": "Severity",
+          "description": "The severity of the monitor messages",
+          "default": 3,
+          "type": "integer"
+        },
+        "mode": {
+          "title": "Mode",
+          "description": "Notification mode and how we might handle different analysis",
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "EVERY_ANOMALY": "#/definitions/EveryAnomalyMode",
+              "DIGEST": "#/definitions/DigestMode"
+            }
+          },
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EveryAnomalyMode"
+            },
+            {
+              "$ref": "#/definitions/DigestMode"
+            }
+          ]
+        },
+        "actions": {
+          "title": "Actions",
+          "description": "List of destination for the outgoing messages",
+          "maxItems": 100,
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/GlobalAction"
+              },
+              {
+                "$ref": "#/definitions/SendEmail"
+              },
+              {
+                "$ref": "#/definitions/SlackWebhook"
+              },
+              {
+                "$ref": "#/definitions/RawWebhook"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "analyzerIds",
+        "schedule",
+        "mode",
+        "actions"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$id": "https://gitlab.com/whylabs/core/montor-schema/-/blob/main/schema/schema.json",
+  "$version": "1.0"
+}

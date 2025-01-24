@@ -1,0 +1,37 @@
+query segmentsListingTable2($model: String!, $from: Float!, $to: Float!, $offset: Int, $limit: Int, $sort: SegmentSort, $tags: [SegmentTagFilter!]) {
+    model(id: $model) {
+        id
+        name
+        batchFrequency
+        totalSegments
+        segments(offset: $offset, limit: $limit, filter: {fromTimestamp: $from, toTimestamp: $to, tags: $tags}, sort: $sort) {
+            ...SegmentListingFields
+        }
+    }
+}
+
+fragment SegmentListingFields on Segment {
+    id
+    tags {
+        key
+        value
+    }
+    batches(from: $from, to: $to) {
+        inputCount
+        outputCount
+        timestamp
+    }
+    anomalyCounts(fromTimestamp: $from, toTimestamp: $to) {
+        totals {
+            category
+            count
+        }
+        timeseries {
+            timestamp
+            counts {
+                category
+                count
+            }
+        }
+    }
+}

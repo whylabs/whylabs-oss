@@ -1,0 +1,56 @@
+{
+  "data": {
+    "model": {
+      "segments": [
+        {
+          "tags": [
+            {
+              "key": "key1",
+              "value": "3"
+            },
+            {
+              "key": "key2",
+              "value": "one"
+            }
+          ]
+        },
+        {
+          "tags": [
+            {
+              "key": "key1",
+              "value": "3"
+            },
+            {
+              "key": "key2",
+              "value": "two"
+            }
+          ]
+        },
+        {
+          "tags": [
+            {
+              "key": "key1",
+              "value": "4"
+            },
+            {
+              "key": "key2",
+              "value": "one"
+            }
+          ]
+        },
+        {
+          "tags": [
+            {
+              "key": "key1",
+              "value": "4"
+            },
+            {
+              "key": "key2",
+              "value": "two"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

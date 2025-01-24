@@ -1,0 +1,83 @@
+{
+  "data": {
+    "model": {
+      "id": "model-11",
+      "name": "Different data types",
+      "batchFrequency": "P1D",
+      "feature": {
+        "id": "ad611875-b5b6-4b4a-bf21-8e904c7ba9a0",
+        "sketches": [
+          {
+            "id": "48f9dce4-519f-425b-b76c-6d68849afbbb",
+            "createdAt": 1728950400000,
+            "showAsDiscrete": true,
+            "frequentItems": [
+              {
+                "value": "hi",
+                "estimate": 1000
+              }
+            ]
+          },
+          {
+            "id": "708d0edd-8da7-4843-b83e-7e2307a192fd",
+            "createdAt": 1729036800000,
+            "showAsDiscrete": true,
+            "frequentItems": [
+              {
+                "value": "hi",
+                "estimate": 1000
+              }
+            ]
+          },
+          {
+            "id": "b85b1f39-a6d5-4a45-bc90-a2a489ac8861",
+            "createdAt": 1729123200000,
+            "showAsDiscrete": true,
+            "frequentItems": [
+              {
+                "value": "10",
+                "estimate": 1000
+              }
+            ]
+          },
+          {
+            "id": "9b26e706-6a40-4eff-8c57-477fbac95dc3",
+            "createdAt": 1729209600000,
+            "showAsDiscrete": true,
+            "frequentItems": [
+              {
+                "value": "10",
+                "estimate": 1000
+              }
+            ]
+          },
+          {
+            "id": "9455a713-7b52-48a4-b299-5a3ebada7b5b",
+            "createdAt": 1729296000000,
+            "showAsDiscrete": true,
+            "frequentItems": [
+              {
+                "value": "10",
+                "estimate": 1000
+              }
+            ]
+          },
+          {
+            "id": "3e05e3fe-46b3-4739-aead-2865d607b753",
+            "createdAt": 1729382400000,
+            "showAsDiscrete": true,
+            "frequentItems": [
+              {
+                "value": "10",
+                "estimate": 1000
+              }
+            ]
+          }
+        ],
+        "baselineSketch": {
+          "showAsDiscrete": true
+        }
+      }
+    }
+  }
+}

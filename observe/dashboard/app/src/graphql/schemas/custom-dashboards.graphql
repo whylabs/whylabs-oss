@@ -1,0 +1,8 @@
+type CustomDashboard {
+  displayName: String!
+  id: String!
+}
+
+extend type Query {
+  customDashboards(usedOn: String!): [CustomDashboard!] @auth
+}

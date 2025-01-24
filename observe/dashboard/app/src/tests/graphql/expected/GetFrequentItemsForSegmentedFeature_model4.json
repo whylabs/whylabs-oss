@@ -1,0 +1,86 @@
+{
+  "data": {
+    "model": {
+      "id": "model-4",
+      "name": "Segmented dataset",
+      "batchFrequency": "P1D",
+      "segment": {
+        "id": "085febd7-acc9-4689-96e7-51da3594d2d8",
+        "feature": {
+          "id": "321ce943-6a41-41ca-8292-b7c4983c227c",
+          "sketches": [
+            {
+              "id": "1a38f921-cf04-4813-a7eb-78b947bb47ea",
+              "createdAt": 1728950400000,
+              "showAsDiscrete": true,
+              "frequentItems": [
+                {
+                  "value": "a",
+                  "estimate": 1000
+                }
+              ]
+            },
+            {
+              "id": "f3c179bc-aa55-48cf-be2d-32c6eafcfa74",
+              "createdAt": 1729036800000,
+              "showAsDiscrete": true,
+              "frequentItems": [
+                {
+                  "value": "a",
+                  "estimate": 1000
+                }
+              ]
+            },
+            {
+              "id": "4bde712a-59c1-4997-b03d-8197265dbdb0",
+              "createdAt": 1729123200000,
+              "showAsDiscrete": true,
+              "frequentItems": [
+                {
+                  "value": "a",
+                  "estimate": 1000
+                }
+              ]
+            },
+            {
+              "id": "883a937f-fda5-4196-a30e-145c4850abca",
+              "createdAt": 1729209600000,
+              "showAsDiscrete": true,
+              "frequentItems": [
+                {
+                  "value": "a",
+                  "estimate": 1000
+                }
+              ]
+            },
+            {
+              "id": "7f9e15d5-86df-40f0-9b4f-0ad59426d709",
+              "createdAt": 1729296000000,
+              "showAsDiscrete": true,
+              "frequentItems": [
+                {
+                  "value": "a",
+                  "estimate": 1000
+                }
+              ]
+            },
+            {
+              "id": "563109d6-a49e-4f0d-b9d6-9e7530346ecf",
+              "createdAt": 1729382400000,
+              "showAsDiscrete": true,
+              "frequentItems": [
+                {
+                  "value": "a",
+                  "estimate": 1000
+                }
+              ]
+            }
+          ],
+          "baselineSketch": {
+            "showAsDiscrete": true
+          }
+        }
+      }
+    }
+  }
+}

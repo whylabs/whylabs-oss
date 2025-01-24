@@ -1,0 +1,1104 @@
+{
+  "$defs": {
+    "ActionOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "block_message": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Block Message"
+        }
+      },
+      "title": "ActionOptions",
+      "type": "object"
+    },
+    "BadActorsRuleSet": {
+      "additionalProperties": false,
+      "properties": {
+        "ruleset": {
+          "const": "score.bad_actors",
+          "default": "score.bad_actors",
+          "title": "Ruleset"
+        },
+        "options": {
+          "$ref": "#/$defs/BadActorsRuleSetOptions"
+        }
+      },
+      "required": [
+        "options"
+      ],
+      "title": "BadActorsRuleSet",
+      "type": "object"
+    },
+    "BadActorsRuleSetOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "behavior": {
+          "enum": [
+            "observe",
+            "flag",
+            "block"
+          ],
+          "title": "Behavior",
+          "type": "string"
+        },
+        "sensitivity": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ],
+          "title": "Sensitivity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "behavior",
+        "sensitivity"
+      ],
+      "title": "BadActorsRuleSetOptions",
+      "type": "object"
+    },
+    "CallbackOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "callback": {
+          "title": "Callback",
+          "type": "string"
+        },
+        "options": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Options"
+        }
+      },
+      "required": [
+        "callback"
+      ],
+      "title": "CallbackOptions",
+      "type": "object"
+    },
+    "ConstraintValidatorOptions": {
+      "properties": {
+        "target_metric": {
+          "title": "Target Metric",
+          "type": "string"
+        },
+        "upper_threshold": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Upper Threshold"
+        },
+        "upper_threshold_inclusive": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Upper Threshold Inclusive"
+        },
+        "lower_threshold": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Lower Threshold"
+        },
+        "lower_threshold_inclusive": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Lower Threshold Inclusive"
+        },
+        "one_of": {
+          "anyOf": [
+            {
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "One Of"
+        },
+        "none_of": {
+          "anyOf": [
+            {
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "None Of"
+        },
+        "must_be_non_none": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Must Be Non None"
+        },
+        "must_be_none": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Must Be None"
+        }
+      },
+      "required": [
+        "target_metric"
+      ],
+      "title": "ConstraintValidatorOptions",
+      "type": "object"
+    },
+    "CostRuleSet": {
+      "additionalProperties": false,
+      "properties": {
+        "ruleset": {
+          "const": "score.cost",
+          "default": "score.cost",
+          "title": "Ruleset"
+        },
+        "options": {
+          "$ref": "#/$defs/CostRuleSetOptions"
+        }
+      },
+      "required": [
+        "options"
+      ],
+      "title": "CostRuleSet",
+      "type": "object"
+    },
+    "CostRuleSetOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "behavior": {
+          "enum": [
+            "observe",
+            "flag",
+            "block"
+          ],
+          "title": "Behavior",
+          "type": "string"
+        },
+        "sensitivity": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ],
+          "title": "Sensitivity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "behavior",
+        "sensitivity"
+      ],
+      "title": "CostRuleSetOptions",
+      "type": "object"
+    },
+    "CustomerExperienceRuleSet": {
+      "additionalProperties": false,
+      "properties": {
+        "ruleset": {
+          "const": "score.customer_experience",
+          "default": "score.customer_experience",
+          "title": "Ruleset"
+        },
+        "options": {
+          "$ref": "#/$defs/CustomerExperienceRuleSetOptions"
+        }
+      },
+      "required": [
+        "options"
+      ],
+      "title": "CustomerExperienceRuleSet",
+      "type": "object"
+    },
+    "CustomerExperienceRuleSetOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "behavior": {
+          "enum": [
+            "observe",
+            "flag",
+            "block"
+          ],
+          "title": "Behavior",
+          "type": "string"
+        },
+        "sensitivity": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ],
+          "title": "Sensitivity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "behavior",
+        "sensitivity"
+      ],
+      "title": "CustomerExperienceRuleSetOptions",
+      "type": "object"
+    },
+    "LangkitMetric": {
+      "additionalProperties": false,
+      "properties": {
+        "metric": {
+          "title": "Metric",
+          "type": "string"
+        },
+        "profile": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": true,
+          "title": "Profile"
+        },
+        "options": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "items": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "boolean"
+                        }
+                      ]
+                    },
+                    "type": "array"
+                  }
+                ]
+              },
+              "type": "object"
+            },
+            {
+              "additionalProperties": {
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "items": {
+                        "anyOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "boolean"
+                          }
+                        ]
+                      },
+                      "type": "array"
+                    }
+                  ]
+                },
+                "type": "object"
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Options"
+        },
+        "validation": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ValidationOptions"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "metric"
+      ],
+      "title": "LangkitMetric",
+      "type": "object"
+    },
+    "MisuseRuleSet": {
+      "additionalProperties": false,
+      "properties": {
+        "ruleset": {
+          "const": "score.misuse",
+          "default": "score.misuse",
+          "title": "Ruleset"
+        },
+        "options": {
+          "$ref": "#/$defs/MisuseRuleSetOptions"
+        }
+      },
+      "required": [
+        "options"
+      ],
+      "title": "MisuseRuleSet",
+      "type": "object"
+    },
+    "MisuseRuleSetOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "behavior": {
+          "enum": [
+            "observe",
+            "flag",
+            "block"
+          ],
+          "title": "Behavior",
+          "type": "string"
+        },
+        "sensitivity": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ],
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "topics": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Topics",
+          "type": "array"
+        }
+      },
+      "required": [
+        "behavior",
+        "sensitivity",
+        "topics"
+      ],
+      "title": "MisuseRuleSetOptions",
+      "type": "object"
+    },
+    "MultiColumnConstraintValidatorOptions": {
+      "properties": {
+        "constraints": {
+          "items": {
+            "$ref": "#/$defs/ConstraintValidatorOptions"
+          },
+          "title": "Constraints",
+          "type": "array"
+        },
+        "operator": {
+          "default": "AND",
+          "enum": [
+            "AND",
+            "OR"
+          ],
+          "title": "Operator",
+          "type": "string"
+        },
+        "report_mode": {
+          "default": "FIRST_FAILED_METRIC",
+          "enum": [
+            "ALL_FAILED_METRICS",
+            "FIRST_FAILED_METRIC"
+          ],
+          "title": "Report Mode",
+          "type": "string"
+        }
+      },
+      "required": [
+        "constraints"
+      ],
+      "title": "MultiColumnConstraintValidatorOptions",
+      "type": "object"
+    },
+    "PromptBadActorsRuleSet": {
+      "additionalProperties": false,
+      "properties": {
+        "ruleset": {
+          "const": "prompt.score.bad_actors",
+          "title": "Ruleset"
+        },
+        "options": {
+          "$ref": "#/$defs/BadActorsRuleSetOptions"
+        }
+      },
+      "required": [
+        "ruleset",
+        "options"
+      ],
+      "title": "PromptBadActorsRuleSet",
+      "type": "object"
+    },
+    "PromptCostRuleSet": {
+      "additionalProperties": false,
+      "properties": {
+        "ruleset": {
+          "const": "prompt.score.cost",
+          "title": "Ruleset"
+        },
+        "options": {
+          "$ref": "#/$defs/CostRuleSetOptions"
+        }
+      },
+      "required": [
+        "ruleset",
+        "options"
+      ],
+      "title": "PromptCostRuleSet",
+      "type": "object"
+    },
+    "PromptCustomerExperienceRuleSet": {
+      "additionalProperties": false,
+      "properties": {
+        "ruleset": {
+          "const": "prompt.score.customer_experience",
+          "default": "prompt.score.customer_experience",
+          "title": "Ruleset"
+        },
+        "options": {
+          "$ref": "#/$defs/CustomerExperienceRuleSetOptions"
+        }
+      },
+      "required": [
+        "options"
+      ],
+      "title": "PromptCustomerExperienceRuleSet",
+      "type": "object"
+    },
+    "PromptMisuseRuleSet": {
+      "additionalProperties": false,
+      "properties": {
+        "ruleset": {
+          "const": "prompt.score.misuse",
+          "title": "Ruleset"
+        },
+        "options": {
+          "$ref": "#/$defs/MisuseRuleSetOptions"
+        }
+      },
+      "required": [
+        "ruleset",
+        "options"
+      ],
+      "title": "PromptMisuseRuleSet",
+      "type": "object"
+    },
+    "PromptTruthfulnessRuleSet": {
+      "additionalProperties": false,
+      "properties": {
+        "ruleset": {
+          "const": "prompt.score.truthfulness",
+          "title": "Ruleset"
+        },
+        "options": {
+          "$ref": "#/$defs/TruthfulnessRuleSetOptions"
+        }
+      },
+      "required": [
+        "ruleset",
+        "options"
+      ],
+      "title": "PromptTruthfulnessRuleSet",
+      "type": "object"
+    },
+    "ResponseBadActorsRuleSet": {
+      "additionalProperties": false,
+      "properties": {
+        "ruleset": {
+          "const": "response.score.bad_actors",
+          "title": "Ruleset"
+        },
+        "options": {
+          "$ref": "#/$defs/BadActorsRuleSetOptions"
+        }
+      },
+      "required": [
+        "ruleset",
+        "options"
+      ],
+      "title": "ResponseBadActorsRuleSet",
+      "type": "object"
+    },
+    "ResponseCostRuleSet": {
+      "additionalProperties": false,
+      "properties": {
+        "ruleset": {
+          "const": "response.score.cost",
+          "title": "Ruleset"
+        },
+        "options": {
+          "$ref": "#/$defs/CostRuleSetOptions"
+        }
+      },
+      "required": [
+        "ruleset",
+        "options"
+      ],
+      "title": "ResponseCostRuleSet",
+      "type": "object"
+    },
+    "ResponseCustomerExperienceRuleSet": {
+      "additionalProperties": false,
+      "properties": {
+        "ruleset": {
+          "const": "response.score.customer_experience",
+          "default": "response.score.customer_experience",
+          "title": "Ruleset"
+        },
+        "options": {
+          "$ref": "#/$defs/CustomerExperienceRuleSetOptions"
+        }
+      },
+      "required": [
+        "options"
+      ],
+      "title": "ResponseCustomerExperienceRuleSet",
+      "type": "object"
+    },
+    "ResponseMisuseRuleSet": {
+      "additionalProperties": false,
+      "properties": {
+        "ruleset": {
+          "const": "response.score.misuse",
+          "title": "Ruleset"
+        },
+        "options": {
+          "$ref": "#/$defs/MisuseRuleSetOptions"
+        }
+      },
+      "required": [
+        "ruleset",
+        "options"
+      ],
+      "title": "ResponseMisuseRuleSet",
+      "type": "object"
+    },
+    "ResponseTruthfulnessRuleSet": {
+      "additionalProperties": false,
+      "properties": {
+        "ruleset": {
+          "const": "response.score.truthfulness",
+          "title": "Ruleset"
+        },
+        "options": {
+          "$ref": "#/$defs/TruthfulnessRuleSetOptions"
+        }
+      },
+      "required": [
+        "ruleset",
+        "options"
+      ],
+      "title": "ResponseTruthfulnessRuleSet",
+      "type": "object"
+    },
+    "TruthfulnessRuleSet": {
+      "additionalProperties": false,
+      "properties": {
+        "ruleset": {
+          "const": "score.truthfulness",
+          "default": "score.truthfulness",
+          "title": "Ruleset"
+        },
+        "options": {
+          "$ref": "#/$defs/TruthfulnessRuleSetOptions"
+        }
+      },
+      "required": [
+        "options"
+      ],
+      "title": "TruthfulnessRuleSet",
+      "type": "object"
+    },
+    "TruthfulnessRuleSetOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "behavior": {
+          "enum": [
+            "observe",
+            "flag",
+            "block"
+          ],
+          "title": "Behavior",
+          "type": "string"
+        },
+        "sensitivity": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ],
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "rag_enabled": {
+          "title": "Rag Enabled",
+          "type": "boolean"
+        },
+        "hallucinations_enabled": {
+          "title": "Hallucinations Enabled",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "behavior",
+        "sensitivity",
+        "rag_enabled",
+        "hallucinations_enabled"
+      ],
+      "title": "TruthfulnessRuleSetOptions",
+      "type": "object"
+    },
+    "ValidationOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "upper_threshold": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Upper Threshold"
+        },
+        "upper_threshold_inclusive": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Upper Threshold Inclusive"
+        },
+        "lower_threshold": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Lower Threshold"
+        },
+        "lower_threshold_inclusive": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Lower Threshold Inclusive"
+        },
+        "one_of": {
+          "anyOf": [
+            {
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "One Of"
+        },
+        "none_of": {
+          "anyOf": [
+            {
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "None Of"
+        },
+        "must_be_non_none": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Must Be Non None"
+        },
+        "must_be_none": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Must Be None"
+        }
+      },
+      "title": "ValidationOptions",
+      "type": "object"
+    },
+    "ValidatorOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "validator": {
+          "enum": [
+            "constraint",
+            "multi_column_constraint",
+            "presets.recommended"
+          ],
+          "title": "Validator",
+          "type": "string"
+        },
+        "options": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ConstraintValidatorOptions"
+            },
+            {
+              "$ref": "#/$defs/MultiColumnConstraintValidatorOptions"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Options"
+        }
+      },
+      "required": [
+        "validator"
+      ],
+      "title": "ValidatorOptions",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "whylabs_dataset_id": {
+      "title": "Whylabs Dataset Id",
+      "type": "string"
+    },
+    "org_id": {
+      "title": "Whylabs Organization Id",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "policy_version": {
+      "title": "Policy Version",
+      "type": "integer"
+    },
+    "schema_version": {
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "metrics": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/$defs/LangkitMetric"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Metrics"
+    },
+    "callbacks": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/$defs/CallbackOptions"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Callbacks"
+    },
+    "validators": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/$defs/ValidatorOptions"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Validators"
+    },
+    "rulesets": {
+      "anyOf": [
+        {
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/MisuseRuleSet"
+              },
+              {
+                "$ref": "#/$defs/BadActorsRuleSet"
+              },
+              {
+                "$ref": "#/$defs/CustomerExperienceRuleSet"
+              },
+              {
+                "$ref": "#/$defs/TruthfulnessRuleSet"
+              },
+              {
+                "$ref": "#/$defs/CostRuleSet"
+              },
+              {
+                "$ref": "#/$defs/PromptMisuseRuleSet"
+              },
+              {
+                "$ref": "#/$defs/PromptBadActorsRuleSet"
+              },
+              {
+                "$ref": "#/$defs/PromptCustomerExperienceRuleSet"
+              },
+              {
+                "$ref": "#/$defs/PromptTruthfulnessRuleSet"
+              },
+              {
+                "$ref": "#/$defs/PromptCostRuleSet"
+              },
+              {
+                "$ref": "#/$defs/ResponseMisuseRuleSet"
+              },
+              {
+                "$ref": "#/$defs/ResponseBadActorsRuleSet"
+              },
+              {
+                "$ref": "#/$defs/ResponseCustomerExperienceRuleSet"
+              },
+              {
+                "$ref": "#/$defs/ResponseTruthfulnessRuleSet"
+              },
+              {
+                "$ref": "#/$defs/ResponseCostRuleSet"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Rulesets"
+    },
+    "actions": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ActionOptions"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "whylabs_dataset_id",
+    "id",
+    "policy_version"
+  ],
+  "title": "Policy",
+  "type": "object"
+}

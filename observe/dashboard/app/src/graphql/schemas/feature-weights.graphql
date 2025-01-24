@@ -1,0 +1,42 @@
+type FeatureWeight {
+  """
+  Feature's rank by weight, if known.
+  """
+  rank: Int
+
+  """
+  Current feature weight, if provided.
+  """
+  value: Float
+}
+
+extend type Feature {
+  """
+  Metadata about the feature's weight/importance.
+  """
+  weight: FeatureWeight
+}
+
+"""
+Information about the weights that were uploaded for the given model
+"""
+type ModelWeightMetadata {
+  """
+  Returns true if any weights have been uploaded for this dataset (in any segment).
+  """
+  hasWeights: Boolean!
+
+  """
+  Timestamp in UTC millis of when the weights were last updated
+  """
+  lastUpdatedAt: Float
+}
+
+extend type Model {
+  """
+  Returns true if any weights have been uploaded for this dataset (in any segment).
+  """
+  hasWeights: Boolean @deprecated(reason: "use model > weightMetadata > hasWeights instead")
+
+  weightMetadata: ModelWeightMetadata
+}

@@ -1,0 +1,1 @@
+alter table whylabs.profile_upload_audit add column deleted boolean default false;

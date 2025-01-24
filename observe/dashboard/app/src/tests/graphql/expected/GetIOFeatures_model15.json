@@ -1,0 +1,57 @@
+{
+  "data": {
+    "model": {
+      "hasWeights": false,
+      "features": [
+        {
+          "id": "8fc79e33-fd5c-46a9-8c75-70ae807f0c39",
+          "weight": null,
+          "name": "age",
+          "baselineSketch": {
+            "showAsDiscrete": true
+          }
+        },
+        {
+          "id": "1e4ed230-0645-4bb0-912f-7c7850a41b01",
+          "weight": null,
+          "name": "gender",
+          "baselineSketch": {
+            "showAsDiscrete": true
+          }
+        },
+        {
+          "id": "ea3ce8e3-6000-4c05-99b2-b6f573d46ea7",
+          "weight": null,
+          "name": "hasjob",
+          "baselineSketch": {
+            "showAsDiscrete": true
+          }
+        },
+        {
+          "id": "6e1b2263-37b2-437c-932e-aa5a38c151e2",
+          "weight": null,
+          "name": "loc",
+          "baselineSketch": {
+            "showAsDiscrete": true
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "de905ecf-ded9-4dec-a2fb-c7a5e3fd9bd8",
+          "name": "output_prediction",
+          "baselineSketch": {
+            "showAsDiscrete": true
+          }
+        },
+        {
+          "id": "618d9b5e-0529-4b61-8ddd-2c5b04807ed9",
+          "name": "output_target",
+          "baselineSketch": {
+            "showAsDiscrete": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+query marketplaceMetadata {
+  user {
+    organization {
+      isAWSMarketplace
+      awsMarketplaceMetadata {
+        awsMarketplaceProductCode
+        dimension
+        expirationTime
+        expirationUpdateTime
+      }
+    }
+  }
+}

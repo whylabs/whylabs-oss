@@ -1,0 +1,1050 @@
+{
+  "data": {
+    "model": {
+      "batchFrequency": "P1D",
+      "segment": {
+        "filteredFeatures": {
+          "totalCount": 4,
+          "results": [
+            {
+              "name": "float",
+              "id": "1af86f01-247a-493e-8a38-3d0440c34b2d",
+              "alertCounts": null,
+              "alertCountsV2": {
+                "totals": [],
+                "timeseries": []
+              },
+              "anomalyCounts": {
+                "totals": [],
+                "timeseries": []
+              },
+              "events": [],
+              "sketches": [
+                {
+                  "createdAt": 1728950400000,
+                  "schemaSummary": {
+                    "inference": {
+                      "count": 1000
+                    },
+                    "typeCounts": [
+                      {
+                        "type": "FRACTION",
+                        "count": 1000
+                      },
+                      {
+                        "type": "UNKNOWN",
+                        "count": 0
+                      },
+                      {
+                        "type": "NULL",
+                        "count": 0
+                      },
+                      {
+                        "type": "INTEGER",
+                        "count": 0
+                      },
+                      {
+                        "type": "BOOLEAN",
+                        "count": 0
+                      },
+                      {
+                        "type": "TEXT",
+                        "count": 0
+                      }
+                    ]
+                  },
+                  "totalCount": 1000,
+                  "nullRatio": 0,
+                  "uniqueCount": {
+                    "estimate": 1
+                  }
+                },
+                {
+                  "createdAt": 1729036800000,
+                  "schemaSummary": {
+                    "inference": {
+                      "count": 1000
+                    },
+                    "typeCounts": [
+                      {
+                        "type": "FRACTION",
+                        "count": 1000
+                      },
+                      {
+                        "type": "UNKNOWN",
+                        "count": 0
+                      },
+                      {
+                        "type": "NULL",
+                        "count": 0
+                      },
+                      {
+                        "type": "INTEGER",
+                        "count": 0
+                      },
+                      {
+                        "type": "BOOLEAN",
+                        "count": 0
+                      },
+                      {
+                        "type": "TEXT",
+                        "count": 0
+                      }
+                    ]
+                  },
+                  "totalCount": 1000,
+                  "nullRatio": 0,
+                  "uniqueCount": {
+                    "estimate": 1
+                  }
+                },
+                {
+                  "createdAt": 1729123200000,
+                  "schemaSummary": {
+                    "inference": {
+                      "count": 1000
+                    },
+                    "typeCounts": [
+                      {
+                        "type": "FRACTION",
+                        "count": 1000
+                      },
+                      {
+                        "type": "UNKNOWN",
+                        "count": 0
+                      },
+                      {
+                        "type": "NULL",
+                        "count": 0
+                      },
+                      {
+                        "type": "INTEGER",
+                        "count": 0
+                      },
+                      {
+                        "type": "BOOLEAN",
+                        "count": 0
+                      },
+                      {
+                        "type": "TEXT",
+                        "count": 0
+                      }
+                    ]
+                  },
+                  "totalCount": 1000,
+                  "nullRatio": 0,
+                  "uniqueCount": {
+                    "estimate": 1
+                  }
+                },
+                {
+                  "createdAt": 1729209600000,
+                  "schemaSummary": {
+                    "inference": {
+                      "count": 1000
+                    },
+                    "typeCounts": [
+                      {
+                        "type": "FRACTION",
+                        "count": 1000
+                      },
+                      {
+                        "type": "UNKNOWN",
+                        "count": 0
+                      },
+                      {
+                        "type": "NULL",
+                        "count": 0
+                      },
+                      {
+                        "type": "INTEGER",
+                        "count": 0
+                      },
+                      {
+                        "type": "BOOLEAN",
+                        "count": 0
+                      },
+                      {
+                        "type": "TEXT",
+                        "count": 0
+                      }
+                    ]
+                  },
+                  "totalCount": 1000,
+                  "nullRatio": 0,
+                  "uniqueCount": {
+                    "estimate": 1
+                  }
+                },
+                {
+                  "createdAt": 1729296000000,
+                  "schemaSummary": {
+                    "inference": {
+                      "count": 1000
+                    },
+                    "typeCounts": [
+                      {
+                        "type": "FRACTION",
+                        "count": 1000
+                      },
+                      {
+                        "type": "UNKNOWN",
+                        "count": 0
+                      },
+                      {
+                        "type": "NULL",
+                        "count": 0
+                      },
+                      {
+                        "type": "INTEGER",
+                        "count": 0
+                      },
+                      {
+                        "type": "BOOLEAN",
+                        "count": 0
+                      },
+                      {
+                        "type": "TEXT",
+                        "count": 0
+                      }
+                    ]
+                  },
+                  "totalCount": 1000,
+                  "nullRatio": 0,
+                  "uniqueCount": {
+                    "estimate": 1
+                  }
+                },
+                {
+                  "createdAt": 1729382400000,
+                  "schemaSummary": {
+                    "inference": {
+                      "count": 1000
+                    },
+                    "typeCounts": [
+                      {
+                        "type": "FRACTION",
+                        "count": 1000
+                      },
+                      {
+                        "type": "UNKNOWN",
+                        "count": 0
+                      },
+                      {
+                        "type": "NULL",
+                        "count": 0
+                      },
+                      {
+                        "type": "INTEGER",
+                        "count": 0
+                      },
+                      {
+                        "type": "BOOLEAN",
+                        "count": 0
+                      },
+                      {
+                        "type": "TEXT",
+                        "count": 0
+                      }
+                    ]
+                  },
+                  "totalCount": 1000,
+                  "nullRatio": 0,
+                  "uniqueCount": {
+                    "estimate": 1
+                  }
+                }
+              ],
+              "baselineSketch": {
+                "showAsDiscrete": false,
+                "schemaSummary": {
+                  "inference": {
+                    "type": "FRACTION"
+                  }
+                }
+              },
+              "alerts": []
+            },
+            {
+              "name": "key1",
+              "id": "81b2f8b4-b20d-4e24-91c3-ea3d99dfd07e",
+              "alertCounts": null,
+              "alertCountsV2": {
+                "totals": [],
+                "timeseries": []
+              },
+              "anomalyCounts": {
+                "totals": [],
+                "timeseries": []
+              },
+              "events": [],
+              "sketches": [
+                {
+                  "createdAt": 1728950400000,
+                  "schemaSummary": {
+                    "inference": {
+                      "count": 1000
+                    },
+                    "typeCounts": [
+                      {
+                        "type": "INTEGER",
+                        "count": 1000
+                      },
+                      {
+                        "type": "UNKNOWN",
+                        "count": 0
+                      },
+                      {
+                        "type": "NULL",
+                        "count": 0
+                      },
+                      {
+                        "type": "FRACTION",
+                        "count": 0
+                      },
+                      {
+                        "type": "BOOLEAN",
+                        "count": 0
+                      },
+                      {
+                        "type": "TEXT",
+                        "count": 0
+                      }
+                    ]
+                  },
+                  "totalCount": 1000,
+                  "nullRatio": 0,
+                  "uniqueCount": {
+                    "estimate": 1
+                  }
+                },
+                {
+                  "createdAt": 1729036800000,
+                  "schemaSummary": {
+                    "inference": {
+                      "count": 1000
+                    },
+                    "typeCounts": [
+                      {
+                        "type": "INTEGER",
+                        "count": 1000
+                      },
+                      {
+                        "type": "UNKNOWN",
+                        "count": 0
+                      },
+                      {
+                        "type": "NULL",
+                        "count": 0
+                      },
+                      {
+                        "type": "FRACTION",
+                        "count": 0
+                      },
+                      {
+                        "type": "BOOLEAN",
+                        "count": 0
+                      },
+                      {
+                        "type": "TEXT",
+                        "count": 0
+                      }
+                    ]
+                  },
+                  "totalCount": 1000,
+                  "nullRatio": 0,
+                  "uniqueCount": {
+                    "estimate": 1
+                  }
+                },
+                {
+                  "createdAt": 1729123200000,
+                  "schemaSummary": {
+                    "inference": {
+                      "count": 1000
+                    },
+                    "typeCounts": [
+                      {
+                        "type": "INTEGER",
+                        "count": 1000
+                      },
+                      {
+                        "type": "UNKNOWN",
+                        "count": 0
+                      },
+                      {
+                        "type": "NULL",
+                        "count": 0
+                      },
+                      {
+                        "type": "FRACTION",
+                        "count": 0
+                      },
+                      {
+                        "type": "BOOLEAN",
+                        "count": 0
+                      },
+                      {
+                        "type": "TEXT",
+                        "count": 0
+                      }
+                    ]
+                  },
+                  "totalCount": 1000,
+                  "nullRatio": 0,
+                  "uniqueCount": {
+                    "estimate": 1
+                  }
+                },
+                {
+                  "createdAt": 1729209600000,
+                  "schemaSummary": {
+                    "inference": {
+                      "count": 1000
+                    },
+                    "typeCounts": [
+                      {
+                        "type": "INTEGER",
+                        "count": 1000
+                      },
+                      {
+                        "type": "UNKNOWN",
+                        "count": 0
+                      },
+                      {
+                        "type": "NULL",
+                        "count": 0
+                      },
+                      {
+                        "type": "FRACTION",
+                        "count": 0
+                      },
+                      {
+                        "type": "BOOLEAN",
+                        "count": 0
+                      },
+                      {
+                        "type": "TEXT",
+                        "count": 0
+                      }
+                    ]
+                  },
+                  "totalCount": 1000,
+                  "nullRatio": 0,
+                  "uniqueCount": {
+                    "estimate": 1
+                  }
+                },
+                {
+                  "createdAt": 1729296000000,
+                  "schemaSummary": {
+                    "inference": {
+                      "count": 1000
+                    },
+                    "typeCounts": [
+                      {
+                        "type": "INTEGER",
+                        "count": 1000
+                      },
+                      {
+                        "type": "UNKNOWN",
+                        "count": 0
+                      },
+                      {
+                        "type": "NULL",
+                        "count": 0
+                      },
+                      {
+                        "type": "FRACTION",
+                        "count": 0
+                      },
+                      {
+                        "type": "BOOLEAN",
+                        "count": 0
+                      },
+                      {
+                        "type": "TEXT",
+                        "count": 0
+                      }
+                    ]
+                  },
+                  "totalCount": 1000,
+                  "nullRatio": 0,
+                  "uniqueCount": {
+                    "estimate": 1
+                  }
+                },
+                {
+                  "createdAt": 1729382400000,
+                  "schemaSummary": {
+                    "inference": {
+                      "count": 1000
+                    },
+                    "typeCounts": [
+                      {
+                        "type": "INTEGER",
+                        "count": 1000
+                      },
+                      {
+                        "type": "UNKNOWN",
+                        "count": 0
+                      },
+                      {
+                        "type": "NULL",
+                        "count": 0
+                      },
+                      {
+                        "type": "FRACTION",
+                        "count": 0
+                      },
+                      {
+                        "type": "BOOLEAN",
+                        "count": 0
+                      },
+                      {
+                        "type": "TEXT",
+                        "count": 0
+                      }
+                    ]
+                  },
+                  "totalCount": 1000,
+                  "nullRatio": 0,
+                  "uniqueCount": {
+                    "estimate": 1
+                  }
+                }
+              ],
+              "baselineSketch": {
+                "showAsDiscrete": true,
+                "schemaSummary": {
+                  "inference": {
+                    "type": "INTEGER"
+                  }
+                }
+              },
+              "alerts": []
+            },
+            {
+              "name": "key2",
+              "id": "41382d04-b380-425c-ac4b-cc0b1f71d683",
+              "alertCounts": null,
+              "alertCountsV2": {
+                "totals": [],
+                "timeseries": []
+              },
+              "anomalyCounts": {
+                "totals": [],
+                "timeseries": []
+              },
+              "events": [],
+              "sketches": [
+                {
+                  "createdAt": 1728950400000,
+                  "schemaSummary": {
+                    "inference": {
+                      "count": 1000
+                    },
+                    "typeCounts": [
+                      {
+                        "type": "TEXT",
+                        "count": 1000
+                      },
+                      {
+                        "type": "UNKNOWN",
+                        "count": 0
+                      },
+                      {
+                        "type": "NULL",
+                        "count": 0
+                      },
+                      {
+                        "type": "FRACTION",
+                        "count": 0
+                      },
+                      {
+                        "type": "INTEGER",
+                        "count": 0
+                      },
+                      {
+                        "type": "BOOLEAN",
+                        "count": 0
+                      }
+                    ]
+                  },
+                  "totalCount": 1000,
+                  "nullRatio": 0,
+                  "uniqueCount": {
+                    "estimate": 1
+                  }
+                },
+                {
+                  "createdAt": 1729036800000,
+                  "schemaSummary": {
+                    "inference": {
+                      "count": 1000
+                    },
+                    "typeCounts": [
+                      {
+                        "type": "TEXT",
+                        "count": 1000
+                      },
+                      {
+                        "type": "UNKNOWN",
+                        "count": 0
+                      },
+                      {
+                        "type": "NULL",
+                        "count": 0
+                      },
+                      {
+                        "type": "FRACTION",
+                        "count": 0
+                      },
+                      {
+                        "type": "INTEGER",
+                        "count": 0
+                      },
+                      {
+                        "type": "BOOLEAN",
+                        "count": 0
+                      }
+                    ]
+                  },
+                  "totalCount": 1000,
+                  "nullRatio": 0,
+                  "uniqueCount": {
+                    "estimate": 1
+                  }
+                },
+                {
+                  "createdAt": 1729123200000,
+                  "schemaSummary": {
+                    "inference": {
+                      "count": 1000
+                    },
+                    "typeCounts": [
+                      {
+                        "type": "TEXT",
+                        "count": 1000
+                      },
+                      {
+                        "type": "UNKNOWN",
+                        "count": 0
+                      },
+                      {
+                        "type": "NULL",
+                        "count": 0
+                      },
+                      {
+                        "type": "FRACTION",
+                        "count": 0
+                      },
+                      {
+                        "type": "INTEGER",
+                        "count": 0
+                      },
+                      {
+                        "type": "BOOLEAN",
+                        "count": 0
+                      }
+                    ]
+                  },
+                  "totalCount": 1000,
+                  "nullRatio": 0,
+                  "uniqueCount": {
+                    "estimate": 1
+                  }
+                },
+                {
+                  "createdAt": 1729209600000,
+                  "schemaSummary": {
+                    "inference": {
+                      "count": 1000
+                    },
+                    "typeCounts": [
+                      {
+                        "type": "TEXT",
+                        "count": 1000
+                      },
+                      {
+                        "type": "UNKNOWN",
+                        "count": 0
+                      },
+                      {
+                        "type": "NULL",
+                        "count": 0
+                      },
+                      {
+                        "type": "FRACTION",
+                        "count": 0
+                      },
+                      {
+                        "type": "INTEGER",
+                        "count": 0
+                      },
+                      {
+                        "type": "BOOLEAN",
+                        "count": 0
+                      }
+                    ]
+                  },
+                  "totalCount": 1000,
+                  "nullRatio": 0,
+                  "uniqueCount": {
+                    "estimate": 1
+                  }
+                },
+                {
+                  "createdAt": 1729296000000,
+                  "schemaSummary": {
+                    "inference": {
+                      "count": 1000
+                    },
+                    "typeCounts": [
+                      {
+                        "type": "TEXT",
+                        "count": 1000
+                      },
+                      {
+                        "type": "UNKNOWN",
+                        "count": 0
+                      },
+                      {
+                        "type": "NULL",
+                        "count": 0
+                      },
+                      {
+                        "type": "FRACTION",
+                        "count": 0
+                      },
+                      {
+                        "type": "INTEGER",
+                        "count": 0
+                      },
+                      {
+                        "type": "BOOLEAN",
+                        "count": 0
+                      }
+                    ]
+                  },
+                  "totalCount": 1000,
+                  "nullRatio": 0,
+                  "uniqueCount": {
+                    "estimate": 1
+                  }
+                },
+                {
+                  "createdAt": 1729382400000,
+                  "schemaSummary": {
+                    "inference": {
+                      "count": 1000
+                    },
+                    "typeCounts": [
+                      {
+                        "type": "TEXT",
+                        "count": 1000
+                      },
+                      {
+                        "type": "UNKNOWN",
+                        "count": 0
+                      },
+                      {
+                        "type": "NULL",
+                        "count": 0
+                      },
+                      {
+                        "type": "FRACTION",
+                        "count": 0
+                      },
+                      {
+                        "type": "INTEGER",
+                        "count": 0
+                      },
+                      {
+                        "type": "BOOLEAN",
+                        "count": 0
+                      }
+                    ]
+                  },
+                  "totalCount": 1000,
+                  "nullRatio": 0,
+                  "uniqueCount": {
+                    "estimate": 1
+                  }
+                }
+              ],
+              "baselineSketch": {
+                "showAsDiscrete": true,
+                "schemaSummary": {
+                  "inference": {
+                    "type": "TEXT"
+                  }
+                }
+              },
+              "alerts": []
+            },
+            {
+              "name": "str",
+              "id": "6ad86c58-8d46-47ea-aa58-4825a067633d",
+              "alertCounts": null,
+              "alertCountsV2": {
+                "totals": [],
+                "timeseries": []
+              },
+              "anomalyCounts": {
+                "totals": [],
+                "timeseries": []
+              },
+              "events": [],
+              "sketches": [
+                {
+                  "createdAt": 1728950400000,
+                  "schemaSummary": {
+                    "inference": {
+                      "count": 1000
+                    },
+                    "typeCounts": [
+                      {
+                        "type": "TEXT",
+                        "count": 1000
+                      },
+                      {
+                        "type": "UNKNOWN",
+                        "count": 0
+                      },
+                      {
+                        "type": "NULL",
+                        "count": 0
+                      },
+                      {
+                        "type": "FRACTION",
+                        "count": 0
+                      },
+                      {
+                        "type": "INTEGER",
+                        "count": 0
+                      },
+                      {
+                        "type": "BOOLEAN",
+                        "count": 0
+                      }
+                    ]
+                  },
+                  "totalCount": 1000,
+                  "nullRatio": 0,
+                  "uniqueCount": {
+                    "estimate": 1
+                  }
+                },
+                {
+                  "createdAt": 1729036800000,
+                  "schemaSummary": {
+                    "inference": {
+                      "count": 1000
+                    },
+                    "typeCounts": [
+                      {
+                        "type": "TEXT",
+                        "count": 1000
+                      },
+                      {
+                        "type": "UNKNOWN",
+                        "count": 0
+                      },
+                      {
+                        "type": "NULL",
+                        "count": 0
+                      },
+                      {
+                        "type": "FRACTION",
+                        "count": 0
+                      },
+                      {
+                        "type": "INTEGER",
+                        "count": 0
+                      },
+                      {
+                        "type": "BOOLEAN",
+                        "count": 0
+                      }
+                    ]
+                  },
+                  "totalCount": 1000,
+                  "nullRatio": 0,
+                  "uniqueCount": {
+                    "estimate": 1
+                  }
+                },
+                {
+                  "createdAt": 1729123200000,
+                  "schemaSummary": {
+                    "inference": {
+                      "count": 1000
+                    },
+                    "typeCounts": [
+                      {
+                        "type": "TEXT",
+                        "count": 1000
+                      },
+                      {
+                        "type": "UNKNOWN",
+                        "count": 0
+                      },
+                      {
+                        "type": "NULL",
+                        "count": 0
+                      },
+                      {
+                        "type": "FRACTION",
+                        "count": 0
+                      },
+                      {
+                        "type": "INTEGER",
+                        "count": 0
+                      },
+                      {
+                        "type": "BOOLEAN",
+                        "count": 0
+                      }
+                    ]
+                  },
+                  "totalCount": 1000,
+                  "nullRatio": 0,
+                  "uniqueCount": {
+                    "estimate": 1
+                  }
+                },
+                {
+                  "createdAt": 1729209600000,
+                  "schemaSummary": {
+                    "inference": {
+                      "count": 1000
+                    },
+                    "typeCounts": [
+                      {
+                        "type": "TEXT",
+                        "count": 1000
+                      },
+                      {
+                        "type": "UNKNOWN",
+                        "count": 0
+                      },
+                      {
+                        "type": "NULL",
+                        "count": 0
+                      },
+                      {
+                        "type": "FRACTION",
+                        "count": 0
+                      },
+                      {
+                        "type": "INTEGER",
+                        "count": 0
+                      },
+                      {
+                        "type": "BOOLEAN",
+                        "count": 0
+                      }
+                    ]
+                  },
+                  "totalCount": 1000,
+                  "nullRatio": 0,
+                  "uniqueCount": {
+                    "estimate": 1
+                  }
+                },
+                {
+                  "createdAt": 1729296000000,
+                  "schemaSummary": {
+                    "inference": {
+                      "count": 1000
+                    },
+                    "typeCounts": [
+                      {
+                        "type": "TEXT",
+                        "count": 1000
+                      },
+                      {
+                        "type": "UNKNOWN",
+                        "count": 0
+                      },
+                      {
+                        "type": "NULL",
+                        "count": 0
+                      },
+                      {
+                        "type": "FRACTION",
+                        "count": 0
+                      },
+                      {
+                        "type": "INTEGER",
+                        "count": 0
+                      },
+                      {
+                        "type": "BOOLEAN",
+                        "count": 0
+                      }
+                    ]
+                  },
+                  "totalCount": 1000,
+                  "nullRatio": 0,
+                  "uniqueCount": {
+                    "estimate": 1
+                  }
+                },
+                {
+                  "createdAt": 1729382400000,
+                  "schemaSummary": {
+                    "inference": {
+                      "count": 1000
+                    },
+                    "typeCounts": [
+                      {
+                        "type": "TEXT",
+                        "count": 1000
+                      },
+                      {
+                        "type": "UNKNOWN",
+                        "count": 0
+                      },
+                      {
+                        "type": "NULL",
+                        "count": 0
+                      },
+                      {
+                        "type": "FRACTION",
+                        "count": 0
+                      },
+                      {
+                        "type": "INTEGER",
+                        "count": 0
+                      },
+                      {
+                        "type": "BOOLEAN",
+                        "count": 0
+                      }
+                    ]
+                  },
+                  "totalCount": 1000,
+                  "nullRatio": 0,
+                  "uniqueCount": {
+                    "estimate": 1
+                  }
+                }
+              ],
+              "baselineSketch": {
+                "showAsDiscrete": true,
+                "schemaSummary": {
+                  "inference": {
+                    "type": "TEXT"
+                  }
+                }
+              },
+              "alerts": []
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+fragment OverviewTimeSeries on GroupedAlertBatch {
+  timestamp
+  counts {
+    category
+    count
+  }
+}

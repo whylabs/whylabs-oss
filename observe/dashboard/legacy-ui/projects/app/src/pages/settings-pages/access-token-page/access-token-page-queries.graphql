@@ -1,0 +1,33 @@
+query getAllAccessTokens {
+  accessTokens {
+    name
+    id
+    userId
+    createdAt
+    expiresAt
+    scopes
+    isRevoked
+  }
+}
+
+mutation generateNewAccessToken($tokenName: String!, $expiresAt: Float, $scopes: [RequestableTokenScope!]) {
+  accessToken {
+    generate(name: $tokenName, expiresAt: $expiresAt, scopes: $scopes) {
+      name
+      id
+      userId
+      createdAt
+      expiresAt
+      scopes
+      secret
+    }
+  }
+}
+
+mutation revokeAccessToken($tokenId: String!, $userId: String!) {
+  accessToken {
+    revoke(id: $tokenId, userId: $userId) {
+      id
+    }
+  }
+}

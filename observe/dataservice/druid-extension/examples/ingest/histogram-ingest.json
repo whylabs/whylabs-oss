@@ -1,0 +1,43 @@
+{
+  "type": "index_parallel",
+  "spec": {
+    "ioConfig": {
+      "type": "index_parallel",
+      "inputSource": {
+        "type": "local",
+        "filter": "*.bin",
+        "baseDir": "/Volumes/Workspace/druid-whylabs-extension/examples/profiles/model-0"
+      },
+      "inputFormat": {
+        "type": "whylogs"
+      }
+    },
+    "tuningConfig": {
+      "type": "index_parallel",
+      "partitionsSpec": {
+        "type": "dynamic"
+      }
+    },
+    "dataSchema": {
+      "dataSource": "kll-datasketch",
+      "metricsSpec": [
+        { "type": "kllFloatsSketch", "name": "histogram", "fieldName": "histogram"}
+      ],
+      "granularitySpec": {
+        "type": "uniform",
+        "queryGranularity": "NONE",
+        "rollup": true,
+        "segmentGranularity": "DAY"
+      },
+      "timestampSpec": {
+        "column": "time",
+        "format": "iso"
+      },
+      "dimensionsSpec": {
+        "dimensions": [
+          "columnName"
+        ]
+      }
+    }
+  }
+}

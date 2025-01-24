@@ -1,0 +1,41 @@
+query getAvailableFilteredSegmentedFeaturesDiscrete($model: String!, $tags: [SegmentTagFilter!]!, $from: Float!, $to: Float, $offset: Int, $limit: Int, $filter: FeatureFilter!, $adHocRunId: String) {
+  model(id: $model) {
+    id
+    name
+    segment(tags: $tags) {
+      id
+      filteredFeatures(offset: $offset, limit: $limit, filter: $filter) {
+        totalCount
+        results {
+          ...DiscreteDataFields
+          alerts(filter: {fromTimestamp: $from, toTimestamp: $to, adhocRunId: $adHocRunId}) {
+            ...AlertSparkData
+          }
+          anomalyCounts(fromTimestamp: $from, toTimestamp: $to, filter: {adhocRunId: $adHocRunId}) {
+            totals {
+              category
+              count
+            }
+          }        }
+      }
+    }
+  }
+}
+
+fragment DiscreteDataFields on Feature {
+  id
+  name
+  baselineSketch {
+    id
+    showAsDiscrete
+  }
+}
+
+fragment AlertSparkData on DataQualityEvent {
+  id
+  archetype
+  type
+  metric
+  isFalseAlarm
+  datasetTimestamp
+}

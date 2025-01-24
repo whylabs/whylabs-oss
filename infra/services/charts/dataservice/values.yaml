@@ -1,0 +1,248 @@
+# -- Instance is used to distinguish between different versions of dataservice
+# can be of type `main`, `backfill`, `monitor`, or `kinesis`.
+instance: main
+
+# -- Number of replicas for the service.
+replicaCount: 3
+
+image:
+  # -- Image repository for the `dataservice` container.
+  repository: registry.gitlab.com/whylabs/core/whylabs-processing-core
+  # -- Image pull policy for the `dataservice` container.
+  pullPolicy: IfNotPresent
+  # -- (string) Image tag for the `dataservice` container, this will default to `.Chart.AppVersion` if not set.
+  tag: "latest"
+
+imagePullSecrets:
+  # -- (list) Image pull secrets for the `dataservice` container. Defaults to `gitlab-container-registry-auth`.
+  - name: ""
+
+updateStrategy:
+  # -- Update strategy; configure the maximum number of pods that can be unavailable at a time during updates.
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 0
+    maxUnavailable: 1
+
+# -- Pod Disruption Budget
+pdb:
+  enabled: true
+  maxUnavailable: 1
+
+# -- (string) Override the name of the chart.
+nameOverride: ""
+
+# -- (string) Override the full name of the chart.
+fullnameOverride: ""
+
+# -- Labels to add to all chart resources.
+commonLabels: {}
+
+# -- [Environment variables](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) for the `dataservice` container.
+env:
+  AZURE_APP_ID: ""
+  AZURE_APP_TENANT: ""
+  AZURE_DATA_EXPLORER_CLUSTER_PATH: ""
+  AZURE_ENABLED: "{{ if eq .Values.instance \"main\" }}true{{ else }}false{{ end }}"
+  AZURE_KUSTO_DATABASE: ""
+  AZURE_SECRET_NAME: ""
+  BULK_JDBC_MAX_POOL_SIZE: "4"
+  DB_HOST: ""
+  DB_HOST_BULK: ""
+  DB_STANDBY_POOLER_HOST: ""
+  DB_STANDBY_PASSWORD:
+    valueFrom:
+      secretKeyRef:
+        name: ""
+        key: password
+        optional: false
+  DB_STANDBY_USER:
+    valueFrom:
+      secretKeyRef:
+        name: ""
+        key: username
+        optional: false
+  ENABLE_LIQUIDBASE: "{{ if eq .Values.instance \"backfill\" }}true{{ else }}false{{ end }}"
+  FASTAPI_HOST: arima.whylabs.svc.cluster.local.
+  GITLAB_SHA: ""
+  INDEXER_THREAD_COUNT: "32"
+  INSTANCE: "{{ .Values.instance }}"
+  JDBC_CONNECTION_TIMEOUT: "30000"
+  JDBC_MAX_POOL_SIZE: "16"
+  LOG_LEVEL: INFO
+  METRIC_ENABLED: "true"
+  OTEL_EXPORTER_OTLP_ENDPOINT: ""
+  POSTGRES_HOST: ""
+  POSTGRES_BULK: ""
+  POSTGRES_REPL: ""
+  READONLY_JDBC_MAX_POOL_SIZE: "200"
+  SIREN_NOTIFICATION_TOPIC: ""
+  WHYLABS_ANALYZER_RESULTS_TABLE: ""
+  WHYLABS_ARTIFACTS_DOWNLOAD_BUCKET: ""
+  WHYLABS_BULK_INGESTION_TRIGGER_TOPIC: ""
+  WHYLABS_CLOUDTRAIL_BUCKET: ""
+  WHYLABS_DATASERVICE_APPLICATION_NAME: ""
+  WHYLABS_DATASERVICE_DRUID_SECRET: ""
+  WHYLABS_DATASERVICE_ENABLE_BACKFILL: "{{ if eq .Values.instance \"backfill\" }}true{{ else }}false{{ end }}"
+  WHYLABS_DATASERVICE_ENABLE_KINESIS: "{{ if eq .Values.instance \"kinesis\" }}true{{ else }}false{{ end }}"
+  WHYLABS_OPERATIONAL_METRICS_STREAM: ""
+  WHYLABS_PROFILE_TABLE: ""
+  WHYLABS_PROFILE_UPLOAD_NOTIFICATION_TOPIC: ""
+  WHYLABS_SONGBIRD_BUCKET: ""
+  _JAVA_OPTIONS: >-
+    -Xms512M -Xmx4620M -XX:+ParallelRefProcEnabled -XX:+UseG1GC
+    -XX:+ExitOnOutOfMemoryError -XX:+HeapDumpOnOutOfMemoryError
+    -XX:HeapDumpPath=/efs/heapdumps/{{ .Chart.Name }}-{{ .Values.instance }}/
+    -XX:MaxGCPauseMillis=500 -XX:+DisableExplicitGC
+    -XX:+UseStringDeduplication -XX:MaxMetaspaceSize=256m
+    -Duser.timezone=UTC -Dfile.encoding=UTF-8
+  HOST_IP:
+    valueFrom:
+      fieldRef:
+        apiVersion: v1
+        fieldPath: status.hostIP
+  DB_PASSWORD:
+    valueFrom:
+      secretKeyRef:
+        name: ""
+        key: password
+        optional: false
+  DB_USER:
+    valueFrom:
+      secretKeyRef:
+        name: ""
+        key: username
+        optional: false
+
+envFrom: []
+
+serviceAccount:
+  # -- If `true`, create a new `ServiceAccount`.
+  create: true
+  # -- (string) If this is set and `serviceAccount.create` is `true` this will be used for the created `ServiceAccount` name, if set and `serviceAccount.create` is `false` then this will define an existing `ServiceAccount` to use.
+  name: ""
+  # -- Labels to add to the service account.
+  labels: {}
+  # -- Annotations to add to the service account.
+  annotations:
+    eks.amazonaws.com/role-arn: ""
+  # -- Set this to `false` to [opt out of API credential automounting](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#opt-out-of-api-credential-automounting) for the `ServiceAccount`.
+  automount: true
+
+service:
+  # -- If `true`, create a new `ServiceAccount`.
+  create: false
+  # -- Service name. Defaults to release name if none provided.
+  name: ""
+  # -- Service annotations.
+  annotations: {}
+  # -- Service Type, i.e. ClusterIp, LoadBalancer, etc.
+  type: ClusterIP
+  # -- Service HTTP port.
+  port: 80
+  # -- The port on which the application container is listening.
+  targetPort: 8090
+
+# -- Annotations to add to the `Pod`.
+podAnnotations: {}
+
+# -- Labels to add to the `Pod`.
+podLabels: {}
+
+# -- [Pod security context](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#podsecuritycontext-v1-core), this supports full customisation.
+podSecurityContext: {}
+
+# -- [Security context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container) for the `dataservice` container.
+securityContext: {}
+  # readOnlyRootFilesystem: true
+  # privileged: false
+  # allowPrivilegeEscalation: false
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+  # capabilities:
+  #   drop: ["ALL"]
+
+# -- [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) configuration for the `dataservice` container.
+ingress:
+  enabled: false
+#   className: ""
+#   annotations: {}
+#   hosts:
+#     - host: chart-example.local
+#       paths:
+#         - path: /
+#           pathType: ImplementationSpecific
+#   tls:
+#    - secretName: chart-example-tls
+#      hosts:
+#        - chart-example.local
+
+# -- [Resources](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) for the `dataservice` container.
+resources:
+  requests:
+    cpu: 500m
+    memory: 5Gi
+  limits:
+    memory: 5Gi
+
+# -- [Liveness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) configuration for the `dataservice` container.
+livenessProbe:
+  httpGet:
+    path: /health
+    port: http
+  failureThreshold: 3
+  initialDelaySeconds: 600
+  periodSeconds: 15
+  successThreshold: 1
+  terminationGracePeriodSeconds: 60
+  timeoutSeconds: 4
+
+# -- [Readiness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) configuration for the `dataservice` container.
+readinessProbe:
+  httpGet:
+    path: /health
+    port: http
+  failureThreshold: 30
+  periodSeconds: 10
+  successThreshold: 1
+  timeoutSeconds: 2
+
+# -- [Startup probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) configuration for the `dataservice` container.
+startupProbe:
+  tcpSocket:
+    port: 8090
+  failureThreshold: 60
+  periodSeconds: 5
+  successThreshold: 1
+  timeoutSeconds: 1
+
+# -- [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) configuration for the `dataservice` container.
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 70
+  # targetMemoryUtilizationPercentage: 70
+
+# -- Extra [volumes](https://kubernetes.io/docs/concepts/storage/volumes/) for the `Pod`.
+extraVolumes:
+  - name: efs-volume
+    persistentVolumeClaim:
+      claimName: efs-pvc
+
+# -- Extra [volume mounts](https://kubernetes.io/docs/concepts/storage/volumes/) for the `dataservice` container.
+extraVolumeMounts:
+  - mountPath: /efs
+    name: efs-volume
+
+# -- Node labels to match for `Pod` [scheduling](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/).
+nodeSelector: {}
+
+# -- Node taints which will be tolerated for `Pod` [scheduling](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/).
+tolerations: []
+
+# -- Affinity settings for `Pod` [scheduling](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/). If an explicit label selector is not provided for pod affinity or pod anti-affinity one will be created from the pod selector labels.
+affinity: {}
+
+schedulerName: ""

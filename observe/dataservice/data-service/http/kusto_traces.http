@@ -1,0 +1,42 @@
+### traces list
+POST http://localhost:8090/traces/list
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "resourceId": "model-2284",
+  "interval": "2024-05-01T00:00:00Z/P5M"
+}
+
+### Get traces details
+POST http://localhost:8090/traces/detail
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "resourceId": "model-2284",
+  "traceId": "e9410f67efcebe10de90a29ab2dfe97d"
+}
+
+### traces query
+POST http://localhost:8090/traces/query
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "resourceId": "model-2284",
+  "traceId": "e9410f67efcebe10de90a29ab2dfe97d"
+}
+
+### traces summary
+POST http://localhost:8090/traces/summary
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "resourceId": "model-2284",
+  "interval": "2024-02-27T20:00:00.000Z/PT10H",
+  "granularity": "hourly"
+
+}
+

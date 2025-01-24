@@ -1,0 +1,1 @@
+alter table whylabs.profile_deletions add column if not exists column_name text;

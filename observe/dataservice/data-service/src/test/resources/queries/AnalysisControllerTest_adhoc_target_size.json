@@ -1,0 +1,116 @@
+{
+  "inlineResults": true,
+  "segmentTags": [],
+  "columnNames": [
+    "category",
+    "date",
+    "market_price",
+    "predicted_rating",
+    "product",
+    "rating",
+    "sales_last_week"
+  ],
+  "start": "2022-11-12T00:00:00.000Z",
+  "end": "2022-12-20T23:59:59.999Z",
+  "monitorConfig": {
+    "orgId": "org-5Hsdjx",
+    "datasetId": "model-61",
+    "granularity": "daily",
+    "metadata": {
+      "schemaVersion": 1,
+      "author": "system",
+      "updatedTimestamp": 1681770522008,
+      "version": 41
+    },
+    "analyzers": [
+      {
+        "id": "excited-rosybrown-elephant-8028-analyzer",
+        "targetSize": 6,
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "config": {
+          "type": "monotonic",
+          "metric": "count",
+          "direction": "INCREASING",
+          "numBuckets": 1
+        },
+        "disabled": false,
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "*"
+          ]
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "user_d2a53e1c_9df1_4f5b_a610_cbee38016606",
+          "updatedTimestamp": 1720531998728,
+          "version": 1
+        }
+      }
+    ],
+    "monitors": [],
+    "entitySchema": {
+      "metadata": {
+        "author": "system",
+        "version": 1,
+        "updatedTimestamp": 1670613606682
+      },
+      "columns": {
+        "date": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input",
+          "tags": null
+        },
+        "predicted_rating": {
+          "discreteness": "discrete",
+          "dataType": "integral",
+          "classifier": "input",
+          "tags": null
+        },
+        "product": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input",
+          "tags": null
+        },
+        "rating": {
+          "discreteness": "discrete",
+          "dataType": "integral",
+          "classifier": "input",
+          "tags": null
+        },
+        "market_price": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input",
+          "tags": null
+        },
+        "sales_last_week": {
+          "discreteness": "discrete",
+          "dataType": "integral",
+          "classifier": "input",
+          "tags": null
+        },
+        "category": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input",
+          "tags": null
+        }
+      },
+      "metrics": null
+    },
+    "weightConfig": {
+      "metadata": {
+        "author": "system",
+        "version": 0,
+        "updatedTimestamp": 1683839163843
+      },
+      "segmentWeights": []
+    }
+  }
+}

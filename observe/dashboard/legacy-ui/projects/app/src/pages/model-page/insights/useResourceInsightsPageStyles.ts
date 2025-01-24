@@ -1,0 +1,120 @@
+import { createStyles } from '@mantine/core';
+import { Colors } from '@whylabs/observatory-lib';
+
+export const useResourceInsightsPageStyles = createStyles(() => ({
+  root: {
+    backgroundColor: Colors.white,
+    display: 'grid',
+    gridTemplateRows: 'auto 1fr',
+    height: '100%',
+    overflow: 'hidden',
+    paddingBottom: 0,
+    width: '100%',
+  },
+  cardsContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 20,
+    padding: 20,
+    transition: 'box-shadow 0.1s ease-out',
+  },
+  scrollContainer: {
+    borderBottom: `1px solid ${Colors.brandSecondary200}`,
+    display: 'flex',
+    gap: 20,
+    flexDirection: 'column',
+    padding: 20,
+    paddingTop: 0,
+    overflow: 'auto',
+  },
+  card: {
+    border: `2px solid ${Colors.brandSecondary200}`,
+    borderRadius: 4,
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 10,
+    padding: 20,
+  },
+  row: {
+    alignItems: 'start',
+    display: 'flex',
+    '& p': {
+      fontSize: 14,
+      lineHeight: 1.1,
+    },
+    gap: 20,
+    justifyContent: 'space-between',
+    width: '100%',
+  },
+  column: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 10,
+  },
+  featureName: {
+    color: Colors.secondaryLight1000,
+    fontFamily: 'Inconsolata',
+    fontSize: 14,
+    fontWeight: 500,
+  },
+  featureNameButton: {
+    color: Colors.chartPrimary,
+    fontFamily: 'Inconsolata',
+    fontWeight: 600,
+    textDecoration: 'underline',
+  },
+  cardHeader: {
+    display: 'flex',
+    gap: 10,
+    justifyContent: 'space-between',
+  },
+  titleContainer: {
+    color: Colors.secondaryLight1000,
+    display: 'flex',
+    flexDirection: 'column',
+    paddingLeft: 5,
+    position: 'relative',
+  },
+  titleLeftFloatingColor: {
+    background: Colors.brandSecondary200,
+    borderRadius: 2,
+    bottom: 0,
+    height: '100%',
+    left: -5,
+    position: 'absolute',
+    width: 5,
+    top: 0,
+  },
+  text: {
+    color: Colors.secondaryLight1000,
+    fontWeight: 400,
+    fontSize: 14,
+  },
+  title: {
+    color: Colors.secondaryLight1000,
+    fontWeight: 600,
+    fontSize: 14,
+  },
+  divider: {
+    backgroundColor: Colors.brandSecondary200,
+    height: 1,
+    width: '100%',
+  },
+  badgeText: {
+    fontSize: 13,
+    fontFamily: 'Inconsolata, Asap',
+    fontWeight: 900,
+  },
+  shadow: {
+    borderBottom: `1px solid ${Colors.brandSecondary200}`,
+    boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.10)',
+  },
+  filterByContainer: {
+    fontFamily: 'Asap',
+    alignItems: 'center',
+    display: 'flex',
+    fontSize: 13,
+    fontWeight: 400,
+    gap: 5,
+  },
+}));

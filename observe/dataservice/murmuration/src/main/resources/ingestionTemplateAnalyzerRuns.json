@@ -1,0 +1,128 @@
+{
+  "type": "index_parallel",
+  "spec": {
+    "ioConfig": {
+      "type": "index_parallel",
+      "inputSource": {
+        "type": "s3",
+        "prefixes": ["{{stagingArea}}"]
+      },
+      "appendToExisting": true,
+"inputFormat": {
+"type": "parquet"
+}
+},
+"tuningConfig": {
+"type": "index_parallel",
+"maxRowsInMemory": 500000,
+"maxBytesInMemory": -1,
+"maxRowsPerSegment": 500000,
+"partitionsSpec": {
+"type": "dynamic",
+"maxRowsPerSegment": 500000,
+"maxTotalRows": null
+},
+"maxNumConcurrentSubTasks": {{concurrency}}
+},
+"dataSchema": {
+"dataSource": "whylogs-{{datasourceNamespace}}-analyzer-runs",
+"metricsSpec": [
+{
+"name": "createdTs",
+"fieldName": "createdTs",
+"type": "longMax"
+},
+{
+"name": "startedTs",
+"fieldName": "startedTs",
+"type": "longMax"
+},
+{
+"name": "completedTs",
+"fieldName": "completedTs",
+"type": "longMax"
+},
+{
+"name": "baselineBatchesWithProfileCount",
+"fieldName": "baselineBatchesWithProfileCount",
+"type": "longMax"
+},
+{
+"name": "targetBatchesWithProfileCount",
+"fieldName": "targetBatchesWithProfileCount",
+"type": "longMax"
+},
+{
+"name": "columnsAnalyzed",
+"fieldName": "columnsAnalyzed",
+"type": "longSum"
+},
+{
+"name": "segmentsAnalyzed",
+"fieldName": "segmentsAnalyzed",
+"type": "longSum"
+},
+{
+"name": "anomalies",
+"fieldName": "anomalies",
+"type": "longSum"
+},
+{
+"name": "forceLatestConfigVersion",
+"fieldName": "forceLatestConfigVersion",
+"type": "longMax"
+},
+{
+"name": "analyzerVersion",
+"fieldName": "analyzerVersion",
+"type": "longMax"
+},
+{
+"name": "customerRequestedBackfill",
+"fieldName": "customerRequestedBackfill",
+"type": "longMax"
+}
+
+],
+"granularitySpec": {
+"type": "uniform",
+"queryGranularity": "NONE",
+"rollup": false,
+"segmentGranularity": "DAY",
+"intervals" : [ "{{interval}}" ]
+},
+"timestampSpec": {
+"column": "startedTs",
+"format": "iso"
+},
+"dimensionsSpec": {
+"dimensions": [
+    "orgId",
+        "datasetId",
+"status",
+"runId",
+"internalErrorMessage",
+"analyzerId",
+
+{
+"type": "string",
+"name": "monitorIds",
+"multiValueHandling": "SORTED_ARRAY",
+"createBitmapIndex": true
+},
+{
+"type": "string",
+"name": "failureTypes",
+"multiValueHandling": "SORTED_ARRAY",
+"createBitmapIndex": true
+}
+
+]
+}
+}
+},
+"context": {
+"priority" : 38
+}
+
+}

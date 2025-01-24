@@ -1,0 +1,28 @@
+input SecureForm {
+  """
+  Dataset id
+  """
+  datasetId: String!
+
+  """
+  Customer full name
+  """
+  fullName: String!
+
+  """
+  Optional phone field
+  """
+  phone: String
+
+  """
+  Optional contact email field
+  """
+  contactEmail: String
+}
+
+extend type Mutation {
+  """
+  Submit a form to reach out WhyLabs for enabling WhyLabs Secure. The message will be sent to a Slack channel via webhook
+  """
+  submitSecureForm(form: SecureForm!): Boolean! @auth
+}

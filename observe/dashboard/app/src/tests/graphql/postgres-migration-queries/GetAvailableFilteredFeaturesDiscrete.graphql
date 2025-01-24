@@ -1,0 +1,41 @@
+query getAvailableFilteredFeaturesDiscrete($model: String!, $from: Float!, $to: Float, $offset: Int, $limit: Int, $filter: FeatureFilter!, $adHocRunId: String) {
+  model(id: $model) {
+    ...ModelCommonData
+    totalFeatures
+    filteredFeatures(offset: $offset, limit: $limit, filter: $filter) {
+      totalCount
+      results {
+        ...FeatureDataSideTable
+      }
+    }
+  }
+}
+
+fragment ModelCommonData on Model {
+  id
+  name
+  batchFrequency
+}
+
+fragment FeatureDataSideTable on Feature {
+  id
+  name
+  baselineSketch {
+    id
+    showAsDiscrete
+  }
+  alerts(filter: {fromTimestamp: $from, toTimestamp: $to, adhocRunId: $adHocRunId}) {
+    id
+    archetype
+    type
+    metric
+    isFalseAlarm
+    datasetTimestamp
+  }
+  anomalyCounts(fromTimestamp: $from, toTimestamp: $to, filter: {adhocRunId: $adHocRunId}) {
+    totals {
+      category
+      count
+    }
+  }
+}

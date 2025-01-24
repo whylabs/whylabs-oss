@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  db:
+    container_name: postgres
+    image: whylabs-postgres-with-datasketches
+    command: ["postgres", "-c", "log_statement=all", "-c", "log_destination=stderr"]
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: test_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - "./src/sql/init:/docker-entrypoint-initdb.d/:ro"
+  pgadmin:
+    container_name: pgadmin4
+    image: dpage/pgadmin4:latest
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: root@root.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+    volumes:
+      - "./src/pgadmin/servers.json:/pgadmin4/servers.json:ro"

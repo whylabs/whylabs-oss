@@ -1,0 +1,22 @@
+query getIOFeatures($modelId: String!) {
+  model(id: $modelId) {
+    hasWeights
+    features {
+      id
+      weight {
+        value
+      }
+      name
+      baselineSketch {
+        showAsDiscrete
+      }
+    }
+    outputs {
+      id
+      name
+      baselineSketch {
+        showAsDiscrete
+      }
+    }
+  }
+}

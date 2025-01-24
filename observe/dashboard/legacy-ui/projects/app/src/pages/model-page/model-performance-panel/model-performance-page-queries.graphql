@@ -1,0 +1,10 @@
+query getComparisonSegments($datasetId: String!) {
+  model(id: $datasetId) {
+    segments {
+      tags {
+        key
+        value
+      }
+    }
+  }
+}

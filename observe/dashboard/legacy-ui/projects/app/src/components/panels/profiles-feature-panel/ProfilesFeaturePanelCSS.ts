@@ -1,0 +1,136 @@
+import { createStyles } from '@mantine/core';
+import { Colors } from '@whylabs/observatory-lib';
+
+export const useProfileFeaturePanelStyles = createStyles({
+  sectionLabel: {
+    fontFamily: 'Asap',
+    fontSize: 16,
+    lineHeight: '16px',
+    fontWeight: 'normal',
+    color: Colors.secondaryLight1000,
+    marginBottom: 10,
+  },
+  noDataText: {
+    fontFamily: 'Asap',
+    fontSize: 14,
+    color: Colors.secondaryLight1000,
+    marginBottom: 10,
+  },
+  bodyCellStyle: {
+    fontSize: 13,
+    fontFamily: 'Inconsolata',
+    lineHeight: '30px',
+    height: 30,
+  },
+  loader: {
+    stroke: Colors.brandPrimary900,
+  },
+  columnContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  drawerHeader: {
+    backgroundColor: Colors.darkHeader,
+    color: Colors.white,
+    height: '110px',
+    padding: 0,
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  drawerTitle: {
+    color: Colors.white,
+    fontSize: 16,
+    fontFamily: 'Asap, sans-serif',
+    fontWeight: 'normal',
+  },
+  drawerLink: {
+    textDecoration: 'underline',
+    color: Colors.white,
+    cursor: 'pointer',
+    fontWeight: 600,
+  },
+  graphContainer: {
+    height: '100%',
+    width: '100%',
+    marginBottom: '12px',
+  },
+  headerCellStyle: {
+    fontSize: 12,
+    fontFamily: 'Asap',
+    fontWeight: 600,
+    height: 35,
+    lineHeight: '35px',
+    color: Colors.black,
+    justifyContent: 'flex-start',
+  },
+  profileHeaderCellStyle: {
+    height: 35,
+    lineHeight: '35px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    paddingLeft: 0,
+  },
+  profileHeaderSquareStyle: {
+    width: 14,
+    height: 14,
+    borderRadius: 2,
+    marginRight: 8,
+  },
+  profileHeaderTitleStyle: {
+    fontFamily: 'Asap',
+    fontSize: 12,
+    fontWeight: 600,
+    color: Colors.black,
+    lineHeight: '35px',
+  },
+  profilesBarHeader: {
+    background: Colors.white,
+    color: Colors.secondaryLight1000,
+    height: '62px',
+    width: '100%',
+    padding: 0,
+  },
+  profilesBarHeaderContent: {
+    display: 'flex',
+    margin: '14px 0px 16px 20px',
+    justifyContent: 'flex-start',
+    alignContent: 'center',
+  },
+  profileColorBar: {
+    height: '38px',
+    width: '5px',
+    borderRadius: '2px',
+    marginRight: '10px',
+  },
+  profileBarHeaderName: {
+    fontFamily: 'Asap, sans-serif',
+    fontSize: '14px',
+    color: Colors.brandSecondary800,
+    fontWeight: 600,
+  },
+  profileBarHeaderDescription: {
+    fontFamily: 'Inconsolata, monospace',
+    fontSize: '14px',
+    color: Colors.secondaryLight1000,
+    fontWeight: 600,
+  },
+  profileBarHeaderStack: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'left',
+    justifyContent: 'space-between',
+    marginRight: '14px',
+  },
+  sortableProfileHeader: {
+    paddingLeft: '10px',
+    paddingRight: '2px',
+  },
+  tabRoot: {
+    overflow: 'auto',
+    height: 'calc(100vh - 146px)',
+    maxHeight: 'calc(100vh - 146px)',
+    padding: '20px 16px 40px 16px',
+  },
+});

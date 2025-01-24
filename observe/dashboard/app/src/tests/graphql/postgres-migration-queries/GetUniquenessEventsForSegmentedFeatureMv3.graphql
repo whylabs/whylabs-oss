@@ -1,0 +1,34 @@
+query getUniquenessEventsForSegmentedFeatureMv3($model: String!, $feature: String!, $from: Float!, $to: Float, $adhocRunId: String, $tags: [SegmentTagFilter!]) {
+  model(id: $model) {
+    id
+    name
+    batchFrequency
+    segment(tags: $tags) {
+      feature(name: $feature) {
+        id
+        analysisResults(filter: {datasetId: $model, fromTimestamp: $from, toTimestamp: $to, metrics: [UNIQUE_EST_RATIO, UNIQUE_EST], adhocRunId: $adhocRunId, anomaliesOnly: false}, sortDirection: ASC) {
+          ...UniquenessResults
+        }
+      }
+    }
+  }
+}
+
+fragment UniquenessResults on AnalysisResult {
+  id
+  orgId
+  creationTimestamp
+  datasetTimestamp
+  threshold_calculatedLower
+  threshold_calculatedUpper
+  threshold_absoluteLower
+  threshold_absoluteUpper
+  threshold_metricValue
+  threshold_factor
+  threshold_minBatchSize
+  failureType
+  analyzerResultType
+  analysisId
+  analyzerType
+  isAnomaly
+}

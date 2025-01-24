@@ -1,0 +1,17 @@
+package ai.whylabs.insights;
+
+public enum InsightColumn {
+  COUNTS_TOTAL,
+  COUNTS_NULL,
+  TYPES_BOOLEAN,
+  TYPES_FRACTIONAL,
+  TYPES_INTEGRAL,
+  TYPES_TENSOR,
+  TYPES_OBJECT,
+  MIN_VALUE,
+  MAX_VALUE,
+  MEAN,
+  MOST_FREQ_VALUE,
+  MOST_FREQ_ESTIMATE,
+  UNIQUENESS,
+}

@@ -1,0 +1,84 @@
+{
+  "datasourceNamespace": "development-whylabs",
+  "start": "2021-03-01T00:00:00.000Z",
+  "end": "2022-05-14T00:00:00.000Z",
+  "notifySiren": true,
+  "inlineResults": true,
+  "ignoreBackfillGracePeriodLimit": false,
+  "segmentTags":[],
+  "columnNames": [
+    "addr_state", "applicartion_type", "loan_status", "verification_status_joint", "grade", "sub_grade"
+  ],
+  "monitorConfig": {
+    "orgId": "org-0",
+    "datasetId": "model-0",
+    "granularity": "daily",
+    "entitySchema": {
+      "columns": {}
+    },
+    "weightConfig": {
+      "metadata": {
+        "author": "system",
+        "version": 3,
+        "updatedTimestamp": 1662742912035
+      },
+      "segmentWeights": [
+        {
+          "weights": {
+            "sub_grade": 0.1,
+            "verification_status_joint": 0.4,
+            "loan_status": 0.4
+          }
+        }
+      ]
+    },
+    "monitors": [
+      {
+        "id": "stingray-analyzer-monitor",
+        "analyzerIds": [
+          "pleasant-orangered-elk-4381-analyzer", "non-segmented-analyzer"
+        ],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 4,
+        "mode": {
+          "type": "DIGEST",
+          "creationTimeOffset": "PT1H",
+          "datasetTimestampOffset": "P365D",
+          "filter":{"minWeight":0.3}
+        },
+        "actions": []
+      }
+    ],
+    "analyzers": [
+      {
+        "id": "non-segmented-analyzer",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "loan_status",
+            "applicartion_type",
+            "grade"
+          ],
+          "exclude": []
+        },
+        "config": {
+          "metric": "frequent_items",
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          },
+          "type": "drift",
+          "algorithm": "hellinger",
+          "threshold": ".003"
+        }
+      }
+    ]
+
+  }
+}

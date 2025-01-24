@@ -1,0 +1,25 @@
+### Ingest monitor config snapshot
+PUT http://localhost:8090/bulk/monitorConfig/replace
+Content-Type: application/json
+
+{"targetTable":"MONITOR_CONFIG","path":"s3://development-deltalake-20210520193724829400000001/drew/monitor_conf_123/","requestedTs":1689936871945,"runId":"5cefaa10-e77c-4795-91be-141f3d2d262a","mode":"replace","async":true,"jobRunCurrentTime":1689936849034}
+
+### Get latest monitor config
+GET http://localhost:8090/monitorConfig/getLatest/org-0/model-0
+Content-Type: application/json
+
+### Json Patch(Semantic Diff) two montior config versions
+GET http://localhost:8090/monitorConfig/patch/org-0/model-0/690/691
+
+### Run diagnostics on a particular analysis
+GET http://localhost:8090/diagnostic/run/org-0/model-0/c2536419-00b8-3992-a87b-f4e5fb13f8bf
+Content-Type: application/json
+
+### Run diagnostics on a particular analysis - correlated alerts
+GET http://localhost:8090/diagnostic/run/org-0/model-0/54fa95b2-ad29-3209-81c9-fae514ed0670
+Content-Type: application/json
+
+### Anayze upload patterns against monitor configs for badly configured analyzers
+GET http://localhost:8090/diagnostic/uploadPatterns/org-0/model-2144
+Content-Type: application/json
+

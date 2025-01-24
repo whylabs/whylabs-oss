@@ -1,0 +1,94 @@
+fragment InsightSketches on FilteredFeatureSketches {
+  totalCount
+  totalDiscrete
+  totalNonDiscrete
+  results {
+    id
+    featureName
+    trueCount
+    booleanCount
+    integerCount
+    fractionCount
+    createdAt
+    totalCount
+    nullCount
+    nullRatio
+    showAsDiscrete
+    frequentItems {
+      value
+      estimate
+      upper
+    }
+    uniqueCount {
+      estimate
+      upper
+      lower
+    }
+    numberSummary {
+      histogram {
+        bins
+        counts
+      }
+      quantiles {
+        bins
+        counts
+      }
+      count
+      min
+      max
+      mean
+      stddev
+    }
+    schemaSummary {
+      inference {
+        type
+        ratio
+        count
+      }
+      typeCounts {
+        type
+        count
+      }
+    }
+  }
+}
+
+query getProfileInsightInfo(
+  $modelId: String!
+  $batchProfileIds: [Float!]!
+  $referenceProfileIds: [String!]!
+  $tags: [SegmentTagFilter!]!
+) {
+  model(id: $modelId) {
+    segment(tags: $tags) {
+      batches(timestamps: $batchProfileIds) {
+        timestamp
+        datasetId
+        sketches {
+          ...InsightSketches
+        }
+      }
+      referenceProfiles(profileIds: $referenceProfileIds) {
+        id
+        datasetId
+        alias
+        sketches {
+          ...InsightSketches
+        }
+      }
+    }
+  }
+}
+
+query getIndividualProfiles($modelId: String!, $from: Float!, $to: Float!) {
+  model(id: $modelId) {
+    id
+    name
+    modelType
+    individualProfileList(from: $from, to: $to, offset: 0, limit: 1000) {
+      datasetTimestamp
+      retrievalToken
+      traceId
+    }
+  }
+}

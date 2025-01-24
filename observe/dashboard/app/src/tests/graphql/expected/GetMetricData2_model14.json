@@ -1,0 +1,14 @@
+{
+  "data": {
+    "dataQueries": {
+      "getMetricData": [
+        {
+          "datasetId": "model-14",
+          "metric": "MEAN",
+          "feature": "market_price",
+          "points": []
+        }
+      ]
+    }
+  }
+}

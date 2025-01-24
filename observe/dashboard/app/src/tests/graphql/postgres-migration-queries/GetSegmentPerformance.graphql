@@ -1,0 +1,42 @@
+query getSegmentPerformance($datasetId: String!, $from: Float!, $to: Float, $tags: [SegmentTagFilter!]) {
+  model(id: $datasetId) {
+    id
+    name
+    batchFrequency
+    modelType
+    segment(tags: $tags) {
+      ...SegmentPerformance
+    }
+  }
+}
+
+fragment SegmentPerformance on Segment {
+  name
+  datasetMetrics {
+    name
+    values(fromTimestamp: $from, toTimestamp: $to) {
+      timestamp
+      value
+    }
+  }
+  dataAvailability {
+    latestTimestamp
+  }
+  batches(from: $from, to: $to) {
+    timestamp
+    inputCount
+    outputCount
+    metrics {
+      confusion {
+        labels
+        counts
+      }
+      recallPrecision {
+        values
+      }
+      fprTpr {
+        values
+      }
+    }
+  }
+}

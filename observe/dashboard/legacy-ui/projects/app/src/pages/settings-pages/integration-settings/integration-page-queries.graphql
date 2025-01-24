@@ -1,0 +1,10 @@
+query getProjectDataForIntegrations {
+  models {
+    id
+    name
+    dataAvailability {
+      hasData
+    }
+    modelType
+  }
+}

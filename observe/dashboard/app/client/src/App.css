@@ -1,0 +1,39 @@
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: inherit;
+  font-family: Asap, sans-serif;
+}
+
+body {
+  letter-spacing: 0.01071em;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: white;
+}
+
+#root,
+body,
+html {
+  min-height: 100%;
+  background-color: #ebf2f3;
+}
+
+.echTooltip__outerWrapper {
+  font-family: Asap, sans-serif;
+}
+
+.react-json-view * {
+  font-family: Inconsolata, sans-serif;
+}
+
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}

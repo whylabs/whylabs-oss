@@ -1,0 +1,75 @@
+{
+  "version": "0",
+  "id": "1b15b80f-6bcd-8f1b-b50a-471a308fd689",
+  "detail-type": "AWS API Call via CloudTrail",
+  "source": "aws.s3",
+  "account": "222222222222",
+  "time": "2021-06-29T19:54:31Z",
+  "region": "us-west-2",
+  "resources": [],
+  "detail": {
+    "eventVersion": "1.08",
+    "userIdentity": {
+      "type": "AssumedRole",
+      "principalId": "AROATAQZJVYYCU6KY2J5Z:drew@whylabs.ai",
+      "arn": "arn:aws:sts::222222222222:assumed-role/AWSReservedSSO_DeveloperFullAccess_6c92e887746e1955/drew@whylabs.ai",
+      "accountId": "222222222222",
+      "accessKeyId": "ASIATAQZJVYYKQKIBONJ",
+      "sessionContext": {
+        "sessionIssuer": {
+          "type": "Role",
+          "principalId": "AROATAQZJVYYCU6KY2J5Z",
+          "arn": "arn:aws:iam::222222222222:role/aws-reserved/sso.amazonaws.com/us-west-2/AWSReservedSSO_DeveloperFullAccess_6c92e887746e1955",
+          "accountId": "222222222222",
+          "userName": "AWSReservedSSO_DeveloperFullAccess_6c92e887746e1955"
+        },
+        "attributes": {
+          "creationDate": "2021-06-29T12:10:43Z",
+          "mfaAuthenticated": "false"
+        }
+      }
+    },
+    "eventTime": "2021-06-29T19:54:31Z",
+    "eventSource": "s3.amazonaws.com",
+    "eventName": "PutObject",
+    "awsRegion": "us-west-2",
+    "sourceIPAddress": "75.40.154.193",
+    "userAgent": "[aws-cli/2.2.14 Python/3.9.5 Darwin/20.4.0 source/x86_64 prompt/off command/s3.cp]",
+    "requestParameters": {
+      "bucketName": "development-songbird-20201028054020481800000001",
+      "Host": "development-songbird-20201028054020481800000001.s3.us-west-2.amazonaws.com",
+      "key": "daily-log-untrusted/2021-06-22/org-9758-model-1-8YXecPveYrs0GbrSlHbo7hw6CW6gyKLM.bin"
+    },
+    "responseElements": {
+      "x-amz-server-side-encryption": "aws:kms",
+      "x-amz-server-side-encryption-aws-kms-key-id": "arn:aws:kms:us-west-2:222222222222:key/9490df51-6cd4-4700-be82-6594c1e0fcbd"
+    },
+    "additionalEventData": {
+      "SignatureVersion": "SigV4",
+      "CipherSuite": "ECDHE-RSA-AES128-GCM-SHA256",
+      "bytesTransferredIn": 25701.0,
+      "SSEApplied": "Default_SSE_KMS",
+      "AuthenticationMethod": "AuthHeader",
+      "x-amz-id-2": "hci19wl7eJ+r3DQqTcnGVGbwZU4+n8zOUpQSi/1AqZSGm9a/ZlFGJREQk/rRb05nqkZfQ+Hl4Pg=",
+      "bytesTransferredOut": 0.0
+    },
+    "requestID": "2BTM82MWJ65M4YB4",
+    "eventID": "8e99f55e-8a19-479c-a7d5-fbbfd91ec77e",
+    "readOnly": false,
+    "resources": [
+      {
+        "type": "AWS::S3::Object",
+        "ARN": "arn:aws:s3:::development-songbird-20201028054020481800000001/daily-log-untrusted/2021-06-22/org-9758-model-1-8YXecPveYrs0GbrSlHbo7hw6CW6gyKLM.bin"
+      },
+      {
+        "accountId": "222222222222",
+        "type": "AWS::S3::Bucket",
+        "ARN": "arn:aws:s3:::development-songbird-20201028054020481800000001"
+      }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": false,
+    "recipientAccountId": "222222222222",
+    "eventCategory": "Data"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "data": {
+    "dataQueries": {
+      "getMetricData": [
+        {
+          "datasetId": "model-16",
+          "metric": "MEAN",
+          "feature": "market_price",
+          "points": [
+            {
+              "timestamp": 1728950400000,
+              "value": 145.303279
+            },
+            {
+              "timestamp": 1729036800000,
+              "value": 149.045045
+            },
+            {
+              "timestamp": 1729123200000,
+              "value": 148.016949
+            },
+            {
+              "timestamp": 1729209600000,
+              "value": 137.663551
+            },
+            {
+              "timestamp": 1729296000000,
+              "value": 150.256881
+            },
+            {
+              "timestamp": 1729382400000,
+              "value": 128.649485
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

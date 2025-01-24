@@ -1,0 +1,49 @@
+{
+  "type" : "index_parallel",
+  "spec" : {
+    "dataSchema" : {
+      "dataSource" : "ingestion-tutorial",
+      "timestampSpec" : {
+        "format" : "iso",
+        "column" : "ts"
+      },
+      "dimensionsSpec" : {
+        "dimensions": [
+          "srcIP",
+          { "name" : "srcPort", "type" : "long" },
+          { "name" : "dstIP", "type" : "string" },
+          { "name" : "dstPort", "type" : "long" },
+          { "name" : "protocol", "type" : "string" }
+        ]
+      },
+      "metricsSpec" : [
+        { "type" : "count", "name" : "count" },
+        { "type" : "longSum", "name" : "packets", "fieldName" : "packets" },
+        { "type" : "longSum", "name" : "bytes", "fieldName" : "bytes" },
+        { "type" : "doubleSum", "name" : "cost", "fieldName" : "cost" }
+      ],
+      "granularitySpec" : {
+        "type" : "uniform",
+        "segmentGranularity" : "HOUR",
+        "queryGranularity" : "MINUTE",
+        "intervals" : ["2018-01-01/2018-01-02"],
+        "rollup" : true
+      }
+    },
+    "ioConfig" : {
+      "type" : "index_parallel",
+      "inputSource" : {
+        "type" : "local",
+        "baseDir" : "<BASEDIR>/ingest/",
+        "filter" : "ingestion-example.json"
+      },
+      "inputFormat" : {
+        "type" : "json"
+      }
+    },
+    "tuningConfig" : {
+      "type" : "index_parallel",
+      "maxRowsPerSegment" : 5000000
+    }
+  }
+}

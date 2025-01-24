@@ -1,0 +1,121 @@
+query segmentFeaturesTable(
+  $datasetId: String!
+  $offset: Int!
+  $limit: Int!
+  $from: Float!
+  $to: Float
+  $text: String
+  $includeDiscrete: Boolean
+  $includeNonDiscrete: Boolean
+  $alertTypes: [EventType!]
+  $anomalyCategories: [AlertCategory!]
+  $tags: [SegmentTagFilter!]
+  $sort: FilteredFeaturesSort
+  $granularityInclusion: GranularityInclusion
+) {
+  model(id: $datasetId) {
+    batchFrequency
+    segment(tags: $tags) {
+      filteredFeatures(
+        sort: $sort
+        offset: $offset
+        limit: $limit
+        filter: {
+          fromTimestamp: $from
+          toTimestamp: $to
+          substring: $text
+          alertTypes: $alertTypes
+          anomalyCategories: $anomalyCategories
+          includeDiscrete: $includeDiscrete
+          includeNonDiscrete: $includeNonDiscrete
+        }
+      ) {
+        totalCount
+        results {
+          ...FeatureTableInfo2
+          alerts(filter: { fromTimestamp: $from, toTimestamp: $to }) {
+            type
+            creationTimestamp
+            datasetTimestamp
+            feature
+          }
+        }
+      }
+    }
+  }
+}
+
+fragment FeatureTableInfo2 on Feature {
+  name
+  id
+  alertCounts(fromTimestamp: $from, toTimestamp: $to) {
+    total
+    nullFraction
+    distribution
+    uniqueness
+    dataType
+    thresholdBased
+    unknown
+  }
+  alertCountsV2(fromTimestamp: $from, toTimestamp: $to, granularityInclusion: $granularityInclusion) {
+    totals {
+      category
+      count
+    }
+    timeseries {
+      timestamp
+      counts {
+        category
+        count
+      }
+    }
+  }
+  anomalyCounts(fromTimestamp: $from, toTimestamp: $to, groupBy: METRIC) {
+    totals {
+      category
+      count
+    }
+    timeseries {
+      timestamp
+      counts {
+        category
+        count
+        metric
+      }
+    }
+  }
+  events(filter: { fromTimestamp: $from, toTimestamp: $to, eventType: Distribution }) {
+    datasetTimestamp
+    explanation {
+      __typename
+      ... on ThresholdEventExplanation {
+        observedValue
+      }
+    }
+  }
+  sketches(from: $from, to: $to) {
+    createdAt
+    schemaSummary {
+      inference {
+        count
+      }
+      typeCounts {
+        type
+        count
+      }
+    }
+    totalCount
+    nullRatio
+    uniqueCount {
+      estimate
+    }
+  }
+  baselineSketch {
+    showAsDiscrete
+    schemaSummary {
+      inference {
+        type
+      }
+    }
+  }
+}

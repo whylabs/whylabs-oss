@@ -1,0 +1,8 @@
+query getLatestTimestamp($modelId: String!) {
+  model(id: $modelId) {
+    dataAvailability {
+      latestTimestamp
+      oldestTimestamp
+    }
+  }
+}

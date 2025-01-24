@@ -1,0 +1,170 @@
+type SegmentTag {
+  key: String!
+  value: String!
+}
+
+input SegmentTagFilter {
+  key: String!
+  value: String!
+}
+
+type CustomTag {
+  key: String!
+  value: String!
+  color: String
+  backgroundColor: String
+}
+
+input CustomTagFilter {
+  key: String!
+  value: String!
+}
+
+enum SegmentSortBy {
+  """
+  Sort segments by name
+  """
+  Name
+  """
+  Sort segments by the count of anomalies observed in them (must specify from/to timestamps when querying segments)
+  """
+  AnomalyCount
+}
+
+input SegmentSort {
+  by: SegmentSortBy!
+  direction: SortDirection!
+}
+
+input SegmentFilter {
+  substring: String
+  tags: [SegmentTagFilter!]
+  fromTimestamp: Float
+  toTimestamp: Float
+}
+
+enum SegmentScope {
+  Reference
+  Batch
+  Both
+}
+
+type Segment implements Dataset {
+  id: String!
+  datasetId: String!
+  name: String! @deprecated(reason: "Segments don't have names, use tags instead")
+  modelType: ModelType!
+  assetCategory: AssetCategory
+  tags: [SegmentTag!]!
+  resourceTags: [CustomTag!]!
+  creationTime: Float
+  modelName: String!
+  modelId: String!
+  output(name: String!): Feature
+  outputs: [Feature!]!
+  filteredOutputs(
+    offset: Int = 0
+    limit: Int = 0
+    filter: FeatureFilter!
+    sort: FilteredFeaturesSort
+  ): FilteredFeatures!
+  feature(name: String!): Feature
+  features(offset: Int = 0, limit: Int = 0): [Feature!]!
+    @deprecated(
+      reason: "This query returns ALL features in a dataset, which can be thousands. Please use 'filteredFeatures' query instead."
+    )
+  filteredFeatures(
+    offset: Int = 0
+    limit: Int = 0
+    filter: FeatureFilter!
+    sort: FilteredFeaturesSort
+  ): FilteredFeatures!
+  batchFrequency: TimePeriod!
+  batch(datasetTimestamp: Float!): BatchMetadata
+  """
+  Fetches the dataset-level metadata by time range or from the specified timestamps.
+  If the `timestamps` argument is passed, it will be prioritized over the `from/to` args.
+  We probably shouldn't pass more than a couple timestamps at a time. For large queries, use a time range :)
+  """
+  batches(from: Float = 0, to: Float, timestamps: [Float!]): [BatchMetadata!]!
+  batchDateRanges(timestamps: [Float!]!): [DateRange!]!
+  alerts(filter: EventFilter!): [DataQualityEvent!]!
+    @deprecated(reason: "This query serves Monitor V2 data. Use 'anomalies' query instead")
+  alertCountsV2(
+    fromTimestamp: Float!
+    toTimestamp: Float
+    groupBy: AnomalyCountGroupBy
+    filter: AnomalyOptionalFilter
+    granularityInclusion: GranularityInclusion
+  ): AlertCategoryCounts @deprecated(reason: "Use anomalyCounts instead - same query, but clearer naming.")
+  latestAlert: DataQualityEvent
+    @deprecated(reason: "This query serves Monitor V2 data. Use 'latestAnomaly' query instead")
+  latestAnomaly(monitorIds: [String!], analyzerIds: [String!]): AnalysisResult
+    @deprecated(reason: "No longer supported. Use 'latestAnomalyTimestamp' instead")
+  """
+  Returns the timestamp of the latest anomaly, if one exists
+  """
+  latestAnomalyTimestamp(monitorIds: [String!], analyzerIds: [String!]): Float
+  events(filter: EventFilter!): [DataQualityEvent!]!
+    @deprecated(reason: "This query serves Monitor V2 data. Use 'analysisResults' query instead")
+  featureCounts: FeatureCounts
+
+  """
+  Available reference profiles that have been uploaded for this dataset
+  """
+  referenceProfiles(from: Float, to: Float, profileIds: [String!]): [ReferenceProfile!]
+  """
+  Individual profiles that have been uploaded for this dataset
+  """
+  individualProfileList(from: Float!, to: Float!, offset: Int, limit: Int): [IndividualProfileItem!]
+  """
+  Individual profiles that have been uploaded for this dataset
+  """
+  individualProfiles(retrievalTokens: [String!]!): [IndividualProfile!]
+  """
+  Constraints list (analyzers json string config) for this dataset
+  """
+  constraintsList: [String!]
+  """
+  Information about data availability for this dataset
+  """
+  dataAvailability: DataAvailability
+  """
+  Date range of data lineage for this dataset with start and end timestamps fitting the batch bucket
+  """
+  dataLineage: DataLineage
+  """
+  Information about entity schema for this dataset
+  """
+  entitySchema: EntitySchema
+  """
+  Profile insights for this model
+  """
+  insights(batchProfileTimestamp: Float, referenceProfileId: String, tags: [SegmentTagFilter!]): [InsightEntry!]
+}
+
+extend type Query {
+  """
+  Returns valid segment keys matching the provided search string, or all keys if no search string was specified.
+  If tags are specified, only matching segments will be considered when searching.
+  E.g. 'pur' -> ['purpose'], null -> ['purpose'], 'foo' -> []
+  """
+  searchSegmentKeys(
+    datasetId: String!
+    tags: [SegmentTagFilter!]
+    searchString: String
+    limitSpec: LimitSpec
+  ): [String!] @auth
+  """
+  Returns valid values for the specified segment key matching the provided search string, or all valid values if no search string was specified.
+  If tags are specified, only matching segments will be considered when searching.
+  E.g. 'purpose', 'car' -> ['car', 'credit_card'], null -> [...all results], 'foo' -> []
+  """
+  searchSegmentValues(
+    datasetId: String!
+    tags: [SegmentTagFilter!]
+    key: String!
+    searchString: String
+    limitSpec: LimitSpec
+  ): [String!] @auth
+}

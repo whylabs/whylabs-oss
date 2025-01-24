@@ -1,0 +1,93 @@
+{
+  "data": {
+    "model": {
+      "features": [],
+      "outputs": [],
+      "datasetMetrics": [
+        {
+          "name": "recall",
+          "metadata": {
+            "name": "CLASSIFICATION_RECALL",
+            "label": "Recall",
+            "dataType": "FLOAT",
+            "showAsPercent": true,
+            "unitInterval": true,
+            "metricDirection": "IMPROVE_UP",
+            "metricKind": "RATE",
+            "bounds": null
+          }
+        },
+        {
+          "name": "fpr",
+          "metadata": {
+            "name": "CLASSIFICATION_FPR",
+            "label": "False positive rate",
+            "dataType": "FLOAT",
+            "showAsPercent": true,
+            "unitInterval": true,
+            "metricDirection": "IMPROVE_DOWN",
+            "metricKind": "RATE",
+            "bounds": null
+          }
+        },
+        {
+          "name": "precision",
+          "metadata": {
+            "name": "CLASSIFICATION_PRECISION",
+            "label": "Precision",
+            "dataType": "FLOAT",
+            "showAsPercent": true,
+            "unitInterval": true,
+            "metricDirection": "IMPROVE_UP",
+            "metricKind": "RATE",
+            "bounds": null
+          }
+        },
+        {
+          "name": "accuracy",
+          "metadata": {
+            "name": "CLASSIFICATION_ACCURACY",
+            "label": "Accuracy",
+            "dataType": "FLOAT",
+            "showAsPercent": true,
+            "unitInterval": true,
+            "metricDirection": "IMPROVE_UP",
+            "metricKind": "RATE",
+            "bounds": null
+          }
+        },
+        {
+          "name": "f1",
+          "metadata": {
+            "name": "CLASSIFICATION_F1",
+            "label": "F1",
+            "dataType": "FLOAT",
+            "showAsPercent": true,
+            "unitInterval": true,
+            "metricDirection": "IMPROVE_UP",
+            "metricKind": "RATE",
+            "bounds": null
+          }
+        },
+        {
+          "name": "macroAuc",
+          "metadata": {
+            "name": "CLASSIFICATION_AUROC",
+            "label": "Area under ROC (AUC-ROC)",
+            "dataType": "FLOAT",
+            "showAsPercent": true,
+            "unitInterval": true,
+            "metricDirection": "IMPROVE_UP",
+            "metricKind": "RATE",
+            "bounds": null
+          }
+        }
+      ],
+      "totalSegments": 0,
+      "dataAvailability": {
+        "hasData": false,
+        "oldestTimestamp": null
+      }
+    }
+  }
+}

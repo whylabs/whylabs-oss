@@ -1,0 +1,27 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: cluster-example
+spec:
+  imageName: ghcr.io/whylabs/whylogs-bloom/postgres:14-arm64-2024-11-20
+  instances: 1
+  postgresql:
+    shared_preload_libraries: 
+        - timescaledb
+        - datasketches
+    parameters:
+      shared_buffers: "1GB"
+      extwlist.extensions: "datasketches,parquet_fdw,timescaledb"
+      timescaledb.license_key: 'CommunityLicense'
+  bootstrap:
+    initdb:
+      database: whylogs
+      owner: dataservice
+      dataChecksums: true
+      walSegmentSize: 32
+      postInitSQL:
+        - CREATE EXTENSION datasketches; 
+        - CREATE EXTENSION timescaledb;
+        - CREATE EXTENSION parquet_fdw;
+  storage:
+    size: 1Gi

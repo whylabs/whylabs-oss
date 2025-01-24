@@ -1,0 +1,180 @@
+{
+  "id": "12345678-1234-5678-1234-567812345678",
+  "schemaVersion": 1,
+  "orgId": "org-1",
+  "datasetId": "model-1",
+  "granularity": "daily",
+  "entitySchema": {
+    "columns": {
+      "annual_inc": {
+        "discreteness": "discrete",
+        "dataType": "integral",
+        "classifier": "input"
+      },
+      "prediction": {
+        "discreteness": "discrete",
+        "dataType": "integral",
+        "classifier": "output"
+      }
+    }
+  },
+  "analyzers": [
+    {
+      "id": "numerical_drift-analyzer",
+      "schedule": {
+        "type": "fixed",
+        "cadence": "daily"
+      },
+      "targetMatrix": {
+        "segments": [
+          {
+            "tags": []
+          }
+        ],
+        "type": "column",
+        "include": [
+          "group:continuous"
+        ]
+      },
+      "config": {
+        "metric": "histogram",
+        "type": "drift",
+        "algorithm": "hellinger",
+        "threshold": 0.5,
+        "minBatchSize": 1,
+        "baseline": {
+          "type": "TrailingWindow",
+          "size": 14
+        }
+      }
+    },
+    {
+      "id": "frequent_items_drift-analyzer",
+      "schedule": {
+        "type": "fixed",
+        "cadence": "daily"
+      },
+      "targetMatrix": {
+        "segments": [
+          {
+            "tags": []
+          }
+        ],
+        "type": "column",
+        "include": [
+          "group:discrete"
+        ]
+      },
+      "config": {
+        "metric": "frequent_items",
+        "type": "drift",
+        "algorithm": "hellinger",
+        "threshold": 0.5,
+        "minBatchSize": 1,
+        "baseline": {
+          "type": "TrailingWindow",
+          "size": 14
+        }
+      }
+    },
+    {
+      "id": "drift-analyzer",
+      "schedule": {
+        "type": "fixed",
+        "cadence": "daily"
+      },
+      "targetMatrix": {
+        "segments": [
+          {
+            "tags": []
+          }
+        ],
+        "type": "dataset"
+      },
+      "dataReadinessDuration": "PT19H",
+      "backfillGracePeriodDuration": "P7D",
+      "config": {
+        "metric": "classification.f1",
+        "type": "stddev",
+        "factor": 5.0,
+        "minBatchSize": 1,
+        "baseline": {
+          "type": "TrailingWindow",
+          "size": 14
+        }
+      }
+    }
+  ],
+  "monitors": [
+    {
+      "id": "drift-monitor-1",
+      "analyzerIds": [
+        "frequent_items_drift-analyzer"
+      ],
+      "schedule": {
+        "type": "fixed",
+        "cadence": "daily"
+      },
+      "severity": 4,
+      "mode": {
+        "type": "DIGEST",
+        "filter": {
+          "minAlertCount": 20
+        }
+      },
+      "actions": [
+        {
+          "type": "global",
+          "target": "action-xyz"
+        }
+      ]
+    },
+    {
+      "id": "drift-monitor-important-features-2",
+      "analyzerIds": [
+        "numerical_drift-analyzer"
+      ],
+      "schedule": {
+        "type": "fixed",
+        "cadence": "daily"
+      },
+      "severity": 2,
+      "mode": {
+        "type": "EVERY_ANOMALY",
+        "filter": {
+          "excludeColumns": [
+            "very_noisy"
+          ],
+          "minWeight": 0.5,
+          "minRankByWeight": 10
+        }
+      },
+      "actions": [
+        {
+          "type": "global",
+          "target": "action-xyz"
+        }
+      ]
+    },
+    {
+      "id": "f1-monitor-1",
+      "analyzerIds": [
+        "frequent_items_drift-analyzer"
+      ],
+      "schedule": {
+        "type": "fixed",
+        "cadence": "daily"
+      },
+      "severity": 2,
+      "mode": {
+        "type": "EVERY_ANOMALY"
+      },
+      "actions": [
+        {
+          "type": "global",
+          "target": "action-xyz"
+        }
+      ]
+    }
+  ]
+}

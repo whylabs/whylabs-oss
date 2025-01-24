@@ -1,0 +1,433 @@
+{
+  "orgId": "org-90210",
+  "datasetId": "model-61",
+  "granularity": "daily",
+  "metadata": {
+    "schemaVersion": 1,
+    "author": "system",
+    "updatedTimestamp": 1681770522008,
+    "version": 41
+  },
+  "analyzers": [
+    {
+      "config": {
+        "algorithm": "hellinger",
+        "baseline": {
+          "size": 7,
+          "type": "TrailingWindow"
+        },
+        "metric": "histogram",
+        "threshold": 0.05,
+        "type": "drift"
+      },
+      "id": "continuous-drift-analyzer",
+      "schedule": {
+        "type": "fixed",
+        "cadence": "daily"
+      },
+      "backfillGracePeriodDuration": "P900D",
+      "targetMatrix": {
+        "include": [
+          "group:continuous"
+        ],
+        "exclude": [],
+        "segments": [
+          {
+            "tags": []
+          }
+        ],
+        "type": "column"
+      },
+      "metadata": {
+        "schemaVersion": 1,
+        "author": "system",
+        "updatedTimestamp": 1671468607209,
+        "version": 2
+      }
+    },
+    {
+      "config": {
+        "algorithm": "hellinger",
+        "baseline": {
+          "size": 7,
+          "type": "TrailingWindow"
+        },
+        "metric": "frequent_items",
+        "threshold": 0.07,
+        "type": "drift"
+      },
+      "id": "discrete-drift-analyzer",
+      "schedule": {
+        "type": "fixed",
+        "cadence": "daily"
+      },
+      "backfillGracePeriodDuration": "P900D",
+      "targetMatrix": {
+        "include": [
+          "group:discrete"
+        ],
+        "exclude": [],
+        "segments": [
+          {
+            "tags": []
+          }
+        ],
+        "type": "column"
+      },
+      "metadata": {
+        "schemaVersion": 1,
+        "author": "system",
+        "updatedTimestamp": 1671468621516,
+        "version": 2
+      }
+    },
+    {
+      "config": {
+        "baseline": {
+          "size": 7,
+          "type": "TrailingWindow"
+        },
+        "factor": 1.96,
+        "metric": "count_null_ratio",
+        "type": "stddev"
+      },
+      "id": "missing-values-ratio-analyzer-d317bs",
+      "schedule": {
+        "type": "fixed",
+        "cadence": "daily"
+      },
+      "backfillGracePeriodDuration": "P900D",
+      "targetMatrix": {
+        "include": [
+          "*"
+        ],
+        "segments": [],
+        "type": "column"
+      },
+      "metadata": {
+        "schemaVersion": 1,
+        "author": "system",
+        "updatedTimestamp": 1671468653697,
+        "version": 1
+      }
+    },
+    {
+      "config": {
+        "baseline": {
+          "size": 7,
+          "type": "TrailingWindow"
+        },
+        "factor": 1.96,
+        "metric": "unique_est_ratio",
+        "type": "stddev"
+      },
+      "id": "unique-estimate-ratio-analyzer-l0ypa9",
+      "schedule": {
+        "type": "fixed",
+        "cadence": "daily"
+      },
+      "backfillGracePeriodDuration": "P900D",
+      "targetMatrix": {
+        "include": [
+          "*"
+        ],
+        "segments": [],
+        "type": "column"
+      },
+      "metadata": {
+        "schemaVersion": 1,
+        "author": "system",
+        "updatedTimestamp": 1671468655224,
+        "version": 1
+      }
+    },
+    {
+      "config": {
+        "baseline": {
+          "size": 7,
+          "type": "TrailingWindow"
+        },
+        "metric": "inferred_data_type",
+        "operator": "eq",
+        "type": "comparison"
+      },
+      "id": "inferred-data-type-analyzer-acsmaf",
+      "schedule": {
+        "type": "fixed",
+        "cadence": "daily"
+      },
+      "backfillGracePeriodDuration": "P900D",
+      "targetMatrix": {
+        "include": [
+          "*"
+        ],
+        "segments": [],
+        "type": "column"
+      },
+      "metadata": {
+        "schemaVersion": 1,
+        "author": "system",
+        "updatedTimestamp": 1671468656456,
+        "version": 1
+      }
+    },
+    {
+      "schedule": {
+        "type": "fixed",
+        "cadence": "daily"
+      },
+      "id": "brave-springgreen-rat-9882-analyzer",
+      "backfillGracePeriodDuration": "P900D",
+      "targetMatrix": {
+        "type": "column",
+        "include": [
+          "group:discrete"
+        ],
+        "exclude": [
+          "group:output"
+        ],
+        "segments": []
+      },
+      "config": {
+        "metric": "frequent_items",
+        "baseline": {
+          "type": "Reference",
+          "profileId": "ref-gUZOGdkM99L36Cmi"
+        },
+        "type": "drift",
+        "algorithm": "hellinger",
+        "threshold": 0.07
+      },
+      "metadata": {
+        "schemaVersion": 1,
+        "author": "system",
+        "updatedTimestamp": 1673194993427,
+        "version": 1
+      }
+    }
+  ],
+  "monitors": [
+    {
+      "id": "continuous-drift-monitor",
+      "analyzerIds": [
+        "continuous-drift-analyzer"
+      ],
+      "schedule": {
+        "type": "immediate"
+      },
+      "mode": {
+        "type": "DIGEST"
+      },
+      "disabled": false,
+      "actions": [],
+      "metadata": {
+        "schemaVersion": 1,
+        "author": "system",
+        "updatedTimestamp": 1671468607406,
+        "version": 2
+      }
+    },
+    {
+      "id": "discrete-drift-monitor",
+      "analyzerIds": [
+        "discrete-drift-analyzer"
+      ],
+      "schedule": {
+        "type": "immediate"
+      },
+      "mode": {
+        "type": "DIGEST"
+      },
+      "disabled": false,
+      "actions": [],
+      "metadata": {
+        "schemaVersion": 1,
+        "author": "system",
+        "updatedTimestamp": 1671468621703,
+        "version": 2
+      }
+    },
+    {
+      "id": "missing-values-ratio-monitor-d317bs",
+      "analyzerIds": [
+        "missing-values-ratio-analyzer-d317bs"
+      ],
+      "schedule": {
+        "type": "immediate"
+      },
+      "mode": {
+        "type": "DIGEST"
+      },
+      "disabled": false,
+      "actions": [],
+      "metadata": {
+        "schemaVersion": 1,
+        "author": "system",
+        "updatedTimestamp": 1671468654389,
+        "version": 1
+      }
+    },
+    {
+      "id": "unique-estimate-ratio-monitor-l0ypa9",
+      "analyzerIds": [
+        "unique-estimate-ratio-analyzer-l0ypa9"
+      ],
+      "schedule": {
+        "type": "immediate"
+      },
+      "mode": {
+        "type": "DIGEST"
+      },
+      "disabled": false,
+      "actions": [],
+      "metadata": {
+        "schemaVersion": 1,
+        "author": "system",
+        "updatedTimestamp": 1671468655908,
+        "version": 1
+      }
+    },
+    {
+      "id": "inferred-data-type-monitor-acsmaf",
+      "analyzerIds": [
+        "inferred-data-type-analyzer-acsmaf"
+      ],
+      "schedule": {
+        "type": "immediate"
+      },
+      "mode": {
+        "type": "DIGEST"
+      },
+      "disabled": false,
+      "actions": [],
+      "metadata": {
+        "schemaVersion": 1,
+        "author": "system",
+        "updatedTimestamp": 1671468657130,
+        "version": 1
+      }
+    },
+    {
+      "schedule": {
+        "type": "immediate"
+      },
+      "mode": {
+        "type": "DIGEST",
+        "datasetTimestampOffset": "P7D"
+      },
+      "id": "brave-springgreen-rat-9882",
+      "displayName": "frequent items drift vs reference profile",
+      "analyzerIds": [
+        "brave-springgreen-rat-9882-analyzer"
+      ],
+      "severity": 3,
+      "actions": [],
+      "metadata": {
+        "schemaVersion": 1,
+        "author": "system",
+        "updatedTimestamp": 1673194994169,
+        "version": 1
+      }
+    },
+    {
+      "schedule": {
+        "type": "immediate"
+      },
+      "mode": {
+        "type": "DIGEST",
+        "datasetTimestampOffset": "P7D"
+      },
+      "id": "rich-orange-worm-8262",
+      "displayName": "Late upload monitor",
+      "analyzerIds": [
+        "rich-orange-worm-8262-analyzer"
+      ],
+      "severity": 3,
+      "actions": [
+        {
+          "type": "global",
+          "target": "email"
+        }
+      ],
+      "metadata": {
+        "schemaVersion": 1,
+        "author": "system",
+        "updatedTimestamp": 1674847635384,
+        "version": 5
+      }
+    },
+    {
+      "schedule": {
+        "type": "immediate"
+      },
+      "mode": {
+        "type": "DIGEST",
+        "datasetTimestampOffset": "P7D"
+      },
+      "id": "hand-crafted-missing-datapoint-monitor",
+      "displayName": "Missing datapoint monitor",
+      "analyzerIds": [
+        "missing-datapoint-analyzer"
+      ],
+      "severity": 3,
+      "actions": [],
+      "tags": [
+        "creation:custom_json_editor"
+      ],
+      "metadata": {
+        "schemaVersion": 1,
+        "author": "system",
+        "updatedTimestamp": 1681770522008,
+        "version": 1
+      }
+    }
+  ],
+  "entitySchema": {
+    "metadata": {
+      "author": "system",
+      "version": 1,
+      "updatedTimestamp": 1671466888503
+    },
+    "columns": {
+      "category": {
+        "discreteness": "discrete",
+        "dataType": "string",
+        "classifier": "input"
+      },
+      "date": {
+        "discreteness": "discrete",
+        "dataType": "unknown",
+        "classifier": "input"
+      },
+      "market_price": {
+        "discreteness": "continuous",
+        "dataType": "fractional",
+        "classifier": "input"
+      },
+      "predicted_rating": {
+        "discreteness": "discrete",
+        "dataType": "string",
+        "classifier": "input"
+      },
+      "rating": {
+        "discreteness": "continuous",
+        "dataType": "integral",
+        "classifier": "input"
+      },
+      "sales_last_week": {
+        "discreteness": "discrete",
+        "dataType": "string",
+        "classifier": "input"
+      }
+    },
+    "metrics": null
+  },
+  "weightConfig": {
+    "metadata": {
+      "author": "system",
+      "version": 0,
+      "updatedTimestamp": 1683839163843
+    },
+    "segmentWeights": []
+  }
+}

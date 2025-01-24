@@ -1,0 +1,135 @@
+{
+  "type": "kinesis",
+  "dataSchema": {
+    "dataSource": "whylogsStreaming",
+    "metricsSpec": [
+      {
+        "type": "HLLSketchMerge",
+        "name": "uniqueCount",
+        "fieldName": "uniqueCount"
+      },
+      {
+        "type": "kllFloatsSketch",
+        "name": "histogram",
+        "fieldName": "histogram"
+      },
+      {
+        "type": "frequentItemsMerge",
+        "name": "frequentItems",
+        "fieldName": "frequentItems"
+      },
+      {
+        "type": "longSum",
+        "name": "schema.count.BOOLEAN",
+        "fieldName": "schema.count.BOOLEAN"
+      },
+      {
+        "type": "doubleMin",
+        "name": "number.min",
+        "fieldName": "number.min"
+      },
+      {
+        "type": "longSum",
+        "name": "schema.count.NULL",
+        "fieldName": "schema.count.NULL"
+      },
+      {
+        "type": "longSum",
+        "name": "schema.count.FRACTIONAL",
+        "fieldName": "schema.count.FRACTIONAL"
+      },
+      {
+        "type": "doubleSum",
+        "name": "number.variance.m2",
+        "fieldName": "number.variance.m2"
+      },
+      {
+        "type": "doubleMax",
+        "name": "number.max",
+        "fieldName": "number.max"
+      },
+      {
+        "type": "longSum",
+        "name": "counters.nullCount",
+        "fieldName": "counters.nullCount"
+      },
+      {
+        "type": "longSum",
+        "name": "counters.count",
+        "fieldName": "counters.count"
+      },
+      {
+        "type": "longSum",
+        "name": "counters.trueCount",
+        "fieldName": "counters.trueCount"
+      },
+      {
+        "type": "longSum",
+        "name": "schema.count.STRING",
+        "fieldName": "schema.count.STRING"
+      },
+      {
+        "type": "longSum",
+        "name": "schema.count.UNKNOWN",
+        "fieldName": "schema.count.UNKNOWN"
+      },
+      {
+        "type": "longSum",
+        "name": "schema.count.INTEGRAL",
+        "fieldName": "schema.count.INTEGRAL"
+      },
+      {
+        "type": "doubleSum",
+        "name": "number.variance.mean",
+        "fieldName": "number.variance.mean"
+      },
+      {
+        "type": "longSum",
+        "name": "number.count",
+        "fieldName": "number.count"
+      }
+    ],
+    "granularitySpec": {
+      "type": "uniform",
+      "queryGranularity": "NONE",
+      "rollup": true,
+      "segmentGranularity": "DAY"
+    },
+    "timestampSpec": {
+      "column": "time",
+      "format": "iso"
+    },
+    "dimensionsSpec": {
+      "dimensions": [
+        "columnName",
+        "orgid",
+        "datasetid",
+        "segmentText"
+      ]
+    }
+  },
+  "ioConfig": {
+    "stream": "p-drew-ProfileUploadNotifications-4676b25",
+    "inputFormat": {
+      "type": "whylogsKinesis",
+      "druidIngestionStatusNotificationStream": "p-drew-DruidStreamingIngestionStatusNotifications-0f80844",
+      "metricsNamespace": "p-drew-streaming"
+    },
+    "endpoint": "kinesis.us-west-2.amazonaws.com",
+    "taskCount": 1,
+    "replicas": 1,
+    "taskDuration": "PT1H",
+    "recordsPerFetch": 2000,
+    "fetchDelayMillis": 1000
+  },
+  "tuningConfig": {
+    "type": "kinesis",
+    "maxRowsPerSegment": 5000000,
+    "fetchSequenceNumberTimeout": 3600000,
+    "logParseExceptions": true,
+    "resetOffsetAutomatically": true,
+    "useEarliestSequenceNumber": true,
+    "lateMessageRejectionPeriod": "P7D"
+
+  }
+}

@@ -1,0 +1,1 @@
+ALTER TYPE failure_type add value if not exists 'timed_out_planning';

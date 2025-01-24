@@ -1,0 +1,19 @@
+query getResourceData($resourceId: String!) {
+  resource: model(id: $resourceId) {
+    id
+    category: assetCategory
+    name
+    type: modelType
+    batchFrequency
+    dataAvailability {
+      oldestTimestamp
+      latestTimestamp
+    }
+  }
+}
+query getResourceModelType($resourceId: String!) {
+  resource: model(id: $resourceId) {
+    type: modelType
+    category: assetCategory
+  }
+}

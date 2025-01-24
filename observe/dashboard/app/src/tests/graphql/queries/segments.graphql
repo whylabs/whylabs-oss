@@ -1,0 +1,56 @@
+query segments($model: String!, $from: Float!, $to: Float!, $offset: Int, $limit: Int, $substring: String) {
+  model(id: $model) {
+    ...ModelCommonData
+    totalSegments
+    segments(offset: $offset, limit: $limit, filter: {substring: $substring}) {
+      id
+      tags {
+        key
+        value
+      }
+      anomalies(sortDirection: DESC, filter: { fromTimestamp: $from, toTimestamp: $to, anomaliesOnly: true }) {
+        analysisId
+        category
+        isAnomaly
+      }
+      batches(from: $from, to: $to) {
+        inputCount
+        outputCount
+        timestamp
+      }
+      uniqueAlerts: alerts(filter: {eventType: Uniqueness, fromTimestamp: $from, toTimestamp: $to}) {
+        id
+      }
+      distributionAlerts: alerts(filter: {eventType: Distribution, fromTimestamp: $from, toTimestamp: $to}) {
+        id
+      }
+      dataTypeAlerts: alerts(filter: {eventType: DataType, fromTimestamp: $from, toTimestamp: $to}) {
+        id
+      }
+      missingValueAlerts: alerts(filter: {eventType: NullFraction, fromTimestamp: $from, toTimestamp: $to}) {
+        id
+      }
+    }
+  }
+}
+
+query getSegment($datasetId: String!, $tags: [SegmentTagFilter!]!) {
+  model(id: $datasetId) {
+    segment(tags: $tags) {
+      tags {
+        key
+        value
+      }
+      dataAvailability {
+        hasData
+        oldestTimestamp
+      }
+    }
+  }
+}
+
+fragment ModelCommonData on Model {
+  id
+  name
+  batchFrequency
+}

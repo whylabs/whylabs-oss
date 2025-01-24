@@ -1,0 +1,1 @@
+alter table whylabs.adhoc_async_requests add column if not exists all_monitor_run bool default false;

@@ -1,0 +1,120 @@
+query getResourceBasicInfoForOrg {
+  resources: models {
+    id
+    assetCategory
+    dataAvailability {
+      latestTimestamp,
+      oldestTimestamp
+    }
+  }
+}
+
+query getResourceBasicCategoryInfo {
+  resources: models {
+    id
+    name
+    assetCategory
+    modelType
+  }
+}
+
+query getResourceCoverageInfo {
+  resources: models {
+    id
+    name
+    assetCategory
+    modelType
+    monitoredCategories
+  }
+}
+
+query getResourceBatchesCount(
+  $from: Float!
+  $to: Float
+  $skipInputs: Boolean = false
+  $skipOutputs: Boolean = false
+  $skipTimestamps: Boolean = false
+) {
+  resources: models {
+    batches(from: $from, to: $to) {
+      inputCount @skip(if: $skipInputs)
+      outputCount @skip(if: $skipOutputs)
+      timestamp @skip(if: $skipTimestamps)
+    }
+    assetCategory
+  }
+}
+
+query getResourceBasicInfoWithAnomalies($from: Float!, $to: Float) {
+  resources: models {
+    id
+    name
+    assetCategory
+    modelType
+    allAnomalyCounts(fromTimestamp: $from, toTimestamp: $to, groupBy: CATEGORY) {
+      totals {
+        category
+        count
+        metric
+      }
+    }
+  }
+}
+
+query getResourceAnomaliesTimeSeriesData($from: Float!, $to: Float) {
+  resources: models {
+    id
+    name
+    assetCategory
+    modelType
+    allAnomalyCounts(fromTimestamp: $from, toTimestamp: $to, groupBy: CATEGORY) {
+      totals {
+        category
+        count
+        metric
+      }
+      timeseries {
+        timestamp
+        counts {
+          category
+          count
+          metric
+        }
+      }
+    }
+  }
+}
+
+fragment ResourcesExecutiveTableInfo on Model {
+  id
+  name
+  entitySchema {
+    inputCounts {
+      total
+    }
+  }
+  assetCategory
+  modelType
+  allAnomalyCounts(fromTimestamp: $from, toTimestamp: $to) {
+    ...ResourceAnomalyCountTimeseries
+  }
+  batches(from: $from, to: $to) {
+    inputCount
+  }
+  metrics: datasetMetrics(granularity: ALL) {
+    name
+    values(fromTimestamp: $from, toTimestamp: $to) {
+      ...MetricValueFields
+    }
+  }
+  freshness: dataAvailability {
+    oldestTimestamp
+    latestTimestamp
+  }
+}
+
+query getResourcesTableInfo($from: Float!, $to: Float) {
+  resources: models {
+    ...ResourcesExecutiveTableInfo
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "data": {
+    "model": {
+      "id": "model-4",
+      "name": "Segmented dataset",
+      "batchFrequency": "P1D",
+      "feature": {
+        "id": "e958ddef-33d0-4c08-9da3-74c848474b66",
+        "sketches": [
+          {
+            "id": "f03bda57-f069-4d86-870b-4aa3a16ca4bc",
+            "createdAt": 1728950400000,
+            "uniqueCount": {
+              "upper": 4.000199746806284,
+              "estimate": 4.000000029802323,
+              "lower": 4
+            },
+            "uniqueRatio": 0.0010000000074505808
+          },
+          {
+            "id": "cc132c51-7d15-4476-92fd-a3a06e172011",
+            "createdAt": 1729036800000,
+            "uniqueCount": {
+              "upper": 4.000199746806284,
+              "estimate": 4.000000029802323,
+              "lower": 4
+            },
+            "uniqueRatio": 0.0010000000074505808
+          },
+          {
+            "id": "7caf8fee-a587-4378-b11a-44b52d5cb034",
+            "createdAt": 1729123200000,
+            "uniqueCount": {
+              "upper": 4.000199746806284,
+              "estimate": 4.000000029802323,
+              "lower": 4
+            },
+            "uniqueRatio": 0.0010000000074505808
+          },
+          {
+            "id": "80382052-8027-4f0a-94f0-a91e150a86cb",
+            "createdAt": 1729209600000,
+            "uniqueCount": {
+              "upper": 4.000199746806284,
+              "estimate": 4.000000029802323,
+              "lower": 4
+            },
+            "uniqueRatio": 0.0010000000074505808
+          },
+          {
+            "id": "60562a4d-d8d3-41bc-92d3-dcba7df1614b",
+            "createdAt": 1729296000000,
+            "uniqueCount": {
+              "upper": 4.000199746806284,
+              "estimate": 4.000000029802323,
+              "lower": 4
+            },
+            "uniqueRatio": 0.0010000000074505808
+          },
+          {
+            "id": "b9feb38a-c2fa-42e2-9377-85171e6d16a8",
+            "createdAt": 1729382400000,
+            "uniqueCount": {
+              "upper": 4.000199746806284,
+              "estimate": 4.000000029802323,
+              "lower": 4
+            },
+            "uniqueRatio": 0.0010000000074505808
+          }
+        ],
+        "baselineSketch": {
+          "showAsDiscrete": true
+        }
+      }
+    }
+  }
+}

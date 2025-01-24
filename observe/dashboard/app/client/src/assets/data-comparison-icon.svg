@@ -1,0 +1,110 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="99" height="99" rx="3.5" fill="white"/>
+<rect x="0.5" y="0.5" width="99" height="99" rx="3.5" stroke="#DBE5E7"/>
+<g style="mix-blend-mode:multiply">
+<circle cx="18" cy="20" r="4.5" fill="#FFBB94"/>
+<circle cx="18" cy="20" r="4.5" stroke="#FFBB94"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="18" cy="32" r="4.5" fill="#FFBB94"/>
+<circle cx="18" cy="32" r="4.5" stroke="#FFBB94"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="18" cy="44" r="4.5" fill="#FFBB94"/>
+<circle cx="18" cy="44" r="4.5" stroke="#FFBB94"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="18" cy="56" r="4.5" fill="#8ECEFE"/>
+<circle cx="18" cy="56" r="4.5" stroke="#8ECEFE"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="18" cy="68" r="4.5" stroke="#DBE5E7"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="18" cy="80" r="4.5" stroke="#DBE5E7"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="34" cy="20" r="4.5" fill="#FFBB94"/>
+<circle cx="34" cy="20" r="4.5" stroke="#FFBB94"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="34" cy="32" r="4.5" fill="#FFBB94"/>
+<circle cx="34" cy="32" r="4.5" stroke="#FFBB94"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="34" cy="44" r="4.5" stroke="#DBE5E7"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="34" cy="56" r="4.5" stroke="#DBE5E7"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="34" cy="68" r="4.5" stroke="#DBE5E7"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="34" cy="80" r="4.5" stroke="#DBE5E7"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="50" cy="20" r="4.5" fill="#FFBB94"/>
+<circle cx="50" cy="20" r="4.5" stroke="#FFBB94"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="50" cy="32" r="4.5" stroke="#DBE5E7"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="50" cy="44" r="4.5" stroke="#DBE5E7"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="50" cy="56" r="4.5" fill="#8ECEFE"/>
+<circle cx="50" cy="56" r="4.5" stroke="#8ECEFE"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="50" cy="68" r="4.5" stroke="#DBE5E7"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="50" cy="80" r="4.5" fill="#FFBB94"/>
+<circle cx="50" cy="80" r="4.5" stroke="#FFBB94"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="66" cy="20" r="4.5" stroke="#DBE5E7"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="66" cy="32" r="4.5" stroke="#DBE5E7"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="66" cy="44" r="4.5" stroke="#DBE5E7"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="66" cy="56" r="4.5" fill="#8ECEFE"/>
+<circle cx="66" cy="56" r="4.5" stroke="#8ECEFE"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="66" cy="68" r="4.5" fill="#8ECEFE"/>
+<circle cx="66" cy="68" r="4.5" stroke="#8ECEFE"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="66" cy="80" r="4.5" fill="#FFBB94"/>
+<circle cx="66" cy="80" r="4.5" stroke="#FFBB94"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="82" cy="20" r="4.5" stroke="#DBE5E7"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="82" cy="32" r="4.5" stroke="#DBE5E7"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="82" cy="44" r="4.5" fill="#FFBB94"/>
+<circle cx="82" cy="44" r="4.5" stroke="#FFBB94"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="82" cy="56" r="4.5" fill="#8ECEFE"/>
+<circle cx="82" cy="56" r="4.5" stroke="#8ECEFE"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="82" cy="68" r="4.5" fill="#8ECEFE"/>
+<circle cx="82" cy="68" r="4.5" stroke="#8ECEFE"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="82" cy="80" r="4.5" fill="#8ECEFE"/>
+<circle cx="82" cy="80" r="4.5" stroke="#8ECEFE"/>
+</g>
+</svg>

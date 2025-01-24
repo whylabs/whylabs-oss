@@ -1,0 +1,34 @@
+fragment DatasetMetricsFields on Metric {
+  id
+  datasetGranularity
+  datasetId
+  segmentTags {
+    key
+    value
+  }
+  name
+  values(fromTimestamp: $from, toTimestamp: $to) {
+    timestamp
+    value
+  }
+}
+
+query getMetricDetailPanelData($datasetId: String!, $metricName: String!, $from: Float!, $to: Float) {
+  model(id: $datasetId) {
+    id
+    name
+    datasetMetric(name: $metricName) {
+      ...DatasetMetricsFields
+    }
+  }
+}
+
+query getOutputFeaturesForSideTable($model: String!, $from: Float!, $to: Float, $adHocRunId: String) {
+  model(id: $model) {
+    id
+    name
+    outputs {
+      ...FeatureDataSideTable
+    }
+  }
+}

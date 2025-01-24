@@ -1,0 +1,1 @@
+alter table whylabs.analyzer_result_deletions  add column analyzer_id varchar;

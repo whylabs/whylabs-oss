@@ -1,0 +1,12 @@
+diff --git a/package.json b/package.json
+index 7c2478250dd587c51368404ac060e005fb305c30..8fad5774c9301dd876695c490e32632c4fee5126 100644
+--- a/package.json
++++ b/package.json
+@@ -19,6 +19,7 @@
+       "require": "./index.js",
+       "default": "./index.js"
+     },
++    "./dist/src/defaults": "./dist/src/defaults.js",
+     "./package.json": "./package.json"
+   },
+   "repository": {

@@ -1,0 +1,54 @@
+query getModelOverviewInformation($from: Float!, $to: Float) {
+    models {
+        ...ModelOverviewInfo
+    }
+}
+
+fragment ModelOverviewInfo on Model {
+    ...ModelCommonData
+    modelType
+    assetCategory
+    entitySchema {
+        inputCounts {
+            total
+        }
+    }
+    totalSegments
+    ...LatestAlertOnModel
+    anomalyCounts: allAnomalyCounts(fromTimestamp: $from, toTimestamp: $to) {
+        totals {
+            category
+            count
+        }
+        ...AssetAnomalyCountTimeseries
+    }
+    dataAvailability {
+        hasData
+        oldestTimestamp
+        latestTimestamp
+    }
+}
+
+fragment ModelCommonData on Model {
+    id
+    name
+    batchFrequency
+}
+
+fragment LatestAlertOnModel on Model {
+    latestAnomalyTimestamp
+}
+
+fragment AssetAnomalyCountTimeseries on AlertCategoryCounts {
+    timeseries {
+        ...OverviewTimeSeries
+    }
+}
+
+fragment OverviewTimeSeries on GroupedAlertBatch {
+    timestamp
+    counts {
+        category
+        count
+    }
+}

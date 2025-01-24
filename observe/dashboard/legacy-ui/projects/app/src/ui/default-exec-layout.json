@@ -1,0 +1,500 @@
+{
+  "dynamicColors": [
+    {
+      "id": "inc-perc-green-to-red",
+      "thresholdInfo": [
+        {
+          "threshold": 0.1,
+          "colorInfo": {
+            "backgroundColor": "#EAFFEF",
+            "color": "#1CBB42",
+            "hasBorder": true
+          }
+        },
+        {
+          "threshold": 0.2,
+          "colorInfo": {
+            "backgroundColor": "#FFFAEA",
+            "color": "#CCA313",
+            "hasBorder": true
+          }
+        },
+        {
+          "threshold": 1.1,
+          "colorInfo": {
+            "backgroundColor": "#FFEAEA",
+            "color": "#D10F0F",
+            "hasBorder": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "dec-perc-green-to-red",
+      "decreasing": true,
+      "thresholdInfo": [
+        {
+          "threshold": 0.5,
+          "colorInfo": {
+            "backgroundColor": "#EAFFEF",
+            "color": "#1CBB42",
+            "hasBorder": true
+          }
+        },
+        {
+          "threshold": 0.25,
+          "colorInfo": {
+            "backgroundColor": "#FFFAEA",
+            "color": "#CCA313",
+            "hasBorder": true
+          }
+        },
+        {
+          "threshold": -1.1,
+          "colorInfo": {
+            "backgroundColor": "#FFEAEA",
+            "color": "#D10F0F",
+            "hasBorder": true
+          }
+        }
+      ]
+    }
+  ],
+  "contents": [
+    {
+      "config": {
+        "dimensions": {
+          "columnSpan": 1,
+          "rowSpan": 2
+        }
+      },
+      "title": {
+        "text": "Total models"
+      },
+      "queryId": "model-count",
+      "gridArea": 1,
+      "heroProperties": {
+        "emptyText": "0"
+      },
+      "graphParams": {
+        "type": "lineChart"
+      },
+      "subGrid": {
+        "contents": [
+          {
+            "config": {
+              "colorInfo": {
+                "color": "#F06F27"
+              }
+            },
+            "title": {
+              "text": "Classification"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "model-count-classification"
+          },
+          {
+            "config": {
+              "colorInfo": {
+                "color": "#005566"
+              }
+            },
+            "title": {
+              "text": "Regression"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "model-count-regression"
+          },
+          {
+            "config": {
+              "colorInfo": {
+                "color": "#44C0E7"
+              }
+            },
+            "title": {
+              "text": "Other"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "model-count-other"
+          }
+        ]
+      }
+    },
+    {
+      "config": {
+        "dimensions": {
+          "columnSpan": 1,
+          "rowSpan": 2
+        }
+      },
+      "title": {
+        "text": "Monitoring coverage"
+      },
+      "queryId": "monitoring-coverage-model-only",
+      "gridArea": 1,
+      "heroProperties": {
+        "emptyText": "0%",
+        "valueAttributes": {
+          "precision": 0,
+          "valueType": "percentage"
+        }
+      },
+      "subGrid": {
+        "contents": [
+          {
+            "config": {
+              "dynamicColorId": "dec-perc-green-to-red"
+            },
+            "title": {
+              "text": "Integration"
+            },
+            "heroProperties": {
+              "emptyText": "0%",
+              "valueAttributes": {
+                "precision": 0,
+                "valueType": "percentage"
+              }
+            },
+            "fieldId": "type-integration"
+          },
+          {
+            "config": {
+              "dynamicColorId": "dec-perc-green-to-red"
+            },
+            "title": {
+              "text": "Drift"
+            },
+            "heroProperties": {
+              "emptyText": "0%",
+              "valueAttributes": {
+                "precision": 0,
+                "valueType": "percentage"
+              }
+            },
+            "fieldId": "type-drift"
+          },
+          {
+            "config": {
+              "dynamicColorId": "dec-perc-green-to-red"
+            },
+            "title": {
+              "text": "Performance"
+            },
+            "heroProperties": {
+              "emptyText": "0%",
+              "valueAttributes": {
+                "precision": 0,
+                "valueType": "percentage"
+              }
+            },
+            "fieldId": "type-performance"
+          },
+          {
+            "config": {
+              "dynamicColorId": "dec-perc-green-to-red"
+            },
+            "title": {
+              "text": "Data quality"
+            },
+            "heroProperties": {
+              "emptyText": "0%",
+              "valueAttributes": {
+                "precision": 0,
+                "valueType": "percentage"
+              }
+            },
+            "fieldId": "type-data-quality"
+          }
+        ]
+      }
+    },
+    {
+      "config": {
+        "dimensions": {
+          "columnSpan": 2,
+          "rowSpan": 1
+        },
+        "dynamicColorId": "inc-perc-green-to-red"
+      },
+      "title": {
+        "text": "Models with anomalies"
+      },
+      "gridArea": 2,
+      "queryId": "model-percent-anomalies",
+      "heroProperties": {
+        "emptyText": "Unable to load data",
+        "valueAttributes": {
+          "precision": 0,
+          "valueType": "percentage"
+        },
+        "subHeaderAttributes": {
+          "precision": 0,
+          "valueType": "number"
+        }
+      },
+      "subGrid": {
+        "contents": [
+          {
+            "title": {
+              "text": "Integration health"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "models-with-ingestion"
+          },
+          {
+            "title": {
+              "text": "Drift"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "models-with-drift"
+          },
+          {
+            "title": {
+              "text": "Model performance"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "models-with-performance"
+          },
+          {
+            "title": {
+              "text": "Data quality"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "models-with-data-quality"
+          }
+        ]
+      }
+    },
+    {
+      "config": {
+        "dimensions": {
+          "columnSpan": 2,
+          "rowSpan": 1
+        },
+        "dynamicColorId": "inc-perc-green-to-red"
+      },
+      "title": {
+        "text": "Models with integration health issues"
+      },
+      "gridArea": 2,
+      "queryId": "model-percent-anomalies-integration",
+      "heroProperties": {
+        "emptyText": "Unable to load data",
+        "valueAttributes": {
+          "precision": 0,
+          "valueType": "percentage"
+        },
+        "subHeaderAttributes": {
+          "precision": 0,
+          "valueType": "number"
+        }
+      }
+    },
+    {
+      "config": {
+        "dimensions": {
+          "columnSpan": 2,
+          "rowSpan": 1
+        },
+        "dynamicColorId": "inc-perc-green-to-red"
+      },
+      "title": {
+        "text": "Models with data issues"
+      },
+      "gridArea": 2,
+      "queryId": "model-percent-anomalies-data",
+      "heroProperties": {
+        "emptyText": "Unable to load data",
+        "valueAttributes": {
+          "precision": 0,
+          "valueType": "percentage"
+        },
+        "subHeaderAttributes": {
+          "precision": 0,
+          "valueType": "number"
+        }
+      },
+      "subGrid": {
+        "contents": [
+          {
+            "config": {
+              "dimensions": {
+                "columnSpan": 1,
+                "rowSpan": 1
+              }
+            },
+            "title": {
+              "text": "With drift issues"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "model-count-drift-issues"
+          },
+          {
+            "config": {
+              "dimensions": {
+                "columnSpan": 1,
+                "rowSpan": 1
+              }
+            },
+            "title": {
+              "text": "With data issues"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "model-count-data-issues"
+          }
+        ]
+      }
+    },
+    {
+      "config": {
+        "dimensions": {
+          "columnSpan": 2,
+          "rowSpan": 1
+        },
+        "dynamicColorId": "inc-perc-green-to-red"
+      },
+      "title": {
+        "text": "Models with performance issues"
+      },
+      "gridArea": 2,
+      "queryId": "model-percent-anomalies-performance",
+      "heroProperties": {
+        "emptyText": "Unable to load data",
+        "valueAttributes": {
+          "precision": 0,
+          "valueType": "percentage"
+        },
+        "subHeaderAttributes": {
+          "precision": 0,
+          "valueType": "number"
+        }
+      }
+    },
+    {
+      "config": {
+        "dimensions": {
+          "columnSpan": 3,
+          "rowSpan": 2
+        }
+      },
+      "title": {
+        "text": "Total anomalies"
+      },
+      "graphParams": {
+        "type": "stackedBarTimeSeries"
+      },
+      "gridArea": 3,
+      "queryId": "model-anomalies-timeseries",
+      "heroProperties": {
+        "emptyText": "Unable to load data",
+        "valueAttributes": {
+          "precision": 0,
+          "valueType": "number"
+        }
+      },
+      "subGrid": {
+        "contents": [
+          {
+            "config": {
+              "colorInfo": {
+                "color": "#72D7E8"
+              }
+            },
+            "title": {
+              "text": "Integration"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "anomaly-count-integration"
+          },
+          {
+            "config": {
+              "colorInfo": {
+                "color": "#005566"
+              }
+            },
+            "title": {
+              "text": "Data quality"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "anomaly-count-data-quality"
+          },
+          {
+            "config": {
+              "colorInfo": {
+                "color": "#F5843C"
+              }
+            },
+            "title": {
+              "text": "Drift"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "anomaly-count-drift"
+          },
+          {
+            "config": {
+              "colorInfo": {
+                "color": "#FFC000"
+              }
+            },
+            "title": {
+              "text": "Performance"
+            },
+            "heroProperties": {
+              "emptyText": "0"
+            },
+            "fieldId": "anomaly-count-performance"
+          }
+        ]
+      }
+    },
+    {
+      "config": {
+        "dimensions": {
+          "columnSpan": 3,
+          "rowSpan": 2
+        }
+      },
+      "title": {
+        "text": "Total inferences"
+      },
+      "graphParams": {
+        "type": "timeSeries",
+        "showDots": false,
+        "curvesType": "curveStep"
+      },
+      "gridArea": 3,
+      "queryId": "model-batches-count-timeseries",
+      "heroProperties": {
+        "emptyText": "Unable to load data",
+        "valueAttributes": {
+          "precision": 0,
+          "valueType": "number"
+        }
+      }
+    }
+  ]
+}

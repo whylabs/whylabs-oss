@@ -1,0 +1,28 @@
+## Preview delete analyzer results
+## Compare to Druid:  SELECT count(*) FROM "whylogs-development-whylabs-analyzer-runs" where "analyzerId" = 'missing-datapoint-analyzer' and "datasetId" = 'model-10' and "startedTs" >= 1670803200000 and "startedTs" < 1675967552000
+POST http://localhost:8090/analysis/runs/count
+Content-Type: application/json
+
+{
+  "orgId": "org-3e8cGT",
+  "datasetIds": [
+    "model-10"
+  ],
+  "start": 1673308800000,
+  "end": 1673999999999,
+  "granularity": "daily"
+}
+
+### GetAnomalyCounts
+
+POST http://localhost:8090/analysis/getAnomalyCounts
+Content-Type: application/json
+
+{
+  "orgId": "org-3e8cGT",
+  "datasetIds": [
+    "model-10"
+  ],
+  "start": 1673308800000,
+  "end": 1673999999999
+}

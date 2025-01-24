@@ -1,0 +1,1995 @@
+{
+  "inlineResults": false,
+  "ignoreBackfillGracePeriodLimit": false,
+  "segmentTags": [],
+  "columnNames": [
+    "customer_city",
+    "customer_geolocation_lat",
+    "customer_geolocation_lng",
+    "customer_id",
+    "customer_state",
+    "customer_unique_id",
+    "customer_zip_code_prefix",
+    "freight_value",
+    "order_approved_at",
+    "order_delivered_carrier_date",
+    "order_delivered_customer_date",
+    "order_estimated_delivery_date",
+    "order_id",
+    "order_item_number",
+    "order_purchase_timestamp",
+    "order_status",
+    "price",
+    "product_category_name",
+    "product_description_length",
+    "product_height_cm",
+    "product_id",
+    "product_length_cm",
+    "product_name_length",
+    "product_photos_qty",
+    "product_weight_g",
+    "product_width_cm",
+    "seller_city",
+    "seller_geolocation_lat",
+    "seller_geolocation_lng",
+    "seller_id"
+  ],
+  "start": "2022-10-02T23:59:59.999Z",
+  "end": "2022-11-01T23:59:59.999Z",
+  "monitorConfig": {
+    "id": "86a03a63-d094-462b-b989-9896071bd280",
+    "schemaVersion": 1,
+    "orgId": "org-0",
+    "datasetId": "model-2120",
+    "granularity": "daily",
+    "metadata": {
+      "schemaVersion": 1,
+      "author": "system",
+      "updatedTimestamp": 1666294993931,
+      "version": 101
+    },
+    "analyzers": [
+      {
+        "id": "continuous-distribution-58f73412",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "disabled": false,
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "group:continuous"
+          ]
+        },
+        "backfillGracePeriodDuration": "P30D",
+        "config": {
+          "metric": "histogram",
+          "type": "drift",
+          "algorithm": "hellinger",
+          "threshold": 0.7,
+          "minBatchSize": 1,
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          }
+        }
+      },
+      {
+        "id": "cheerful-lemonchiffon-echidna-4053-analyzer",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "dataset",
+          "segments": []
+        },
+        "config": {
+          "metric": "classification.accuracy",
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          },
+          "type": "diff",
+          "mode": "pct",
+          "threshold": 2
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1664222989125,
+          "version": 1
+        }
+      },
+      {
+        "id": "easy-seagreen-jellyfish-707-analyzer",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "dataset",
+          "segments": []
+        },
+        "config": {
+          "metric": "classification.accuracy",
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          },
+          "type": "diff",
+          "mode": "pct",
+          "threshold": 1
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1664231247113,
+          "version": 1
+        }
+      },
+      {
+        "id": "odd-powderblue-owl-9385-analyzer",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "dataset",
+          "segments": []
+        },
+        "config": {
+          "metric": "classification.precision",
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          },
+          "type": "diff",
+          "mode": "pct",
+          "threshold": 2
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1664231272093,
+          "version": 1
+        }
+      },
+      {
+        "id": "successful-cornsilk-hamster-3862-analyzer",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "dataset",
+          "segments": []
+        },
+        "config": {
+          "metric": "classification.recall",
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          },
+          "type": "diff",
+          "mode": "pct",
+          "threshold": 2
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1664231293264,
+          "version": 2
+        }
+      },
+      {
+        "id": "poised-honeydew-carabeef-366-analyzer",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "dataset",
+          "segments": []
+        },
+        "config": {
+          "metric": "classification.f1",
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          },
+          "type": "diff",
+          "mode": "pct",
+          "threshold": 2
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1664231317012,
+          "version": 1
+        }
+      },
+      {
+        "config": {
+          "baseline": {
+            "size": 7,
+            "type": "TrailingWindow"
+          },
+          "metric": "inferred_data_type",
+          "operator": "eq",
+          "type": "comparison"
+        },
+        "id": "inferred-data-type-analyzer",
+        "schedule": {
+          "cadence": "daily",
+          "type": "fixed"
+        },
+        "targetMatrix": {
+          "include": [
+            "*"
+          ],
+          "segments": [],
+          "type": "column"
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1664568686194,
+          "version": 1
+        }
+      },
+      {
+        "config": {
+          "baseline": {
+            "size": 8,
+            "type": "TrailingWindow"
+          },
+          "metric": "classification.f1",
+          "mode": "pct",
+          "threshold": 10,
+          "type": "diff"
+        },
+        "id": "class-f1-analyzer",
+        "schedule": {
+          "cadence": "daily",
+          "type": "fixed"
+        },
+        "targetMatrix": {
+          "type": "dataset"
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1664568891054,
+          "version": 1
+        }
+      },
+      {
+        "config": {
+          "algorithm": "hellinger",
+          "baseline": {
+            "size": 7,
+            "type": "TrailingWindow"
+          },
+          "metric": "frequent_items",
+          "threshold": 0.7,
+          "type": "drift"
+        },
+        "id": "frequent-items-drift-analyzer",
+        "schedule": {
+          "cadence": "daily",
+          "type": "fixed"
+        },
+        "targetMatrix": {
+          "include": [
+            "group:discrete"
+          ],
+          "exclude": [
+            "group:output"
+          ],
+          "segments": [
+            {
+              "tags": []
+            }
+          ],
+          "type": "column"
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1664570092017,
+          "version": 5
+        }
+      },
+      {
+        "config": {
+          "baseline": {
+            "size": 7,
+            "type": "TrailingWindow"
+          },
+          "factor": 1.96,
+          "metric": "count_null_ratio",
+          "type": "stddev"
+        },
+        "id": "missing-values-ratio-analyzer",
+        "schedule": {
+          "cadence": "daily",
+          "type": "fixed"
+        },
+        "targetMatrix": {
+          "include": [
+            "*"
+          ],
+          "segments": [],
+          "type": "column"
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1664570145305,
+          "version": 2
+        }
+      },
+      {
+        "config": {
+          "baseline": {
+            "size": 7,
+            "type": "TrailingWindow"
+          },
+          "factor": 1.96,
+          "metric": "unique_est_ratio",
+          "type": "stddev"
+        },
+        "id": "unique-estimate-ratio-analyzer",
+        "schedule": {
+          "cadence": "daily",
+          "type": "fixed"
+        },
+        "targetMatrix": {
+          "include": [
+            "*"
+          ],
+          "segments": [],
+          "type": "column"
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1664571411923,
+          "version": 2
+        }
+      },
+      {
+        "id": "outstanding-seagreen-okapi-2337-analyzer",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "group:discrete"
+          ],
+          "exclude": [
+            "group:input"
+          ],
+          "segments": []
+        },
+        "config": {
+          "metric": "count_null_ratio",
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          },
+          "type": "stddev",
+          "factor": 0.2
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1665702053183,
+          "version": 1
+        }
+      },
+      {
+        "id": "courageous-pink-lion-3939-analyzer",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "group:discrete"
+          ],
+          "exclude": [
+            "group:input"
+          ],
+          "segments": []
+        },
+        "config": {
+          "metric": "count_null",
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          },
+          "type": "stddev",
+          "factor": 0.2
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1665702081122,
+          "version": 1
+        }
+      },
+      {
+        "id": "tender-palegreen-wasp-3163-analyzer",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "group:discrete"
+          ],
+          "exclude": [
+            "group:input"
+          ],
+          "segments": []
+        },
+        "config": {
+          "metric": "unique_est_ratio",
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          },
+          "type": "stddev",
+          "factor": 0.2
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1665702161593,
+          "version": 1
+        }
+      },
+      {
+        "id": "smiling-yellow-chimpanzee-8817-analyzer",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "group:discrete"
+          ],
+          "exclude": [
+            "group:input"
+          ],
+          "segments": []
+        },
+        "config": {
+          "metric": "unique_est",
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          },
+          "type": "stddev",
+          "factor": 0.2
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1665702186640,
+          "version": 1
+        }
+      },
+      {
+        "id": "exuberant-aqua-snail-9364-analyzer",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "group:discrete"
+          ],
+          "exclude": [
+            "group:input"
+          ],
+          "segments": []
+        },
+        "config": {
+          "metric": "inferred_data_type",
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          },
+          "type": "comparison",
+          "operator": "eq"
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1665702208742,
+          "version": 1
+        }
+      },
+      {
+        "id": "witty-floralwhite-chicken-3639-analyzer",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "group:discrete"
+          ],
+          "exclude": [
+            "group:output"
+          ],
+          "segments": []
+        },
+        "config": {
+          "metric": "unique_est",
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          },
+          "type": "stddev",
+          "factor": 0.2
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666038278062,
+          "version": 1
+        }
+      },
+      {
+        "id": "crazy-blue-chough-4096-analyzer",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "group:discrete"
+          ],
+          "exclude": [
+            "group:output"
+          ],
+          "segments": []
+        },
+        "config": {
+          "metric": "frequent_items",
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          },
+          "type": "drift",
+          "algorithm": "hellinger",
+          "threshold": 0.7
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666292419373,
+          "version": 2
+        }
+      },
+      {
+        "id": "glorious-turquoise-tiger-5951-analyzer",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "group:discrete"
+          ],
+          "exclude": [
+            "group:output"
+          ],
+          "segments": []
+        },
+        "config": {
+          "metric": "frequent_items",
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          },
+          "type": "drift",
+          "algorithm": "hellinger",
+          "threshold": 0.7
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666292471293,
+          "version": 5
+        }
+      },
+      {
+        "id": "adorable-khaki-kudu-3389-analyzer",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "group:discrete"
+          ],
+          "exclude": [
+            "group:output"
+          ],
+          "segments": []
+        },
+        "config": {
+          "metric": "frequent_items",
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          },
+          "type": "drift",
+          "algorithm": "hellinger",
+          "threshold": 0.7
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666292695740,
+          "version": 2
+        }
+      },
+      {
+        "config": {
+          "baseline": {
+            "size": 7,
+            "type": "TrailingWindow"
+          },
+          "metric": "classification.precision",
+          "mode": "pct",
+          "threshold": 10,
+          "type": "diff"
+        },
+        "id": "class-precision-analyzer-w33qth",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "dataset"
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666293399514,
+          "version": 2
+        }
+      },
+      {
+        "id": "elated-palegreen-ant-6283-analyzer",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "group:discrete"
+          ],
+          "exclude": [
+            "group:output"
+          ],
+          "segments": []
+        },
+        "config": {
+          "metric": "frequent_items",
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          },
+          "type": "drift",
+          "algorithm": "hellinger",
+          "threshold": 0.7
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666293440353,
+          "version": 2
+        }
+      },
+      {
+        "id": "missing-values-ratio-eb484613",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "disabled": false,
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "*"
+          ]
+        },
+        "backfillGracePeriodDuration": "P30D",
+        "config": {
+          "metric": "count_null_ratio",
+          "type": "stddev",
+          "factor": 3,
+          "minBatchSize": 1,
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          }
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666293500072,
+          "version": 1
+        }
+      },
+      {
+        "id": "unique-ratio-9808be04",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "disabled": false,
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "*"
+          ]
+        },
+        "backfillGracePeriodDuration": "P30D",
+        "config": {
+          "metric": "unique_est_ratio",
+          "type": "stddev",
+          "factor": 3,
+          "minBatchSize": 1,
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          }
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666293563569,
+          "version": 1
+        }
+      },
+      {
+        "id": "glamorous-purple-hamster-9559-analyzer",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "group:discrete"
+          ],
+          "exclude": [
+            "group:output"
+          ],
+          "segments": []
+        },
+        "config": {
+          "metric": "frequent_items",
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          },
+          "type": "drift",
+          "algorithm": "hellinger",
+          "threshold": 0.7
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666293732700,
+          "version": 2
+        }
+      },
+      {
+        "id": "inferred-data-type-be4ca97c",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "disabled": false,
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "*"
+          ]
+        },
+        "backfillGracePeriodDuration": "P30D",
+        "config": {
+          "metric": "inferred_data_type",
+          "type": "comparison",
+          "operator": "eq",
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          }
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666293815246,
+          "version": 1
+        }
+      },
+      {
+        "id": "discrete-distribution-571979be",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "disabled": false,
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "group:discrete"
+          ]
+        },
+        "backfillGracePeriodDuration": "P30D",
+        "config": {
+          "metric": "frequent_items",
+          "type": "drift",
+          "algorithm": "hellinger",
+          "threshold": 0.7,
+          "minBatchSize": 1,
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          }
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666293875311,
+          "version": 1
+        }
+      },
+      {
+        "id": "gifted-cyan-rat-1729-analyzer",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "group:discrete"
+          ],
+          "exclude": [
+            "group:output"
+          ],
+          "segments": []
+        },
+        "config": {
+          "metric": "frequent_items",
+          "baseline": {
+            "type": "TrailingWindow",
+            "size": 7
+          },
+          "type": "drift",
+          "algorithm": "hellinger",
+          "threshold": 0.7
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666294016667,
+          "version": 2
+        }
+      },
+      {
+        "config": {
+          "algorithm": "hellinger",
+          "baseline": {
+            "size": 7,
+            "type": "TrailingWindow"
+          },
+          "metric": "frequent_items",
+          "threshold": 0.7,
+          "type": "drift"
+        },
+        "id": "frequent-items-drift-analyzer-bo8hgq",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "include": [
+            "group:discrete"
+          ],
+          "exclude": [
+            "group:output"
+          ],
+          "segments": [
+            {
+              "tags": []
+            }
+          ],
+          "type": "column"
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666294124673,
+          "version": 2
+        }
+      },
+      {
+        "config": {
+          "algorithm": "hellinger",
+          "baseline": {
+            "size": 7,
+            "type": "TrailingWindow"
+          },
+          "metric": "histogram",
+          "threshold": 0.7,
+          "type": "drift"
+        },
+        "id": "numerical-drift-analyzer-w4xubj",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "include": [
+            "group:continuous"
+          ],
+          "exclude": [
+            "group:output"
+          ],
+          "segments": [
+            {
+              "tags": []
+            }
+          ],
+          "type": "column"
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666294993579,
+          "version": 2
+        }
+      }
+    ],
+    "monitors": [
+      {
+        "id": "continuous-distribution-58f73412-monitor",
+        "analyzerIds": [
+          "continuous-distribution-58f73412"
+        ],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 3,
+        "mode": {
+          "type": "DIGEST",
+          "creationTimeOffset": "PT2H",
+          "datasetTimestampOffset": "PT26H"
+        },
+        "actions": []
+      },
+      {
+        "id": "easy-seagreen-jellyfish-707",
+        "displayName": "Accuracy-monitor",
+        "analyzerIds": [
+          "easy-seagreen-jellyfish-707-analyzer"
+        ],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 3,
+        "mode": {
+          "type": "DIGEST",
+          "creationTimeOffset": "P1D",
+          "datasetTimestampOffset": "P7D"
+        },
+        "actions": [],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1664231248139,
+          "version": 1
+        }
+      },
+      {
+        "id": "odd-powderblue-owl-9385",
+        "displayName": "Precision-monitor",
+        "analyzerIds": [
+          "odd-powderblue-owl-9385-analyzer"
+        ],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 3,
+        "mode": {
+          "type": "DIGEST",
+          "creationTimeOffset": "P1D",
+          "datasetTimestampOffset": "P7D"
+        },
+        "actions": [],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1664231272870,
+          "version": 1
+        }
+      },
+      {
+        "id": "successful-cornsilk-hamster-3862",
+        "displayName": "Recall-monitor",
+        "analyzerIds": [
+          "successful-cornsilk-hamster-3862-analyzer"
+        ],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 3,
+        "mode": {
+          "type": "DIGEST",
+          "creationTimeOffset": "P1D",
+          "datasetTimestampOffset": "P7D"
+        },
+        "actions": [],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1664231294055,
+          "version": 1
+        }
+      },
+      {
+        "id": "poised-honeydew-carabeef-366",
+        "displayName": "F1-Monitor",
+        "analyzerIds": [
+          "poised-honeydew-carabeef-366-analyzer"
+        ],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 3,
+        "mode": {
+          "type": "DIGEST",
+          "creationTimeOffset": "P1D",
+          "datasetTimestampOffset": "P7D"
+        },
+        "actions": [],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1664231317838,
+          "version": 1
+        }
+      },
+      {
+        "id": "cheerful-lemonchiffon-echidna-4053",
+        "displayName": "cheerful-lemonchiffon-echidna-4053",
+        "analyzerIds": [
+          "cheerful-lemonchiffon-echidna-4053-analyzer"
+        ],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 3,
+        "mode": {
+          "type": "DIGEST",
+          "creationTimeOffset": "P1D",
+          "datasetTimestampOffset": "P7D"
+        },
+        "actions": [],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1664436201619,
+          "version": 3
+        },
+        "disabled": false
+      },
+      {
+        "id": "frequent-items-drift-monitor-UVN2PW",
+        "analyzerIds": [
+          "frequent-items-drift-analyzer-UVN2PW"
+        ],
+        "schedule": {
+          "cadence": "daily",
+          "type": "fixed"
+        },
+        "mode": {
+          "type": "DIGEST"
+        },
+        "disabled": false,
+        "actions": [
+          {
+            "type": "global",
+            "target": "email"
+          },
+          {
+            "type": "global",
+            "target": "slack"
+          }
+        ],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1664569568294,
+          "version": 1
+        }
+      },
+      {
+        "id": "unique-estimate-ratio-monitor-OJ4TDQ",
+        "analyzerIds": [
+          "unique-estimate-ratio-analyzer-OJ4TDQ"
+        ],
+        "schedule": {
+          "cadence": "daily",
+          "type": "fixed"
+        },
+        "mode": {
+          "type": "DIGEST"
+        },
+        "disabled": false,
+        "actions": [
+          {
+            "type": "global",
+            "target": "email"
+          },
+          {
+            "type": "global",
+            "target": "slack"
+          }
+        ],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1664569592056,
+          "version": 1
+        }
+      },
+      {
+        "id": "numerical-drift-monitor-RHG3L2",
+        "analyzerIds": [
+          "numerical-drift-analyzer-RHG3L2"
+        ],
+        "schedule": {
+          "cadence": "daily",
+          "type": "fixed"
+        },
+        "mode": {
+          "type": "DIGEST"
+        },
+        "disabled": false,
+        "actions": [
+          {
+            "type": "global",
+            "target": "email"
+          },
+          {
+            "type": "global",
+            "target": "slack"
+          }
+        ],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1664569702142,
+          "version": 1
+        }
+      },
+      {
+        "id": "frequent-items-drift-monitor-tkg0lm",
+        "analyzerIds": [
+          "frequent-items-drift-analyzer-tkg0lm"
+        ],
+        "schedule": {
+          "cadence": "daily",
+          "type": "fixed"
+        },
+        "mode": {
+          "type": "DIGEST"
+        },
+        "disabled": false,
+        "actions": [
+          {
+            "type": "global",
+            "target": "email"
+          },
+          {
+            "type": "global",
+            "target": "slack"
+          }
+        ],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1664570090251,
+          "version": 1
+        }
+      },
+      {
+        "id": "frequent-items-drift-monitor-9lcm8c",
+        "analyzerIds": [
+          "frequent-items-drift-analyzer-9lcm8c"
+        ],
+        "schedule": {
+          "cadence": "daily",
+          "type": "fixed"
+        },
+        "mode": {
+          "type": "DIGEST"
+        },
+        "disabled": false,
+        "actions": [
+          {
+            "type": "global",
+            "target": "email"
+          },
+          {
+            "type": "global",
+            "target": "slack"
+          }
+        ],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1664570092845,
+          "version": 1
+        }
+      },
+      {
+        "id": "missing-values-ratio-monitor-07go7n",
+        "analyzerIds": [
+          "missing-values-ratio-analyzer-07go7n"
+        ],
+        "schedule": {
+          "cadence": "daily",
+          "type": "fixed"
+        },
+        "mode": {
+          "type": "DIGEST"
+        },
+        "disabled": false,
+        "actions": [
+          {
+            "type": "global",
+            "target": "email"
+          },
+          {
+            "type": "global",
+            "target": "slack"
+          }
+        ],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1664570141984,
+          "version": 1
+        }
+      },
+      {
+        "id": "missing-values-ratio-monitor-8id6mp",
+        "analyzerIds": [
+          "missing-values-ratio-analyzer-8id6mp"
+        ],
+        "schedule": {
+          "cadence": "daily",
+          "type": "fixed"
+        },
+        "mode": {
+          "type": "DIGEST"
+        },
+        "disabled": false,
+        "actions": [
+          {
+            "type": "global",
+            "target": "email"
+          },
+          {
+            "type": "global",
+            "target": "slack"
+          }
+        ],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1664570146120,
+          "version": 1
+        }
+      },
+      {
+        "id": "unique-estimate-ratio-monitor-lvkb0q",
+        "analyzerIds": [
+          "unique-estimate-ratio-analyzer-lvkb0q"
+        ],
+        "schedule": {
+          "cadence": "daily",
+          "type": "fixed"
+        },
+        "mode": {
+          "type": "DIGEST"
+        },
+        "disabled": false,
+        "actions": [
+          {
+            "type": "global",
+            "target": "email"
+          },
+          {
+            "type": "global",
+            "target": "slack"
+          }
+        ],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1664571412803,
+          "version": 1
+        }
+      },
+      {
+        "id": "elated-peru-herd-2529",
+        "displayName": "numerical-drift-analyzer",
+        "analyzerIds": [
+          "numerical-drift-analyzer"
+        ],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 3,
+        "mode": {
+          "type": "DIGEST",
+          "creationTimeOffset": "P1D",
+          "datasetTimestampOffset": "P7D"
+        },
+        "actions": [],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1664814363212,
+          "version": 1
+        }
+      },
+      {
+        "id": "outstanding-seagreen-okapi-2337",
+        "displayName": "Output missing value ratio",
+        "analyzerIds": [
+          "outstanding-seagreen-okapi-2337-analyzer"
+        ],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 3,
+        "mode": {
+          "type": "DIGEST",
+          "creationTimeOffset": "P1D",
+          "datasetTimestampOffset": "P7D"
+        },
+        "actions": [],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1665702053919,
+          "version": 1
+        }
+      },
+      {
+        "id": "courageous-pink-lion-3939",
+        "displayName": "Output Missing Value Count",
+        "analyzerIds": [
+          "courageous-pink-lion-3939-analyzer"
+        ],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 3,
+        "mode": {
+          "type": "DIGEST",
+          "creationTimeOffset": "P1D",
+          "datasetTimestampOffset": "P7D"
+        },
+        "actions": [],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1665702081975,
+          "version": 1
+        }
+      },
+      {
+        "id": "tender-palegreen-wasp-3163",
+        "displayName": "Output unique value ratio",
+        "analyzerIds": [
+          "tender-palegreen-wasp-3163-analyzer"
+        ],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 3,
+        "mode": {
+          "type": "DIGEST",
+          "creationTimeOffset": "P1D",
+          "datasetTimestampOffset": "P7D"
+        },
+        "actions": [],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1665702162527,
+          "version": 1
+        }
+      },
+      {
+        "id": "smiling-yellow-chimpanzee-8817",
+        "displayName": "Output Unique Value Count",
+        "analyzerIds": [
+          "smiling-yellow-chimpanzee-8817-analyzer"
+        ],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 3,
+        "mode": {
+          "type": "DIGEST",
+          "creationTimeOffset": "P1D",
+          "datasetTimestampOffset": "P7D"
+        },
+        "actions": [],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1665702187428,
+          "version": 1
+        }
+      },
+      {
+        "id": "exuberant-aqua-snail-9364",
+        "displayName": "Output Inferred Data Type Change",
+        "analyzerIds": [
+          "exuberant-aqua-snail-9364-analyzer"
+        ],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 3,
+        "mode": {
+          "type": "DIGEST",
+          "creationTimeOffset": "P1D",
+          "datasetTimestampOffset": "P7D"
+        },
+        "actions": [],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1665702209497,
+          "version": 1
+        }
+      },
+      {
+        "id": "witty-floralwhite-chicken-3639",
+        "displayName": "Input Unique Count",
+        "analyzerIds": [
+          "witty-floralwhite-chicken-3639-analyzer"
+        ],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 3,
+        "mode": {
+          "type": "DIGEST",
+          "creationTimeOffset": "P1D",
+          "datasetTimestampOffset": "P7D"
+        },
+        "actions": [],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666038278997,
+          "version": 1
+        }
+      },
+      {
+        "id": "crazy-blue-chough-4096",
+        "displayName": "crazy-blue-chough-4096",
+        "analyzerIds": [],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 2,
+        "mode": {
+          "type": "DIGEST",
+          "creationTimeOffset": "P1D",
+          "datasetTimestampOffset": "P7D"
+        },
+        "actions": [],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666292419009,
+          "version": 2
+        }
+      },
+      {
+        "id": "glorious-turquoise-tiger-5951",
+        "displayName": "glorious-turquoise-tiger-5951",
+        "analyzerIds": [],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 2,
+        "mode": {
+          "type": "DIGEST",
+          "creationTimeOffset": "P1D",
+          "datasetTimestampOffset": "P7D"
+        },
+        "actions": [],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666292470946,
+          "version": 6
+        },
+        "disabled": false
+      },
+      {
+        "id": "adorable-khaki-kudu-3389",
+        "displayName": "adorable-khaki-kudu-3389",
+        "analyzerIds": [],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 2,
+        "mode": {
+          "type": "DIGEST",
+          "creationTimeOffset": "P1D",
+          "datasetTimestampOffset": "P7D"
+        },
+        "actions": [],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666292695307,
+          "version": 2
+        }
+      },
+      {
+        "id": "class-precision-monitor-w33qth",
+        "analyzerIds": [],
+        "schedule": {
+          "type": "immediate"
+        },
+        "mode": {
+          "type": "DIGEST"
+        },
+        "disabled": false,
+        "actions": [
+          {
+            "type": "global",
+            "target": "email"
+          }
+        ],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666293399132,
+          "version": 2
+        }
+      },
+      {
+        "id": "elated-palegreen-ant-6283",
+        "displayName": "elated-palegreen-ant-6283",
+        "analyzerIds": [],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 2,
+        "mode": {
+          "type": "DIGEST",
+          "creationTimeOffset": "P1D",
+          "datasetTimestampOffset": "P7D"
+        },
+        "actions": [],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666293439995,
+          "version": 2
+        }
+      },
+      {
+        "id": "missing-values-ratio-eb484613-monitor",
+        "analyzerIds": [],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 2,
+        "mode": {
+          "type": "DIGEST",
+          "creationTimeOffset": "PT2H",
+          "datasetTimestampOffset": "PT26H"
+        },
+        "actions": [],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666293499704,
+          "version": 1
+        }
+      },
+      {
+        "id": "unique-ratio-9808be04-monitor",
+        "analyzerIds": [],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 2,
+        "mode": {
+          "type": "DIGEST",
+          "creationTimeOffset": "PT2H",
+          "datasetTimestampOffset": "PT26H"
+        },
+        "actions": [],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666293563120,
+          "version": 1
+        }
+      },
+      {
+        "id": "glamorous-purple-hamster-9559",
+        "displayName": "glamorous-purple-hamster-9559",
+        "analyzerIds": [],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 2,
+        "mode": {
+          "type": "DIGEST",
+          "creationTimeOffset": "P1D",
+          "datasetTimestampOffset": "P7D"
+        },
+        "actions": [],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666293732276,
+          "version": 2
+        }
+      },
+      {
+        "id": "inferred-data-type-be4ca97c-monitor",
+        "analyzerIds": [],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 2,
+        "mode": {
+          "type": "DIGEST",
+          "creationTimeOffset": "PT2H",
+          "datasetTimestampOffset": "PT26H"
+        },
+        "actions": [],
+        "disabled": false,
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666293814883,
+          "version": 3
+        }
+      },
+      {
+        "id": "discrete-distribution-571979be-monitor",
+        "analyzerIds": [],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 2,
+        "mode": {
+          "type": "DIGEST",
+          "creationTimeOffset": "PT2H",
+          "datasetTimestampOffset": "PT26H"
+        },
+        "actions": [],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666293874896,
+          "version": 1
+        }
+      },
+      {
+        "id": "gifted-cyan-rat-1729",
+        "displayName": "gifted-cyan-rat-1729",
+        "analyzerIds": [],
+        "schedule": {
+          "type": "immediate"
+        },
+        "severity": 2,
+        "mode": {
+          "type": "DIGEST",
+          "creationTimeOffset": "P1D",
+          "datasetTimestampOffset": "P7D"
+        },
+        "actions": [],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666294016263,
+          "version": 2
+        }
+      },
+      {
+        "id": "frequent-items-drift-monitor-bo8hgq",
+        "analyzerIds": [],
+        "schedule": {
+          "type": "immediate"
+        },
+        "mode": {
+          "type": "DIGEST"
+        },
+        "disabled": false,
+        "actions": [
+          {
+            "type": "global",
+            "target": "email"
+          }
+        ],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666294124090,
+          "version": 2
+        }
+      },
+      {
+        "id": "numerical-drift-monitor-w4xubj",
+        "analyzerIds": [
+          "numerical-drift-analyzer-w4xubj"
+        ],
+        "schedule": {
+          "type": "immediate"
+        },
+        "mode": {
+          "type": "DIGEST"
+        },
+        "disabled": false,
+        "actions": [
+          {
+            "type": "global",
+            "target": "email"
+          }
+        ],
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1666294993931,
+          "version": 2
+        }
+      }
+    ],
+    "entitySchema": {
+      "metadata": {
+        "author": "system",
+        "version": 4,
+        "updatedTimestamp": 1661993675257
+      },
+      "columns": {
+        "order_delivered_customer_date": {
+          "discreteness": "discrete",
+          "dataType": "unknown",
+          "classifier": "input"
+        },
+        "product_name_length": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "product_weight_g": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "seller_zip_code_prefix": {
+          "discreteness": "continuous",
+          "dataType": "integral",
+          "classifier": "input"
+        },
+        "delivery_status (output)": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "output"
+        },
+        "order_approved_at": {
+          "discreteness": "discrete",
+          "dataType": "unknown",
+          "classifier": "input"
+        },
+        "order_item_number": {
+          "discreteness": "continuous",
+          "dataType": "integral",
+          "classifier": "input"
+        },
+        "order_status": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "customer_geolocation_lat": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "product_category_name": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "order_purchase_timestamp": {
+          "discreteness": "discrete",
+          "dataType": "unknown",
+          "classifier": "input"
+        },
+        "price": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "product_id": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "customer_geolocation_lng": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "seller_id": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "customer_city": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "delivery_confidence (output)": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "output"
+        },
+        "delivery_prediction (output)": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "output"
+        },
+        "upload_date": {
+          "discreteness": "discrete",
+          "dataType": "unknown",
+          "classifier": "input"
+        },
+        "customer_state": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "customer_unique_id": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "product_description_length": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "seller_geolocation_lng": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "product_photos_qty": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "product_width_cm": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "seller_geolocation_lat": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "product_length_cm": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "seller_city": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "product_height_cm": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "order_estimated_delivery_date": {
+          "discreteness": "discrete",
+          "dataType": "unknown",
+          "classifier": "input"
+        },
+        "seller_state": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "customer_id": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "freight_value": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "order_delivered_carrier_date": {
+          "discreteness": "discrete",
+          "dataType": "unknown",
+          "classifier": "input"
+        },
+        "order_id": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "shipping_limit_date": {
+          "discreteness": "discrete",
+          "dataType": "unknown",
+          "classifier": "input"
+        },
+        "customer_zip_code_prefix": {
+          "discreteness": "continuous",
+          "dataType": "integral",
+          "classifier": "input"
+        }
+      }
+    },
+    "weightConfig": {
+      "metadata": {
+        "author": "system",
+        "version": 0,
+        "updatedTimestamp": 1667259317679
+      },
+      "segmentWeights": []
+    }
+  }
+}

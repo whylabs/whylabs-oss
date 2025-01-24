@@ -1,0 +1,7 @@
+build
+dist
+package*.json
+tsconfig.json
+.*
+src/**/*.overrides
+src/**/*.variables

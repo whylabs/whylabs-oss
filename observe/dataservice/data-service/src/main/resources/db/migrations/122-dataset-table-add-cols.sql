@@ -1,0 +1,5 @@
+ALTER TABLE whylabs.datasets ADD COLUMN IF NOT EXISTS name text DEFAULT '';
+ALTER TABLE whylabs.datasets ADD COLUMN IF NOT EXISTS created_ts timestamptz DEFAULT CURRENT_TIMESTAMP NOT NULL;
+ALTER TABLE whylabs.datasets ADD COLUMN IF NOT EXISTS last_updated_ts timestamptz DEFAULT CURRENT_TIMESTAMP NOT NULL;
+ALTER TABLE whylabs.datasets ADD COLUMN IF NOT EXISTS type text DEFAULT NULL;
+ALTER TABLE whylabs.datasets ADD COLUMN IF NOT EXISTS active boolean DEFAULT true;

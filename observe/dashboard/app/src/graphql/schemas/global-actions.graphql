@@ -1,0 +1,87 @@
+enum ActionType {
+    EMAIL
+    SLACK
+    TEAMS
+    PAGER_DUTY
+    WEBHOOK
+    NA
+}
+
+enum NotificationRelationshipType {
+    MONITOR
+}
+
+type SlackAction {
+    slackWebhook: String!
+}
+type MSTeamsAction {
+    webhook: String!
+}
+type EmailAction {
+    email: String!
+}
+type PagerDutyAction {
+    pagerDutyKey: String!
+}
+enum HttpMethod {
+    Get
+    Post
+    Put
+    Patch
+    Delete
+}
+
+type CustomWebhookAction {
+    url: String!
+    method: String!
+    headers: [HeaderTuple!]
+    body: String
+}
+type UnknownAction {
+    value: String
+}
+
+type HeaderTuple {
+    key: String!
+    value: String!
+}
+
+type NotificationRelationshipItem {
+    datasetId: String
+    itemId: String
+    itemDisplayName: String
+    type: NotificationRelationshipType
+}
+
+union NotificationAction = SlackAction | EmailAction | PagerDutyAction | MSTeamsAction | CustomWebhookAction | UnknownAction
+type GenericNotificationAction {
+    id: String!
+    type: ActionType!
+    enabled: Boolean!
+    createdAt: Float
+    updatedAt: Float
+    payload: NotificationAction
+    references: [NotificationRelationshipItem]
+}
+
+type GlobalActionsManagement {
+    updateGlobalAction(id: String!, type: ActionType!, action: String!): Boolean
+    createGlobalAction(id: String!, type: ActionType!, action: String!): Boolean
+    enableGlobalAction(id: String!): Boolean
+    disableGlobalAction(id: String!): Boolean
+    deleteGlobalAction(id: String!): Boolean
+    testGlobalAction(id: String!): Boolean
+}
+
+extend type Mutation {
+    globalActions: GlobalActionsManagement! @auth(permissions: [MANAGE_ACTIONS])
+}
+
+type GlobalActionsFetching {
+    listGlobalActions: [GenericNotificationAction!]
+    findGlobalAction(id: String!): GenericNotificationAction
+}
+
+extend type Query {
+    globalActions: GlobalActionsFetching! @auth
+}

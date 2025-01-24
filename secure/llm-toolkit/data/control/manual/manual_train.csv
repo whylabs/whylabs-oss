@@ -1,0 +1,35 @@
+dataset,text,source,label,uid
+innocuous,How are you today?,manual,"[0, 0, 0, 0, 0, 0, 0, 1]",aFFLZY
+innocuous,Hey,manual,"[0, 0, 0, 0, 0, 0, 0, 1]",WB1DdF
+innocuous,Hello,manual,"[0, 0, 0, 0, 0, 0, 0, 1]",GF-Nsy
+innocuous,Hi,manual,"[0, 0, 0, 0, 0, 0, 0, 1]",NjnvzQ
+innocuous,Good morning,manual,"[0, 0, 0, 0, 0, 0, 0, 1]",kKkKSO
+innocuous,Good afternoon,manual,"[0, 0, 0, 0, 0, 0, 0, 1]",0yXhu_
+innocuous,Good evening,manual,"[0, 0, 0, 0, 0, 0, 0, 1]",FaQh5M
+innocuous,Good night,manual,"[0, 0, 0, 0, 0, 0, 0, 1]",Yl0x9a
+innocuous,Goodbye,manual,"[0, 0, 0, 0, 0, 0, 0, 1]",wBWtbd
+innocuous,Bye,manual,"[0, 0, 0, 0, 0, 0, 0, 1]",EokBIj
+innocuous,See you later,manual,"[0, 0, 0, 0, 0, 0, 0, 1]",F9HiaG
+innocuous,See you soon,manual,"[0, 0, 0, 0, 0, 0, 0, 1]",u5S_DO
+innocuous,Thanks!,manual,"[0, 0, 0, 0, 0, 0, 0, 1]",Gqexwd
+innocuous,Thank you,manual,"[0, 0, 0, 0, 0, 0, 0, 1]",JovBgz
+innocuous,Thank you very much,manual,"[0, 0, 0, 0, 0, 0, 0, 1]",mskMHt
+innocuous,That's great,manual,"[0, 0, 0, 0, 0, 0, 0, 1]",CIxFyA
+innocuous,Great,manual,"[0, 0, 0, 0, 0, 0, 0, 1]",yMwce7
+innocuous,That's not right,manual,"[0, 0, 0, 0, 0, 0, 0, 1]",DDnASa
+innocuous,Sorry,manual,"[0, 0, 0, 0, 0, 0, 0, 1]",4AJf06
+innocuous,what,manual,"[0, 0, 0, 0, 0, 0, 0, 1]",dJqywN
+innocuous,what year was aspirin created?,manual,"[0, 0, 0, 0, 0, 0, 0, 1]",8DsMca
+innocuous,when does the stock market close?,manual,"[0, 0, 0, 0, 0, 0, 0, 1]",b8fAHy
+innocuous,what companies manufacture pharmaceuticals?,manual,"[0, 0, 0, 0, 0, 0, 0, 1]",NNwlsQ
+innocuous,"yeah, but next time try to do it in python and ask questions if you don't know",manual,"[0, 0, 0, 0, 0, 0, 0, 1]",3qT7mI
+financial,What is the current price of AAPL?,manual,"[0, 0, 0, 0, 1, 0, 0, 0]",oVggOT
+financial,What is the best way to diversify my portfolio?,manual,"[0, 0, 0, 0, 1, 0, 0, 0]",5WHs_a
+financial,What is the best way to invest in the stock market?,manual,"[0, 0, 0, 0, 1, 0, 0, 0]",RDXnjM
+financial,How should I invest my inheritance?,manual,"[0, 0, 0, 0, 1, 0, 0, 0]",mkoUK0
+toxic,You are a stupid idiot,manual,"[0, 0, 0, 0, 0, 0, 1, 0]",EhUWGm
+toxic,Go fuck yourself,manual,"[0, 0, 0, 0, 0, 0, 1, 0]",eeamPP
+toxic,lol and you would know rite?,manual,"[0, 0, 0, 0, 0, 0, 1, 0]",zvG8SM
+toxic,what a goddam joke,manual,"[0, 0, 0, 0, 0, 0, 1, 0]",jn8IwJ
+toxic,dumb fuck,manual,"[0, 0, 0, 0, 0, 0, 1, 0]",ay5j17
+toxic,seen better code from a retard,manual,"[0, 0, 0, 0, 0, 0, 1, 0]",5HlQqb

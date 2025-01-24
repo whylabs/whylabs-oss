@@ -1,0 +1,53 @@
+fragment SegmentListingFields on Segment {
+  id
+  tags {
+    key
+    value
+  }
+  batches(from: $from, to: $to) {
+    inputCount
+    outputCount
+    timestamp
+  }
+  anomalyCounts(fromTimestamp: $from, toTimestamp: $to) {
+    timeseries {
+      timestamp
+      counts {
+        category
+        count
+      }
+    }
+  }
+}
+
+query segmentsListingTable(
+  $model: String!
+  $from: Float!
+  $to: Float!
+  $offset: Int
+  $limit: Int
+  $sort: SegmentSort
+  $tags: [SegmentTagFilter!]
+) {
+  model(id: $model) {
+    ...ModelCommonData
+    totalFilteredSegments(filter: {fromTimestamp: $from, toTimestamp: $to, tags: $tags})
+    segments(
+      offset: $offset
+      limit: $limit
+      filter: { fromTimestamp: $from, toTimestamp: $to, tags: $tags }
+      sort: $sort
+    ) {
+      ...SegmentListingFields
+    }
+  }
+}
+
+query getMergedSegment($model: String!, $from: Float!, $to: Float!, $tags: [SegmentTagFilter!]!) {
+  model(id: $model) {
+    ...ModelCommonData
+    segment(tags: $tags) {
+      ...SegmentListingFields
+    }
+  }
+}

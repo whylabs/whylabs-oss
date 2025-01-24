@@ -1,0 +1,8 @@
+*
+!.openapi-generator-ignore
+!build.gradle.kts
+!settings.gradle.kts
+!.gitignore
+!src
+!src/test
+!src/test/**/*

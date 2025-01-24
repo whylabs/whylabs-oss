@@ -1,0 +1,278 @@
+# Definitions to support data investigator queries
+
+## DATA QUERIES (input) ##
+
+input MetricQuery {
+  datasetId: String!
+  metric: AnalysisMetric!
+  """
+  Feature to query. This should be omitted if the metric is a dataset metric.
+  """
+  feature: String
+}
+
+## QUERY RESULTS ##
+
+type FloatDataPoint {
+  timestamp: Float!
+  value: Float!
+  lastUploadTimestamp: Float
+}
+
+type MetricResult {
+  datasetId: String!
+  metric: AnalysisMetric!
+  feature: String!
+  """
+  The specific segment tags queried - none for the full dataset.
+  """
+  segment: [SegmentTag!]
+  segmentDescription: String
+  points: [FloatDataPoint!]!
+}
+
+type MetricRollupResult {
+  datasetId: String!
+  metric: AnalysisMetric!
+  feature: String!
+  segmentGroup: String!
+  value: Float!
+}
+
+enum MetricDataType {
+  FLOAT
+  INTEGER
+  COMPLEX
+}
+
+enum MetricSource {
+  WHYLABS
+  LLM
+  USER_DEFINED
+}
+
+type MetricBounds {
+  """
+  Name of metric that is the upper bound, if any
+  """
+  upper: AnalysisMetric,
+  """
+  Name of metric that is the lower bound, if any
+  """
+  lower: AnalysisMetric,
+}
+
+enum MetricKind {
+  """
+  An amount can be summed/averaged over time. A rollup query will give the sum over the unit of granularity.
+  """
+  AMOUNT
+  """
+  A rate (including ratios, percents) compares one amount to another. It cannot typically be summed/averaged over time.
+  A rollup query will perform the right calculation to give the rate over the unit of granularity.
+  """
+  RATE
+  """
+  A distribution shows the distribution of values within a profile.
+  A rollup query will show the distribution over the unit of granularity.
+  """
+  DISTRIBUTION
+}
+
+
+enum MetricDirection {
+  """
+  The metric improves as its numeric value increases
+  """
+  IMPROVE_UP
+  """
+  The metric improves as its numeric value decreases
+  """
+  IMPROVE_DOWN
+}
+
+type MetricQueryDefinition {
+  """
+  Whether to look at a specific column or the entire dataset
+  """
+  targetLevel: AnalysisTargetLevel!
+  """
+  Name of the column to query, if data is not available at the dataset level
+  """
+  column: String
+  """
+  Which WhyLabs metric to query
+  """
+  metric: AnalysisMetric!
+  """
+  The label of the WhyLabs metric to query
+  """
+  metricLabel: String
+}
+
+type MetricSchema {
+  """
+  The name of the metric if it is a built-in metric.
+  """
+  name: AnalysisMetric
+  """
+  The source of the metric.
+  """
+  source: MetricSource!
+#  """
+#  The unique name for the metric, which can be used for query and monitoring if the source is WhyLabs (and for custom metrics in the future).
+#  """
+#  metricName: String!
+  """
+  A short label suitable for displaying in a UI.
+  """
+  label: String!
+  """
+  The data type of the metric.
+  """
+  dataType: MetricDataType!
+  """
+  Whether this metric is bounded between 0 and 1.
+  """
+  unitInterval: Boolean
+  """
+  Whether this metric is a rate or amount.
+  """
+  metricKind: MetricKind
+  """
+  Whether this metric improves up or down. Only applies to a subset of metrics such as performance.
+  """
+  metricDirection: MetricDirection
+  """
+  Whether this metric is usually shown as a percent.
+  """
+  showAsPercent: Boolean
+  """
+  The related bounding metrics, if any.
+  """
+  bounds: MetricBounds
+  """
+  An explanation of how to construct the query for this metric
+  """
+  queryDefinition: MetricQueryDefinition
+  """
+  User-assigned tags associated with this metric (particularly LLM metrics).
+  """
+  tags: [String!]
+  """
+  Description of the metric (particularly LLM metrics).
+  """
+  description: String
+}
+
+## API ##
+
+type DataInvestigator {
+  """
+  Rolls up metric values for a specific set of segments
+  """
+  getMetricRollupForSegments(
+    """
+    Earliest timestamp for the queries
+    """
+    fromTimestamp: Float!,
+    """
+    Latest timestamp for the queries
+    """
+    toTimestamp: Float!,
+    segments: [[SegmentTagFilter!]!]!,
+    datasetId: String!,
+    metric: AnalysisMetric!,
+    column: String): [MetricRollupResult!]
+
+  """
+  Get a metric result for each metric query for the full dataset. Each result contains the points for
+  a specific dataset, metric, and feature.
+  """
+  getMetricData(
+    """
+    Earliest timestamp for the queries
+    """
+    fromTimestamp: Float!,
+    """
+    Latest timestamp for the queries
+    """
+    toTimestamp: Float!,
+    """
+    Rollup granularity for data. Defaults to 1 day.
+    """
+    granularity: TimePeriod,
+    """
+    Segment tags to filter on
+    """
+    segment: [SegmentTagFilter!]
+    queries: [MetricQuery!]!): [MetricResult!]
+  """
+  Rolls up metric values across all segments with the given key
+  """
+  getSegmentMetricDataRollup(
+    """
+    Earliest timestamp for the queries
+    """
+    fromTimestamp: Float!,
+    """
+    Latest timestamp for the queries
+    """
+    toTimestamp: Float!,
+    segmentKey: String!,
+    queries: [MetricQuery!]!): [MetricRollupResult!] @deprecated(reason: "Use getMetricRollupForSegments instead and paginate through segments")
+
+  """
+  Get information about the available metrics for all datasets of a given type (or the specified dataset, if applicable)
+  """
+  availableMetrics(datasetId: String, modelType: ModelType, metricTags: [String!]): [MetricSchema!]!
+  """
+  Get information about a specific metric, if supported.
+  """
+  metricInfo(name: AnalysisMetric): MetricSchema
+  """
+  Get a metric result for each metric query for the full dataset. Each result contains the points for
+  a specific dataset, metric, and feature.
+  """
+  getMergedFeatureData(
+    datasetId: String!
+    """
+    Earliest timestamp for the sketch
+    """
+    fromTimestamp: Float!,
+    """
+    Latest timestamp for the sketch
+    """
+    toTimestamp: Float!,
+    """
+    Segment tags to filter on. Specify [] for overall segment.
+    """
+    segment: [SegmentTagFilter!]!,
+    """
+    Column name
+    """
+    column: String!,
+    """
+    Splitpoints (optional) - include if you need a numeric distribution that is comparable across two feature sketches
+    """
+    splitpoints: [Float!]
+  ) : FeatureSketch
+}
+
+type ModelMetricsRollup {
+  timestamp: Float!,
+  metrics: ModelMetrics,
+}
+
+type ModelMetricsQueries {
+  rollup(datasetId: String!, fromTimestamp: Float!, toTimestamp: Float!, segment: [SegmentTagFilter!]!, granularity: TimePeriod!): [ModelMetricsRollup!]
+  rollupAll(datasetId: String!, fromTimestamp: Float!, toTimestamp: Float!, segment: [SegmentTagFilter!]!): ModelMetrics
+}
+
+extend type Query {
+  """
+  Queries provided for data investigation.
+  """
+  dataQueries: DataInvestigator @auth
+  modelMetrics: ModelMetricsQueries @auth
+}

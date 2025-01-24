@@ -1,0 +1,291 @@
+{
+  "data": {
+    "analysisResults": [
+      {
+        "id": "734c8cf4-2aeb-363e-b4c9-8b6dabfef8bc",
+        "orgId": "org-9snDQm",
+        "datasetId": "model-4",
+        "runId": "3631d09e-08c7-4615-8a4c-253688e9a996",
+        "creationTimestamp": 1730958277375,
+        "datasetTimestamp": 1729036800000,
+        "targetLevel": "COLUMN",
+        "category": "DataDrift",
+        "column": "str",
+        "comparison_expected": null,
+        "comparison_observed": null,
+        "algorithm": "hellinger",
+        "algorithmMode": "frequent_items",
+        "analysisId": "6f70da32-f772-363b-994c-aaaf52ce8d27",
+        "analyzerId": "frequent-items-drift-analyzer-zzeiz8",
+        "analyzerConfigVersion": 2,
+        "analyzerType": "drift",
+        "monitorIds": [
+          "frequent-items-drift-monitor-zzeiz8"
+        ],
+        "isAnomaly": false,
+        "isFalseAlarm": false,
+        "granularity": "DAYS",
+        "metric": "FREQUENT_ITEMS",
+        "weight": null,
+        "calculationRuntimeNano": 99915,
+        "columnList_added": null,
+        "columnList_removed": null,
+        "diff_metricValue": null,
+        "diff_mode": null,
+        "diff_threshold": null,
+        "drift_metricValue": 0,
+        "drift_minBatchSize": null,
+        "drift_threshold": 0.7,
+        "mostRecentDatasetDatalakeWriteTs": null,
+        "threshold_absoluteLower": null,
+        "threshold_absoluteUpper": null,
+        "threshold_baselineMetricValue": null,
+        "threshold_calculatedLower": null,
+        "threshold_calculatedUpper": null,
+        "threshold_metricValue": null,
+        "threshold_factor": null,
+        "threshold_minBatchSize": null,
+        "failureType": null,
+        "failureExplanation": null,
+        "tags": [
+          {
+            "key": "key1",
+            "value": "3"
+          },
+          {
+            "key": "key2",
+            "value": "one"
+          }
+        ]
+      },
+      {
+        "id": "668c12a9-1b54-36b0-a01a-13d616327eca",
+        "orgId": "org-9snDQm",
+        "datasetId": "model-4",
+        "runId": "68786cfc-4e0d-469c-a7b0-ad6053f37e32",
+        "creationTimestamp": 1730958335862,
+        "datasetTimestamp": 1729123200000,
+        "targetLevel": "COLUMN",
+        "category": "DataDrift",
+        "column": "str",
+        "comparison_expected": null,
+        "comparison_observed": null,
+        "algorithm": "hellinger",
+        "algorithmMode": "frequent_items",
+        "analysisId": "4cf0bfcd-a3aa-3935-a50b-97fa9aacbb1e",
+        "analyzerId": "frequent-items-drift-analyzer-zzeiz8",
+        "analyzerConfigVersion": 2,
+        "analyzerType": "drift",
+        "monitorIds": [
+          "frequent-items-drift-monitor-zzeiz8"
+        ],
+        "isAnomaly": false,
+        "isFalseAlarm": false,
+        "granularity": "DAYS",
+        "metric": "FREQUENT_ITEMS",
+        "weight": null,
+        "calculationRuntimeNano": 129283,
+        "columnList_added": null,
+        "columnList_removed": null,
+        "diff_metricValue": null,
+        "diff_mode": null,
+        "diff_threshold": null,
+        "drift_metricValue": 0,
+        "drift_minBatchSize": null,
+        "drift_threshold": 0.7,
+        "mostRecentDatasetDatalakeWriteTs": null,
+        "threshold_absoluteLower": null,
+        "threshold_absoluteUpper": null,
+        "threshold_baselineMetricValue": null,
+        "threshold_calculatedLower": null,
+        "threshold_calculatedUpper": null,
+        "threshold_metricValue": null,
+        "threshold_factor": null,
+        "threshold_minBatchSize": null,
+        "failureType": null,
+        "failureExplanation": null,
+        "tags": [
+          {
+            "key": "key1",
+            "value": "3"
+          },
+          {
+            "key": "key2",
+            "value": "one"
+          }
+        ]
+      },
+      {
+        "id": "864a4667-65e5-3b46-9320-a3fe3e1f7f50",
+        "orgId": "org-9snDQm",
+        "datasetId": "model-4",
+        "runId": "ecbbbbe4-467f-4648-ae45-4945500e7375",
+        "creationTimestamp": 1730958396770,
+        "datasetTimestamp": 1729209600000,
+        "targetLevel": "COLUMN",
+        "category": "DataDrift",
+        "column": "str",
+        "comparison_expected": null,
+        "comparison_observed": null,
+        "algorithm": "hellinger",
+        "algorithmMode": "frequent_items",
+        "analysisId": "0c964b48-4709-3311-88f4-360e226cf717",
+        "analyzerId": "frequent-items-drift-analyzer-zzeiz8",
+        "analyzerConfigVersion": 2,
+        "analyzerType": "drift",
+        "monitorIds": [
+          "frequent-items-drift-monitor-zzeiz8"
+        ],
+        "isAnomaly": false,
+        "isFalseAlarm": false,
+        "granularity": "DAYS",
+        "metric": "FREQUENT_ITEMS",
+        "weight": null,
+        "calculationRuntimeNano": 100853,
+        "columnList_added": null,
+        "columnList_removed": null,
+        "diff_metricValue": null,
+        "diff_mode": null,
+        "diff_threshold": null,
+        "drift_metricValue": 0,
+        "drift_minBatchSize": null,
+        "drift_threshold": 0.7,
+        "mostRecentDatasetDatalakeWriteTs": null,
+        "threshold_absoluteLower": null,
+        "threshold_absoluteUpper": null,
+        "threshold_baselineMetricValue": null,
+        "threshold_calculatedLower": null,
+        "threshold_calculatedUpper": null,
+        "threshold_metricValue": null,
+        "threshold_factor": null,
+        "threshold_minBatchSize": null,
+        "failureType": null,
+        "failureExplanation": null,
+        "tags": [
+          {
+            "key": "key1",
+            "value": "3"
+          },
+          {
+            "key": "key2",
+            "value": "one"
+          }
+        ]
+      },
+      {
+        "id": "b191bf0e-46e8-3d95-9afc-af436e351d63",
+        "orgId": "org-9snDQm",
+        "datasetId": "model-4",
+        "runId": "548ea2a4-e24a-4406-a499-258975ac5b2f",
+        "creationTimestamp": 1730958456877,
+        "datasetTimestamp": 1729296000000,
+        "targetLevel": "COLUMN",
+        "category": "DataDrift",
+        "column": "str",
+        "comparison_expected": null,
+        "comparison_observed": null,
+        "algorithm": "hellinger",
+        "algorithmMode": "frequent_items",
+        "analysisId": "c2e3c17d-e2f5-3906-ae09-f3095b7e7f14",
+        "analyzerId": "frequent-items-drift-analyzer-zzeiz8",
+        "analyzerConfigVersion": 2,
+        "analyzerType": "drift",
+        "monitorIds": [
+          "frequent-items-drift-monitor-zzeiz8"
+        ],
+        "isAnomaly": false,
+        "isFalseAlarm": false,
+        "granularity": "DAYS",
+        "metric": "FREQUENT_ITEMS",
+        "weight": null,
+        "calculationRuntimeNano": 106482,
+        "columnList_added": null,
+        "columnList_removed": null,
+        "diff_metricValue": null,
+        "diff_mode": null,
+        "diff_threshold": null,
+        "drift_metricValue": 0,
+        "drift_minBatchSize": null,
+        "drift_threshold": 0.7,
+        "mostRecentDatasetDatalakeWriteTs": null,
+        "threshold_absoluteLower": null,
+        "threshold_absoluteUpper": null,
+        "threshold_baselineMetricValue": null,
+        "threshold_calculatedLower": null,
+        "threshold_calculatedUpper": null,
+        "threshold_metricValue": null,
+        "threshold_factor": null,
+        "threshold_minBatchSize": null,
+        "failureType": null,
+        "failureExplanation": null,
+        "tags": [
+          {
+            "key": "key1",
+            "value": "3"
+          },
+          {
+            "key": "key2",
+            "value": "one"
+          }
+        ]
+      },
+      {
+        "id": "3e643b99-39fd-3837-b298-2e5f022fb31b",
+        "orgId": "org-9snDQm",
+        "datasetId": "model-4",
+        "runId": "b3e51781-80ec-459c-b05e-de94eefa6613",
+        "creationTimestamp": 1730958518721,
+        "datasetTimestamp": 1729382400000,
+        "targetLevel": "COLUMN",
+        "category": "DataDrift",
+        "column": "str",
+        "comparison_expected": null,
+        "comparison_observed": null,
+        "algorithm": "hellinger",
+        "algorithmMode": "frequent_items",
+        "analysisId": "759110b4-851e-3afa-830e-c8fc3fd8c9ba",
+        "analyzerId": "frequent-items-drift-analyzer-zzeiz8",
+        "analyzerConfigVersion": 2,
+        "analyzerType": "drift",
+        "monitorIds": [
+          "frequent-items-drift-monitor-zzeiz8"
+        ],
+        "isAnomaly": false,
+        "isFalseAlarm": false,
+        "granularity": "DAYS",
+        "metric": "FREQUENT_ITEMS",
+        "weight": null,
+        "calculationRuntimeNano": 107002,
+        "columnList_added": null,
+        "columnList_removed": null,
+        "diff_metricValue": null,
+        "diff_mode": null,
+        "diff_threshold": null,
+        "drift_metricValue": 0,
+        "drift_minBatchSize": null,
+        "drift_threshold": 0.7,
+        "mostRecentDatasetDatalakeWriteTs": null,
+        "threshold_absoluteLower": null,
+        "threshold_absoluteUpper": null,
+        "threshold_baselineMetricValue": null,
+        "threshold_calculatedLower": null,
+        "threshold_calculatedUpper": null,
+        "threshold_metricValue": null,
+        "threshold_factor": null,
+        "threshold_minBatchSize": null,
+        "failureType": null,
+        "failureExplanation": null,
+        "tags": [
+          {
+            "key": "key1",
+            "value": "3"
+          },
+          {
+            "key": "key2",
+            "value": "one"
+          }
+        ]
+      }
+    ]
+  }
+}

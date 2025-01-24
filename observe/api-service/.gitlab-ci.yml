@@ -1,0 +1,309 @@
+# You can override the included template(s) by including variable overrides
+# See https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
+# Note that environment variables can be set in several places
+# See https://docs.gitlab.com/ee/ci/variables/#priority-of-environment-variables
+image: gradle:7.4.2-jdk17
+stages:
+  - build
+  - visualize
+  - publish
+  - release
+  - test
+  - deploy
+variables:
+  GRADLE_USER_HOME: "$CI_PROJECT_DIR/.gradle"
+  DATA_SERVICE_API_ENDPOINT: https://dataservice-external.development.whylabsdev.com
+cache:
+  key: "$CI_PROJECT_NAME"
+  paths:
+    - ".gradle/wrapper/"
+    - ".gradle/caches/"
+    - service/build/
+    - client/build/
+
+build:
+  stage: build
+  script:
+    - gradle --build-cache build
+    - gradle --build-cache distTar
+    - rm client/.gitignore
+  only:
+    refs:
+      - mainline
+  artifacts:
+    paths:
+      - service/build/distributions
+      - client
+    expire_in: 30 days
+
+publish production image:
+  stage: publish
+  image: docker:26.1
+  services:
+    - docker:26.1-dind
+  script:
+    - cd service
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t "$CI_REGISTRY_IMAGE:latest" -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA"
+      .
+    - docker push "$CI_REGISTRY_IMAGE:latest"
+    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA"
+  needs:
+    - build
+  only:
+    refs:
+      - mainline
+  artifacts:
+    paths:
+      - client
+    expire_in: 7 days
+
+publish production image arm64:
+  stage: publish
+  image: docker:26.1
+  variables:
+    DOCKER_TLS_CERTDIR: "/certs"
+    DOCKER_DRIVER: overlay2
+    IMAGE_TAG: "$CI_REGISTRY_IMAGE:aarch64-$CI_COMMIT_SHORT_SHA"
+    DOCKER_BUILDKIT: 1
+    BUILDX_VERSION: "0.14.0"
+    LATEST_IMAGE_TAG: "$CI_REGISTRY_IMAGE:latest-arm64"
+    IMAGE_SHA_TAG: "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA-arm64"
+  services:
+      - name: docker:26.1-dind
+        command: [ "--experimental" ]
+  before_script:
+    - apk --no-cache add curl
+    - echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY --username  $CI_REGISTRY_USER --password-stdin
+  script:
+    - cd service
+    - export ARCH=$(uname -m)
+    - case $ARCH in
+      armv6*) ARCH="arm-v6";;
+      armv7*) ARCH="arm-v7";;
+      aarch64) ARCH="arm64";;
+      x86_64) ARCH="amd64";;
+      esac
+    - curl -L --fail --output /docker-buildx "https://github.com/docker/buildx/releases/download/v${BUILDX_VERSION}/buildx-v${BUILDX_VERSION}.linux-${ARCH}"
+    - chmod a+x /docker-buildx
+    - mkdir -p /usr/lib/docker/cli-plugins
+    - cp /docker-buildx /usr/lib/docker/cli-plugins/docker-buildx
+    - docker context create something
+    - docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+    - DOCKER_CLI_EXPERIMENTAL=enabled docker buildx create --use --name buildx-builder something
+    - DOCKER_CLI_EXPERIMENTAL=enabled docker buildx inspect --bootstrap
+    - docker buildx build --platform linux/arm64 -t $IMAGE_TAG -t $LATEST_IMAGE_TAG . --load
+    - docker build --cache-from	"$IMAGE_TAG" -t "$IMAGE_TAG" -t "$IMAGE_SHA_TAG"
+      .
+    - docker push "$IMAGE_TAG"
+    - docker push "$IMAGE_SHA_TAG"
+  needs:
+    - build
+  only:
+    refs:
+      - mainline
+  artifacts:
+    paths:
+      - client
+    expire_in: 7 days
+
+update python client:
+  stage: release
+  before_script:
+    - git config --global user.email "gitlab-bot@whylabs.ai"
+    - git config --global user.name "GitLab Bot"
+    - git config --global pull.rebase true
+    - command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client
+      -y )
+    - eval $(ssh-agent -s)
+    - echo "$SSH_DEPLOY_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - ssh git@gitlab.com
+    - gradle generatePythonClient
+    - scripts/git_pull_push.sh whylabs core/songbird-python-client "gitlab.com" "generated/python" "scripts/python.gitlab-ci.yml" "master"
+  only:
+    refs:
+      - mainline
+
+update node client:
+  stage: release
+  before_script:
+    - git config --global user.email "gitlab-bot@whylabs.ai"
+    - git config --global user.name "GitLab Bot"
+    - git config --global pull.rebase true
+    - command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client
+      -y )
+    - eval $(ssh-agent -s)
+    - echo "$SSH_DEPLOY_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - ssh git@gitlab.com
+    - gradle generateNodeClient
+    - scripts/git_pull_push.sh whylabs core/songbird-node-client "gitlab.com" "generated/node" "scripts/node.gitlab-ci.yml" "master"
+  only:
+    refs:
+      - mainline
+
+update java client:
+  stage: release
+  before_script:
+    - git config --global user.email "gitlab-bot@whylabs.ai"
+    - git config --global user.name "GitLab Bot"
+    - git config --global pull.rebase true
+    - command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client
+      -y )
+    - eval $(ssh-agent -s)
+    - echo "$SSH_DEPLOY_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - ssh git@gitlab.com
+    - gradle generateJavaClient
+    - scripts/git_pull_push.sh whylabs core/songbird-java-client "gitlab.com" "generated/java" "scripts/java.gitlab-ci.yml" "master"
+  only:
+    refs:
+      - mainline
+
+update public java client:
+  stage: release
+  before_script:
+    - git config --global user.email "gitlab-bot@whylabs.ai"
+    - git config --global user.name "GitLab Bot"
+    - git config --global pull.rebase true
+    - command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client
+      -y )
+    - eval $(ssh-agent -s)
+    - echo "$SSH_DEPLOY_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - ssh git@gitlab.com
+    - gradle generatePublicJavaClient
+  only:
+    refs:
+      - mainline
+
+update public python client:
+  stage: release
+  before_script:
+    - git config --global user.email "gitlab-bot@whylabs.ai"
+    - git config --global user.name "GitLab Bot"
+    - git config --global pull.rebase true
+    - command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client
+      -y )
+    - eval $(ssh-agent -s)
+    - echo "$SSH_DEPLOY_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - ssh git@gitlab.com
+    - gradle generatePublicPythonClient
+    - cp scripts/RELEASE.md generated/public-python/RELEASE.md
+    - scripts/git_pull_push.sh whylabs core/whylabs-client-python "gitlab.com" "generated/public-python" "scripts/python.public.gitlab-ci.yml" "mainline"
+    - cp -R scripts/publish_to_github generated/public-python
+  only:
+    refs:
+      - mainline
+
+test on merge requests:
+  stage: build
+  script:
+    - gradle build jacocoTestReport
+  only:
+    - merge_requests
+  artifacts:
+    paths:
+      - service/build/jacoco/jacoco.xml
+
+coverage-jdk11:
+  # Must be in a stage later than test-jdk11's stage.
+  # The `visualize` stage does not exist by default.
+  # Please define it first, or chose an existing stage like `deploy`.
+  stage: visualize
+  image: registry.gitlab.com/haynes/jacoco2cobertura:1.0.7
+  script:
+    - mkdir build
+    # convert report from jacoco to cobertura, use relative project path
+    - 'python /opt/cover2cover.py service/build/jacoco/jacoco.xml service/src/main/kotlin > build/cobertura.xml'
+    # read the <source></source> tag and prepend the path to every filename attribute
+    - 'python /opt/source2filename.py build/cobertura.xml'
+  needs: [ "test on merge requests" ]
+  dependencies:
+    - test on merge requests
+  only:
+    - merge_requests
+  artifacts:
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: build/cobertura.xml
+
+update infra package:
+  stage: deploy
+  variables:
+    TARGET_BRANCH: mainline
+    INFRA_PACKAGE: https://oauth2:${INFRA_ACCESS_TOKEN}@gitlab.com/whylabs/infrastructure/dashboard-service-infrastructure.git
+  before_script:
+    - git config --global user.email "gitlab-bot@whylabs.ai"
+    - git config --global user.name "songbird-service-bot"
+    - git config --global pull.rebase true
+  script:
+    - git clone ${INFRA_PACKAGE}
+    - cd dashboard-service-infrastructure/packages/songbird
+    - git checkout $TARGET_BRANCH
+    - echo $CI_COMMIT_SHORT_SHA > upstream.sha
+    - git add upstream.sha
+    - >
+      git commit -m "[songbird] ${CI_COMMIT_MESSAGE}"
+      -m ""
+      -m "From https://gitlab.com/whylabs/core/songbird-service/-/commit/${CI_COMMIT_SHA} by $GITLAB_USER_ID"
+    - git push origin $TARGET_BRANCH 2>&1
+  only:
+    - mainline
+
+# Add a `whylabsci-deploy-gitops:` job to override any defaults
+# Ref: https://docs.gitlab.com/ee/ci/yaml/includes.html#override-included-configuration-values
+include:
+  - template: Jobs/SAST.gitlab-ci.yml
+  - template: Jobs/Container-Scanning.gitlab-ci.yml
+  - component: gitlab.com/whylabs/ci-components/deploy-security-scanning@mainline
+    inputs:
+      ci_component_username: "${CI_COMPONENTS_USERNAME}"
+      ci_component_token: "${CI_COMPONENTS_TOKEN}"
+  - component: gitlab.com/whylabs/ci-components/deploy-gitops@mainline
+    inputs:
+      whylabs_system_token: "${WHYLABS_CICD_TOKEN}"
+      gitops_updates: |
+        clusters/aws/development/development-cluster/services/songbird/helm-release.yaml|.spec.values.commitSha|"${CI_COMMIT_SHORT_SHA}"
+      debug: true
+
+semgrep-sast:
+  stage: test
+  artifacts:
+    paths:
+      - gl-sast-report.json
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+container_scanning:
+  stage: test
+  variables:
+    CS_IMAGE: "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA"
+  artifacts:
+    paths:
+      - gl-container-scanning-report.json
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

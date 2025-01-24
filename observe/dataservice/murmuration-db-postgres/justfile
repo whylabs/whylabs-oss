@@ -1,0 +1,73 @@
+# just is a bit like Make, but simpler and easier.
+#  Documentation here: https://github.com/casey/just
+#  More documentation here: https://just.systems/man/en/chapter_1.html
+#  (since it's nigh un-googleable)
+# Install:
+#   `brew install just`
+#
+# Run:
+#   just <command>
+
+default:
+  @just --list
+
+# Install CLI tooling used here
+install-tools:
+    brew install sqlfluff
+
+# Check for linting errors in the sql
+lint-sql:
+    sqlfluff lint src/sql/ --dialect postgres
+
+# Fix all the linting violations  in sql files
+lint-fix-sql:
+    sqlfluff fix --force src/sql/ --dialect postgres
+
+# Start Postgres running in the background
+postgres-background:
+    docker run -d \
+    --name dev-postgres \
+    -e POSTGRES_PASSWORD=postgrespassword \
+    -p 5432:5432 \
+    whylabs-postgres-with-datasketches
+
+# Terminate the postgres instance started by postgres-background
+postgres-background-kill:
+    docker stop dev-postgres
+    docker rm dev-postgres
+
+# Run all unit, system and integration tests for this project
+test:
+    ../gradlew check
+
+# Clean up any build artiacts for this project
+clean:
+    ../gradlew clean
+
+# Stand up a local docker-compose instance
+start-local-test-env:
+    docker-compose rm -f   # Clear the old images so db, etc. gets recreated
+    docker-compose up -d
+
+# Stop local docker-compose instance, if up
+stop-local-test-env:
+    docker-compose down
+
+# Open web interface
+open-local-pgadmin:
+    open http://localhost:5050
+
+this_arch := if arch() == "aarch64" { "arm64" } else { "amd64" }
+
+# Pull in container from ecr and alias it
+pull-in-postgres-container:
+    #!/usr/bin/env bash
+    aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 222222222222.dkr.ecr.us-west-2.amazonaws.com
+    docker pull 222222222222.dkr.ecr.us-west-2.amazonaws.com/postgres:{{this_arch}}
+    # We avoid a lot of docker-compose ugliness if drop the platform from the tag now
+    docker image tag 222222222222.dkr.ecr.us-west-2.amazonaws.com/postgres:{{this_arch}} whylabs-postgres-with-datasketches
+
+# Install psql client (without the rest of postgres)
+install-psql:
+    brew install libpq
+    echo 'export PATH="/opt/homebrew/opt/libpq/bin:$PATH"' >> ~/.bash_profile

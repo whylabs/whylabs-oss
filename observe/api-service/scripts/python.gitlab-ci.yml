@@ -1,0 +1,36 @@
+stages:
+  - test
+  - publish
+
+.nosetest:
+  stage: test
+  script:
+   - pip install -r requirements.txt
+   - pip install -r test-requirements.txt
+   - pytest --cov=songbird_client
+
+deploy:
+  stage: publish
+  image: "python:3.8-buster"
+  script:
+    - pip install twine
+    - python setup.py sdist bdist_wheel
+    - TWINE_PASSWORD=${CI_JOB_TOKEN} TWINE_USERNAME=gitlab-ci-token python -m twine upload --repository-url https://gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/pypi dist/*
+  only:
+    - master
+
+nosetest-3.6:
+  extends: .nosetest
+  image: python:3.6-alpine
+nosetest-3.7:
+  extends: .nosetest
+  image: python:3.7-alpine
+nosetest-3.8:
+  extends: .nosetest
+  image: python:3.8-alpine
+nosetest-3.9:
+  extends: .nosetest
+  image: python:3.9-alpine
+nosetest-3.10:
+  extends: .nosetest
+  image: python:3.10-alpine

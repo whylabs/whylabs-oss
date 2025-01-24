@@ -1,0 +1,77 @@
+input AnalyzerRunFilter {
+  datasetId: String!
+  """
+  Get runs that occurred on or after this timestamp.
+  """
+  fromTimestamp: Float!
+  """
+  Get runs that occurred up to but not including this timestamp. Defaults to current time.
+  """
+  toTimestamp: Float
+  """
+  Filter to a specific analyzerId.
+  """
+  analyzerId: String
+  """
+  Filter to a specific monitorId. If an analyzerId is also specified, the analyzerId must be associated with the specified monitor.
+  """
+  monitorId: String
+}
+
+"""
+Result (e.g. errors, anomalies found) of the analyzer run
+"""
+type AnalyzerRunResult {
+  orgId: String
+  datasetId: String
+
+  """
+  ID of the monitor run. Note this may cover multiple analyzer runs.
+  """
+  runId: String
+  """
+  Timestamp for when the run started
+  """
+  runStarted: Float
+  """
+  Timestamp for when the run completed
+  """
+  runCompleted: Float
+  """
+  Which analyzer this analyzer run result is for.
+  """
+  analyzerId: String
+  """
+  IDs of the monitors this analyzer is associated with.
+  """
+  monitorIds: [String!]
+  """
+  Number of anomalies found in this analyzer run
+  """
+  anomalyCount: Int
+  """
+  Number of columns analyzed
+  """
+  columnCount: Int
+  """
+  If there were any failures in analyzing one or more batches, this captures the failure codes.
+  """
+  failureTypes: [String!] # TODO make this an enum
+}
+
+"""
+Count of analyzer runs
+"""
+type AnalyzerRunCountResult {
+  orgId: String
+  datasetId: String
+  count: Int
+}
+
+extend type Query {
+  """
+  Returns paginated results of the analyzer runs
+  """
+  analyzerRuns(filter: AnalyzerRunFilter!, offset: Int!, limit: Int!, sortDirection: SortDirection): [AnalyzerRunResult!] @auth
+  runCount(filter: AnalyzerRunFilter!): AnalyzerRunCountResult @auth
+}

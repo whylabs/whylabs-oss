@@ -1,0 +1,32 @@
+[
+  {
+    "orgId": "org-4TKBKn",
+    "stddevDatasetIds": [
+      "model-4",
+      "model-6",
+      "model-9",
+      "model-12",
+      "model-13",
+      "model-14",
+      "model-15",
+      "model-16",
+      "model-17",
+      "model-18",
+      "model-26",
+      "model-34",
+      "model-35",
+      "model-38",
+      "model-44"
+    ],
+    "eventPeriods": [
+      "2021-11-21:2022-01-02",
+      "2021-07-06:2021-08-08"
+    ]
+  },
+  {
+    "orgId": "org-3371",
+    "eventPeriods": [
+      "2021-11-21:2022-01-02"
+    ]
+  }
+]

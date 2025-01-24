@@ -1,0 +1,9 @@
+image: gradle:7.4.2-jdk8
+
+stages:
+  - publish
+
+build:
+  stage: publish
+  script:
+    - gradle publish

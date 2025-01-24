@@ -1,0 +1,366 @@
+{
+  "data": {
+    "analyzerRuns": [
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1736213313642,
+        "anomalyCount": 0,
+        "columnCount": 1,
+        "failureTypes": null,
+        "analyzerId": "missing-datapoint-analyzer",
+        "monitorIds": [
+          "hand-crafted-missing-datapoint-monitor"
+        ],
+        "runId": "4874515d-c829-4c4f-881e-773a906e9913"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1736209671678,
+        "anomalyCount": 0,
+        "columnCount": 5,
+        "failureTypes": null,
+        "analyzerId": "numerical-drift-analyzer-l7kos1",
+        "monitorIds": [
+          "numerical-drift-monitor-l7kos1"
+        ],
+        "runId": "11a83411-afe1-4842-af7f-f48029d05880"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1736209654067,
+        "anomalyCount": 1,
+        "columnCount": 1,
+        "failureTypes": null,
+        "analyzerId": "rich-orange-worm-8262-analyzer",
+        "monitorIds": [
+          "rich-orange-worm-8262"
+        ],
+        "runId": "e6f09d0a-903c-4778-99fb-727feb0d2d55"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1736209663582,
+        "anomalyCount": 0,
+        "columnCount": 12,
+        "failureTypes": null,
+        "analyzerId": "unique-estimate-ratio-analyzer-l0ypa9",
+        "monitorIds": [
+          "unique-estimate-ratio-monitor-l0ypa9"
+        ],
+        "runId": "fe7183c6-d5e6-4bdc-a005-64dc3e48937f"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1736209662363,
+        "anomalyCount": 0,
+        "columnCount": 12,
+        "failureTypes": null,
+        "analyzerId": "inferred-data-type-analyzer-acsmaf",
+        "monitorIds": [
+          "inferred-data-type-monitor-acsmaf"
+        ],
+        "runId": "84deebbd-f16d-44a1-9098-610004d93819"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1736209648444,
+        "anomalyCount": 0,
+        "columnCount": 7,
+        "failureTypes": null,
+        "analyzerId": "brave-springgreen-rat-9882-analyzer",
+        "monitorIds": [
+          "brave-springgreen-rat-9882"
+        ],
+        "runId": "6d1bd423-0209-41cd-b94b-5420930539a1"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1736209669472,
+        "anomalyCount": 0,
+        "columnCount": 12,
+        "failureTypes": null,
+        "analyzerId": "missing-values-ratio-analyzer-d317bs",
+        "monitorIds": [
+          "missing-values-ratio-monitor-d317bs"
+        ],
+        "runId": "5f9594a6-88f8-48a8-a7d8-3f8fedfec8e1"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1736209678327,
+        "anomalyCount": 0,
+        "columnCount": 7,
+        "failureTypes": null,
+        "analyzerId": "frequent-items-drift-analyzer-xe6ekf",
+        "monitorIds": [
+          "frequent-items-drift-monitor-xe6ekf"
+        ],
+        "runId": "c83d1f95-d78e-4e84-a3d7-7d12a0e46324"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1736126924890,
+        "anomalyCount": 0,
+        "columnCount": 1,
+        "failureTypes": null,
+        "analyzerId": "missing-datapoint-analyzer",
+        "monitorIds": [
+          "hand-crafted-missing-datapoint-monitor"
+        ],
+        "runId": "65ea6f3c-4181-4ce6-b213-a5aa8c706420"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1736123283985,
+        "anomalyCount": 0,
+        "columnCount": 7,
+        "failureTypes": null,
+        "analyzerId": "frequent-items-drift-analyzer-xe6ekf",
+        "monitorIds": [
+          "frequent-items-drift-monitor-xe6ekf"
+        ],
+        "runId": "8757ff29-512c-4c8a-99b7-8217847e5081"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1736123283985,
+        "anomalyCount": 0,
+        "columnCount": 7,
+        "failureTypes": null,
+        "analyzerId": "brave-springgreen-rat-9882-analyzer",
+        "monitorIds": [
+          "brave-springgreen-rat-9882"
+        ],
+        "runId": "277bc645-787e-469e-a2f3-000c8997c800"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1736123285148,
+        "anomalyCount": 0,
+        "columnCount": 12,
+        "failureTypes": null,
+        "analyzerId": "missing-values-ratio-analyzer-d317bs",
+        "monitorIds": [
+          "missing-values-ratio-monitor-d317bs"
+        ],
+        "runId": "6c493671-d475-4b0a-9d62-4c6103d988b3"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1736123285148,
+        "anomalyCount": 0,
+        "columnCount": 12,
+        "failureTypes": null,
+        "analyzerId": "unique-estimate-ratio-analyzer-l0ypa9",
+        "monitorIds": [
+          "unique-estimate-ratio-monitor-l0ypa9"
+        ],
+        "runId": "aff301cc-18f4-47cd-bd61-508a24ffc1bc"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1736123285148,
+        "anomalyCount": 1,
+        "columnCount": 1,
+        "failureTypes": null,
+        "analyzerId": "rich-orange-worm-8262-analyzer",
+        "monitorIds": [
+          "rich-orange-worm-8262"
+        ],
+        "runId": "0db74f73-00b9-49a4-b195-2fbcfad2a4a7"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1736123285148,
+        "anomalyCount": 0,
+        "columnCount": 5,
+        "failureTypes": null,
+        "analyzerId": "numerical-drift-analyzer-l7kos1",
+        "monitorIds": [
+          "numerical-drift-monitor-l7kos1"
+        ],
+        "runId": "45544eb1-5a11-4ee2-a12f-04ab6a3db1af"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1736123283985,
+        "anomalyCount": 0,
+        "columnCount": 12,
+        "failureTypes": null,
+        "analyzerId": "inferred-data-type-analyzer-acsmaf",
+        "monitorIds": [
+          "inferred-data-type-monitor-acsmaf"
+        ],
+        "runId": "f28abcb0-3819-4407-ae46-85b732ac2097"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1736040202049,
+        "anomalyCount": 0,
+        "columnCount": 1,
+        "failureTypes": null,
+        "analyzerId": "missing-datapoint-analyzer",
+        "monitorIds": [
+          "hand-crafted-missing-datapoint-monitor"
+        ],
+        "runId": "9169582e-3332-4836-bd69-0bee75c50a43"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1736036835114,
+        "anomalyCount": 1,
+        "columnCount": 1,
+        "failureTypes": null,
+        "analyzerId": "rich-orange-worm-8262-analyzer",
+        "monitorIds": [
+          "rich-orange-worm-8262"
+        ],
+        "runId": "122a6c43-a20a-449c-b460-11f14bedac6d"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1736036835113,
+        "anomalyCount": 0,
+        "columnCount": 12,
+        "failureTypes": null,
+        "analyzerId": "unique-estimate-ratio-analyzer-l0ypa9",
+        "monitorIds": [
+          "unique-estimate-ratio-monitor-l0ypa9"
+        ],
+        "runId": "c1cdbb6b-3221-497e-b116-741acf2d796d"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1736036833851,
+        "anomalyCount": 0,
+        "columnCount": 7,
+        "failureTypes": null,
+        "analyzerId": "frequent-items-drift-analyzer-xe6ekf",
+        "monitorIds": [
+          "frequent-items-drift-monitor-xe6ekf"
+        ],
+        "runId": "47e73f5f-0189-4c4e-923a-815f69a9ba57"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1736036833851,
+        "anomalyCount": 0,
+        "columnCount": 7,
+        "failureTypes": null,
+        "analyzerId": "brave-springgreen-rat-9882-analyzer",
+        "monitorIds": [
+          "brave-springgreen-rat-9882"
+        ],
+        "runId": "4642a2f7-d566-4599-ac84-7048db02d653"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1736036833850,
+        "anomalyCount": 0,
+        "columnCount": 12,
+        "failureTypes": null,
+        "analyzerId": "inferred-data-type-analyzer-acsmaf",
+        "monitorIds": [
+          "inferred-data-type-monitor-acsmaf"
+        ],
+        "runId": "f9102eca-0f50-461c-8bde-94d1db63dcd1"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1736036835104,
+        "anomalyCount": 0,
+        "columnCount": 12,
+        "failureTypes": null,
+        "analyzerId": "missing-values-ratio-analyzer-d317bs",
+        "monitorIds": [
+          "missing-values-ratio-monitor-d317bs"
+        ],
+        "runId": "4357b421-4fb8-4cb9-a84d-137d54cdca96"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1736036835104,
+        "anomalyCount": 0,
+        "columnCount": 5,
+        "failureTypes": null,
+        "analyzerId": "numerical-drift-analyzer-l7kos1",
+        "monitorIds": [
+          "numerical-drift-monitor-l7kos1"
+        ],
+        "runId": "18f46d7e-7464-4c33-9a16-efb4f2fc5d95"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1735954158709,
+        "anomalyCount": 0,
+        "columnCount": 1,
+        "failureTypes": null,
+        "analyzerId": "missing-datapoint-analyzer",
+        "monitorIds": [
+          "hand-crafted-missing-datapoint-monitor"
+        ],
+        "runId": "71398c64-09d0-49dd-b8a9-0a7cfbbd7751"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1735950519880,
+        "anomalyCount": 0,
+        "columnCount": 5,
+        "failureTypes": null,
+        "analyzerId": "numerical-drift-analyzer-l7kos1",
+        "monitorIds": [
+          "numerical-drift-monitor-l7kos1"
+        ],
+        "runId": "c9d8daaa-9c10-4458-af83-0bf98fc29378"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1735950518703,
+        "anomalyCount": 0,
+        "columnCount": 7,
+        "failureTypes": null,
+        "analyzerId": "frequent-items-drift-analyzer-xe6ekf",
+        "monitorIds": [
+          "frequent-items-drift-monitor-xe6ekf"
+        ],
+        "runId": "837ad91a-5638-4949-b654-70f30893bcd8"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1735950518703,
+        "anomalyCount": 0,
+        "columnCount": 12,
+        "failureTypes": null,
+        "analyzerId": "inferred-data-type-analyzer-acsmaf",
+        "monitorIds": [
+          "inferred-data-type-monitor-acsmaf"
+        ],
+        "runId": "97c08871-e25a-4414-b902-7e7e67dedf98"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1735950519881,
+        "anomalyCount": 0,
+        "columnCount": 12,
+        "failureTypes": null,
+        "analyzerId": "unique-estimate-ratio-analyzer-l0ypa9",
+        "monitorIds": [
+          "unique-estimate-ratio-monitor-l0ypa9"
+        ],
+        "runId": "de251710-1f3b-4e7e-b8f7-e1678494002b"
+      },
+      {
+        "datasetId": "model-11",
+        "runCompleted": 1735950518703,
+        "anomalyCount": 0,
+        "columnCount": 7,
+        "failureTypes": null,
+        "analyzerId": "brave-springgreen-rat-9882-analyzer",
+        "monitorIds": [
+          "brave-springgreen-rat-9882"
+        ],
+        "runId": "45b7b6f8-a905-48c6-8d77-a57060c2fcde"
+      }
+    ]
+  }
+}

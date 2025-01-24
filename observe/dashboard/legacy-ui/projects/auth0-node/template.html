@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {%- auth0:head -%}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta name="theme-color" content="#0E7384" />
+    <meta name="msapplication-navbutton-color" content="#0E7384" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#0E7384" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Asap:ital@0;1&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="https://whylabs-public.s3-us-west-2.amazonaws.com/assets/whylabs-favicon.png"
+    />
+    <link rel="stylesheet" href="https://whylabs-public.s3.us-west-2.amazonaws.com/assets/auth0/index.css" />
+    <style>
+      body {
+        background: unset;
+      }
+    </style>
+
+    {% if prompt.name == "reset-password" %}
+    <title>Reset password - WhyLabs Platform | WhyLabs</title>
+    {% elsif prompt.name == "signup" %}
+    <title>Sign up - WhyLabs Platform | WhyLabs</title>
+    {% elsif prompt.name == "login" %}
+    <title>Log in - WhyLabs Platform | WhyLabs</title>
+    {% else %}
+    <title>WhyLabs Platform</title>
+    {% endif %}
+  </head>
+  {% if prompt.name == "reset-password" %}
+  <body class="_hide-prompt-logo">
+    <div class="forgot-password-page">
+      <div class="background">
+        <img
+          class="background_left-pattern"
+          src="https://whylabs-public.s3.us-west-2.amazonaws.com/assets/piping-bottom-left.svg"
+          alt="decorating element"
+        />
+        <img
+          class="background_right-pattern"
+          src="https://whylabs-public.s3.us-west-2.amazonaws.com/assets/piping-top-right.svg"
+          alt="decorating element"
+        />
+      </div>
+      <div class="logo wrapper-padding mobile-wrapper-padding">
+        <a href="https://whylabs.ai/" target="_blank">
+          <img
+            src="https://whylabs-public.s3.us-west-2.amazonaws.com/assets/whylabs-logo-night-blue.svg"
+            alt="WhyLabs Logo"
+          />
+        </a>
+      </div>
+
+      <div class="container forgot-password-page__container mobile-container">
+        <p class="auth-title forgot-password-page__title">Reset password</p>
+        <div class="auth0-widget">{%- auth0:widget -%}</div>
+      </div>
+    </div>
+  </body>
+  {% elsif prompt.name == "signup" or prompt.name == "signup-id" or prompt.name == "signup-password" %}
+  <body class="_hide-prompt-logo">
+    <div class="signup-page">
+      <div class="background">
+        <img
+          class="background_left-pattern"
+          src="https://whylabs-public.s3.us-west-2.amazonaws.com/assets/piping-bottom-left.svg"
+          alt="decorating element"
+        />
+        <img
+          class="background_right-pattern"
+          src="https://whylabs-public.s3.us-west-2.amazonaws.com/assets/piping-top-right.svg"
+          alt="decorating element"
+        />
+
+        <img
+          class="background__illustration"
+          src="https://whylabs-public.s3.us-west-2.amazonaws.com/assets/doggo-bg-2.svg"
+          alt="dog illustration"
+        />
+      </div>
+      <div class="logo wrapper-padding mobile-wrapper-padding">
+        <a href="https://whylabs.ai/" rel="noopener noreferrer">
+          <img
+            src="https://whylabs-public.s3.us-west-2.amazonaws.com/assets/whylabs-logo-night-blue.svg"
+            alt="WhyLabs Logo"
+          />
+        </a>
+      </div>
+
+      <div class="container mobile-container">
+        <div class="signup-page__content wrapper-padding mobile-wrapper-padding">
+          <div class="signup-page__left-panel">
+            <p class="auth-title mobile-title signup-page__title">
+              Sign up to <br />
+              create your free account
+            </p>
+            <p class="auth-subtitle mobile-subtitle signup-page__subtitle">
+              Out-of-the-box model and data monitoring. Infrastructure-agnostic. Works at any scale.
+            </p>
+            <div class="auth0-widget">{%- auth0:widget -%}</div>
+          </div>
+
+          <div class="signup-page__right-panel desktop-only">
+            <div class="quoteblock">
+              <div class="text-primary mobile-text-primary quoteblock__text">
+                "The WhyLabs Platform offers easy onboarding, data privacy-friendly integration, and a command-center
+                view that allows us to quickly identify and treat problems before they impact the user experience.
+                <br />
+                The downstream impact of enabling observability is that we are able to continuously expand on our
+                differentiating technology by leveraging machine learning for more use cases"
+              </div>
+              <div class="quoteblock__author">
+                <img src="https://whylabs-public.s3.us-west-2.amazonaws.com/assets/airspace.svg" alt="company logo" />
+                <div class="quoteblock__author-container">
+                  <p class="label mobile-label">RYAN RUSNAK</p>
+                  <p class="label mobile-label">CTO AND CO-FOUNDER</p>
+                  <p class="label mobile-label">AIRSPACE</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer wrapper-padding mobile-wrapper-padding">
+        <p class="helper-text">
+          By signing up for a WhyLabs account I agree to the EULA and Privacy Policy <br />
+          We use cookies for analytics, personalized content and ads. By continuing to browse this site, you agree to
+          this use. To learn more, you can review our
+          <a class="link" href="https://whylabs.ai/privacy-policy" target="_blank" rel="noreferrer"> Privacy Policy </a>
+        </p>
+      </div>
+    </div>
+  </body>
+  {% elsif prompt.name == "login" or prompt.name == "login-id" or prompt.name == "login-password" or prompt.name ==
+  "login-email-verification" %}
+  <body class="_hide-prompt-logo">
+    <div class="login-page">
+      <div class="background">
+        <img
+          class="background_left-pattern"
+          src="https://whylabs-public.s3.us-west-2.amazonaws.com/assets/piping-bottom-left.svg"
+          alt="decorating element"
+        />
+        <img
+          class="background_right-pattern"
+          src="https://whylabs-public.s3.us-west-2.amazonaws.com/assets/piping-top-right.svg"
+          alt="decorating element"
+        />
+      </div>
+      <div class="logo wrapper-padding mobile-wrapper-padding">
+        <a href="https://whylabs.ai/" rel="noopener noreferrer">
+          <img
+            src="https://whylabs-public.s3.us-west-2.amazonaws.com/assets/whylabs-logo-night-blue.svg"
+            alt="WhyLabs Logo"
+          />
+        </a>
+      </div>
+
+      <div class="container login-page__container mobile-container">
+        <p class="auth-title login-page__title">Log in to WhyLabs</p>
+        <div class="auth0-widget">{%- auth0:widget -%}</div>
+      </div>
+    </div>
+  </body>
+  {% else %}
+  <body class="_hide-prompt-logo">
+    <div class="default-page">
+      <div class="background">
+        <img
+          class="background_left-pattern"
+          src="https://whylabs-public.s3.us-west-2.amazonaws.com/assets/piping-bottom-left.svg"
+          alt="decorating element"
+        />
+        <img
+          class="background_right-pattern"
+          src="https://whylabs-public.s3.us-west-2.amazonaws.com/assets/piping-top-right.svg"
+          alt="decorating element"
+        />
+      </div>
+      <div class="logo wrapper-padding mobile-wrapper-padding">
+        <a href="https://whylabs.ai/" rel="noopener noreferrer">
+          <img
+            src="https://whylabs-public.s3.us-west-2.amazonaws.com/assets/whylabs-logo-night-blue.svg"
+            alt="WhyLabs Logo"
+          />
+        </a>
+      </div>
+
+      <div class="container default-page__container mobile-container">
+        <div class="auth0-widget">{%- auth0:widget -%}</div>
+      </div>
+    </div>
+  </body>
+  {% endif %}
+</html>

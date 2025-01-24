@@ -1,0 +1,287 @@
+{
+  "type": "index_parallel",
+  "id": "{{taskId}}",
+  "spec": {
+    "ioConfig": {
+      "type": "index_parallel",
+      "inputSource": {
+        "type": "s3",
+        "prefixes": ["{{stagingArea}}"]
+      },
+      "appendToExisting": {{appendMode}},
+      "inputFormat": {
+        "type": "parquet"
+      }
+    },
+    "tuningConfig": {
+      "type": "index_parallel",
+      "maxRowsInMemory": 500000,
+      "maxBytesInMemory": -1,
+      "maxRowsPerSegment": 500000,
+      "partitionsSpec": {
+        "type": "dynamic",
+        "maxRowsPerSegment": 500000,
+        "maxTotalRows": null
+      },
+      "maxNumConcurrentSubTasks": {{concurrency}}
+    },
+    "dataSchema": {
+      "dataSource": "whylogs-{{datasourceNamespace}}-analyzer-results-v3",
+      "metricsSpec": [
+{
+"name": "creationTimestamp",
+"fieldName": "creationTimestamp",
+"type": "longSum"
+},
+{
+"name": "calculationRuntimeNano",
+"fieldName": "calculationRuntimeNano",
+"type": "longSum"
+},
+{
+"name": "anomalyCount",
+"fieldName": "anomalyCount",
+"type": "longSum"
+},
+{
+"name": "baselineCount",
+"fieldName": "baselineCount",
+"type": "longSum"
+},
+{
+"name": "baselineBatchesWithProfileCount",
+"fieldName": "baselineBatchesWithProfileCount",
+"type": "longSum"
+},
+{
+"name": "targetCount",
+"fieldName": "targetCount",
+"type": "longSum"
+},
+{
+"name": "targetBatchesWithProfileCount",
+"fieldName": "targetBatchesWithProfileCount",
+"type": "longSum"
+},
+{
+"name": "expectedBaselineCount",
+"fieldName": "expectedBaselineCount",
+"type": "longSum"
+},
+{
+"name": "expectedBaselineSuppressionThreshold",
+"fieldName": "expectedBaselineSuppressionThreshold",
+"type": "longSum"
+},
+{
+"name": "mostRecentDatasetDatalakeWriteTs",
+"fieldName": "mostRecentDatasetDatalakeWriteTs",
+"type": "longSum"
+},
+{
+"name": "analyzerConfigVersion",
+"fieldName": "analyzerConfigVersion",
+"type": "longMax"
+},
+{
+"name": "entitySchemaVersion",
+"fieldName": "entitySchemaVersion",
+"type": "longMax"
+},
+{
+"name": "weight",
+"fieldName": "weight",
+"type": "longMax"
+},
+{
+"name": "segmentWeight",
+"fieldName": "segmentWeight",
+"type": "doubleMax"
+},
+{
+"name": "monitorConfigVersion",
+"fieldName": "monitorConfigVersion",
+"type": "longMax"
+},
+{
+"name": "segmentWeightProvided",
+"fieldName": "segmentWeightProvided",
+"type": "longMax"
+},
+{
+"name": "weightConfigVersion",
+"fieldName": "weightConfigVersion",
+"type": "longMax"
+},
+{
+"name": "userInitiatedBackfill",
+"fieldName": "userInitiatedBackfill",
+"type": "longMax"
+},
+{
+"name": "isRollup",
+"fieldName": "isRollup",
+"type": "longMax"
+},
+{
+"name": "threshold_baselineMetricValue",
+"fieldName": "threshold_baselineMetricValue",
+"type": "doubleSum"
+},
+{
+"name": "threshold_metricValue",
+"fieldName": "threshold_metricValue",
+"type": "doubleSum"
+},
+{
+"name": "threshold_calculatedUpper",
+"fieldName": "threshold_calculatedUpper",
+"type": "doubleSum"
+},
+{
+"name": "threshold_calculatedLower",
+"fieldName": "threshold_calculatedLower",
+"type": "doubleSum"
+},
+{
+"name": "columnList_added",
+"fieldName": "columnList_added",
+"type": "doubleSum"
+},
+{
+"name": "columnList_removed",
+"fieldName": "columnList_removed",
+"type": "doubleSum"
+},
+{
+"name": "drift_minBatchSize",
+"fieldName": "drift_minBatchSize",
+"type": "longSum"
+},
+{
+"name": "drift_metricValue",
+"fieldName": "drift_metricValue",
+"type": "doubleSum"
+},
+{
+"name": "diff_metricValue",
+"fieldName": "diff_metricValue",
+"type": "doubleSum"
+},
+{
+"name": "drift_threshold",
+"fieldName": "drift_threshold",
+"type": "doubleMax"
+},
+{
+"name": "diff_threshold",
+"fieldName": "diff_threshold",
+"type": "doubleMax"
+},
+{
+"name": "threshold_absoluteUpper",
+"fieldName": "threshold_absoluteUpper",
+"type": "doubleMax"
+},
+{
+"name": "threshold_absoluteLower",
+"fieldName": "threshold_absoluteLower",
+"type": "doubleMin"
+},
+{
+"name": "threshold_factor",
+"fieldName": "threshold_factor",
+"type": "doubleMax"
+},
+{
+"name": "threshold_minBatchSize",
+"fieldName": "threshold_minBatchSize",
+"type": "longMax"
+}
+],
+      "granularitySpec": {
+        "type": "uniform",
+        "queryGranularity": "NONE",
+        "rollup": false,
+        "segmentGranularity": "DAY",
+        "intervals" : [ "{{interval}}" ]
+      },
+      "transformSpec": {
+        "transforms": [
+          {
+            "type": "expression",
+            "name": "isRollup",
+            "expression": "if(isRollup, 1, 0)"
+          }
+        ]
+      },
+      "timestampSpec": {
+        "column": "datasetTimestamp",
+        "format": "iso"
+      },
+      "dimensionsSpec": {
+    "dimensionExclusions":["latest"],
+        "dimensions": [
+"id",
+"analysisId",
+"orgId",
+"datasetId",
+"column",
+"granularity",
+"segment",
+"targetLevel",
+"analyzerId",
+"stringMetricValue",
+"baselineStringMetricValue",
+"targetName",
+"alertType",
+"targetType",
+"algorithm",
+"analyzerType",
+"metric",
+"runId",
+"referenceProfileId",
+"algorithmMode",
+"diff_mode",
+"threshold_type",
+"columnList_mode",
+"frequentStringComparison_operator",
+{
+"type": "string",
+"name": "frequentStringComparison_sample",
+"multiValueHandling": "SORTED_ARRAY",
+"createBitmapIndex": true
+},
+{
+"type": "string",
+"name": "monitorIds",
+"multiValueHandling": "SORTED_ARRAY",
+"createBitmapIndex": true
+},
+{
+"type": "string",
+"name": "columnList_addedSample",
+"multiValueHandling": "SORTED_ARRAY",
+"createBitmapIndex": true
+},
+{
+"type": "string",
+"name": "columnList_removedSample",
+"multiValueHandling": "SORTED_ARRAY",
+"createBitmapIndex": true
+},
+"failureType",
+"failureExplanation",
+"comparison_expected",
+"comparison_observed",
+"analyzerResultType"
+]
+      }
+    }
+  },
+      "context": {
+      "priority" : 37
+}
+
+}
+

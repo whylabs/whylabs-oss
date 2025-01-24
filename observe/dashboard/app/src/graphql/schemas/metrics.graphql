@@ -1,0 +1,86 @@
+type ModelMetrics {
+  calibration: CalibrationCurve
+  confusion: ConfusionMatrix
+  fprTpr: ROC
+  recallPrecision: ROC
+}
+
+extend type BatchMetadata {
+  """
+  Returns model metrics associated with a particular batch of data.
+  Only applicable to ML models.
+  """
+  metrics: ModelMetrics!
+}
+
+"""
+Value of a single value metric at a given point in time
+"""
+type MetricValue {
+  timestamp: Float!
+  value: Float!
+  lastUploadTimestamp: Float
+}
+
+type Metric {
+  id: String!
+  datasetGranularity: TimePeriod!
+  datasetId: String!
+  segmentTags: [SegmentTag!]!
+  """
+  Name of the metric
+  """
+  name: String!
+  """
+  Values of this metric, over time
+  """
+  values(fromTimestamp: Float!, toTimestamp: Float): [MetricValue!]!
+  metadata: MetricSchema
+}
+
+type DistributionValue {
+  timestamp: Float!
+  frequentItems: [FrequentItem!]
+  numberSummary: NumberSummary
+  lastUploadTimestamp: Float
+}
+
+type CustomMetric {
+  id: String!
+  datasetGranularity: TimePeriod!
+  datasetId: String!
+  segmentTags: [SegmentTag!]!
+  """
+  Name of the metric
+  """
+  name: String!
+  """
+  Numeric values of this metric, over time
+  """
+  numericValues(fromTimestamp: Float!, toTimestamp: Float): [MetricValue!]
+  numericValuesForBatch(timestamp: Float!): [MetricValue!]
+  """
+  Distribution values of this metric, over time
+  """
+  distributionValues(fromTimestamp: Float!, toTimestamp: Float): [DistributionValue!]
+  distributionValuesForBatch(timestamp: Float!): [DistributionValue!]
+  metadata: MetricSchema
+}
+
+extend interface Dataset {
+  datasetMetric(name: String!, granularity: TimePeriod): Metric
+  datasetMetrics(granularity: TimePeriod): [Metric!]
+  customMetrics(tags: [String!], granularity: TimePeriod): [CustomMetric!]
+}
+
+extend type Model {
+  datasetMetric(name: String!, granularity: TimePeriod): Metric
+  datasetMetrics(granularity: TimePeriod): [Metric!]
+  customMetrics(tags: [String!], granularity: TimePeriod): [CustomMetric!]
+}
+
+extend type Segment {
+  datasetMetric(name: String!, granularity: TimePeriod): Metric
+  datasetMetrics(granularity: TimePeriod): [Metric!]
+  customMetrics(tags: [String!], granularity: TimePeriod): [CustomMetric!]
+}

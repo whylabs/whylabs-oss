@@ -1,0 +1,111 @@
+query getGlobalActionIds {
+  globalActions {
+    listGlobalActions {
+      id
+      enabled
+    }
+  }
+}
+
+query getModelsInfo {
+  models {
+    name
+    modelType
+    id
+  }
+}
+
+fragment ActionDetails on GenericNotificationAction {
+  id
+  enabled
+  type
+  createdAt
+  updatedAt
+  references {
+    itemId
+    datasetId
+    itemDisplayName
+    type
+  }
+  __typename
+  payload {
+    __typename
+    ... on SlackAction {
+      slackWebhook
+    }
+    ... on EmailAction {
+      email
+    }
+    ... on PagerDutyAction {
+      pagerDutyKey
+    }
+    ... on MSTeamsAction {
+      webhook
+    }
+    ... on CustomWebhookAction {
+      url
+      method
+      headers {
+        key
+        value
+      }
+      body
+    }
+    ... on UnknownAction {
+      value
+    }
+  }
+}
+
+query getGlobalActions {
+  globalActions {
+    listGlobalActions {
+      ...ActionDetails
+    }
+  }
+}
+
+query findGlobalAction($id:String!) {
+  globalActions {
+    findGlobalAction(id: $id) {
+      ...ActionDetails
+    }
+  }
+}
+
+mutation updateGlobalAction($id: String!, $type: ActionType!, $payload: String!) {
+  globalActions {
+    updateGlobalAction(id: $id, type: $type, action: $payload)
+  }
+}
+
+mutation createGlobalAction($id: String!, $type: ActionType!, $payload: String!) {
+  globalActions {
+    createGlobalAction(id: $id, type: $type, action: $payload)
+  }
+}
+
+
+mutation deleteGlobalAction($id: String!) {
+  globalActions {
+    deleteGlobalAction(id: $id)
+  }
+}
+
+mutation disableGlobalAction($id: String!) {
+  globalActions {
+    disableGlobalAction(id: $id)
+  }
+}
+
+mutation enableGlobalAction($id: String!) {
+  globalActions {
+    enableGlobalAction(id: $id)
+  }
+}
+
+mutation testNotificationAction($id:String!) {
+  globalActions {
+    testGlobalAction(id: $id)
+  }
+}

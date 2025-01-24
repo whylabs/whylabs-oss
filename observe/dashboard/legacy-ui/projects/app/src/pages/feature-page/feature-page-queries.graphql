@@ -1,0 +1,187 @@
+query getModelValuesForFeatureCards($modelId: String!, $featureId: String!, $from: Float!, $to: Float) {
+  model(id: $modelId) {
+    batchFrequency
+    feature(name: $featureId) {
+      name
+      sketches(from: $from, to: $to) {
+        showAsDiscrete
+        datasetTimestamp
+        lastUploadTimestamp
+        numberSummary {
+          ...NumberSummaryFields
+        }
+      }
+    }
+  }
+}
+
+query getTotalCount($modelId: String!, $featureId: String!, $from: Float!, $to: Float) {
+  model(id: $modelId) {
+    batchFrequency
+    feature(name: $featureId) {
+      name
+      sketches(from: $from, to: $to) {
+        datasetTimestamp
+        lastUploadTimestamp
+        totalCount
+      }
+    }
+  }
+}
+
+query getSketchesForTotalCountCard(
+  $modelId: String!
+  $columnName: String!
+  $tags: [SegmentTagFilter!]
+  $from: Float!
+  $to: Float
+  $isOutput: Boolean = false
+) {
+  model(id: $modelId) {
+    batchFrequency
+    segment(tags: $tags) {
+      feature(name: $columnName) @skip(if: $isOutput) {
+        name
+        sketches(from: $from, to: $to) {
+          datasetTimestamp
+          lastUploadTimestamp
+          totalCount
+        }
+      }
+      output(name: $columnName) @include(if: $isOutput) {
+        name
+        sketches(from: $from, to: $to) {
+          datasetTimestamp
+          lastUploadTimestamp
+          totalCount
+        }
+      }
+    }
+  }
+}
+
+query getSegmentedTotalCount(
+  $modelId: String!
+  $featureId: String!
+  $tags: [SegmentTagFilter!]
+  $from: Float!
+  $to: Float
+) {
+  model(id: $modelId) {
+    batchFrequency
+    segment(tags: $tags) {
+      feature(name: $featureId) {
+        name
+        sketches(from: $from, to: $to) {
+          datasetTimestamp
+          lastUploadTimestamp
+          totalCount
+        }
+      }
+    }
+  }
+}
+
+query getSketchesForSingleValuesCard(
+  $modelId: String!
+  $columnName: String!
+  $tags: [SegmentTagFilter!]
+  $from: Float!
+  $to: Float
+  $isOutput: Boolean = false
+) {
+  model(id: $modelId) {
+    batchFrequency
+    segment(tags: $tags) {
+      feature(name: $columnName) @skip(if: $isOutput) {
+        name
+        sketches(from: $from, to: $to) {
+          showAsDiscrete
+          datasetTimestamp
+          lastUploadTimestamp
+          numberSummary {
+            ...NumberSummaryFields
+          }
+        }
+      }
+      output(name: $columnName) @include(if: $isOutput) {
+        name
+        sketches(from: $from, to: $to) {
+          showAsDiscrete
+          datasetTimestamp
+          lastUploadTimestamp
+          numberSummary {
+            ...NumberSummaryFields
+          }
+        }
+      }
+    }
+  }
+}
+
+query getSegmentValuesForFeatureCards(
+  $modelId: String!
+  $featureId: String!
+  $tags: [SegmentTagFilter!]
+  $from: Float!
+  $to: Float
+) {
+  model(id: $modelId) {
+    batchFrequency
+    segment(tags: $tags) {
+      feature(name: $featureId) {
+        name
+        sketches(from: $from, to: $to) {
+          showAsDiscrete
+          datasetTimestamp
+          lastUploadTimestamp
+          numberSummary {
+            ...NumberSummaryFields
+          }
+        }
+      }
+    }
+  }
+}
+
+query getOutputValuesForFeatureCard($modelId: String!, $outputId: String!, $from: Float!, $to: Float) {
+  model(id: $modelId) {
+    batchFrequency
+    output(name: $outputId) {
+      name
+      sketches(from: $from, to: $to) {
+        showAsDiscrete
+        datasetTimestamp
+        lastUploadTimestamp
+        numberSummary {
+          ...NumberSummaryFields
+        }
+      }
+    }
+  }
+}
+
+query getOutputValuesForSegmentFeatureCard(
+  $modelId: String!
+  $outputId: String!
+  $tags: [SegmentTagFilter!]
+  $from: Float!
+  $to: Float
+) {
+  model(id: $modelId) {
+    batchFrequency
+    segment(tags: $tags) {
+      output(name: $outputId) {
+        name
+        sketches(from: $from, to: $to) {
+          showAsDiscrete
+          datasetTimestamp
+          lastUploadTimestamp
+          numberSummary {
+            ...NumberSummaryFields
+          }
+        }
+      }
+    }
+  }
+}

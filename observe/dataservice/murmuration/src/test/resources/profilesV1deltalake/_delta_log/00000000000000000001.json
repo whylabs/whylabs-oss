@@ -1,0 +1,1 @@
+{"commitInfo":{"timestamp":1671543491055,"operation":"WRITE","operationParameters":{"mode":"Append","partitionBy":"[\"orgId\"]"},"readVersion":0,"isolationLevel":"SnapshotIsolation","isBlindAppend":false,"operationMetrics":{"numFiles":"0","numOutputRows":"0","numOutputBytes":"0"},"engineInfo":"Apache-Spark/3.2.1 Delta-Lake/2.0.0","txnId":"58f26f46-ad00-4331-9424-4fa3c75e5cec"}}

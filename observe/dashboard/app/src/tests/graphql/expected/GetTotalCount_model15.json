@@ -1,0 +1,48 @@
+{
+  "data": {
+    "model": {
+      "batchFrequency": "P1M",
+      "feature": {
+        "name": "age",
+        "sketches": [
+          {
+            "createdAt": 1704067200000,
+            "totalCount": 3050
+          },
+          {
+            "createdAt": 1706745600000,
+            "totalCount": 3050
+          },
+          {
+            "createdAt": 1709251200000,
+            "totalCount": 3050
+          },
+          {
+            "createdAt": 1711929600000,
+            "totalCount": 2800
+          },
+          {
+            "createdAt": 1714521600000,
+            "totalCount": 6100
+          },
+          {
+            "createdAt": 1717200000000,
+            "totalCount": 3050
+          },
+          {
+            "createdAt": 1719792000000,
+            "totalCount": 3050
+          },
+          {
+            "createdAt": 1722470400000,
+            "totalCount": 3050
+          },
+          {
+            "createdAt": 1725148800000,
+            "totalCount": 3050
+          }
+        ]
+      }
+    }
+  }
+}

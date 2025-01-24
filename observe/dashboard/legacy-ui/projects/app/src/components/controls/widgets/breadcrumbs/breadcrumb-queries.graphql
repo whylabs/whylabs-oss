@@ -1,0 +1,5 @@
+query getDatasetName($datasetId: String!) {
+  model(id: $datasetId) {
+    name
+  }
+}

@@ -1,0 +1,18 @@
+query getModelDatasetMetricsAndLatestTimestamp($datasetId: String!, $dailyFrom: Float!, $dailyTo: Float!, $weeklyFrom: Float!, $weeklyTo: Float!, $granularity: TimePeriod) {
+  model(id: $datasetId) {
+    dataAvailability {
+      latestTimestamp
+    }
+    datasetMetrics(granularity: $granularity) {
+      name
+      oneDay: values(fromTimestamp: $dailyFrom, toTimestamp: $dailyTo) {
+        value
+      }
+      oneWeek: values(fromTimestamp: $weeklyFrom, toTimestamp: $weeklyTo) {
+        value
+      }
+    }
+    name
+    modelType
+  }
+}

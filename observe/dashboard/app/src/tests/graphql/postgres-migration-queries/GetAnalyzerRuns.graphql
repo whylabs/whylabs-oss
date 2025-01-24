@@ -1,0 +1,16 @@
+query getAnalyzerRuns($datasetId: String!, $from: Float!, $to: Float, $analyzerId: String, $monitorId: String, $limit: Int!, $offset: Int!, $sortDirection: SortDirection) {
+  analyzerRuns(filter: {datasetId: $datasetId, fromTimestamp: $from, toTimestamp: $to, analyzerId: $analyzerId, monitorId: $monitorId}, offset: $offset, limit: $limit, sortDirection: $sortDirection) {
+    ...AnalyzerRunData
+  }
+}
+
+fragment AnalyzerRunData on AnalyzerRunResult {
+  datasetId
+  runCompleted
+  anomalyCount
+  columnCount
+  failureTypes
+  analyzerId
+  monitorIds
+  runId
+}

@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TitleValueWidget /> should match snapshot for "A string value" value 1`] = `
+<div>
+  <div
+    class="mantine-1x0bz6k"
+  >
+    <label
+      class="mantine-osimmb"
+    >
+      Title
+    </label>
+    <div
+      class="mantine-1fw6o8f"
+    >
+      <span
+        class="mantine-Text-root mantine-1ojyc9w"
+        data-testid="WhyLabsText"
+      >
+        A string value
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<TitleValueWidget /> should match snapshot for 123 value 1`] = `
+<div>
+  <div
+    class="mantine-1x0bz6k"
+  >
+    <label
+      class="mantine-osimmb"
+    >
+      Title
+    </label>
+    <div
+      class="mantine-1fw6o8f"
+    >
+      <span
+        class="mantine-Text-root mantine-1ojyc9w"
+        data-testid="WhyLabsText"
+      >
+        123
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<TitleValueWidget /> should match snapshot for custom children 1`] = `
+<div>
+  <div
+    class="mantine-1x0bz6k"
+  >
+    <label
+      class="mantine-osimmb"
+    >
+      Title
+    </label>
+    <div
+      class="mantine-1fw6o8f"
+    >
+      <div
+        data-testid="custom-children"
+      >
+        Custom children
+      </div>
+    </div>
+  </div>
+</div>
+`;

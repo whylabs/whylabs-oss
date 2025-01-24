@@ -1,0 +1,74 @@
+{
+  "queryType": "timeseries",
+  "dataSource": "model-239",
+  "intervals": [
+    "1980-01-01T00:00:00.000/2050-05-03T00:00:00.000"
+  ],
+  "granularity": "day",
+  "filter": {
+    "type": "selector",
+    "dimension": "columnName",
+    "value": "__internal__.datasetMetrics"
+  },
+  "aggregations": [
+    { "type": "ModelMetricsMerge", "name": "modelMetrics", "fieldName": "modelMetrics"}
+
+  ],
+  "postAggregations": [
+    {
+      "type": "derived.metrics",
+      "name": "mean_squared_error",
+      "field": {"type": "fieldAccess", "name": "modelMetrics", "fieldName": "modelMetrics"},
+      "metricType": "mean_squared_error"
+    },
+    {
+      "type": "derived.metrics",
+      "name": "mean_absolute_error",
+      "field": {"type": "fieldAccess", "name": "modelMetrics", "fieldName": "modelMetrics"},
+      "metricType": "mean_absolute_error"
+    },
+    {
+      "type": "derived.metrics",
+      "name": "root_mean_squared_error",
+      "field": {"type": "fieldAccess", "name": "modelMetrics", "fieldName": "modelMetrics"},
+      "metricType": "root_mean_squared_error"
+    },
+    {
+      "type": "derived.metrics",
+      "name": "recall",
+      "field": {"type": "fieldAccess", "name": "modelMetrics", "fieldName": "modelMetrics"},
+      "metricType": "recall"
+    },
+    {
+      "type": "derived.metrics",
+      "name": "fpr",
+      "field": {"type": "fieldAccess", "name": "modelMetrics", "fieldName": "modelMetrics"},
+      "metricType": "fpr"
+    },
+    {
+      "type": "derived.metrics",
+      "name": "precision",
+      "field": {"type": "fieldAccess", "name": "modelMetrics", "fieldName": "modelMetrics"},
+      "metricType": "precision"
+    },
+    {
+      "type": "derived.metrics",
+      "name": "accuracy",
+      "field": {"type": "fieldAccess", "name": "modelMetrics", "fieldName": "modelMetrics"},
+      "metricType": "accuracy"
+    },
+    {
+      "type": "derived.metrics",
+      "name": "f1",
+      "field": {"type": "fieldAccess", "name": "modelMetrics", "fieldName": "modelMetrics"},
+      "metricType": "f1"
+    }
+
+
+
+  ],
+  "context": {
+    "skipEmptyBuckets": true
+  }
+
+}

@@ -1,0 +1,121 @@
+########################
+# Adhoc Backfill (PG backed)
+########################
+
+POST  http://localhost:8090/analysisAsync/triggerQueryPlanner
+Content-Type: application/json
+
+{
+}
+
+
+########################
+# Adhoc Backfill (PG backed)
+########################
+
+POST  http://dev-dataservice:8090/analysisAsync/triggerBackfill
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+  "interval": "2022-01-01/2022-03-01"
+}
+
+########################
+# Adhoc Backfill (PG backed) scoped to 1 analyzer
+########################
+
+POST  http://localhost:8090/analysisAsync/triggerBackfill
+Content-Type: application/json
+
+{
+  "orgId": "org-5Hsdjx",
+  "datasetId": "model-108",
+  "analyzerIds": [],
+  "interval": "2024-09-19T00:00:00.000Z/2024-09-27T00:00:00.000Z"
+}
+
+
+#######################################
+# Cancel                              #
+#######################################
+
+DELETE  http://localhost:8090/analysisAsync/triggerAnalysis/cancel/3fafd1dd-a5b0-440e-af19-c7f3dd38168d
+Content-Type: application/json
+
+{}
+
+#######################################
+# Get Status                          #
+#######################################
+
+GET  http://localhost:8090/analysisAsync/getStatus/a609fbf6-c0fd-45bb-8421-17a22ba00026
+Content-Type: application/json
+
+########################
+# Adhoc Aysnc          #
+########################
+
+POST  http://localhost:8090/analysisAsync/triggerAnalysis
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "promoteResults":false,
+  "datasetId": "model-2284",
+  "interval": "2024-02-27T00:00:00.000Z/2024-03-03T00:00:00.000Z",
+  "analyzers": "[{\"id\": \"nice-rosybrown-camel-4369-analyzer\", \"config\": {\"type\": \"fixed\", \"upper\": 0.7, \"metric\": \"quantile_99\", \"analyzerType\": \"fixed\", \"minBatchSize\": 3}, \"metadata\": {\"author\": \"user_94b2f446_9b19_43f7_ac29_7699f42f3281\", \"version\": 2, \"schemaVersion\": 1, \"updatedTimestamp\": 1709257069848}, \"schedule\": {\"type\": \"fixed\", \"cadence\": \"hourly\", \"exclusionRanges\": []}, \"targetSize\": 1, \"targetMatrix\": {\"type\": \"column\", \"include\": [\"prompt.injection\"], \"segments\": []}, \"disableTargetRollup\": false}, {\"id\": \"different-mistyrose-porcupine-4653-analyzer\", \"config\": {\"type\": \"fixed\", \"upper\": 0.0, \"metric\": \"unique_est\", \"analyzerType\": \"fixed\", \"minBatchSize\": 3}, \"metadata\": {\"author\": \"user_94b2f446_9b19_43f7_ac29_7699f42f3281\", \"version\": 1, \"schemaVersion\": 1, \"updatedTimestamp\": 1709304144611}, \"schedule\": {\"type\": \"fixed\", \"cadence\": \"hourly\", \"exclusionRanges\": []}, \"targetSize\": 1, \"targetMatrix\": {\"type\": \"column\", \"exclude\": [], \"include\": [\"prompt.has_patterns\"], \"segments\": []}, \"disableTargetRollup\": false}, {\"id\": \"adorable-blueviolet-scorpion-5844-analyzer\", \"tags\": [\"featureSelection:selected\", \"discreteness:discrete\", \"creation:custom_json_editor\"], \"config\": {\"type\": \"drift\", \"metric\": \"frequent_items\", \"params\": {}, \"baseline\": {\"size\": 24, \"type\": \"TrailingWindow\"}, \"algorithm\": \"hellinger\", \"threshold\": 0.7, \"minBatchSize\": 1}, \"metadata\": {\"author\": \"user_94b2f446_9b19_43f7_ac29_7699f42f3281\", \"version\": 2, \"schemaVersion\": 1, \"updatedTimestamp\": 1709305836368}, \"schedule\": {\"type\": \"fixed\", \"cadence\": \"hourly\", \"exclusionRanges\": []}, \"targetSize\": 1, \"targetMatrix\": {\"type\": \"column\", \"exclude\": [\"group:output\"], \"include\": [\"prompt.has_patterns\", \"response.has_patterns\"], \"segments\": []}, \"disableTargetRollup\": false}, {\"id\": \"puzzled-hotpink-alpaca-3313-analyzer\", \"tags\": [\"featureSelection:selected\", \"discreteness:discrete\", \"creation:custom_json_editor\"], \"config\": {\"type\": \"drift\", \"metric\": \"frequent_items\", \"params\": {}, \"baseline\": {\"size\": 24, \"type\": \"TrailingWindow\"}, \"algorithm\": \"psi\", \"threshold\": 0.2, \"minBatchSize\": 1}, \"metadata\": {\"author\": \"user_94b2f446_9b19_43f7_ac29_7699f42f3281\", \"version\": 2, \"schemaVersion\": 1, \"updatedTimestamp\": 1709305982625}, \"schedule\": {\"type\": \"fixed\", \"cadence\": \"hourly\", \"exclusionRanges\": []}, \"targetSize\": 1, \"targetMatrix\": {\"type\": \"column\", \"exclude\": [\"group:output\"], \"include\": [\"prompt.has_patterns\"], \"segments\": []}, \"disableTargetRollup\": false}, {\"id\": \"proud-powderblue-pelican-2386-analyzer\", \"tags\": [\"featureSelection:selected\", \"discreteness:discrete\", \"creation:custom_json_editor\"], \"config\": {\"type\": \"drift\", \"metric\": \"frequent_items\", \"params\": {}, \"baseline\": {\"size\": 24, \"type\": \"TrailingWindow\"}, \"algorithm\": \"kl_divergence\", \"threshold\": 0.1, \"minBatchSize\": 1}, \"metadata\": {\"author\": \"user_94b2f446_9b19_43f7_ac29_7699f42f3281\", \"version\": 3, \"schemaVersion\": 1, \"updatedTimestamp\": 1709306332501}, \"schedule\": {\"type\": \"fixed\", \"cadence\": \"hourly\", \"exclusionRanges\": []}, \"targetSize\": 1, \"targetMatrix\": {\"type\": \"column\", \"exclude\": [\"group:output\"], \"include\": [\"prompt.has_patterns\"], \"segments\": []}, \"disableTargetRollup\": false}, {\"id\": \"jolly-magenta-dinosaur-7501-analyzer\", \"config\": {\"type\": \"fixed\", \"upper\": 0.5, \"metric\": \"quantile_99\", \"analyzerType\": \"fixed\", \"minBatchSize\": 3}, \"metadata\": {\"author\": \"user_94b2f446_9b19_43f7_ac29_7699f42f3281\", \"version\": 1, \"schemaVersion\": 1, \"updatedTimestamp\": 1709306553391}, \"schedule\": {\"type\": \"fixed\", \"cadence\": \"hourly\", \"exclusionRanges\": []}, \"targetSize\": 1, \"targetMatrix\": {\"type\": \"column\", \"include\": [\"prompt.jailbreak_similarity\"], \"segments\": []}, \"disableTargetRollup\": false}, {\"id\": \"wide-blueviolet-fly-1570-analyzer\", \"config\": {\"type\": \"fixed\", \"upper\": 0.0, \"metric\": \"unique_est\", \"analyzerType\": \"fixed\", \"minBatchSize\": 3}, \"metadata\": {\"author\": \"user_94b2f446_9b19_43f7_ac29_7699f42f3281\", \"version\": 1, \"schemaVersion\": 1, \"updatedTimestamp\": 1709306774568}, \"schedule\": {\"type\": \"fixed\", \"cadence\": \"hourly\", \"exclusionRanges\": []}, \"targetSize\": 1, \"targetMatrix\": {\"type\": \"column\", \"exclude\": [], \"include\": [\"response.has_patterns\"], \"segments\": []}, \"disableTargetRollup\": false}, {\"id\": \"stupid-seashell-gaur-4737-analyzer\", \"config\": {\"type\": \"fixed\", \"upper\": 0.9, \"metric\": \"quantile_99\", \"analyzerType\": \"fixed\", \"minBatchSize\": 3}, \"metadata\": {\"author\": \"user_94b2f446_9b19_43f7_ac29_7699f42f3281\", \"version\": 1, \"schemaVersion\": 1, \"updatedTimestamp\": 1709306827546}, \"schedule\": {\"type\": \"fixed\", \"cadence\": \"hourly\", \"exclusionRanges\": []}, \"targetSize\": 1, \"targetMatrix\": {\"type\": \"column\", \"exclude\": [], \"include\": [\"response.refusal_similarity\"], \"segments\": []}, \"disableTargetRollup\": false}, {\"id\": \"alert-palegreen-frog-8249-analyzer\", \"config\": {\"type\": \"fixed\", \"upper\": 0.5, \"metric\": \"quantile_99\", \"analyzerType\": \"fixed\", \"minBatchSize\": 3}, \"metadata\": {\"author\": \"user_94b2f446_9b19_43f7_ac29_7699f42f3281\", \"version\": 1, \"schemaVersion\": 1, \"updatedTimestamp\": 1709306912290}, \"schedule\": {\"type\": \"fixed\", \"cadence\": \"hourly\", \"exclusionRanges\": []}, \"targetSize\": 1, \"targetMatrix\": {\"type\": \"column\", \"exclude\": [], \"include\": [\"response.toxicity\"], \"segments\": []}, \"disableTargetRollup\": false}, {\"id\": \"relieved-goldenrod-dunlin-61-analyzer\", \"config\": {\"type\": \"fixed\", \"lower\": 0.0, \"metric\": \"median\", \"analyzerType\": \"fixed\", \"minBatchSize\": 3}, \"metadata\": {\"author\": \"user_94b2f446_9b19_43f7_ac29_7699f42f3281\", \"version\": 2, \"schemaVersion\": 1, \"updatedTimestamp\": 1709308721869}, \"schedule\": {\"type\": \"fixed\", \"cadence\": \"hourly\", \"exclusionRanges\": []}, \"targetSize\": 1, \"targetMatrix\": {\"type\": \"column\", \"exclude\": [], \"include\": [\"prompt.sentiment_nltk\"], \"segments\": []}, \"disableTargetRollup\": false}, {\"id\": \"brave-mistyrose-guanaco-4094-analyzer\", \"config\": {\"type\": \"fixed\", \"upper\": 0.3, \"metric\": \"median\", \"analyzerType\": \"fixed\", \"minBatchSize\": 3}, \"metadata\": {\"author\": \"user_94b2f446_9b19_43f7_ac29_7699f42f3281\", \"version\": 4, \"schemaVersion\": 1, \"updatedTimestamp\": 1709308767884}, \"schedule\": {\"type\": \"fixed\", \"cadence\": \"hourly\", \"exclusionRanges\": []}, \"targetSize\": 1, \"targetMatrix\": {\"type\": \"column\", \"exclude\": [], \"include\": [\"prompt.toxicity\"], \"segments\": []}, \"disableTargetRollup\": false}, {\"id\": \"blushing-aqua-okapi-3224-analyzer\", \"config\": {\"type\": \"fixed\", \"lower\": 0.0, \"metric\": \"median\", \"analyzerType\": \"fixed\", \"minBatchSize\": 3}, \"metadata\": {\"author\": \"user_94b2f446_9b19_43f7_ac29_7699f42f3281\", \"version\": 2, \"schemaVersion\": 1, \"updatedTimestamp\": 1709308865691}, \"schedule\": {\"type\": \"fixed\", \"cadence\": \"hourly\", \"exclusionRanges\": []}, \"targetSize\": 1, \"targetMatrix\": {\"type\": \"column\", \"exclude\": [], \"include\": [\"response.sentiment_nltk\"], \"segments\": []}, \"disableTargetRollup\": false}]"
+}
+
+##################################
+# Segmented Adhoc Aysnc Backfill #
+##################################
+
+POST  http://localhost:8090/analysisAsync/triggerAnalysis
+Content-Type: application/json
+
+{
+  "orgId": "org-0",
+  "promoteResults":false,
+  "datasetId": "model-0",
+  "analyzers": "[\r\n      {\r\n        \"config\": {\r\n          \"algorithm\": \"hellinger\",\r\n          \"baseline\": {\r\n            \"size\": 7,\r\n            \"type\": \"TrailingWindow\"\r\n          },\r\n          \"metric\": \"histogram\",\r\n          \"threshold\": 0.7,\r\n          \"type\": \"drift\"\r\n        },\r\n        \"id\": \"numerical-drift-analyzer-l7kos1\",\r\n        \"schedule\": {\r\n          \"type\": \"fixed\",\r\n          \"cadence\": \"daily\"\r\n        },\r\n        \"targetMatrix\": {\r\n          \"include\": [\r\n            \"*\"\r\n          ],\r\n          \"exclude\": [],\r\n          \"segments\": [\r\n            {\r\n              \"tags\": [{\"key\":\"purpose\", \"value\":\"*\"}]\r\n            }\r\n          ],\r\n          \"type\": \"column\"\r\n        },\r\n        \"metadata\": {\r\n          \"schemaVersion\": 1,\r\n          \"author\": \"system\",\r\n          \"updatedTimestamp\": 1671468607209,\r\n          \"version\": 2\r\n        }\r\n      }\r\n    ]"
+}
+
+#######################################
+# Execute Adhoc Aysnc Backfill Inline #
+#######################################
+
+POST  http://localhost:8090/analysisAsync/runAnalysisNow/e088dce2-a0a1-4a21-a25c-1d533068433d
+Content-Type: application/json
+
+{}
+
+#######################################
+# Kill Work Dispatch Poller           #
+#######################################
+
+POST  http://localhost:8090/analysisAsync/enable/false
+Content-Type: application/json
+
+{}
+
+
+#######################################
+# Promote an adhoc run                #
+#######################################
+
+POST  http://localhost:8090/analysisAsync/runAnalysisNow/f8cf5881-5919-4cbc-a7ea-8293851a2b2a
+Content-Type: application/json
+
+{}
+
+#######################################
+# Promote an adhoc run                #
+#######################################
+
+POST  http://localhost:8090/analysisAsync/csw/2506bcda-a4f4-40a2-91dc-f913e77a448b
+Content-Type: application/json
+
+{}
+

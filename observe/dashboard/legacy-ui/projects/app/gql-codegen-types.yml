@@ -1,0 +1,29 @@
+schema: ${GRAPHQL_SCHEMA_PATH}
+overwrite: true
+config:
+  apolloClientVersion: 3
+generates:
+  # generate types for React code
+  src/generated/graphql.tsx:
+    documents: './src/**/*.graphql'
+    plugins:
+      - add:
+          content: '/* eslint-disable */'
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+    config:
+      withHOC: false
+      withHooks: true
+      withComponent: false
+      # TODO: the below setting should ideally be turned on, as query objects returned by Apollo are indeed immutable
+      # however this adds a lot of typing complications at the moment
+      # immutableTypes: true
+      exportFragmentSpreadSubTypes: true
+      preResolveTypes: true
+  src/generated/graphql-possible-types.ts:
+    documents: './src/**/*.graphql'
+    plugins:
+      - fragment-matcher
+    config:
+      useExplicitTyping: true

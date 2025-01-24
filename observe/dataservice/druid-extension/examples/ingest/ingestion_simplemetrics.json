@@ -1,0 +1,135 @@
+{
+  "type": "index_parallel",
+  "spec": {
+    "ioConfig": {
+      "type": "index_parallel",
+      "inputSource": {
+        "type": "local",
+        "filter": "v3-*.bin",
+        "baseDir": "/Volumes/Workspace/tmp/04242021/"
+      },
+      "inputFormat": {
+        "type": "whylogs"
+      }
+    },
+    "tuningConfig": {
+      "type": "index_parallel",
+      "partitionsSpec": {
+        "type": "dynamic"
+      }
+    },
+    "partitionsSpec": {
+      "type": "single_dim",
+      "targetRowsPerSegment": 5000000,
+      "partitionDimension": "orgId"
+    },
+    "dataSchema": {
+      "dataSource": "whylogs-8",
+      "granularitySpec": {
+        "type": "uniform",
+        "queryGranularity": "NONE",
+        "rollup": true,
+        "segmentGranularity": "DAY"
+      },
+      "timestampSpec": {
+        "column": "timestamp",
+        "format": "iso"
+      },
+      "dimensionsSpec": {
+        "dimensions": [
+          "columnName",
+          "orgId",
+          "datasetId",
+          "tags"
+        ]
+      },
+      "metricsSpec": [
+        {
+          "type": "HLLSketchMerge",
+          "name": "uniqueCount",
+          "fieldName": "uniqueCount"
+        },
+        {
+          "type": "kllFloatsSketch",
+          "name": "histogram",
+          "fieldName": "histogram"
+        },
+        {
+          "type": "frequentItemsMerge",
+          "name": "frequentItems",
+          "fieldName": "frequentItems"
+        },
+        {
+          "type": "longSum",
+          "name": "schema.count.BOOLEAN",
+          "fieldName": "schema.count.BOOLEAN"
+        },
+        {
+          "type": "doubleMin",
+          "name": "number.min",
+          "fieldName": "number.min"
+        },
+        {
+          "type": "longSum",
+          "name": "schema.count.NULL",
+          "fieldName": "schema.count.NULL"
+        },
+        {
+          "type": "longSum",
+          "name": "schema.count.FRACTIONAL",
+          "fieldName": "schema.count.FRACTIONAL"
+        },
+        {
+          "type": "doubleSum",
+          "name": "number.variance.m2",
+          "fieldName": "number.variance.m2"
+        },
+        {
+          "type": "doubleMax",
+          "name": "number.max",
+          "fieldName": "number.max"
+        },
+        {
+          "type": "longSum",
+          "name": "counters.nullCount",
+          "fieldName": "counters.nullCount"
+        },
+        {
+          "type": "longSum",
+          "name": "counters.count",
+          "fieldName": "counters.count"
+        },
+        {
+          "type": "longSum",
+          "name": "counters.trueCount",
+          "fieldName": "counters.trueCount"
+        },
+        {
+          "type": "longSum",
+          "name": "schema.count.STRING",
+          "fieldName": "schema.count.STRING"
+        },
+        {
+          "type": "longSum",
+          "name": "schema.count.UNKNOWN",
+          "fieldName": "schema.count.UNKNOWN"
+        },
+        {
+          "type": "longSum",
+          "name": "schema.count.INTEGRAL",
+          "fieldName": "schema.count.INTEGRAL"
+        },
+        {
+          "type": "doubleSum",
+          "name": "number.variance.mean",
+          "fieldName": "number.variance.mean"
+        },
+        {
+          "type": "longSum",
+          "name": "number.count",
+          "fieldName": "number.count"
+        }
+      ]
+    }
+  }
+}

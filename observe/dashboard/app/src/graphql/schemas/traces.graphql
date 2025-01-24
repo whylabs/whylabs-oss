@@ -1,0 +1,30 @@
+
+type LLMTraces {
+    """
+    Returns if the model has traces, checking the last 10 years from now independently of passed range
+    """
+    hasTraces: Boolean!
+    """
+    Returns the total of traces in range
+    """
+    totalCount: Float!
+    """
+    Returns the total of policy violations in range
+    """
+    violationsCount: Float!
+    """
+    Returns the total of blocked interactions in range
+    """
+    blockedInteractionsCount: Float!
+    """
+    Last trace uploaded timestamp
+    """
+    latestTraceTimestamp: Float
+}
+
+extend type Model {
+    """
+    Data used in the LLM Secure summary card
+    """
+    tracesSummary(fromTimestamp: Float!, toTimestamp: Float!): LLMTraces
+}

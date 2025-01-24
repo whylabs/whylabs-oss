@@ -1,0 +1,1001 @@
+dataset,text,source,label,uid
+medical,What is the connection between congenital syphilis and X-rays?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Yoe1TW
+medical,What diagnostic studies are conducted for ketoacidosis in diabetic patients?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",m8LqVE
+medical,What are the laboratory test results associated with chickenpox?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",PRicHA
+medical,What does ichthyosis vulgaris mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",mL1hUA
+medical,What is the connection between the respiratory syncytial virus and the electrocardiogram in humans?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",1-z5MB
+medical,What is the explanation for the connection between the jaw and arthropods?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ZG7sUk
+medical,What is the preferred diagnostic study for determining Hodgkin's lymphoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",TBl98O
+medical,What other diagnostic studies exist for hiatus hernia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",fWeWAX
+medical,What are the conditions that indicate an unstable state that involves angina and non-ST elevation myocardial infarction?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",wPErUN
+medical,What does a chest x-ray show for extramammary Paget's disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",g9Ksok
+medical,What is the significance of echocardiography and ultrasound in the diagnosis of hypertrophic cardiomyopathy?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",w_F22C
+medical,What is the treatment for bacterial meningitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ohSYUN
+medical,What is a rectovaginal fistula?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",iEgoBA
+medical,What is the Batista procedure?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",oldxzg
+medical,What is the relationship between interlanguages?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",0nJKeq
+medical,What is the pathophysiology behind the syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",bd8vGH
+medical,What is the primary way to prevent type 1 diabetes mellitus?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",6ACn-Y
+medical,Which laboratory findings are associated with odynophagia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",OV0lc6
+medical,Can surgery be considered as a treatment option for myocarditis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",PQASXL
+medical,What are the factors that increase the risk of developing onychomycosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Rv4P20
+medical,What role does cardiac catheterization play in diagnosing or managing tuberculous pericarditis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",pOtdcM
+medical,What does the term hydrarthrosis mean in intermittent conditions?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",BxYCQc
+medical,What is an overview of cutaneous follicle center lymphoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",KCiveh
+medical,What is the definition of an aortic aneurysm?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",5o6ECw
+medical,"What is oligoastrocytoma, and what are the factors that contribute to its development?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ZsPzhM
+medical,What are the epidemiological and demographic factors related to congenital heart disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",uIaUej
+medical,What surgical procedure is performed for ventricular tachycardia in a patient who has no pulse?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",-tTy4W
+medical,What is the explanation for the terms associated with the kidney?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",R-6jfa
+medical,"According to Haff, what is the primary method of preventing disease?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Hi-Bcw
+medical,"What are the natural history, potential complications, and likely prognosis of Choledocholithiasis?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",xGwLKc
+medical,What does cystic fibrosis surgery involve?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",IxzQYe
+medical,What is the connection between sleep and CT scans for apnea?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",qJrVrB
+medical,What is the pathophysiological process of ganglioneuroma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",63262E
+medical,"What are the natural history, complications, and prognosis of paroxysmal AV block?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",OU1cTw
+medical,What is the biological and functional changes that occur in the lung causing squamous cell carcinoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",N3A2lI
+medical,What is the medical treatment for Kasabach-Merritt syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",bz6oN8
+medical,What are the potential or experimental treatment options for acute respiratory distress syndrome in the future?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",nIPKkf
+medical,Is percutaneous coronary intervention performed after successful fibrinolysis or for individuals who have not received primary reperfusion?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",UFFt3c
+medical,What information is available regarding Von Willebrand disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",04pib2
+medical,What is the definition of intussusception and what are the factors that contribute to its occurrence?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",FvwUu3
+medical,What does AV nodal ablation mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",eAZr3T
+medical,What are the laboratory findings associated with hemophilia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",okfVGv
+medical,What are the history and symptoms associated with Spherocytosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",UZ9iSq
+medical,What are the laboratory results for a nonpathogenic intestinal amebic infection?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",u_WPwI
+medical,What other diagnostic tests are available for Wolff-Parkinson-White syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",D1yMnB
+medical,"What is Oligodendroglioma, and what are its Epidemiology and Demographics?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",_gwuNP
+medical,What other diagnostic tests are available for tonsillitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",CKEsvN
+medical,What is the historical background of Boerhaave syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",iacAu-
+medical,What are the laboratory results indicating cytomegalovirus infection?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Y64V0_
+medical,What information is currently available on rat-bite fever?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Poimz9
+medical,"""What does alcohol withdrawal mean?""",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",dRsmgm
+medical,What are the available pieces of information regarding ovarian cancer?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",tURAHd
+medical,What is the function of the heart in juvenile rheumatoid arthritis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",0MUP8h
+medical,What information is related to adenoma of the thyroid?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Im9Wto
+medical,What are the historical and symptomatic characteristics of pulmonary embolism?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ys0vQw
+medical,Which type of tumor is characterized as epithelial-stromal on the surface?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Xzb4nh
+medical,What are the imaging results and other infections related to Chlamydia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Q_3NTI
+medical,What is the history and what are the symptoms of Multiple Endocrine Neoplasia Type 1?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",wfdMcN
+medical,What information is accessible regarding lung cancer?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",6T8OVO
+medical,What is the significance of liver mass in secondary prevention?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",weF9Ww
+medical,What type of information is available concerning Diltiazem?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",u6M3_T
+medical,"What are palpitations, and what causes them?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",eNvKBs
+medical,What is the cause and mechanism of non-small cell lung cancer?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",144YxX
+medical,What role does cardiac catheterization play in the diagnosis of congestive heart failure?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",YhGf-P
+medical,What is the function of natriuretic peptide in the brain?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",tlxiKD
+medical,"What does the term ""Bleb-related endophthalmitis"" refer to?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Y0ibIG
+medical,What is the chemotherapy treatment for breast cancer?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",JKAZCz
+medical,What is the Parkes-Weber syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",dVTuLd
+medical,"What does the term ""acute abdomen"" mean?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",45hx5a
+medical,"What is the explanation behind Appendicitis, its natural history, potential complications, and prognosis?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Ak45Kt
+medical,What is the classification of a hiatus hernia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",C6jUU1
+medical,"What is the explanation for the natural history, complications, and prognosis of Filariasis?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",G8eqT1
+medical,What other imaging findings are associated with myelofibrosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",50Lvuq
+medical,What is the natural progression of injury during reperfusion?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",qzaC3i
+medical,What can a chest x-ray indicate in cases of cystic fibrosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",nEdTGi
+medical,"What are the natural history, complications, and prognosis associated with endometrial hyperplasia?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",8977s7
+medical,What other diagnostic tests are available for otitis externa?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",PlWZse
+medical,What are the epidemiological and demographic characteristics of chronic cholecystitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",PtAyL2
+medical,What is detailed information regarding Tenecteplase?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",4MGQwi
+medical,"""What is childhood disintegrative disorder, and what information is associated with it?""",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",V1U37Y
+medical,What is the background and what are the indications of Creutzfeldt-Jakob disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",KxGUvw
+medical,What is the history and what are the symptoms of glycogen-related storage disease type II?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",bP_4AQ
+medical,What classification does Diffuse Large B-Cell Lymphoma fall under?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",VX7Dmy
+medical,What are the reasons for delayed puberty?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",AEEPIn
+medical,What are the laboratory results of pyogenic liver abscess?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",8Nm7eA
+medical,What are the factors that increase the risk of hyperosmolar hyperglycemic state?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",xSq-aA
+medical,"What are the symptoms of Aniridia, as well as its associated conditions, including ptosis, intellectual deficit, and familial obesity?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ug07ZZ
+medical,What is the cause of truncus arteriosus?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",9PXUS3
+medical,What is Urticaria and how does exercise impact it?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",twTKIx
+medical,What is the X-ray manifestation of senile amyloidosis in individuals with wild-type genetics?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",D7gGBR
+medical,What does minimal change disease immunohistology mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",3DB5VK
+medical,What is the reasoning behind apoplexy and neurological impairment?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",wNKpvn
+medical,What is the purpose of using a surgical template in surgery?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",zp3MVp
+medical,What diagnostic study is preferred for evaluating failure to thrive?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ATSGaC
+medical,"What are the natural progression, potential complications, and expected outcomes of cervical cancer?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",a8ZneS
+medical,Could you explain what autoimmune hepatitis is?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",hFKB2d
+medical,Could you explain what angiogenesis is and describe the 5.2 pathway for achieving therapeutic angiogenesis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",6gIxNI
+medical,What is the medical treatment for Cretinism?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",3Zq6My
+medical,What is a germinoma located in the pineal gland?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",pF1jm8
+medical,What is the main way to prevent impetigo?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",YOsePt
+medical,Could you explain what Upper Airway Resistance Syndrome (UARS) is?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Jv8UPC
+medical,What is the connection between Zenker's diverticulum and the electrocardiogram?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",kBvRPl
+medical,What are the symptoms and history of delayed puberty?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",NleZyu
+medical,"What does the term ""Human DNA"" mean?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",-Bqxk_
+medical,What does intolerance mean and how is it related to exercise?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",HSKWoe
+medical,What is the classification of acute pancreatitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",bFhJBA
+medical,What is the other name for mucous and epidermal tissue carcinoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",vCua1m
+medical,What is the relationship between alcoholism and liver disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",UEmaGq
+medical,What is the cause of acute uric acid nephropathy?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",vxwsew
+medical,What is the meaning of methylmalonic acidemia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",uKT5gT
+medical,What factors increase the risk of developing Brugada syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",WKZWox
+medical,What does esophageal stricture surgery entail?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Qr_-LB
+medical,What is the purpose of an X-ray in diagnosing delayed puberty?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",iF-ayV
+medical,What is cardiac catheterization for Atrial Septal Defect?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",moPejx
+medical,Is the pregnancy unwanted?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",LqGT6o
+medical,What information pertains to Glycogen-caused Type II storage disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",lwlLgW
+medical,What are the potential diagnoses for sarcomatoid carcinoma of the lung?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",unGpNS
+medical,"To what is Uhl referring when he mentions the term ""anomaly""?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",UfjZUi
+medical,Can you explain what Danaparoid and External Links are?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",hX5rkm
+medical,What are the possible diagnoses to consider for someone displaying symptoms of carcinoid syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",aHZRjh
+medical,What is the cause of tachycardia in the sinus?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",zCFf5o
+medical,What is the medical treatment for Hemoptysis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",q60sQQ
+medical,What are the epidemiological and demographic characteristics of oral candidiasis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",hU1ivv
+medical,What are the functions of echocardiography and ultrasound in diagnosing and treating Buerger's disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",HopxPs
+medical,What are the factors that lead to adenoiditis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",sajpyQ
+medical,What are the risks or potential problems associated with percutaneous coronary intervention as it relates to the treatment of stable angina?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ck51eC
+medical,What classification does typhus belong to?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",uV5VdK
+medical,What does Aortic stenosis mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",wT8Uyt
+medical,What is the preferred diagnostic test for detecting Thymic carcinoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",2wScHY
+medical,What can effusion echocardiography detect in the pericardial region?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",3RaIjV
+medical,What is the medical treatment for POEMS syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",rJ3KPe
+medical,What does SVT with aberrancy mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",1NKFWZ
+medical,What exactly is Hepatitis A?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",UJFoYC
+medical,Is echocardiography or ultrasound examination necessary for patients with type 1 diabetes mellitus?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",lPAT1o
+medical,What is the correlation between ST-elevation myocardial infarction and coronary angiography?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",vNmnR8
+medical,What are the historical and symptomatic features of pneumomediastinum?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",4hu18o
+medical,What is the explanation for the interactions of Bezafibrate with other drugs?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",igrahL
+medical,What is the medical treatment for Roseola?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",P_5haJ
+medical,Is cryoglobulinemia diagnosable with the help of an X-ray?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",nhSTCf
+medical,What information is currently accessible regarding congenital rubella syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",wz99lH
+medical,What information is available about liver abscesses caused by amoebic infection?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",zHbxDt
+medical,What does the term congenital hemolytic anemia mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",7XJ79e
+medical,What is the historical background of Kennedy's disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",mwLyza
+medical,What are the factors that lead to the development of cellulitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",GJFEyV
+medical,Could you please explain what Biliary cystadenoma and cystadenocarcinoma are?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Mcr5mI
+medical,How are Turner syndrome and X-rays related?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",L88IX0
+medical,What other diagnostic studies can be conducted for Filariasis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Uft_9_
+medical,What is the explanation for the relationship between Ovalbumin and its structure?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",UjePq1
+medical,Could you please explain the meaning of the Bristol Stool Scale?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",3rGbSc
+medical,What information is available regarding Dalteparin Sodium Injection?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Vkvxyy
+medical,What information is available about Menkes disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",t3Kfpc
+medical,Can surgery be considered as a treatment option for gigantism?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",p2ICpe
+medical,What is the natural progression or course of Porphyria?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",0f9Rmy
+medical,What is the responsibility of a nurse anesthetist?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Lqy6hB
+medical,"What is the natural course, potential problems, and forecast of individuals with cyanosis who have a heart abnormality?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",NAQN_S
+medical,What is the explanation for the biological processes underlying dyspepsia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",7wXUjF
+medical,"""What does ventricular flutter mean?"" or ""Can you explain what ventricular flutter is?""",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",OIJ0MB
+medical,What is the role of biochemistry in relation to triglycerides?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",EwAzLr
+medical,Could you please explain the meaning of cerebral contusion?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",bDG-TX
+medical,What does the information on Portal Hypertension entail?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",iY04Ex
+medical,What does secondary prevention mean in relation to VIPoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",6eTIxR
+medical,What are the epidemiology and demographics of lymphangitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",c4GioH
+medical,"Under the category of acute leukemia, what is meant by megakaryoblastic leukemia?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",G97-ah
+medical,What is the correlation between hypertrophic cardiomyopathy and cardiac disease during pregnancy?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",gnWh5-
+medical,What is the historical background of irritable bowel syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",xaYSi5
+medical,What are the changes that occur in athletes' hearts?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",tn2ks-
+medical,Is it possible to use an X-ray to diagnose esophagitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",bItIyc
+medical,"What is sunburn, and what information is currently available on the topic?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",DcQNf8
+medical,Could you please explain what herpangina is and give a brief overview of the condition?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",cu5SiL
+medical,What other names are used to refer to Metalloproteinases?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",CSQG6Z
+medical,What is the explanation for gland formation?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",rQFhRE
+medical,What exactly is Spinocerebellar Ataxia Type-6?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",jChoQI
+medical,How cost-effective is therapy for treating Norovirus infection?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",mOi1p1
+medical,Can you explain what neural tube defects are?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",RCZzO3
+medical,What does primary prevention refer to in regards to breast cancer?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",hEQBW2
+medical,What does aortic stenosis surgery mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",thNNKz
+medical,What information is available on hypoplastic left heart syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Q_J8cM
+medical,What is meant by blood type?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",mb0xQu
+medical,Could you please tell me the definition of pulmonic regurgitation?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",3Z93HK
+medical,What role does behavioral therapy play in treating Asperger's Syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",RxqDDi
+medical,What is the proper medical treatment for epiglottitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",GxWEyi
+medical,What is the pathophysiology behind secondary adrenal insufficiency?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",2smN8F
+medical,What are the historical and symptomatic aspects of Cryptosporidiosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",xyS-kM
+medical,What is echocardiography for hypertrophic cardiomyopathy?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",WQKfa6
+medical,Could you explain the meaning of protein-losing enteropathy?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",GVwXgt
+medical,What information is available regarding chronic cystic mastitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",lBz05B
+medical,What methods can be used to prevent Crohn's disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",tWBfDi
+medical,What is the natural progression of Tetanus?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",NdLQxW
+medical,What is an overview of pseudomyxoma peritonei?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",KAYcNG
+medical,What is the primary way to prevent Meckel's diverticulum?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",i_TVUQ
+medical,What is the survival guide for residents with Pericarditis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",nXDsmt
+medical,What is involved in the physical examination for tricuspid atresia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",M2N6l0
+medical,What is the physiological process that causes medullary thyroid cancer?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",BKzpsF
+medical,"""Which diagnostic imaging technique, echocardiography or ultrasound, is used to identify Carcinoid Syndrome?""",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",hbJ9Va
+medical,What is a vestibular tumor?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",VAP9qI
+medical,What does esophageal dilatation mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",qrz9OD
+medical,Which laboratory tests are utilized for the diagnosis of cholera?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",cjJzMu
+medical,What information is available about tropical sprue?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",dlQzaX
+medical,What does screening for cardiac tumors entail?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",WQOKOw
+medical,What is the medical treatment for Ebola?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",TvN8f5
+medical,"What is oncocytoma, and what information is currently available about this medical condition?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",jBmQHM
+medical,Could you please furnish me with information regarding VIPoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",smPFsI
+medical,What information is available about Sheehan's syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",LdgnBm
+medical,What is the definition of hypopituitarism and what are its classification criteria?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",4hP1EN
+medical,How is surgery related to Behçet's disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",KFC6CQ
+medical,What does left ventriculography mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Hy0cpI
+medical,What is the electrical conduction system of the heart in physiology?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",zl1bSd
+medical,What is the medical treatment for hypertrophic cardiomyopathy?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",MFSlrC
+medical,What information is available regarding Multiple Endocrine Neoplasia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",C-KCoz
+medical,What is the relationship between Giardiasis and external links?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",QKbU5g
+medical,What is deficiency of Lecithin: cholesterol acyltransferase?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",_Ip-gW
+medical,"""What exactly is an antiarrhythmic agent?""",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",BGDkhG
+medical,What is the connection between diabetic patients and ketoacidosis CT?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",IfFukg
+medical,What is the process of screening for Cholangitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",3qzCig
+medical,"What is Roseola, and could you please give me an overview of this condition?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",avB0uD
+medical,What is the reason for screening for cardiac tamponade?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",URtnxQ
+medical,Can ultrasound (USG) be used to diagnose tonsillitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",uLzizC
+medical,What are the potential diagnoses that could explain acute bronchitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",tH3Upp
+medical,What is the strategy to prevent a deficiency in 21-hydroxylase through secondary prevention?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Aayujp
+medical,What is the main way to prevent subarachnoid hemorrhage?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",gH2-1T
+medical,What factors increase the risk of folate deficiency?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",c39xv1
+medical,What other imaging findings are associated with Biliary Atresia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",3l-Vgs
+medical,Could you explain the meaning of toxic shock syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",wCDgL_
+medical,What does a physical examination for tonsillitis entail?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",MavzeX
+medical,What is the history and what are the symptoms of mastoiditis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",iYAPCH
+medical,How are thrombosis and drug-eluting stents related?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",M2vU3M
+medical,What information is available on Zika virus infections?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",2LFUKW
+medical,What is Ileus and what information is currently available on the condition?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",wmkTfI
+medical,"What is the natural course, potential complications, and outlook for individuals with hemothorax?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",F99sDN
+medical,"""What are the possible diagnoses to consider for measles?""",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",scm-02
+medical,"What is menopause, and what are some essential details I should be aware of?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Gbu8Y-
+medical,What is the likelihood of deep vein thrombosis recurring in special scenarios?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",6pKW6I
+medical,Could you explain what catecholaminergic polymorphic ventricular tachycardia is?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",r8EB2n
+medical,What is Carcinoma and what are the different types of lung carcinoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",O44BO0
+medical,"What are the imaging results, apart from nodules, that are associated with the thyroid?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",aGDUFY
+medical,What is the definition of bulimia nervosa and what resources are available to learn more about it?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",saxcb_
+medical,What information is available regarding percutaneous coronary intervention?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",JMEuMn
+medical,What is the explanation for Archive016 and Deleted Userboxes? (This statement is already in proper English.),medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",rUSLdy
+medical,What is Acute Fatty Liver in Pregnancy?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",YtMBzW
+medical,What is the explanation for Beriberi and its classification?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",u-ShSl
+medical,What is the link between Bornholm and illness?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",yrv5Fx
+medical,What are polyps in the colon?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",09qLz0
+medical,"What are the natural history, potential complications, and prognosis associated with polycystic ovary syndrome?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",V5uVie
+medical,What are the possible diagnoses that could differentiate constrictive pericarditis from other conditions?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",xiSdp5
+medical,"What is the meaning of the sign ""Müller""?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",SdvJCn
+medical,What is Adenoma and what information is available regarding it?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",42l5S1
+medical,Which other imaging findings are commonly associated with Hepatic encephalopathy?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",3GWbo_
+medical,"What are the natural history, complications, and prognosis associated with Parathyroid cancer?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",knpM7n
+medical,What is the connection between surgery for AIDS and HIV?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",-rc2rr
+medical,What other imaging findings are present in glycogen storage disease type II?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",fVQNc6
+medical,What is the recommended treatment for breast cancer that has spread to distant parts of the body?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",CrqcUz
+medical,What role does ultrasound play in diagnosing seminoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",CFQZ81
+medical,What is the Paget-Schroetter disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ocxHKK
+medical,What is colitis and what is the overview of it?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",aIv7Cv
+medical,What is the physical examination conducted for diagnosing Ewing's sarcoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",FqDnab
+medical,Could you explain what Hepato-biliary diseases are?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",EEjplG
+medical,What are the symptoms and history of premature atrial contractions?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",14OtdI
+medical,What is the medical treatment for hypoparathyroidism?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",EgYvJp
+medical,What other diagnostic tests can be done for Arnold-Chiari malformation?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",57H-bV
+medical,What is the explanation for Influenza and where can I find additional resources on this subject?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",GPEGcR
+medical,What is the secondary method of prevention for fibroma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",RYQPL9
+medical,What is the connection between Hyperglycerolemia and External Links?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",_Xwgag
+medical,What surgical procedure is typically performed for individuals with multiple endocrine neoplasia type 2?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",JO5Yn4
+medical,What is the importance of MRI for diagnosing Pott's disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",I70Vtc
+medical,What are the symptoms and history of paroxysmal supraventricular tachycardia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",2Fz6bD
+medical,What is the explanation behind the Duodenum and the availability of additional images?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Mmo-1X
+medical,In what way has estrogen played a role in history?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",2o4zKg
+medical,What does an electrocardiogram for Eisenmenger's syndrome show?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",wIvoVo
+medical,What is a Marjolin's ulcer?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",r1UAB1
+medical,"What is the meaning of ""Multilingual: support Indic""?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",c5isac
+medical,Can you explain what ventricular tachycardia echocardiography is?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",2CMhNO
+medical,What are the history and symptoms of Blind Loop Syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",utPuBv
+medical,Could you please tell me the definition of Morton's neuroma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",vcpaWg
+medical,What is the Werdnig-Hoffmann disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",_fcimS
+medical,Which type of MRI is utilized to diagnose a hemorrhagic stroke?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",9xi6nB
+medical,What is the process for staging pancreatic cancer?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",KJEUKP
+medical,What is the underlying cause or mechanism of orbital cellulitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Vte3ny
+medical,What does recreational drug use mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",jaQXpa
+medical,How cost-effective is therapy for Capillary Leak Syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",nRomnb
+medical,What is the explanation for the abnormal functioning of cells that leads to the development of acute myeloid leukemia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",3mn9bL
+medical,What is involved in a physical examination to diagnose spherocytosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",SvJigG
+medical,"What is enteritis, and could you give a synopsis of its nature?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ulcoDW
+medical,What are the symptoms and the patient's medical history of heightened bowel sounds?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",psOTNM
+medical,Can bradycardia be treated with surgery?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",YFPMOR
+medical,"What is the natural history of extranodal NK-T-cell lymphoma, and what are its complications and prognosis?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",3zs2qJ
+medical,What exactly is a breast abscess?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",HHemxk
+medical,What is barotrauma and what are some activities that can cause it in individuals who experience it?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",RjY7u9
+medical,What is meant by rapid sequence induction?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",hbYBBO
+medical,What role does MRI play in the diagnosis of hyperparathyroidism?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",33DVEW
+medical,"""What is the explanation for diseases and what is their social significance?""",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",LtcYk0
+medical,What is the surgical procedure for treating blue rubber bleb nevus syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",DmbqTI
+medical,What does chest pain mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",d6A9V5
+medical,What does the physical examination for Behçet's disease entail?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",mR1yb4
+medical,What are the stages involved in the ovarian cancer staging process?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",GeHdSa
+medical,What is the medical treatment for hyperparathyroidism?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",cNqlkR
+medical,What is the purpose of an MRI in diagnosing Turner Syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",vI5l7c
+medical,Is there any information available regarding hydrocele?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",MBBtww
+medical,"What are Dermatofibroma, Epidemiology, and Demographics, and how are they related?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",aPO-r4
+medical,What is the correlation between back pain and electrocardiogram?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",z7hQx8
+medical,What does the term Linitis Plastica mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",y9JtsZ
+medical,Could you explain what progressive supranuclear palsy is?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",DRm3vK
+medical,What does surgery for respiratory disease involve?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",J624Cm
+medical,What information is obtainable regarding sleep disorders in older adults?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",T-BePX
+medical,What is the definition of nonketotic hyperosmolar coma among individuals with diabetes?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",jSi5lE
+medical,What is the purpose of chemotherapy in treating squamous cell carcinoma of the lung?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",q4q3kz
+medical,What classification does Rhabdomyoma belong to?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",JEu8OV
+medical,What is the overall summary of mucormycosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",dO34G2
+medical,"What is scoliosis, and what does an overview of it involve?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",2O6jFB
+medical,What is the relationship between Filariasis and Screening?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",HbAAOa
+medical,"What are the natural course, potential complications, and expected outcome of endocarditis?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Ys5Rd2
+medical,What other diagnostic tests are performed for myelodysplastic syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",4HTQ0U
+medical,What does a physical examination for colorectal cancer involve?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",evqSxf
+medical,What does the physical examination entail for thrombotic thrombocytopenic purpura?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",NmUSzR
+medical,What is the initial treatment for ST-elevation myocardial infarction?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",3me3dH
+medical,What is the understanding of the underlying functional and structural abnormalities that cause esophageal strictures?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",MlfqP6
+medical,What is the physiological mechanism behind Necrotizing Fasciitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",2zHxrP
+medical,What are sections and how does section linking function?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",8JzD33
+medical,What is the relation between echocardiography of the sinus venosus and atrial septal defect?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",QRE5m7
+medical,What is an overview of the Rotavirus infection?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",nnJYRl
+medical,What does the Angioplasty Revascularization Investigation for Bypass entail?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",DTahD5
+medical,What does the McCune-Albright syndrome entail?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",BHnwbf
+medical,In what way can Churg-Strauss syndrome be distinguished from other illnesses?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",08-doy
+medical,What does the term Tetralogy of Fallot mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",9bWffW
+medical,What information pertains to Sheehan's syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",TR7ES1
+medical,"What is the definition of afterload, and what is an overview of its function?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",CN0FWB
+medical,What information is available about Nocturia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",kD8Hpk
+medical,What are the criteria used to diagnose community-acquired pneumonia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",m8VTOE
+medical,How is MRI useful in diagnosing Ameloblastoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",VYD36F
+medical,Can you give an overview of what percutaneous coronary intervention is?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ukVUbz
+medical,What are cysts and where can they be found?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ognQJG
+medical,What possible diagnoses could be considered alongside esophageal cancer?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",0wpO02
+medical,What does breast cancer classification mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",BF_lw9
+medical,What does tricuspid regurgitation mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",JXKDxq
+medical,What laboratory tests are used for the diagnosis of juvenile myelomonocytic leukemia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",h6KOg2
+medical,To what do heart sounds refer?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",SrXNCe
+medical,"What does the term ""respiratory physiology"" refer to?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",kjmIiq
+medical,What laboratory findings are associated with Adiposogenital dystrophy?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",CH7uf0
+medical,What do the epidemiology and demographics of second-degree AV block indicate?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Hf1TSU
+medical,What is the purpose of a preoperative assessment?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",fkn6IN
+medical,What is the explanation behind the occurrence of Laryngitis and what are its epidemiological and demographic factors?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",4wmEaJ
+medical,"""What is an orofacial herpes simplex infection?""",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",oNLtoc
+medical,What is the Sakati-Nyhan-Tisdale Syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ZD10mp
+medical,What factors increase the risk of experiencing acute diarrhea?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",qKZJz5
+medical,"""Could you explain what a pancreatic fistula is?""",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",bZwl1R
+medical,What is the epidemiology and demographics surrounding Zygomycosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",CV6VUG
+medical,What is the ophthalmic information of Gentamicin?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",qNiyl2
+medical,What role does X-ray play in the diagnosis of dysphagia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ZWCM96
+medical,What is agoraphobia and what kind of information exists regarding this condition?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",6ik586
+medical,What are the laboratory results indicative of a Mycobacterium avium complex infection?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",bwHOxl
+medical,What does the resident survival guide for intestinal ischemia entail?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",JGr2BB
+medical,What are the different possible diagnoses for meningitis in a patient with neoplasia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",sBLmEP
+medical,What is the definition of paroxysmal tachycardia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",jWXroe
+medical,What lifestyle changes are necessary to manage osteoporosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",brPvim
+medical,What is the main way to prevent vaginal cancer?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",UVheav
+medical,What are the secondary prevention measures for Polyarteritis nodosa?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ji_HwH
+medical,What is the term used to refer to acute kidney injury associated with COVID-19?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Medwdb
+medical,What is the surgical treatment for liver disease in an alcoholic individual?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",6ZqRuT
+medical,Which conditions are linked to non ST elevation myocardial infarction (NSTEMI) with angina?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",_RNmDG
+medical,What does hormone therapy entail?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",zAwPhC
+medical,What is the secondary preventive measure for IgA nephropathy?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ST3O4v
+medical,What is the meaning of sinoatrial nodal reentry tachycardia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",2PC03X
+medical,Could you explain what cardiac resynchronization therapy entails?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",T1Zifm
+medical,What is the history and what are the symptoms of truncus arteriosus?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",hm3_Vl
+medical,What does patent ductus arteriosus surgery entail?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",zEEAho
+medical,Could you please explain what Kussmaul's sign refers to?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",SfxNsc
+medical,What is Roseola and what are its risk factors?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",v40P_K
+medical,What is Salmonella enteritidis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",dolQQG
+medical,What is the underlying physiological process of Celiac disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",yPI9xw
+medical,"What does the term ""Monteggia fracture"" refer to?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",cV_DlA
+medical,What is the explanation behind Interferon and the different pharmaceutical versions of interferons that are currently available in the market?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Bweog4
+medical,"""What does the term perioral dermatitis mean?""",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",-vpPQr
+medical,What is the underlying mechanism of cardiomyopathy in individuals who consume alcohol excessively?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",qBvn-1
+medical,What exactly is mast cell leukemia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",QQGJRk
+medical,"""What is the definition or explanation of pulmonary hypertension?""",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",DbMOu2
+medical,"According to ATC, what does the code L02 refer to?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",lPPMXd
+medical,What factors increase the risk of dysphagia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",8Zv0HT
+medical,"What are the natural history, complications, and prognosis associated with thoracic aortic aneurysm?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ZTQod3
+medical,"What is the English term for the ""superior vena cava""?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",bmJgox
+medical,What is the pathophysiology of the disease related to Kennedy?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",SB5O1K
+medical,What does an electrocardiogram showing a second-degree AV block mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",nBLmQ1
+medical,What medical treatment is recommended for small cell carcinoma of the lung?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",NJdv0_
+medical,What is the syndrome called Straight Back Syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",aMAgjT
+medical,What is the pathophysiology behind Medulloblastoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",OwIFp6
+medical,"What does the term ""inferior vena cava"" refer to?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",mZZNJ-
+medical,What are the laboratory results that indicate myocarditis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",hu9YKm
+medical,What is the summary of the treatment options for pericardial effusion?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",zxH7w3
+medical,What is the explanation of the pathophysiology of sepsis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",YySra8
+medical,Could you please tell me what IgG deficiency means?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",x-mEBd
+medical,What steps can be taken to prevent amyloidosis from occurring in the first place?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",3xlYNv
+medical,What is the surgery for cardiac amyloidosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",CUy7RX
+medical,Could you give me details about hydrocele and the relevant information associated with it?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",9QFjk7
+medical,Could you explain what Camurati-Engelmann disease is?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ynla1R
+medical,What is the definition of tonsillitis and what kind of information is obtainable on this topic?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",SiPCjP
+medical,"How are HIV, AIDS, and pregnancy related to each other?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",l-ACY2
+medical,Which diagnostic study is preferred for identifying breast lumps?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",pVepV6
+medical,What does Hepatic Failure refer to?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",l-XJJP
+medical,What is the editing history for Archive016 and Category pages?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",k61abz
+medical,What are the laboratory test results for individuals with androgen insensitivity syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",4uJaLZ
+medical,What does RhoD: Immune Globulin mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",YscOqf
+medical,Could you explain the concept of hemolytic anemia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",tP3xcS
+medical,What is the physical exam for detecting intracerebral metastases?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",eOkss7
+medical,What exactly is Immunoglobulin A?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",XNOKoy
+medical,"In chronic cases, what is the prescribed treatment for stable angina using beta blockers?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Q4EtEc
+medical,"What is the explanation for the relation between Archive016, Barnstar, and your comments on the deletion review?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",1oXXZ2
+medical,What is the syndrome called Shone's?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",kKbcDo
+medical,What does a mass physical examination for the liver entail?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",-k2rat
+medical,What is the therapy that involves brain stimulation for anxiety disorder?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",lQhJtB
+medical,What is the explanation and pathophysiology of Oligodendroglioma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",dkjF43
+medical,What is the main approach to preventing hyperosmolar hyperglycemic state?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",UIBqAV
+medical,What factors increase the risk of developing follicular lymphoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",dc05o6
+medical,What is the purpose of an MRI in detecting Rhabdomyoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",OffXA7
+medical,What is the definition of Werdnig-Hoffman disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",R-M6KR
+medical,What is the case study for Pericarditis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",CkPQ5v
+medical,What are the historical occurrences and indications of deep vein thrombosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",EKdlRA
+medical,What is the available information on Escherichia coli enteritis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",6aHUA_
+medical,What medical treatment is recommended for duodenal atresia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Rt_IUO
+medical,To what is accommodation related?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",QjEySq
+medical,What is Ornithine transcarbamylase deficiency?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",n6PXza
+medical,What is an ileostomy and what circumstances would call for its use?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",5Fvi7u
+medical,What is the purpose of Exercise Stress Testing for Congestive Heart Failure?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",kWWj5K
+medical,"What does the term ""choroid plexus papilloma"" mean?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",9I3LAB
+medical,What exactly is Granuloma faciale?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",IzqSbr
+medical,"What does the term ""arteriovenous fistula"" mean?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",s7jwXz
+medical,What is an overview of Evans Syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",IckEDD
+medical,"Could you define gestational diabetes, please?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ZJ3aPU
+medical,"What does the term ""atrial pacemaker wandering"" mean?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",y05nO3
+medical,What are the historical background and symptoms associated with peptic ulcers?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",t288bd
+medical,Which diagnostic tool is preferred for early detection of central nervous system lymphoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Xx4lIG
+medical,"What is the history of Sporotrichosis, and what are its symptoms?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",UMr9-E
+medical,What does a physical examination for acute viral nasopharyngitis entail?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",fO5UM3
+medical,What does metabolic syndrome mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",BhLUjo
+medical,What is the connection or relationship between Ischemia and mitral regurgitation?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",RbitSg
+medical,What other diagnostic studies are used for Graves' disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",0XEji_
+medical,What is the Klippel-Trenaunay-Weber syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",VV23Ux
+medical,"In cases where there is a solitary diagnosis, what is the purpose of using a pulmonary nodule CT scan?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",RIKlvN
+medical,Could you please furnish me with details regarding Gemfibrozil?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",UOS2ji
+medical,What exactly is intravascular large B-cell lymphoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",iKtNsC
+medical,What is the correct treatment for ulcerative colitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",TNG-Lr
+medical,What classification does Leptospirosis fall under?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",SgIaqR
+medical,What do coronary arteries refer to?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",6yXORp
+medical,What is the complement of component 4? (This sentence is already in proper English),medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",f7xTKV
+medical,What is the underlying physiological mechanism of Galactosemia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",8lXiuM
+medical,What does the term familial Mediterranean fever mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ULuJP2
+medical,What are the historical and symptomatic indications of pericardial effusion?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",IVpSc0
+medical,What are the laboratory results commonly linked to dyspepsia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",dVmKJx
+medical,What is the pathophysiological mechanism behind Angiodysplasia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",-XNwHP
+medical,What information is available regarding bronchogenic cyst?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",1P7JRT
+medical,What are the additional imaging findings observed in paroxysmal supraventricular tachycardia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",SVlW07
+medical,What are the possible diagnoses that can be considered for aortic dissection?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",TNVsOM
+medical,Can you explain what hereditary hemorrhagic telangiectasia is?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",1OGT9M
+medical,What are the laboratory tests used to diagnose cat scratch fever?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",oNcwWV
+medical,What information is available regarding Pentoxifylline?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",9Fcjdv
+medical,Can you explain what hyperoxaluria is and what treatment options are currently available for it?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",m_Z754
+medical,What factors increase the risk of developing Budd-Chiari syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",HZvQan
+medical,What are the laboratory results for a lung mass?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",zV5xBO
+medical,What does Wernicke-Korsakoff syndrome mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",esdan0
+medical,What does the physical examination for malaria entail?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Yf60xZ
+medical,Could you please explain what endometrial ablation means?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",-KWl2G
+medical,What is the significance of a chest x-ray when it comes to identifying cardiac diseases during pregnancy?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",p1Nv6l
+medical,How is Acromegaly related to radiation therapy?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",3ehhzu
+medical,What exactly is Sheehan's syndrome CT?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Kf3n3O
+medical,"What does the term ""laparoscopic surgery"" mean?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",-ofdpL
+medical,What exactly is Hepatic Veno-occlusive disease with Immunodeficiency?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",xSsIAA
+medical,"What is the explanation for the natural history, complications, and prognosis of folliculitis?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Gimw9x
+medical,What type of information is commonly linked with hallucinations?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",YBthnt
+medical,How is Mycosis fungoides related to a CT scan?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",UhJsa9
+medical,What does secondary prevention for bursitis entail?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",8bAt5B
+medical,"What is the natural course, expected outcome, and potential complications of cutaneous follicle center lymphoma?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",QZGAyU
+medical,What information do you have about Cilostazol?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",b_j9ZG
+medical,How are failure to thrive and echocardiography and ultrasound related?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",J1koPY
+medical,What are the epidemiology and demographics of Actinomycosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",1jN23v
+medical,What classification does acute myeloid leukemia belong to?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",TQJ0sM
+medical,What does Angioimmunoblastic T-cell lymphoma CT mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ODNfPQ
+medical,What is the main strategy for preventing myocarditis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",hnU4Vr
+medical,What information is available on Pseudomyxoma peritonei?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",K0prdZ
+medical,What role does MRI play in the diagnosis of Ascites?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",fkGmyQ
+medical,For what purpose is the CT scan utilized in pulmonary hypertension?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",8EMzd5
+medical,Could you explain what sinus tachycardia means?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",RhTK5V
+medical,What is a substance that inhibits Farnesyltransferase?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",2UTlaD
+medical,What is the information regarding Astrocytoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",bl27ia
+medical,What other imaging findings indicate primary central nervous system lymphoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",dPWP3X
+medical,What are the additional imaging findings that are linked with Loeffler's syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",dvu5Ks
+medical,What are the laboratory results that indicate Graves' disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",cR4FMs
+medical,What does the term Vancomycin-resistant Staphylococcus aureus mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",d3nxnf
+medical,What are the potential diagnoses that can be confused with Lyme disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",45sg-v
+medical,What are the epidemiology and demographics related to mucormycosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Vxfo_8
+medical,What are the epidemiological and demographic characteristics of Hepatosplenic T cell lymphoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",PnD9HU
+medical,"What are the natural progression, potential complications, and outcome of iron deficiency anemia?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",gBq21c
+medical,Could you define electrocardiography and explain the importance of the PR interval within it?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",yrxiWM
+medical,Can you explain what a hot flash is?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Fu1DtW
+medical,What is the underlying mechanism of spherocytosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",_ZMfle
+medical,What is the explanation behind Proerythroblast and its corresponding laboratory findings?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",zqGwVS
+medical,What is the significance of Psoas as a diagnostic sign?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",m_FQyQ
+medical,What information is available regarding the topical application of minoxidil?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",tq9oB8
+medical,How is anticipation linked to genetics?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",CbnpVj
+medical,What kind of information is available regarding Hashimoto's thyroiditis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",2pAFa0
+medical,What medical treatments are available for wild-type individuals with senile ATTR amyloidosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",KQnSRU
+medical,For what purpose is CT used in the diagnosis of esthesioneuroblastoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",H17E0O
+medical,What are the restrictions or conditions that make Nicergoline unsuitable for use?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",RNI6xL
+medical,What does ketoacidosis mean for individuals with diabetes?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",DEl-IS
+medical,What are the congenital defects present in phagocytes?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",oup2LQ
+medical,What is the classification of acute myeloid leukemia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",P2Bxis
+medical,What are the possible diagnoses for hypoaldosteronism?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ZVo498
+medical,What is cardiac catheterization for aortic stenosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",7Mr2pO
+medical,How cost-effective is therapy for Hirsutism?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",65hjtA
+medical,For what purpose is CT utilized in the diagnosis or treatment of Medulloblastoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",BFZCCu
+medical,What are the epidemiological and demographic characteristics of transposition of the great vessels?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",SoWiZi
+medical,What laboratory findings are typically associated with oral cancer?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",PA0IFr
+medical,What exactly is testicular cancer?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Kl1LPC
+medical,"What are the natural history, complications, and prognosis of acute brachial neuritis?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Uwpj6p
+medical,What does abrupt closure during coronary intervention mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",9mqAvw
+medical,What other diagnostic tests can be done to detect dilated cardiomyopathy?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",CUUAH4
+medical,What are the primary prevention methods for prostatitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ucp99G
+medical,What is the secondary prevention for milk-alkali syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",RGGIGk
+medical,Can you explain what thrombocytosis is and why it is considered essential?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",q2Mlh_
+medical,What is the medical treatment for bartonellosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",enq7V5
+medical,What is the medical treatment for Mallory-Weiss syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",IsQh4Y
+medical,What are the laboratory results that can be linked to atrial fibrillation?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ADXrei
+medical,What does the superior vena cava syndrome entail?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Smbttf
+medical,What information is available regarding neonatal jaundice?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",V6BJhk
+medical,What are the historical background and symptoms associated with chronic cholecystitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",1tbD5s
+medical,What is the name of the surgery for central nervous system lymphoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",AuR2xu
+medical,"What are the natural history, possible complications, and long-term outlook for individuals with inflammatory bowel disease?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",pUXiPe
+medical,Is it necessary to use either echocardiography or ultrasound to diagnose renal agenesis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",AsOBQN
+medical,What is Osteosarcoma and how can it be distinguished from other diseases?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",PLTn96
+medical,What does CT transposition of the great vessels mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",beZQ8D
+medical,"What are the indications and symptoms of progressive encephalopathy accompanied by edema, hypsarrhythmia, and optic atrophy?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",l81B-z
+medical,To what is storage disease type VI related?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",QlJXuQ
+medical,Can you explain what an arteriovenous fistula is?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",isnq3q
+medical,What does a CT scan reveal for pneumonia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",65yhf7
+medical,Is it possible to detect an osteochondroma by means of an ultrasound?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",yhRVXq
+medical,What are the syndromes and other imaging findings observed in a leopard?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",gnAfXZ
+medical,What are the secondary prevention measures for congenital syphilis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",nEkF1I
+medical,What is the purpose of the Allen test during radial catheterization?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",cU6xrY
+medical,What exactly is distal myopathy 2?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",gw55W0
+medical,"What does the term ""laryngeal papillomatosis"" mean?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Hp_fy3
+medical,What information is available regarding Graves' disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",XNeGyR
+medical,What is microangiopathic hemolytic anemia and what information is currently available about it?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",rgj-5a
+medical,What treatments are currently being researched or considered for heart failure in the future?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",DLXTat
+medical,What are the historical background and symptoms associated with Gynecomastia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",qOphmU
+medical,What are the laboratory test results for the diagnosis of trichomoniasis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",nnV1IT
+medical,What is the underlying pathological mechanism of gliomatosis cerebri?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",c1a9AB
+medical,What laboratory results indicate delayed puberty?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ixtpYQ
+medical,What is the explanation of STEEPLE and Overview? (This sentence is already in proper English.),medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",pbO2Yd
+medical,Is an X-ray diagnosis applicable for chorioamnionitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",c1G_1K
+medical,What does Antiphospholipid Syndrome mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",bR3BdR
+medical,What are the historical backgrounds and symptoms of peripheral arterial disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",z30Iyx
+medical,What is fibroadenoma and what information is currently available regarding it?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",dF1--V
+medical,What is the spoken information regarding Labetalol?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",LtNZsT
+medical,What does the term pectus carinatum mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",xRCJt1
+medical,"""What are the epidemiology and demographics of tuberculous pericarditis?""",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",qPSZHJ
+medical,What is the importance of performing an MRI scan for anomalous pulmonary venous connection?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Oxu7H3
+medical,What information is available on amoebic meningoencephalitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",dOOIyI
+medical,"What does the ""Acute Pancreatitis Resident Survival Guide"" refer to?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",tSFVUS
+medical,"According to Noonan Syndrome, what is involved in a physical examination for Noonan syndrome?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",3UhxYe
+medical,What is the relationship between a bleb and endophthalmitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",7zh-So
+medical,What are the possible alternative diagnoses for Brugada syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",9xHp6u
+medical,What factors lead to hearing impairment?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Qx1RQD
+medical,What is the role of CMR imaging in detecting plaque?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",huJWEi
+medical,What is the primary method of preventing acute viral nasopharyngitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",5-ZUjZ
+medical,Could you explain what the Bispectral index means?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",hCF8vi
+medical,What exactly is Wilms' tumor?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",nXWhKV
+medical,How does hypertrophic cardiomyopathy in pregnancy relate to cardiac disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",r6bJRn
+medical,What does the frontal branch of the superficial temporal artery refer to?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",AExZSI
+medical,What are the potential hazards linked to utilizing anticoagulant treatment for individuals with angina and non-ST elevation myocardial infarction?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",nNeazp
+medical,"To what does the term ""Congenital absence of the pericardium"" refer?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",9xXUzZ
+medical,What is the underlying medical condition that leads to tuberculous pericarditis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",U1n3oz
+medical,Can you explain the concept of secondary prevention for bacterial vaginosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ZZahnM
+medical,What are some other diagnostic tests used for identifying diffuse large B cell lymphoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Ynkoep
+medical,"What is the meaning of ""Multilingual: supporting East Asian""?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",iPkhdv
+medical,Can you explain what hypertrophic cardiomyopathy is?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",aYeTwX
+medical,What does the term ventricular escape mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",5H1ceW
+medical,What do the cervical vertebrae refer to?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",qM2VvJ
+medical,What is the regulatory standing of Diosmin?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",0L5sHu
+medical,What are the other diagnostic tests for hand-foot-and-mouth disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",WovrEU
+medical,What are the laboratory test results for identifying pseudoxanthoma elasticum?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",7jxHFf
+medical,"""What is a brain abscess in a sandbox?""",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",FzJ6up
+medical,What information is available on the subject of congenital herpes?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",QQFsss
+medical,With what is aortic stenosis associated when it comes to the bicuspid valve?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",F9R6Rt
+medical,"What is Glomerulopathy, and what does an overview of it involve?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",14ZWJT
+medical,What information is available on hives?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",-xke36
+medical,What are the reasons for the occurrence of influenza?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",rjpSXj
+medical,What is the surgery for Sheehan's syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",bShgSz
+medical,How are uveal melanoma and CT scans related?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",pPGpW9
+medical,"""What is the definition of lipodystrophy, and how does it differ from the hereditary form?""",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",6v159b
+medical,What is the main approach for preventing Mallory-Weiss syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",EIntDJ
+medical,Is anticoagulant commonly utilized in the treatment of Lupus?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",WRMgVn
+medical,What is an infection caused by nonpathogenic intestinal amoebae?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Uj0ave
+medical,What is the classification of the Myxoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",LHpSBa
+medical,What other imaging findings are associated with gastrointestinal stromal tumor?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",N9o-ET
+medical,What are the possible diagnoses for adrenal atrophy?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",aaYX8O
+medical,"What are the natural history, complications, and prognosis associated with Alport syndrome?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Rj7Afo
+medical,Could you please explain what nephritic syndrome is?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",dnMf2E
+medical,What is the information regarding cardiac tamponade?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",p3IfrL
+medical,What is the meaning of pediculosis pubis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",IXmbHR
+medical,What is the relationship between osteoid and osteoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",V14ECD
+medical,What is blebitis and how can it be distinguished from other illnesses?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",GfhsRM
+medical,What is the cause of mantle cell lymphoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",KNTu0g
+medical,What is the main method of preventing Chagas disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",qlyvZ4
+medical,What is the medical treatment for mumps?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ixD8wZ
+medical,Can you explain what aortic calcification is?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",dle6cZ
+medical,What connection exists between Rhabdomyosarcoma and electrocardiogram?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",xQisUi
+medical,What is the background and what are the signs and symptoms of Phenylketonuria?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",cJZz7L
+medical,What does systolic hypertension mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",fdi7C3
+medical,What information is available regarding Lidocaine Viscous?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",wulrcW
+medical,What role does echocardiography play in assessing pulmonary edema?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",uLC1qj
+medical,What is the correlation between drugs and allergies?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",NQzg15
+medical,What is meant by Congenital Herpes Simplex?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",63pAm8
+medical,What is the explanation of the pathophysiology underlying autoimmune hepatitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Jfvc2W
+medical,What is the connection or correlation between Fournier's gangrene and X-rays?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",x3Nwlh
+medical,What are the laboratory results indicative of a peritonsillar abscess?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Crn_VS
+medical,What is the main method of preventing Babesiosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",aEveiM
+medical,"""What does anomalous pulmonary venous connection mean?""",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",j-fw03
+medical,What is Liposarcoma and what resources are available for it?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",T4bx6C
+medical,What information is available regarding pancreas divisum?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",w_FRiB
+medical,"""What does monoarticular arthritis mean?""",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",FvpEJz
+medical,What is tuberculosis in children? (The original sentence is already in proper English.),medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",pnmfom
+medical,"""What exactly is vulvar cancer?""",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",LEHYme
+medical,"What is the natural progression of bacterial pneumonia, its potential complications, and expected outcome?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",gS5aaT
+medical,"What are the natural causes, expected outcome, and possible complications of retinitis?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",aOTVPt
+medical,"What is the natural progression, complications, and prognosis of neoplastic meningitis?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",vc6yB4
+medical,"Could you define Psittacosis and explain its connection to patient information, please?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",5o_uSN
+medical,What is the available information regarding Lyme disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",jea3Oh
+medical,Could you explain what Glycogen Storage Disease Type IV is?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",je65lq
+medical,What is the process of staging for uveal melanoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",g-1tI2
+medical,What is the oral dosage information for Labetalol?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",8OOTBu
+medical,"What is the natural progression, potential issues, and predicted outcome of an individual diagnosed with lung cancer?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",1Z0ywe
+medical,What is the underlying physiology or mechanism of cryoglobulinemia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",bBHEhJ
+medical,What classification scheme is utilized in the ACC: AHA guidelines?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",OsOUgr
+medical,What are the epidemiology and demographics of tumors in the salivary gland?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",rX2k_x
+medical,What is the connection between Plasmodium and molecular biology?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Nb3Gau
+medical,What is the normal progression or development of breast cancer?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",QTNB1b
+medical,"What does the term ""hyperkalemic periodic paralysis"" mean?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",sieYkW
+medical,What are the laboratory results indicating African trypanosomiasis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",4D9Tgz
+medical,What other diagnostic tests can be done to diagnose Dermatitis Herpetiformis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",b0Djdb
+medical,Can you explain the concept of hematocrit and what does it indicate when the level of hematocrit is high?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",D4Pi1J
+medical,What information is available about deep vein thrombosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",LY4VcC
+medical,What is the function of anticoagulation in the treatment of dilated cardiomyopathy?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",55iSiD
+medical,How do you say encephalitis in Japanese?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",EBaTKC
+medical,Could you explain the meaning of IgG deficiency?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Lk7H2h
+medical,What other diagnostic studies are related to diastolic dysfunction?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",5ABAsa
+medical,What other diagnostic studies can be done for Adrenolipoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",aI5_Fk
+medical,"What is meant by the term ""empty nose syndrome""?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",wq7LoZ
+medical,What is the disease known as Bornholm?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",o51raZ
+medical,What are the secondary prevention methods for hypoaldosteronism?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",5SWuCg
+medical,What are the historical background and indicative symptoms of oncocytoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",0V-V37
+medical,What is the historical perspective on the mass of the lung?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",9f9twO
+medical,What is the name of the surgery used to treat Androgen Insensitivity Syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ebf0k5
+medical,"What does ""coronary artery dual ostia"" mean?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",MNiPAR
+medical,Is surgery suggested for Laryngomalacia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",KNJQu8
+medical,"In relation to dementia, what does praecox mean?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",wXWyeG
+medical,What is the definition of fetal alcohol syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",53Rudt
+medical,What is the explanation for the abnormal physiological processes underlying the lack of electrical activity in individuals without a pulse?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",pGXgak
+medical,What information is available regarding attention-deficit hyperactivity disorder?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",FxJw1c
+medical,What is the prevention method for disseminated intravascular coagulation?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",NYiPhP
+medical,Can you explain what desiccated thyroid extract is?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",9C4nvr
+medical,What are the laboratory results for oral cancer?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",sHjMrC
+medical,What is the pathophysiology and definition of meningoencephalitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",i6ScoM
+medical,"What is the main treatment option for ST-elevation myocardial infarction, using percutaneous coronary intervention?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",BWQwtk
+medical,What is the preventative measure for supraventricular tachycardia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",89CxVP
+medical,What is an interrupted aortic arch?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",dIBPx6
+medical,What exactly is a cyst in the bile duct?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",TAYSjU
+medical,What information is available for the injection of Etanercept?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",-B2cAN
+medical,What is the scientific explanation or mechanism behind the development of hypopharyngeal cancer?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",mTkaI2
+medical,What is the secondary prevention strategy for Pituitary apoplexy?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",vuiaDe
+medical,What is the explanation behind the interaction between Vytorin and alcohol?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",JnJHkU
+medical,What is the explanation behind the discovery of platelets?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",W7W1Nj
+medical,What are the factors responsible for causing cervical cancer?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",m5Gz8d
+medical,What does a physical examination for skin cancer entail?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",F85oDR
+medical,What does the Graham-Steel murmur mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",JWs2ol
+medical,What are the possible diagnoses that may be considered for Hemophilia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",xhGrX1
+medical,"What are the natural history, complications, and prognosis associated with Alpha-1 antitrypsin deficiency?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",V7KSP2
+medical,"What does the term ""secondary prevention"" mean in relation to solitary pulmonary nodules?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",qhNpDb
+medical,"Which diagnostic technique can be used to detect an infection from whipworms, echocardiography or ultrasound?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",7zaWog
+medical,How does echocardiography and ultrasound assist in the diagnosis of hepatopulmonary syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",hBLkbP
+medical,What is the pathophysiology underlying uterine cancer?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",EuDriq
+medical,What does acute chest syndrome mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",rZ5UVc
+medical,What does aortic stenosis valvuloplasty mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",VunMHF
+medical,What is the explanation behind the pathophysiology of Tetralogy of Fallot?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",YKV9jb
+medical,What does acute intermittent porphyria mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Tj5Bwh
+medical,"What is Archive016 and how does the feature ""Self-destructing email"" function?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",owrSYD
+medical,What information can be found on androgen insensitivity syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",7EoJT8
+medical,Can you explain what aortic valve replacement is?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",YLbh0K
+medical,Why is a physical examination important in determining papillary necrosis of the renal system?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",GM5hxa
+medical,What information is there about measles?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",4M-HUz
+medical,What are the laboratory test results for a femoral hernia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",5ROg6d
+medical,What is the process for screening for Rhabdomyoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",E6g6uh
+medical,What is the explanation for the deceleration and the associated pathophysiology?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",xuAqjj
+medical,What is the history and what are the symptoms of disseminated intravascular coagulation?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",rpupvC
+medical,What is the importance of electron microscopy in the diagnosis of minimal change disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",p-NC0i
+medical,"What is fungemia, and what does an overview of it involve?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",olwDVL
+medical,What is the underlying physiological process of cystic fibrosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",C3SI1a
+medical,What is the explanation for coccidioidomycosis and its underlying mechanism of disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",SzlZTz
+medical,What is the historical background of myocarditis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",zNlQWh
+medical,Could you please explain what viral hemorrhagic fever is?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",sUkHGs
+medical,What is the function of x-rays in familial adenomatous polyposis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",29FCJw
+medical,What does ketoacidosis mean for someone with diabetes?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",CXP_BZ
+medical,What is the reason for using eyelids?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",YGLj29
+medical,What is the relationship between CT scans and neonatal jaundice?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",p7xrfg
+medical,Does the administration of digitalis affect the EKG?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",wMgbY-
+medical,Could you explain what an abdominal aortic aneurysm is?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",7bQAVQ
+medical,What other imaging findings are present in a patient with an anomalous pulmonary venous connection?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",e1__eh
+medical,Which medical condition in males results from the lack of 17-beta-hydroxysteroid dehydrogenase and is exhibited as pseudohermaphroditism?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",MKeFKm
+medical,What is the relationship between Adrenergic and myocarditis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",InbfgZ
+medical,What information is available about Torsemide injection?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Hg_lkC
+medical,What information is available about abdominal masses?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",f-gbb9
+medical,What is ultrasonography and how is it utilized in the medical profession?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",nxo5w8
+medical,What is the historical background of goiter?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Oa-QEJ
+medical,Would surgery be recommended for cardiomegaly?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",MaZ8v_
+medical,Can surgery be considered as a treatment option for Hemoptysis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",0Eh5_X
+medical,What are the laboratory findings associated with Boerhaave syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",K3X3FI
+medical,What are the imaging results indicating hospital-acquired pneumonia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",uGeTzZ
+medical,"What is a rhabdoid tumor, and what causes it to become malignant?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",2SvnNA
+medical,"What is the definition of estrogen, and what are the distinct variations of estrogen?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",U8VY-e
+medical,What does ceroid storage disease mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",YW0rmV
+medical,What imaging findings are associated with toxic megacolon?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",_6W6au
+medical,What is the underlying biological mechanism or process that causes Hodgkin's lymphoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",fS_eTK
+medical,What are the reasons behind the occurrence of Roseola?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",oMYuI_
+medical,What is the meaning of swine influenza?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",0XZezJ
+medical,What are the factors that increase the risk of psoriasis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",D9Tii8
+medical,Could you please explain what a humeral shaft fracture is?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",4KnbDh
+medical,What is the importance of CT scanning in diagnosing Fibroma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",_8cy9d
+medical,What does primary prevention for Chikungunya involve?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",1Em4zv
+medical,What does an X-ray reveal in the case of Nephroptosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",xl8Wu6
+medical,What is the definition of angioimmunoblastic T-cell lymphoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",R5uOit
+medical,What role does the CT scan have in the diagnosis of Leiomyosarcoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",A4ovDf
+medical,What is the appropriate medical treatment for premature ovarian failure?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",cEL4vB
+medical,What is the probability of experiencing arrhythmia following a heart transplant surgery?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",mQ71Gk
+medical,What is the Hemolytic disease of the newborn and how is it related to anti-Kell?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",-Bxaxr
+medical,How is radiation therapy utilized to treat juvenile myelomonocytic leukemia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Lti_Qs
+medical,What is potomania and how is it related to beer?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",1BdKYz
+medical,What is pseudohermaphroditism and what are the available treatment options?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",vxhIJ1
+medical,"What is the meaning of ""Malignant: transformation""?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",AsZeHl
+medical,What information pertains to vascular ring?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",LDIYPd
+medical,What is the process of staging intracerebral metastases?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",-D6D3L
+medical,"What is the natural progression of Turner syndrome, and what are the potential complications and prognosis that come with it?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",HHukck
+medical,What information is available regarding anomalous pulmonary venous connection?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",z9lHNC
+medical,What is the medical treatment for rickets?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ANbFS0
+medical,What physical examination methods did Fournier suggest for diagnosing gangrene?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",BASQK6
+medical,What does Carvallo's maneuver entail?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",J9BeS3
+medical,"What are zoonotic diseases, and what are some instances of outbreaks related to fairs and petting zoos?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",y0R0BF
+medical,What exactly is athlete's foot and what type of information is available regarding it?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",o7N1Vd
+medical,What are the epidemiology and demographics related to mitral regurgitation?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",q-5LGs
+medical,What is the Cronkhite-Canada disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",yb1jaF
+medical,What can an MRI reveal about pyloric stenosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ypOTJi
+medical,What is the standard management approach for obstruction of the ventricular outflow tract?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",kEseLQ
+medical,What classification system is used for spontaneous coronary artery dissection?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",8XRe68
+medical,What is the importance of seeing atrophy in an X-ray of the adrenal gland?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",LnF-XN
+medical,What does HIV/AIDS screening mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",GyXGXv
+medical,What are the epidemiology and demographics of salmonellosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Xobop3
+medical,What information is available about Metolazone?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",5C-Ujv
+medical,What other imaging findings are associated with hypocalcemia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",FDVhzN
+medical,What imaging findings are associated with viral meningitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",3ysdty
+medical,What information is available on hemochromatosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",7lOXYI
+medical,What are the criteria used for diagnosing molluscum contagiosum?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",6bHPmH
+medical,What is the connection between the jaw and vertebrates?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",WvPFt4
+medical,What are the epidemiology and demographics associated with otitis externa?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ksWFZ6
+medical,What are the epidemiological and demographic aspects of urethral cancer?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",sqZhYF
+medical,What is the management protocol for hypertrophic cardiomyopathy during childhood?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",m2l8xg
+medical,What information is available regarding vaginal cancer?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",qfi6O1
+medical,What are the secondary prevention measures for Aplastic anemia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",-bOkQs
+medical,What factors increase the risk of sudden death in individuals with hypertrophic cardiomyopathy?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",L5rjXL
+medical,What are the factors that increase the risk of syphilis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",dLyCB2
+medical,What are the historical background and symptoms associated with Noonan syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",x5NONK
+medical,What is Chronic Obstructive Pulmonary Disease (COPD) and what are its defining features?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",5HhN3Q
+medical,"What is the importance of identifying coronary artery dissection during a physical examination, especially if it occurs without apparent cause?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",W5lIC0
+medical,What do the marine toxins refer to?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",7xO7jE
+medical,Could you explain what TAR syndrome is?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Az9wcq
+medical,"What is Behcet's disease, and what information is currently available regarding it?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",_8xioy
+medical,What is shown in the image 7 depicting ventricular septal defect in terms of subvalvular defect and the left ventricle view of tetralogy of Fallot?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",jUpg-j
+medical,What information is accessible regarding supraventricular tachycardia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Hz3c8q
+medical,What information is there about Disopyramide?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",hSaft4
+medical,What is the history and what are the symptoms of pericarditis in individuals with uremia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",5Vvh7s
+medical,What is the medical treatment for avian influenza?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",sSfEtk
+medical,What is a template in MediaWiki?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",hZnjCl
+medical,"What does the term ""dysfunctional uterine bleeding"" mean?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",TwZ8_o
+medical,What is echocardiography or ultrasound for cystic fibrosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",1iQvlw
+medical,What does Cardiopulmonary Bypass mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",yp9F8m
+medical,What other diagnostic tests are available for hepatocellular carcinoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",zTZ14G
+medical,What are the laboratory results that indicate polyarteritis nodosa?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",HcP5E7
+medical,What are the reasons for the formation of breast lumps?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",KrCcWR
+medical,What is the surgery for Eisenmenger's syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",5auE5r
+medical,Should echocardiography or ultrasound be recommended for diagnosing Psittacosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",VaTUzc
+medical,How are echocardiography and ultrasound related to heartburn?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",V21Lu-
+medical,How does MRI aid in the diagnosis of gallstones?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",4akq10
+medical,What information is available regarding magnesium oxide?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",8Zt92b
+medical,What is sedation and what are its associated risks?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",oI2F47
+medical,"What are the natural history, complications, and prognosis of adenoiditis?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",fvHXla
+medical,What information is accessible regarding borderline personality disorder?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",wjri-2
+medical,What is the disease called Werdnig-Hoffman?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",FVQvDY
+medical,What is the preferred diagnostic study for Hemangioma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",y_9GRi
+medical,What is the safety level of radiation?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",kzBOFN
+medical,What are the criteria used to diagnose acute pancreatitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",YltgoF
+medical,What are the guidelines to follow for echocardiography?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",s6eYcC
+medical,What does carotid stenting mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",v9eoC1
+medical,What is the definition of acute lymphoblastic leukemia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",05XiTg
+medical,What is the preferred diagnostic test for detecting Glycogen storage disease type I?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",rKLUvk
+medical,What does idiopathic short stature mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",FqexL9
+medical,What is the URL for Piped?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",xdZk6P
+medical,What are the factors that cause mucormycosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",JbVkUn
+medical,What is the physiological mechanism or process that underlies Kasabach-Merritt syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",aQ21U5
+medical,What is the function of echocardiography in the diagnosis of myocarditis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",N50RcW
+medical,What does the term psychogenic dwarfism mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",AWtSNO
+medical,What is the secondary method of preventing fever in paratyphoid?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",rGbfOF
+medical,What information is obtainable regarding Torticollis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",YLb6H1
+medical,Could you please share any information you have on Benazepril?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",O1LY-U
+medical,What does junctional bradycardia mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",FF6xfH
+medical,What other imaging results can be observed in Blepharitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",IK_IHf
+medical,What is the medical therapy for peripheral arterial disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",rp4-_s
+medical,What is adult bronchiolitis surgery?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Wubp8l
+medical,Are there any therapies currently under investigation or development for Capillary Leak Syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",4zQVUf
+medical,What medical treatment is available for a pulmonary nodule?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",LbYYZz
+medical,What other imaging findings are associated with myeloproliferative neoplasms?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",gbLyKm
+medical,What are the explanations for capillaries and capillary beds?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",WPt7C2
+medical,Which diagnostic study is preferred for identifying basal cell carcinoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",xYDPEK
+medical,What medical therapy is used to treat urinary tract infections in the sandbox?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ch00LM
+medical,Could you explain what Joubert syndrome is?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ZVXOeh
+medical,What are the epidemiological characteristics and demographic factors related to pelvic inflammatory disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",a4NALb
+medical,What is the deficiency known as alpha-1 antitrypsin?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",akdHLg
+medical,What are the historical background and prevalent symptoms of Heparin-Induced Thrombocytopenia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Ibi1qm
+medical,Can you explain what a sebaceous cyst is?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",_1FQZG
+medical,What are the possible diagnoses that could cause vertebrobasilar insufficiency?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",dyE04B
+medical,What information is accessible regarding sleep disorders among the elderly?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",TL44OY
+medical,Could you please explain what Camurati-Engelmann disease is?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",kqSof7
+medical,What are the risk factors and underlying explanations for eczema?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",VaKy4U
+medical,What are the reasons for developing epithelial ovarian tumors?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ju8UL7
+medical,"What does the term ""cardiac tamponade surgery"" mean?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",IDv4j0
+medical,What information is available about brain abscess?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",SFZtxt
+medical,What surgical procedure is used to treat Carcinoid syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ON1S0k
+medical,How is pharyngitis related to a chest x-ray?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",yF0BoZ
+medical,Is Hepatocellular Carcinoma diagnosed with Echocardiography or Ultrasound?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",cyH6uO
+medical,What information about testicular torsion is available?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ltKIa-
+medical,What is the importance of a chest x-ray in the diagnosis of Addison's disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",wJtbwy
+medical,What are the alternative diagnostic tests for Anaplastic Large Cell Lymphoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",bhEyPu
+medical,What is the project called WikiDoc Journal?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",6EwRK9
+medical,What information is currently available on psittacosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",E4Cbi_
+medical,What is the connection between Epididymoorchitis and External Links?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",U4Bax-
+medical,What information is available regarding Mycoplasma pneumonia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",WDHXQ0
+medical,What is the confusion regarding the distinction between epidemiology and demographics?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",yhXaGS
+medical,What does secondary prevention of familial adenomatous polyposis mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",_F4Jui
+medical,What does Paranoid Personality Disorder mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",J7HMty
+medical,What is the definition of atelectasis and what are the factors that increase the risk of developing it?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",cQsd9o
+medical,What is the explanation for how the stomach controls secretion and motility?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",V_p8tk
+medical,What does the term stent thrombosis mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",eEcyqK
+medical,What is the meaning of atrial fibrillation?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",_waxLU
+medical,What is the explanation for Chigger and its pathophysiology?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",6KzSKL
+medical,What are the epidemiological and demographic characteristics of membranoproliferative glomerulonephritis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",mhNi1R
+medical,"In cases of hydrocephalus, what does a CT scan reveal?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",iNapMm
+medical,What is the typical course and progression of acute bronchitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Q8Ndp8
+medical,What is the primary means of preventing pulmonary edema?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Yf60q6
+medical,What is Rhabdomyosarcoma and what causes it?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",lrvS0G
+medical,What does Peripheral Vascular MRA mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",KR58mY
+medical,Could you please explain the meaning of hypoplastic right heart syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",FPVuno
+medical,What is the explanation for the fields of Gynecology and Therapies?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",sKZNvJ
+medical,What is the condition called hyperosmolar hyperglycemic state?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",7_H8st
+medical,What does the term Zika refer to?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",bJzCcj
+medical,What is the disease called Alzheimer's?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",gwJZn8
+medical,What does COVID-19-associated myocarditis mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",vp8zI8
+medical,"What are the natural progression, potential issues, and predicted outcome of jaundice in newborn babies?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",OJZ10z
+medical,What exactly is deficiency in succinic semialdehyde dehydrogenase?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",zAH2Qo
+medical,What does the Mantoux test entail?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",dUePPy
+medical,Could you please define what ophthalmia neonatorum means?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",RR5jSe
+medical,What is the relationship between laryngeal cancer and electrocardiograms?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",p8m384
+medical,What is the epidemiology and demographic information of Listeriosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Tf4OXk
+medical,What classification does hypercalcemia belong to?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",udoG7x
+medical,What information is available regarding Sturge-Weber syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",7wA4K3
+medical,What information is available on Meningococcemia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",qTDjEY
+medical,In what ways are feces and ecology connected?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",5sqS61
+medical,What is epithelioma and how is it identified through diagnosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",TmSKg-
+medical,What role does MRI play in diagnosing chondroma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",x-60AQ
+medical,What are the epidemiological and demographic characteristics of cardiomyopathy?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Z4hD45
+medical,How does a dissection of the aorta appear on a CT scan?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",v9dfx-
+medical,What kind of information pertains to Irbesartan?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",SkZ48d
+medical,What are the historical facts and symptoms associated with complex regional pain syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",TZDJiO
+medical,What are the upcoming or experimental treatments for lower respiratory tract infections?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",adUbqs
+medical,What are the history and symptoms of Zygomycosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",aUIo2k
+medical,What is the importance of an MRI in the diagnosis of lymphoma in the central nervous system?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",qv7mzE
+medical,What is the definition of chronic obstructive pulmonary disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",4JKeH8
+medical,What is the pathophysiological basis of hairy cell leukemia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",1XilNM
+medical,What is meant by bowel obstruction?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",04zuni
+medical,"What are the natural progression, potential complications, and prognosis of babesiosis?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",8YyYQB
+medical,What are the additional imaging results linked to Sideroblastic anemia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",fm8OOD
+medical,"What is the explanation, epidemiology, and demographics of Bronchiolitis?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",pgVuY1
+medical,What is an enema and how is it applied for home use?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",dofIz5
+medical,What is the explanation of the larynx and cartilages?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",SfcNXB
+medical,What are the laboratory test results for mantle cell lymphoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",J3nNbF
+medical,What medical treatment is available for ventricular tachycardia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",vep0ML
+medical,What are some treatments available for treating acne scars?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ltuTHR
+medical,What are the symptoms and past occurrences of cancer related to the gallbladder?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",zr_YeY
+medical,What is the underlying mechanism that causes chronic diarrhea?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",jA5oNi
+medical,What is the importance of using an MRI for diagnosing Adiposogenital dystrophy?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",MRcmA7
+medical,"What are the possible therapies, whether investigational or in development, for Cardiomegaly in the future?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",9yCLbV
+medical,Could you please explain the condition known as Duchenne muscular dystrophy?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",PRWSDU
+medical,What is Thymoma and what is its pathophysiology?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Ye9ryY
+medical,What is the medical treatment for Orthopnea?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Rmo4GF
+medical,Can you explain what systemic lupus erythematosus is?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",NfCJJD
+medical,"What is meant by the term ""syndrome of inappropriate antidiuretic hormone (SIADH)""?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",cc2wHE
+medical,What are the laboratory results that indicate the presence of Atherosclerosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",L1pbu6
+medical,What is the reason for performing a physical examination to detect milk-alkali syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",EF7e4Y
+medical,What is the link to access Piped?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",cnJ-UM
+medical,What is the surgical procedure for lymphoplasmacytic lymphoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",EpbPK4
+medical,What are the laboratory results for Strongyloidiasis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",m0iNK4
+medical,What does Patau syndrome mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",6EdWjO
+medical,What other imaging findings are typically associated with splenic infarction?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",LZEqFg
+medical,What is the history and what are the symptoms of Strongyloidiasis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",F4NZ5F
+medical,What does an electrolyte disturbance mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",rOVR2l
+medical,What are the epidemiological and demographic characteristics of Addison's disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",TWMnWb
+medical,What does the term coronary stent thrombosis mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",sHodOI
+medical,"What is the natural course, potential complications, and predicted outcome of Asplenia?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",L3ohFX
+medical,What does peanut allergy mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",5XSDqz
+medical,What are the possible diagnoses that could explain community-acquired pneumonia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",u9o4wR
+medical,What does cardiac tumor surgery entail?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",NiI5Op
+medical,What is the definition of cutaneous T cell lymphoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",VYR5KO
+medical,What are the primary prevention strategies for anal cancer?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",6ztlvG
+medical,What does gastric suction mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",qGU9A0
+medical,What classification does esophagitis fall under?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",bRz5Jl
+medical,"What is the McCune-Albright syndrome, and where can I obtain information about it?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",GExTiw
+medical,What is the connection between blebs and endophthalmitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",OO8q92
+medical,What is the system of classification for hepatocellular adenoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",p6ud_b
+medical,What does Mallory-Weiss syndrome refer to?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",xBn42e
+medical,What is the explanation behind perfusion and its calculation?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",AoPUqZ
+medical,"What is osteochondritis, and how can it be diagnosed?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",qbGUep
+medical,What is the overall summary of mesangial proliferative glomerulonephritis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Q5zbfc
+medical,What other diagnostic studies are available for Glycogen storage disease type II?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",UWDBvY
+medical,In what ways can a CT scan assist in diagnosing a Hantavirus infection?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",MJHW1c
+medical,What factors contribute to the risk of delayed puberty?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Axsasr
+medical,What is the cause of a mediastinal mass?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",dRoUIC
+medical,What kind of information can we obtain regarding hydrochlorothiazide?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",TuYzdW
+medical,What is an overview of gliomatosis cerebri?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",gxZbyH
+medical,What information is related to Commotio cordis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",UftA9i
+medical,What are the additional diagnostic tests for lung cancer?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",fi6E5q
+medical,What other imaging findings are associated with Amenorrhea?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Fn0_6X
+medical,What is Citrullinemia and what does its overview entail?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Lz6aeH
+medical,What is the meaning of nevus anemicus?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",tH3pC8
+medical,What is Flecainide and what information is currently available about it?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",sXJ-kC
+medical,"What is enuresis, and what are its natural course of development, potential complications, and future outlook?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",RvbTX1
+medical,What is the meaning of ichthyosis vulgaris?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",cF4g1A
+medical,What is jaundice and what kind of information is available about it?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",e-cBCk
+medical,What is the function of the wild-type in surgery for senile ATTR amyloidosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Kv8H4a
+medical,What causes idiopathic thrombocytopenic purpura?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",vnxTH8
+medical,"What is Beriberi, and how is it connected to heart disease?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",gM-PS9
+medical,What role does surgery play in the treatment of Medulloblastoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",lZ--DW
+medical,"What treatment is recommended for lymphadenopathy, particularly surgery?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",j0y9Pp
+medical,Which one is the preferred method for diagnosing strokes - echocardiography or ultrasound?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",SZe9al
+medical,What is the pathophysiology behind constrictive pericarditis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",PrLkzg
+medical,What information is obtainable regarding depression in elderly individuals?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",FFY-iy
+medical,What are the guidelines of the American Heart Association concerning influenza vaccination?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",kc_1Mn
+medical,"What does ""Special characters"" mean?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",eZ_2Fh
+medical,What are the signs and symptoms of dengue?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",ASqkHh
+medical,What is the explanation for the pathophysiology underlying syphilis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",1ewq_m
+medical,Which one of these is used for boiling: Echocardiography or Ultrasound?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",eJfIRW
+medical,What does autoimmune retinopathy mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",mlTn2y
+medical,What is the goal or objective of screening for tumor lysis syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",TFB1jy
+medical,What information is available about acute diarrhea?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",6z22-x
+medical,What is meant by acute myeloid leukemia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",A32R1W
+medical,"What is the explanation for the natural history, complications, and prognosis of chickenpox?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",lKMsqz
+medical,What is microvillous inclusion disease?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",J3VB9T
+medical,What does Libman-Sacks endocarditis mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",qWljA4
+medical,"What are the natural history, complications, and prognosis associated with Mycosis Fungoides?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",HuRYVH
+medical,What are the potential treatments that are still in development or being investigated for diffuse large B cell lymphoma in the future?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",fhO99i
+medical,What are the laboratory results for Pheochromocytoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",PNdBkp
+medical,What is the cause of spinal cord compression?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",lFXoJW
+medical,What are the laboratory findings related to cardiomyopathy that are associated with alcoholism?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",VSthu1
+medical,What is meant by cervical rib?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",3VO73A
+medical,"Which medical imaging method is employed for the detection of pancreatic cancer, echocardiography or ultrasound?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",brr93J
+medical,What are the historical origins and symptoms associated with type 2 diabetes mellitus?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",8H46i3
+medical,What is the natural progression or course of leiomyosarcoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",s9dmb3
+medical,What does a CT scan of a ventricular aneurysm reveal on the left side?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",LlbWA5
+medical,What is the correlation between tobacco use and health?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",9V6fIb
+medical,What does the physical examination for anthrax entail?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",MxPLz7
+medical,What is the cause of fever in dengue?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",fCDfbv
+medical,What is the medical treatment for people with hereditary nonpolyposis colorectal cancer?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",byUQx_
+medical,What is the epidemiology and demographics of small cell lung carcinoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",4D_m8n
+medical,What criteria are used to diagnose systemic lupus erythematosus?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",R7T-17
+medical,Can you explain the pathophysiology of atopic dermatitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",H153xi
+medical,What exactly is viral hemorrhagic fever?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",tCUEA9
+medical,What are the reasons for pain on the right side of the flank?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",XvCcDF
+medical,"What is dyspnea, and how do you distinguish it from other conditions that cause shortness of breath?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",c3Drtv
+medical,What is the definition of Langerhans cell histiocytosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",O1Jnca
+medical,Which laboratory tests are utilized for the diagnosis of congestive heart failure?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Q8iC8B
+medical,What does African trypanosomiasis mean?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",k0Ah68
+medical,What diagnostic approach is used for deep vein thrombosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",RLUk-_
+medical,What are the causes of penile carcinoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",DjjEtf
+medical,What is the history and what are the symptoms associated with Hematemesis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",UpxC8j
+medical,What information is accessible on glaucoma?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",YiUuLQ
+medical,What causes vulvovaginitis from Candida?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",X5bFdM
+medical,What do Non-Polio Enterovirus Infections refer to?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",D6Z7P5
+medical,What are the laboratory test results for cholangitis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",4_HfhT
+medical,What is the history and what are the symptoms associated with renal papillary necrosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",B4xGDF
+medical,Which infections are commonly observed in individuals who have undergone transplant surgery?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",FCXXE8
+medical,What is the surgical treatment for toxic shock syndrome?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",cxM9h-
+medical,"What is iritis, and what are the treatment options available for this condition?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Hv-D6c
+medical,What are the historical background and symptoms associated with tricuspid stenosis?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",t55kF8
+medical,Is it possible to use an MRI for the diagnosis of amenorrhea?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",PMG0qY
+medical,"What are the natural course of the disease, the expected outcome, and possible accompanying issues of cystic fibrosis?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",Kg18hG
+medical,What information is available on drug-induced lupus erythematosus?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",KRTojJ
+medical,"What is the connection between Syphilis and Epidemiology, as well as Demographics?",medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",fHjctj
+medical,What role does the retina play in research?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",LAG6ii
+medical,What is the main approach to prevent peptic ulcers?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",irILQ4
+medical,What procedures are part of the physical examination for polycythemia?,medalpaca/medical_meadow_wikidoc,"[0, 0, 0, 1, 0, 0, 0, 0]",85RUHi

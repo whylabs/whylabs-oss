@@ -1,0 +1,83 @@
+fragment ModelInfoForCodeHelpers on Model {
+  totalSegments
+}
+
+
+query getModelAttributesForHelpersValidation($datasetId: String!) {
+  model(id: $datasetId) {
+    ...ModelInfoForCodeHelpers
+  }
+}
+
+
+fragment MetricMetadata on MetricSchema {
+  queryDefinition {
+    column
+    metric
+  }
+  source
+  tags
+}
+fragment DatasetMetricsInfo on Model {
+  datasetMetrics {
+    name
+    metadata {
+      ...MetricMetadata
+    }
+  }
+}
+query getModelMonitorMetrics($datasetId: String!) {
+  model(id: $datasetId) {
+    ...DatasetMetricsInfo
+  }
+}
+
+fragment MonitorInputFeatures on Feature {
+  weight {
+    value
+  }
+  ...MonitorCommonFeaturesFields
+}
+fragment MonitorCommonFeaturesFields on Feature {
+  id
+  name
+  schema {
+    isDiscrete
+  }
+}
+query getIOFeatures($modelId: String!) {
+  model(id: $modelId) {
+    weightMetadata {
+      hasWeights
+    }
+    features {
+      ...MonitorInputFeatures
+    }
+    outputs {
+      ...MonitorCommonFeaturesFields
+    }
+  }
+}
+
+query segmentsListing(
+  $modelId: String!
+  $tags: [SegmentTagFilter!]
+) {
+  model(id: $modelId) {
+    segments(
+      filter: { tags: $tags }
+    ) {
+      tags {
+        key
+        value
+      }
+    }
+    mergedSegment: segment(tags: $tags) {
+      tags {
+        key
+        value
+      }
+    }
+  }
+}
+

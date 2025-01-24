@@ -1,0 +1,47 @@
+
+POST http://localhost:8092/diagnose/sync
+Accept: application/json
+Content-Type: application/json
+X-API-KEY: {{apiKey}}
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+  "analyzerId": "old-crimson-starling-2516-analyzer",
+  "interval": "2024-02-12/2024-03-12",
+  "segment": { "tags":  [] },
+  "columns": ["issue_d"],
+  "granularity": "daily"
+}
+
+### Analyzer with different monitors
+POST http://localhost:8092/diagnose/sync
+Accept: application/json
+Content-Type: application/json
+X-API-KEY: {{apiKey}}
+
+{
+"orgId": "org-0",
+"datasetId": "model-0",
+"analyzerId": "energetic-black-cobra-7838-analyzer",
+"interval": "2024-02-19T00:00:00.000Z/2024-03-20T00:00:00.000Z",
+  "segment": { "tags":  [] },
+  "columns": ["issue_d"],
+  "granularity": "daily"
+}
+
+### Async diagnosis
+POST http://localhost:8092/diagnose/async
+Accept: application/json
+Content-Type: application/json
+X-API-KEY: {{apiKey}}
+
+{
+  "orgId": "org-0",
+  "datasetId": "model-0",
+  "analyzerId": "old-crimson-starling-2516-analyzer",
+  "interval": "2024-02-12/2024-03-12",
+  "segment": { "tags":  [] },
+  "columns": ["issue_d"],
+  "granularity": "daily"
+}

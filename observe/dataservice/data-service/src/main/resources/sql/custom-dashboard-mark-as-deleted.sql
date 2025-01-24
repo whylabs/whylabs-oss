@@ -1,0 +1,1 @@
+UPDATE whylabs.custom_dashboards SET deleted_timestamp = CURRENT_TIMESTAMP WHERE id = :id and org_id = :orgId and deleted_timestamp is null

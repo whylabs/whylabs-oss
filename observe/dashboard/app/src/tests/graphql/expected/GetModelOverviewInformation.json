@@ -1,0 +1,552 @@
+{
+  "data": {
+    "models": [
+      {
+        "id": "model-16",
+        "name": "Segmented Retail Regression",
+        "batchFrequency": "P1D",
+        "modelType": "REGRESSION",
+        "assetCategory": "MODEL",
+        "entitySchema": {
+          "inputCounts": {
+            "total": 7
+          }
+        },
+        "totalSegments": 16,
+        "latestAnomalyTimestamp": null,
+        "anomalyCounts": {
+          "totals": [],
+          "timeseries": []
+        },
+        "dataAvailability": {
+          "hasData": true,
+          "oldestTimestamp": 1728950400000,
+          "latestTimestamp": 1729706400000
+        }
+      },
+      {
+        "id": "model-15",
+        "name": "Monthly segmented multiclass",
+        "batchFrequency": "P1M",
+        "modelType": "CLASSIFICATION",
+        "assetCategory": "MODEL",
+        "entitySchema": {
+          "inputCounts": {
+            "total": 4
+          }
+        },
+        "totalSegments": 12,
+        "latestAnomalyTimestamp": 1719792000000,
+        "anomalyCounts": {
+          "totals": [],
+          "timeseries": []
+        },
+        "dataAvailability": {
+          "hasData": true,
+          "oldestTimestamp": 1640995200000,
+          "latestTimestamp": 1730152800000
+        }
+      },
+      {
+        "id": "model-14",
+        "name": "Empty project",
+        "batchFrequency": "P1D",
+        "modelType": "CLASSIFICATION",
+        "assetCategory": "MODEL",
+        "entitySchema": {
+          "inputCounts": {
+            "total": 0
+          }
+        },
+        "totalSegments": 0,
+        "latestAnomalyTimestamp": null,
+        "anomalyCounts": {
+          "totals": [],
+          "timeseries": []
+        },
+        "dataAvailability": {
+          "hasData": false,
+          "oldestTimestamp": null,
+          "latestTimestamp": null
+        }
+      },
+      {
+        "id": "model-13",
+        "name": "Classification model",
+        "batchFrequency": "P1D",
+        "modelType": "CLASSIFICATION",
+        "assetCategory": "MODEL",
+        "entitySchema": {
+          "inputCounts": {
+            "total": 1
+          }
+        },
+        "totalSegments": 0,
+        "latestAnomalyTimestamp": 1729468800000,
+        "anomalyCounts": {
+          "totals": [
+            {
+              "category": "Performance",
+              "count": 12
+            }
+          ],
+          "timeseries": [
+            {
+              "timestamp": 1729123200000,
+              "counts": [
+                {
+                  "category": "Performance",
+                  "count": 3
+                }
+              ]
+            },
+            {
+              "timestamp": 1729209600000,
+              "counts": [
+                {
+                  "category": "Performance",
+                  "count": 3
+                }
+              ]
+            },
+            {
+              "timestamp": 1729296000000,
+              "counts": [
+                {
+                  "category": "Performance",
+                  "count": 3
+                }
+              ]
+            },
+            {
+              "timestamp": 1729382400000,
+              "counts": [
+                {
+                  "category": "Performance",
+                  "count": 3
+                }
+              ]
+            }
+          ]
+        },
+        "dataAvailability": {
+          "hasData": true,
+          "oldestTimestamp": 1728950400000,
+          "latestTimestamp": 1729526400000
+        }
+      },
+      {
+        "id": "model-12",
+        "name": "Regression model",
+        "batchFrequency": "P1D",
+        "modelType": "REGRESSION",
+        "assetCategory": "MODEL",
+        "entitySchema": {
+          "inputCounts": {
+            "total": 1
+          }
+        },
+        "totalSegments": 0,
+        "latestAnomalyTimestamp": 1729468800000,
+        "anomalyCounts": {
+          "totals": [
+            {
+              "category": "Performance",
+              "count": 12
+            }
+          ],
+          "timeseries": [
+            {
+              "timestamp": 1729123200000,
+              "counts": [
+                {
+                  "category": "Performance",
+                  "count": 3
+                }
+              ]
+            },
+            {
+              "timestamp": 1729209600000,
+              "counts": [
+                {
+                  "category": "Performance",
+                  "count": 3
+                }
+              ]
+            },
+            {
+              "timestamp": 1729296000000,
+              "counts": [
+                {
+                  "category": "Performance",
+                  "count": 3
+                }
+              ]
+            },
+            {
+              "timestamp": 1729382400000,
+              "counts": [
+                {
+                  "category": "Performance",
+                  "count": 3
+                }
+              ]
+            }
+          ]
+        },
+        "dataAvailability": {
+          "hasData": true,
+          "oldestTimestamp": 1728950400000,
+          "latestTimestamp": 1729526400000
+        }
+      },
+      {
+        "id": "model-5",
+        "name": "lots of outputs",
+        "batchFrequency": "P1D",
+        "modelType": "DATA_TRANSFORM",
+        "assetCategory": "DATA",
+        "entitySchema": {
+          "inputCounts": {
+            "total": 0
+          }
+        },
+        "totalSegments": 0,
+        "latestAnomalyTimestamp": 1729468800000,
+        "anomalyCounts": {
+          "totals": [
+            {
+              "category": "DataDrift",
+              "count": 14
+            }
+          ],
+          "timeseries": [
+            {
+              "timestamp": 1729123200000,
+              "counts": [
+                {
+                  "category": "DataDrift",
+                  "count": 10
+                }
+              ]
+            },
+            {
+              "timestamp": 1729209600000,
+              "counts": [
+                {
+                  "category": "DataDrift",
+                  "count": 4
+                }
+              ]
+            }
+          ]
+        },
+        "dataAvailability": {
+          "hasData": true,
+          "oldestTimestamp": 1650844800000,
+          "latestTimestamp": 1729526400000
+        }
+      },
+      {
+        "id": "model-11",
+        "name": "Different data types",
+        "batchFrequency": "P1D",
+        "modelType": "DATA_TRANSFORM",
+        "assetCategory": "DATA",
+        "entitySchema": {
+          "inputCounts": {
+            "total": 12
+          }
+        },
+        "totalSegments": 0,
+        "latestAnomalyTimestamp": 1736294400000,
+        "anomalyCounts": {
+          "totals": [
+            {
+              "category": "DataDrift",
+              "count": 40
+            },
+            {
+              "category": "DataQuality",
+              "count": 21
+            },
+            {
+              "category": "Ingestion",
+              "count": 2
+            }
+          ],
+          "timeseries": [
+            {
+              "timestamp": 1728950400000,
+              "counts": [
+                {
+                  "category": "DataDrift",
+                  "count": 4
+                }
+              ]
+            },
+            {
+              "timestamp": 1729036800000,
+              "counts": [
+                {
+                  "category": "DataDrift",
+                  "count": 4
+                }
+              ]
+            },
+            {
+              "timestamp": 1729123200000,
+              "counts": [
+                {
+                  "category": "DataDrift",
+                  "count": 12
+                },
+                {
+                  "category": "DataQuality",
+                  "count": 10
+                }
+              ]
+            },
+            {
+              "timestamp": 1729209600000,
+              "counts": [
+                {
+                  "category": "DataDrift",
+                  "count": 12
+                },
+                {
+                  "category": "DataQuality",
+                  "count": 4
+                }
+              ]
+            },
+            {
+              "timestamp": 1729296000000,
+              "counts": [
+                {
+                  "category": "DataDrift",
+                  "count": 4
+                },
+                {
+                  "category": "DataQuality",
+                  "count": 4
+                },
+                {
+                  "category": "Ingestion",
+                  "count": 1
+                }
+              ]
+            },
+            {
+              "timestamp": 1729382400000,
+              "counts": [
+                {
+                  "category": "DataQuality",
+                  "count": 3
+                },
+                {
+                  "category": "Ingestion",
+                  "count": 1
+                },
+                {
+                  "category": "DataDrift",
+                  "count": 4
+                }
+              ]
+            }
+          ]
+        },
+        "dataAvailability": {
+          "hasData": true,
+          "oldestTimestamp": 1728864000000,
+          "latestTimestamp": 1729537200000
+        }
+      },
+      {
+        "id": "model-9",
+        "name": "Segmented multi-class",
+        "batchFrequency": "P1D",
+        "modelType": "CLASSIFICATION",
+        "assetCategory": "MODEL",
+        "entitySchema": {
+          "inputCounts": {
+            "total": 0
+          }
+        },
+        "totalSegments": 12,
+        "latestAnomalyTimestamp": null,
+        "anomalyCounts": {
+          "totals": [
+            {
+              "category": "Performance",
+              "count": 2
+            }
+          ],
+          "timeseries": [
+            {
+              "timestamp": 1729036800000,
+              "counts": [
+                {
+                  "category": "Performance",
+                  "count": 1
+                }
+              ]
+            },
+            {
+              "timestamp": 1729209600000,
+              "counts": [
+                {
+                  "category": "Performance",
+                  "count": 1
+                }
+              ]
+            }
+          ]
+        },
+        "dataAvailability": {
+          "hasData": true,
+          "oldestTimestamp": 1726963200000,
+          "latestTimestamp": 1729486800000
+        }
+      },
+      {
+        "id": "model-10",
+        "name": "Partitioned segmented multiclass",
+        "batchFrequency": "P1D",
+        "modelType": "CLASSIFICATION",
+        "assetCategory": "MODEL",
+        "entitySchema": {
+          "inputCounts": {
+            "total": 0
+          }
+        },
+        "totalSegments": 8,
+        "latestAnomalyTimestamp": null,
+        "anomalyCounts": {
+          "totals": [],
+          "timeseries": []
+        },
+        "dataAvailability": {
+          "hasData": true,
+          "oldestTimestamp": 1726963200000,
+          "latestTimestamp": 1729486800000
+        }
+      },
+      {
+        "id": "model-8",
+        "name": "Segmented regression",
+        "batchFrequency": "P1D",
+        "modelType": "REGRESSION",
+        "assetCategory": "MODEL",
+        "entitySchema": {
+          "inputCounts": {
+            "total": 0
+          }
+        },
+        "totalSegments": 4,
+        "latestAnomalyTimestamp": null,
+        "anomalyCounts": {
+          "totals": [],
+          "timeseries": []
+        },
+        "dataAvailability": {
+          "hasData": true,
+          "oldestTimestamp": 1726963200000,
+          "latestTimestamp": 1729483200000
+        }
+      },
+      {
+        "id": "model-7",
+        "name": "Segmented classification",
+        "batchFrequency": "P1D",
+        "modelType": "CLASSIFICATION",
+        "assetCategory": "MODEL",
+        "entitySchema": {
+          "inputCounts": {
+            "total": 0
+          }
+        },
+        "totalSegments": 4,
+        "latestAnomalyTimestamp": null,
+        "anomalyCounts": {
+          "totals": [],
+          "timeseries": []
+        },
+        "dataAvailability": {
+          "hasData": true,
+          "oldestTimestamp": 1726963200000,
+          "latestTimestamp": 1729483200000
+        }
+      },
+      {
+        "id": "model-6",
+        "name": "wide dataset",
+        "batchFrequency": "P1D",
+        "modelType": "DATA_SOURCE",
+        "assetCategory": "DATA",
+        "entitySchema": {
+          "inputCounts": {
+            "total": 1000
+          }
+        },
+        "totalSegments": 0,
+        "latestAnomalyTimestamp": null,
+        "anomalyCounts": {
+          "totals": [],
+          "timeseries": []
+        },
+        "dataAvailability": {
+          "hasData": true,
+          "oldestTimestamp": 1678665600000,
+          "latestTimestamp": 1729526400000
+        }
+      },
+      {
+        "id": "model-4",
+        "name": "Segmented dataset",
+        "batchFrequency": "P1D",
+        "modelType": "DATA_SOURCE",
+        "assetCategory": "DATA",
+        "entitySchema": {
+          "inputCounts": {
+            "total": 4
+          }
+        },
+        "totalSegments": 4,
+        "latestAnomalyTimestamp": null,
+        "anomalyCounts": {
+          "totals": [],
+          "timeseries": []
+        },
+        "dataAvailability": {
+          "hasData": true,
+          "oldestTimestamp": 1678665600000,
+          "latestTimestamp": 1729526400000
+        }
+      },
+      {
+        "id": "model-3",
+        "name": "Seasonal",
+        "batchFrequency": "P1D",
+        "modelType": "DATA_STREAM",
+        "assetCategory": "DATA",
+        "entitySchema": {
+          "inputCounts": {
+            "total": 1
+          }
+        },
+        "totalSegments": 0,
+        "latestAnomalyTimestamp": 1722297600000,
+        "anomalyCounts": {
+          "totals": [],
+          "timeseries": []
+        },
+        "dataAvailability": {
+          "hasData": true,
+          "oldestTimestamp": 1650844800000,
+          "latestTimestamp": 1729483200000
+        }
+      }
+    ]
+  }
+}

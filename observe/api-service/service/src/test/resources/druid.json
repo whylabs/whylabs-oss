@@ -1,0 +1,35 @@
+{
+  "queryType": "timeseries",
+  "dataSource": "whylogs",
+  "intervals": [
+    "2021-03-01T00:00:00.000/2021-04-03T00:00:00.000"
+  ],
+  "granularity": "second",
+  "filter": {
+    "type": "selector",
+    "dimension": "columnName",
+    "value": "acc_now_delinq"
+  },
+  "aggregations": [
+    {
+      "type": "columnProfileMerge",
+      "name": "columnProfile",
+      "fieldName": "columnProfile"
+    }
+  ],
+  "postAggregations": [
+    {
+      "type": "columnProfileMergeToString",
+      "name": "merged",
+      "field": {
+        "type": "fieldAccess",
+        "name": "columnProfile",
+        "fieldName": "columnProfile"
+      }
+    }
+  ],
+  "context": {
+    "sqlOuterLimit": 100,
+    "grandTotal": false
+  }
+}

@@ -1,0 +1,76 @@
+[tool.poetry]
+name = "data-merger"
+version = "0.1.0"
+description = ""
+authors = ["Anthony Naddeo <anthony@whylabs.ai>"]
+readme = "README.md"
+
+[tool.poetry.scripts]
+pb = "data_merger.data.cli.__init__:cli"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+whylogs = {extras = ["proc", "viz"], version = "^1.6.4"}
+click = "^8.1.8"
+pydantic = "^2.10.4"
+pandas = "^2.2.3"
+joblib = "^1.4.2"
+faster-fifo = "^1.5.2"
+tqdm = "^4.67.1"
+
+numpy = "<2.0"
+boto3 = "^1.36.2"
+plotly = "^5.24.1"
+fsspec = "^2024.12.0"
+nbformat = "^5.10.4"
+scipy = "^1.15.1"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.8.6"
+pyright = "^1.1.391"
+yfinance = "^0.2.51"
+ipykernel = "^6.29.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pyright]
+include = ["data_merger"]
+typeCheckingMode = "strict"
+
+reportMissingTypeStubs = false
+reportMissingParameterType = false
+reportMissingTypeArgumet = false
+reportUnnecessaryTypeIgnoreComment = true
+
+# I prefer these to be on but they trigger on everything in pandas
+reportUnknownVariableType = false
+reportUnknownMemberType = false
+reportUnknownArgumentType = false
+
+# Joblib is a pain to type
+reportUntypedFunctionDecorator = false
+
+
+[tool.ruff]
+line-length = 140
+indent-width = 4
+include = ["./data_merger/**.py"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["data_merger"]
+
+[tool.ruff.lint]
+fixable = ["ALL"]
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+select = ["E", "F", "I", "W"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+

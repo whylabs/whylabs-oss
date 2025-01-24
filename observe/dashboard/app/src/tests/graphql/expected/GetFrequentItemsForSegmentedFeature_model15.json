@@ -1,0 +1,108 @@
+{
+  "data": {
+    "model": {
+      "id": "model-15",
+      "name": "Monthly segmented multiclass",
+      "batchFrequency": "P1M",
+      "segment": {
+        "id": "3331cf1a-8380-4c5c-9c5b-41adb8aceb7c",
+        "feature": {
+          "id": "ba2182b8-ddcf-4f38-a87b-5d22a70f2e89",
+          "sketches": [
+            {
+              "id": "1a89bcbb-7e30-4544-81ab-ac93a790a8ff",
+              "createdAt": 1704067200000,
+              "showAsDiscrete": true,
+              "frequentItems": [
+                {
+                  "value": "old",
+                  "estimate": 250
+                }
+              ]
+            },
+            {
+              "id": "d0e39740-a271-44a8-bc55-7553a977129a",
+              "createdAt": 1706745600000,
+              "showAsDiscrete": true,
+              "frequentItems": [
+                {
+                  "value": "old",
+                  "estimate": 250
+                }
+              ]
+            },
+            {
+              "id": "727b2baf-113e-4bef-aa70-99a998295757",
+              "createdAt": 1709251200000,
+              "showAsDiscrete": true,
+              "frequentItems": [
+                {
+                  "value": "old",
+                  "estimate": 250
+                }
+              ]
+            },
+            {
+              "id": "7d4668ca-8e22-4492-b499-69243d24d50a",
+              "createdAt": 1714521600000,
+              "showAsDiscrete": true,
+              "frequentItems": [
+                {
+                  "value": "old",
+                  "estimate": 500
+                }
+              ]
+            },
+            {
+              "id": "b1b641da-2553-4a06-a23b-f7afa25b1300",
+              "createdAt": 1717200000000,
+              "showAsDiscrete": true,
+              "frequentItems": [
+                {
+                  "value": "old",
+                  "estimate": 250
+                }
+              ]
+            },
+            {
+              "id": "6474c972-0122-488a-bccf-a5f4f8c6fc02",
+              "createdAt": 1719792000000,
+              "showAsDiscrete": true,
+              "frequentItems": [
+                {
+                  "value": "old",
+                  "estimate": 250
+                }
+              ]
+            },
+            {
+              "id": "0c601461-4112-4b7a-902f-24f80f6a4f79",
+              "createdAt": 1722470400000,
+              "showAsDiscrete": true,
+              "frequentItems": [
+                {
+                  "value": "old",
+                  "estimate": 250
+                }
+              ]
+            },
+            {
+              "id": "fb3850a4-7c36-49a9-9979-d86f1664a6b4",
+              "createdAt": 1725148800000,
+              "showAsDiscrete": true,
+              "frequentItems": [
+                {
+                  "value": "old",
+                  "estimate": 250
+                }
+              ]
+            }
+          ],
+          "baselineSketch": {
+            "showAsDiscrete": true
+          }
+        }
+      }
+    }
+  }
+}

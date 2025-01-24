@@ -1,0 +1,154 @@
+
+type FeatureSketch {
+    id: String!
+    featureName: String!
+    createdAt: Float! @deprecated(reason: "Confusing name - use datasetTimestamp instead")
+    datasetTimestamp: Float
+    lastUploadTimestamp: Float
+    totalCount: Float!
+    nullCount: Float!
+    trueCount: Float! @deprecated(reason: "No longer supported in whylogs v1")
+    nullRatio: Float!
+    booleanCount: Float!
+    integerCount: Float!
+    fractionCount: Float!
+    showAsDiscrete: Boolean!
+    uniqueCount: UniqueCountSummary
+    uniqueRatio: Float
+    frequentItems: [FrequentItem!]!
+    schemaSummary: SchemaSummary
+    numberSummary: NumberSummary
+    stringSummary: StringSummary
+}
+
+type StringSummary {
+    uniqueCount: UniqueCountSummary
+    frequentItems: [FrequentItem!]!
+    stringLength: NumberSummary
+    tokenCount: NumberSummary
+}
+
+type NumberSummary {
+    histogram: Histogram
+    count: Float
+    min: Float
+    max: Float
+    mean: Float
+    stddev: Float
+    quantiles: Quantile!
+    isDiscrete: Boolean
+}
+
+type Quantile {
+    bins: [Float!]!
+    counts: [Float!]!
+}
+
+type Histogram {
+    bins: [Float!]!
+    counts: [Float!]!
+}
+
+type SchemaSummary {
+    inference: TypeInference
+    typeCounts: [TypeSummary!]!
+}
+
+# TODO: figure out which of these really are/should be nullable
+type TypeInference {
+    type: FeatureType!
+    ratio: Float!
+    count: Float!
+}
+
+type TypeSummary {
+    type: FeatureType
+    count: Float
+}
+
+type FrequentItem {
+    value: String
+    lower: Float
+    estimate: Float
+    upper: Float
+}
+
+type UniqueCountSummary {
+    estimate: Float
+    upper: Float
+    lower: Float
+}
+
+type ReferenceProfile {
+    """
+    Reference profile's unique ID
+    """
+    id: String!
+    """
+    Dataset ID with which it is associated
+    """
+    datasetId: String!
+    """
+    Segment tags
+    """
+    tags: [SegmentTag!]
+    """
+    Human-readable name for the profile
+    """
+    alias: String!
+    """
+    When the profile was uploaded
+    """
+    uploadTimestamp: Float
+    """
+    Timestamp of the associated data
+    Might be different from actual data timestamp due to these profiles being indexed a little differently in Druid
+    """
+    datasetTimestamp: Float
+    """
+    Feature sketches associated with the reference profile
+    """
+    sketches(offset: Int = 0, limit: Int = 0, filter: FeatureSketchFilter, histogramSplitPoints: [Float!], excludeEmpty: Boolean): FilteredFeatureSketches
+    """
+    Model metrics associated with the profile
+    """
+    metrics: ModelMetrics
+}
+
+type IndividualProfile {
+    """
+    Individual profile's unique WhyLabs ID
+    """
+    retrievalToken: String!
+    """
+    Dataset ID with which it is associated
+    """
+    datasetId: String!
+    """
+    Segment tags
+    """
+    tags: [SegmentTag!]
+    """
+    Feature sketches associated with the individual profile
+    """
+    sketches(offset: Int = 0, limit: Int = 0, filter: FeatureSketchFilter, histogramSplitPoints: [Float!]): FilteredFeatureSketches
+}
+
+type IndividualProfileItem {
+    """
+    Individual profile's trace ID
+    """
+    traceId: String
+    """
+    Individual profile's unique WhyLabs ID
+    """
+    retrievalToken: String!
+    """
+    Dataset ID with which it is associated
+    """
+    datasetId: String!
+    """
+    Timestamp of the associated data
+    """
+    datasetTimestamp: Float
+}

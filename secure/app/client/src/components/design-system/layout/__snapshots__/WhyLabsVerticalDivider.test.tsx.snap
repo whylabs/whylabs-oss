@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WhyLabsVerticalDivider /> should match snapshot with custom height "80%" 1`] = `
+<div>
+  <div
+    class="mantine-Divider-root mantine-Divider-vertical mantine-1dz9zek"
+    data-testid="WhyLabsVerticalDivider"
+    role="separator"
+  />
+</div>
+`;
+
+exports[`<WhyLabsVerticalDivider /> should match snapshot with custom height 40 1`] = `
+<div>
+  <div
+    class="mantine-Divider-root mantine-Divider-vertical mantine-3fzyd5"
+    data-testid="WhyLabsVerticalDivider"
+    role="separator"
+  />
+</div>
+`;

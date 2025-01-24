@@ -1,0 +1,191 @@
+{{ template "chart.header" . }}
+{{ template "chart.deprecationWarning" . }}
+
+{{ template "chart.badgesSection" . }}
+
+{{ template "chart.description" . }}
+
+{{ template "chart.homepageLine" . }}
+
+{{ template "chart.maintainersSection" . }}
+
+{{ template "chart.sourcesSection" . }}
+
+## Installation
+
+### Pull the chart
+
+```shell
+# Downloads a .tgz file to the working directory or --destination path
+helm pull \
+  oci://ghcr.io/whylabs/{{ template "chart.name" . }} \
+  --version {{ template "chart.version" . }}
+
+helm diff upgrade \
+  --allow-unreleased \
+  --namespace <target-namespace> \
+  `# Specify the .tgz file as the chart` \
+  {{ template "chart.name" . }} {{ template "chart.name" . }}-{{ template "chart.version" . }}.tgz
+```
+
+### Install the chart
+
+```shell
+helm upgrade --install \
+  --create-namespace \
+  --namespace <target-namespace> \
+  {{ template "chart.name" . }} {{ template "chart.name" . }}-{{ template "chart.version" . }}.tgz
+```
+
+## Templating Support in Values File
+
+> See the [Values](#values) section for more information on the values that
+support templates.
+
+### Overview
+
+This Helm chart provides advanced support for templating directly
+within the values.yaml file. By leveraging Helm's powerful templating engine,
+users can dynamically generate values based on their deployment context. This
+allows for flexible, context-aware configurations that automatically adapt to
+the specific environment, release, or other settings defined during chart
+installation.
+
+### How Templating Works Templating within the values.yaml file works similarly
+to templating in Helm chart templates. You can use Go templating syntax to
+dynamically generate values based on the built-in Helm objects like .Values,
+.Release, .Chart, and more.
+
+For example, you can use templating to automatically inject the release name,
+set image tags based on a commit SHA, or dynamically generate labels and
+annotations based on the environment.
+
+### Usage Examples Here are a few common use cases where templating in the
+values.yaml file can be particularly powerful:
+
+- **Dynamic Image Tags**: 
+
+  Automatically set the image tag based on the commit SHA, branch name, or other
+  Git metadata.
+
+    ```yaml
+    image:
+      repository: "registry.gitlab.com/whylabs/<CHARTNAME>"
+      tag: "{{ "{{" }} .Values.commitSha {{ "}}" }}"
+    ```
+
+- **Conditional Environment Variables**: 
+
+  Set environment variables based on conditions, such as the deployment
+  environment.
+
+    ```yaml
+    env:
+      MY_ENV_VAR: "my env var value"
+      MY_TEMPLATE_VAR: "{{ "{{" }} if eq .Values.instance \"main\" {{ "}}" }}true{{ "{{" }} else {{ "}}" }}false{{ "{{" }} end {{ "}}" }}"
+    ```
+
+- **Dynamic Labels and Annotations**: 
+
+  Use templating to dynamically generate labels and annotations based on the
+  release or environment.
+
+    ```yaml
+    commonLabels:
+      template.example.com/env: "{{ "{{" }} .Values.environment {{ "}}" }}"
+
+    podAnnotations:
+      template.example.com/sha: "{{ "{{" }} .Values.commitSha {{ "}}" }}"
+    ```
+
+## User-Defined Supplemental Kubernetes Manifests
+
+### Overview
+
+The extraManifests field in the values.yaml file provides a flexible way to
+include additional Kubernetes resource manifests as part of your Helm release.
+This field is designed to accept a list of Kubernetes manifest definitions,
+allowing you to specify any arbitrary Kubernetes resources that should be
+deployed alongside the standard resources defined in the Helm chart.
+
+### How It Works
+
+The extraManifests field is a list where each item represents a complete
+Kubernetes resource definition, written in YAML. These resources are processed
+and deployed as part of the Helm release, just like the chart's built-in
+resources. This functionality is particularly useful when you need to deploy
+custom resources, additional ConfigMaps, Jobs, or other Kubernetes objects that
+aren't covered by the main chart templates.
+
+### Templating Support
+
+Like other parts of the values.yaml file, the extraManifests field fully
+supports Helm's templating engine. This means you can use templating syntax to
+dynamically generate values within your custom resources based on the deployment
+context. For example, you can inject the release name, environment-specific
+settings, or other dynamic values directly into your additional manifests.
+
+### Usage Example
+
+Here’s how you can use the extraManifests field to include additional resources
+with your Helm deployment:
+
+```yaml
+extraManifests:
+  - apiVersion: batch/v1
+    kind: Job
+    metadata:
+      name: "{{ "{{" }}.Release.Name {{ "}}" }}-job"
+      annotations:
+        "helm.sh/hook": pre-install
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: "{{ "{{" }} .Release.Service {{ "}}" }}"
+            app.kubernetes.io/instance: "{{ "{{" }} .Release.Name {{ "}}" }}"
+            helm.sh/chart: "{{ "{{" }} .Chart.Name {{ "}}" }}-{{ "{{" }} .Chart.Version {{ "}}" }}"
+        spec:
+          restartPolicy: Never
+          containers:
+          - name: example-job
+            image: "alpine:3.3"
+            command:
+              - "/bin/sleep"
+              - "10"
+  - apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: "{{ "{{" }} .Release.Name {{ "}}" }}-config"
+    data:
+      my-config-key: "my-config-value"
+```
+
+In this example:
+
+- The first item adds a Kubernetes Job to the deployment, which will run as a
+pre-install hook, executing before the main resources are deployed.
+
+- The second item adds a ConfigMap to the deployment, allowing you to define
+configuration data that can be used by other resources in the cluster.
+
+### Why Use extraManifests?
+
+- Flexibility: Deploy any Kubernetes resource alongside your Helm release,
+whether it's a custom resource (CR), additional service, or any other Kubernetes
+object.
+
+- Centralized Management: Manage all related Kubernetes resources in a single
+Helm chart, reducing the need to deploy additional manifests separately.
+
+- Templating: Use the power of Helm's templating engine to create dynamic,
+context-aware resources that automatically adapt to your environment or release
+settings.
+
+{{ template "chart.requirementsSection" . }}
+
+{{ template "chart.valuesSection" . }}
+
+----------------------------------------------
+
+Autogenerated from chart metadata using [helm-docs](https://github.com/norwoodj/helm-docs/).

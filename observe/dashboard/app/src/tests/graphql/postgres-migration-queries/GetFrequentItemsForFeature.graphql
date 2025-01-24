@@ -1,0 +1,30 @@
+query getFrequentItemsForFeature($model: String!, $feature: String!, $from: Float!, $to: Float) {
+  model(id: $model) {
+    ...ModelCommonData
+    feature(name: $feature) {
+      id
+      sketches(from: $from, to: $to) {
+        ...FrequentItemsFields
+      }
+      baselineSketch {
+        showAsDiscrete
+      }
+    }
+  }
+}
+
+fragment ModelCommonData on Model {
+  id
+  name
+  batchFrequency
+}
+
+fragment FrequentItemsFields on FeatureSketch {
+  id
+  createdAt
+  showAsDiscrete
+  frequentItems {
+    value
+    estimate
+  }
+}

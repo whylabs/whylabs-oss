@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <Appenders>
+    <Console name="LogToConsole" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <Logger additivity="false" level="INFO" name="io.micronaut">
+      <AppenderRef ref="LogToConsole"/>
+    </Logger>
+    <Logger name="org.hibernate.SQL" level="${env:LOG_LEVEL:-DEBUG}">
+      <AppenderRef ref="LogToConsole"/>
+    </Logger>
+    <Logger additivity="false" level="DEBUG" name="ai.whylabs">
+      <AppenderRef ref="LogToConsole"/>
+    </Logger>
+    <Root level="warn" additivity="false">
+      <AppenderRef ref="LogToConsole"/>
+    </Root>
+  </Loggers>
+</Configuration>

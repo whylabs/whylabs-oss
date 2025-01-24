@@ -1,0 +1,25 @@
+query getMetricDataRollup($from: Float!, $to: Float!, $queries: [MetricQuery!]!) {
+  dataQueries {
+    getMetricData(fromTimestamp: $from, toTimestamp: $to, queries: $queries, granularity: ALL) {
+      ...MetricResult
+    }
+  }
+}
+
+fragment MetricResult on MetricResult {
+  datasetId
+  metric
+  feature
+  segment {
+    key
+    value
+  }
+  points {
+    ...MetricResultPoint
+  }
+}
+
+fragment MetricResultPoint on FloatDataPoint {
+  timestamp
+  value
+}

@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ChartExtraLegend /> should display a skeleton when loading 1`] = `
+<div>
+  <button
+    class="mantine-9co5mr"
+    type="button"
+  >
+    <div
+      class="mantine-15y6u2u"
+      data-testid="ChartExtraLegend"
+    >
+      <span
+        class="mantine-1mhbkld"
+      >
+        A label
+      </span>
+      <span
+        class="mantine-1h3tyvh"
+      >
+        <div
+          class="mantine-Skeleton-root mantine-Skeleton-visible mantine-ugjnf9"
+        />
+      </span>
+    </div>
+  </button>
+</div>
+`;
+
+exports[`<ChartExtraLegend /> should match snapshot using color "#005566" 1`] = `
+<div>
+  <button
+    class="mantine-9co5mr"
+    type="button"
+  >
+    <div
+      class="mantine-15y6u2u"
+      data-testid="ChartExtraLegend"
+    >
+      <span
+        class="mantine-1mhbkld"
+      >
+        A label
+      </span>
+      <span
+        class="mantine-lajymb"
+      >
+        123
+      </span>
+    </div>
+  </button>
+</div>
+`;
+
+exports[`<ChartExtraLegend /> should match snapshot using color "#2683C9" 1`] = `
+<div>
+  <button
+    class="mantine-9co5mr"
+    type="button"
+  >
+    <div
+      class="mantine-15y6u2u"
+      data-testid="ChartExtraLegend"
+    >
+      <span
+        class="mantine-1mhbkld"
+      >
+        A label
+      </span>
+      <span
+        class="mantine-1tvv1xc"
+      >
+        123
+      </span>
+    </div>
+  </button>
+</div>
+`;

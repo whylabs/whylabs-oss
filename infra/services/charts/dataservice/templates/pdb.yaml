@@ -1,0 +1,13 @@
+{{- if .Values.pdb.enabled -}}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "dataservice.fullname" . }}
+  labels:
+    {{- include "dataservice.labels" . | nindent 4 }}
+spec:
+  maxUnavailable: {{ .Values.pdb.maxUnavailable | default "1" }}
+  selector:
+    matchLabels:
+      {{- include "dataservice.selectorLabels" . | nindent 6 }}
+{{- end }}

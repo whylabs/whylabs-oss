@@ -1,0 +1,167 @@
+{
+  "inlineResults": true,
+  "segmentTags": [],
+  "columnNames": [
+    "age"
+  ],
+  "start": "2022-11-12T00:00:00.000Z",
+  "end": "2022-12-20T23:59:59.999Z",
+  "monitorConfig": {
+    "orgId": "org-4kTShx",
+    "datasetId": "model-1",
+    "granularity": "daily",
+    "metadata": {
+      "schemaVersion": 1,
+      "author": "system",
+      "updatedTimestamp": 1681770522008,
+      "version": 41
+    },
+    "analyzers": [
+
+      {
+        "id": "histogram-drift-analyzer",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "*"
+          ],
+          "segments": [],
+          "profileId": "ref-UqsYt1jBrE6yBV9e"
+        },
+        "config": {
+          "metric": "histogram",
+          "baseline": {
+            "type": "Reference",
+            "profileId": "ref-0ueR6Swiet4E5mdP"
+          },
+          "type": "drift",
+          "algorithm": "hellinger",
+          "threshold": 0.7
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1673194993427,
+          "version": 1
+        }
+      },
+      {
+        "id": "mean-fixed-threshold-analyzer",
+        "schedule": {
+          "type": "fixed",
+          "cadence": "daily"
+        },
+        "targetMatrix": {
+          "type": "column",
+          "include": [
+            "*"
+          ],
+          "exclude": [],
+          "segments": [],
+          "profileId": "ref-UqsYt1jBrE6yBV9e"
+        },
+        "config": {
+          "metric": "mean",
+          "type": "fixed",
+          "upper": 1,
+          "lower": 0,
+          "baseline": {
+            "type": "Reference",
+            "profileId": "ref-0ueR6Swiet4E5mdP"
+          }
+        },
+        "metadata": {
+          "schemaVersion": 1,
+          "author": "system",
+          "updatedTimestamp": 1670007284161,
+          "version": 11
+        }
+      }
+    ],
+    "monitors": [
+
+    ],
+    "entitySchema": {
+      "metadata": {
+        "author": "system",
+        "version": 1,
+        "updatedTimestamp": 1671466888503
+      },
+      "columns": {
+        "alldiffstr": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "date": {
+          "discreteness": "discrete",
+          "dataType": "unknown",
+          "classifier": "input"
+        },
+        "alldifffloat": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "strthenint": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "alldiffint": {
+          "discreteness": "continuous",
+          "dataType": "integral",
+          "classifier": "input"
+        },
+        "string": {
+          "discreteness": "discrete",
+          "dataType": "string",
+          "classifier": "input"
+        },
+        "alldiffdate": {
+          "discreteness": "discrete",
+          "dataType": "unknown",
+          "classifier": "input"
+        },
+        "int-doublingnull": {
+          "discreteness": "discrete",
+          "dataType": "integral",
+          "classifier": "input"
+        },
+        "nan": {
+          "discreteness": "discrete",
+          "dataType": "null",
+          "classifier": "input"
+        },
+        "float": {
+          "discreteness": "continuous",
+          "dataType": "fractional",
+          "classifier": "input"
+        },
+        "int-doublingunique": {
+          "discreteness": "discrete",
+          "dataType": "integral",
+          "classifier": "input"
+        },
+        "int": {
+          "discreteness": "discrete",
+          "dataType": "integral",
+          "classifier": "input"
+        }
+      },
+      "metrics": null
+    },
+    "weightConfig": {
+      "metadata": {
+        "author": "system",
+        "version": 0,
+        "updatedTimestamp": 1683839163843
+      },
+      "segmentWeights": []
+    }
+  }
+}
